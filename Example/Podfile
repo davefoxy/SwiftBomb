@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'SwiftBomb_Example', :exclusive => true do
+  pod 'SwiftBomb', :path => '../'
+end
+
+target 'SwiftBomb_Tests', :exclusive => true do
+  pod 'SwiftBomb', :path => '../'
+
+  
+end

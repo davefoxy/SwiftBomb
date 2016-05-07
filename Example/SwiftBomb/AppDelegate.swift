@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        let configuration = GBAPIConfiguration(apiKey: "ZZZ", userAgentIdentifier: "GBTV")
+        let configuration = GBAPIConfiguration(apiKey: "ZZZ", loggingLevel: .Requests, userAgentIdentifier: "GBTV")
         GBAPI.configure(configuration)
         
         return true

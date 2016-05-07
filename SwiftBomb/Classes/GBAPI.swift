@@ -10,14 +10,22 @@ import Foundation
 
 public struct GBAPIConfiguration {
     
-    var apiKey: String
-    var userAgentIdentifier: String?
+    public enum GBAPILoggingLevel {
+        case None
+        case Requests
+        case RequestsAndResponses
+    }
+    
+    let apiKey: String
+    let userAgentIdentifier: String?
     let baseURL = NSURL(string: "http://www.giantbomb.com")!
     let baseAPIURL = NSURL(string: "http://www.giantbomb.com/api/")!
+    let loggingLevel: GBAPILoggingLevel
     
-    public init(apiKey: String, userAgentIdentifier: String? = nil) {
+    public init(apiKey: String, loggingLevel: GBAPILoggingLevel = .RequestsAndResponses, userAgentIdentifier: String? = nil) {
         
         self.apiKey = apiKey
+        self.loggingLevel = loggingLevel
         self.userAgentIdentifier = userAgentIdentifier
     }
 }

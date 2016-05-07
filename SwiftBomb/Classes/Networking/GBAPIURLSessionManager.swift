@@ -102,8 +102,13 @@ class GBAPIURLSessionManager: GBAPINetworkingManager {
     
     func performRequest(request: GBAPIRequest, completion: GBAPIRequestResult<AnyObject> -> Void) {
         
-        print("Making request: \(request.urlRequest())")
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request.urlRequest()) { responseData, urlResponse, error in
+        let urlRequest = request.urlRequest()
+        
+        if (configuration.loggingLevel == .Requests || configuration.loggingLevel == .RequestsAndResponses) {
+            print("Making request: \(urlRequest)")
+        }
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(urlRequest) { responseData, urlResponse, error in
             
             if let error = error {
                 
@@ -113,8 +118,11 @@ class GBAPIURLSessionManager: GBAPINetworkingManager {
             
             if request.responseFormat == .JSON {
                 
+                if (self.configuration.loggingLevel == .RequestsAndResponses) {
+                    print("Response: \(urlResponse)")
+                }
+                
                 do {
-                    print("ERROR: \(error)")
                     guard let responseData = responseData else {
                         completion(.Error(.ResponseSerializationError(nil)))
                         return

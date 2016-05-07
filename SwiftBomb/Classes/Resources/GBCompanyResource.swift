@@ -41,7 +41,7 @@ final public class GBCompanyResource: GBResourceUpdating {
     public let id: Int?
     
     /// Main image of the company
-    public private(set) var image: GBImage?
+    public private(set) var image: GBImageURLs?
     
     /// Street address of the company
     public private(set) var location_address: String?
@@ -102,7 +102,7 @@ final public class GBCompanyResource: GBResourceUpdating {
         website = (json["website"] as? String)?.url()
         
         if let imageJSON = json["image"] as? [String: AnyObject] {
-            image = GBImage(json: imageJSON)
+            image = GBImageURLs(json: imageJSON)
         } else {
             image = nil
         }

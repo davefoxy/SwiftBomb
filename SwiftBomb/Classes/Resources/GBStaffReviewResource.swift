@@ -47,7 +47,7 @@ final public class GBStaffReviewResource: GBResource {
     public let id: Int? = 0
     
     /// Take the image from the game
-    public var image: GBImage? {
+    public var image: GBImageURLs? {
         get {
             return game?.image
         }

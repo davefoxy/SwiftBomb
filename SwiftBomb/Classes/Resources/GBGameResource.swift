@@ -38,7 +38,7 @@ final public class GBGameResource: GBResourceUpdating {
     public let id: Int?
     
     /// Main image of the game
-    public private(set) var image: GBImage?
+    public private(set) var image: GBImageURLs?
     
     /// Name of the game
     public private(set) var name: String?
@@ -91,7 +91,7 @@ final public class GBGameResource: GBResourceUpdating {
         }
         
         if let imageJSON = json["image"] as? [String: AnyObject] {
-            image = GBImage(json: imageJSON)
+            image = GBImageURLs(json: imageJSON)
         } else {
             image = nil
         }
@@ -159,7 +159,7 @@ public struct GBGameExtendedInfo: GBResourceExtendedInfo {
     public let genres: [GBGenreResource]?
     
     /// List of images associated to the game
-    public let images: [GBImage]?
+    public let images: [GBImageURLs]?
     
     /// Characters killed in the game
     public let killed_characters: [GBCharacterResource]
@@ -192,7 +192,7 @@ public struct GBGameExtendedInfo: GBResourceExtendedInfo {
     public let themes: [(id: Int, name: String)]?
     
     /// Videos associated to the game (Extended info)
-    public let videos: [GBVideo]?
+    public let videos: [GBVideoURLs]?
     
     public init(json: [String : AnyObject]) {
         
@@ -207,11 +207,11 @@ public struct GBGameExtendedInfo: GBResourceExtendedInfo {
         franchises = json.jsonMappedResources("franchises")
         genres = json.jsonMappedResources("genres")
         
-        images = [GBImage]()
+        images = [GBImageURLs]()
         if let imagesJSON = json["images"] as? [[String: AnyObject]] {
             
             for imageJSON in imagesJSON {
-                let image = GBImage(json: imageJSON)
+                let image = GBImageURLs(json: imageJSON)
                 images?.append(image)
             }
         }
@@ -228,11 +228,11 @@ public struct GBGameExtendedInfo: GBResourceExtendedInfo {
         similar_games = json.jsonMappedResources("similar_games")
         themes = (json["themes"] as? [[String: AnyObject]])?.idNameTupleMaps()
         
-        videos = [GBVideo]()
+        videos = [GBVideoURLs]()
         if let videosJSON = json["videos"] as? [[String: AnyObject]] {
             
             for videoJSON in videosJSON {
-                let video = GBVideo(json: videoJSON)
+                let video = GBVideoURLs(json: videoJSON)
                 videos?.append(video)
             }
         }

@@ -8,7 +8,12 @@
 
 import Foundation
 
-public typealias GBResourceSummary = (id: Int, prettyDescription: String, image: GBImage?, resourceType: ResourceType)
+// TODO: document what all these are for
+public typealias GBResourceSummary = (id: Int, prettyDescription: String, image: GBImageURLs?, resourceType: ResourceType)
+
+public typealias GBPlatformResource = (id: Int, name: String, abbreviation: String)
+
+public struct GBUnusedExtendedInfo: GBResourceExtendedInfo { public init(json: [String : AnyObject]) {} }
 
 public protocol GBResource: class {
     
@@ -60,10 +65,6 @@ extension GBResource {
             return nil
         }
         
-        return GBResourceSummary(id, prettyDescription: self.prettyDescription, image: GBImage(json: [:]), self.resourceType)
+        return GBResourceSummary(id, prettyDescription: self.prettyDescription, image: GBImageURLs(json: [:]), self.resourceType) // TODO: bring the image back in
     }
 }
-
-public typealias GBPlatformResource = (id: Int, name: String, abbreviation: String)
-
-public struct GBUnusedExtendedInfo: GBResourceExtendedInfo { public init(json: [String : AnyObject]) {} }

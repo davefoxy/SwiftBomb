@@ -41,7 +41,7 @@ final public class GBConceptResource: GBResourceUpdating {
     public private(set) var id: Int?
     
     /// Main image of the concept
-    public private(set) var image: GBImage?
+    public private(set) var image: GBImageURLs?
     
     /// Name of the concept
     public private(set) var name: String?
@@ -89,7 +89,7 @@ final public class GBConceptResource: GBResourceUpdating {
         site_detail_url = (json["site_detail_url"] as? String)?.url()
         
         if let imageJSON = json["image"] as? [String: AnyObject] {
-            image = GBImage(json: imageJSON)
+            image = GBImageURLs(json: imageJSON)
         } else {
             image = nil
         }

@@ -44,7 +44,7 @@ final public class GBCharacterResource: GBResourceUpdating {
     public let id: Int?
     
     /// Main image of the character
-    public private(set) var image: GBImage?
+    public private(set) var image: GBImageURLs?
     
     /// Name of the character
     public private(set) var name: String?
@@ -101,7 +101,7 @@ final public class GBCharacterResource: GBResourceUpdating {
         }
         
         if let imageJSON = json["image"] as? [String: AnyObject] {
-            image = GBImage(json: imageJSON)
+            image = GBImageURLs(json: imageJSON)
         } else {
             image = nil
         }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct GBImage {
+public struct GBImageURLs {
     
     public let icon: NSURL?
     public let medium: NSURL?

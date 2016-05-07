@@ -41,7 +41,7 @@ final public class GBGameReleaseResource: GBResourceUpdating {
     public let id: Int?
     
     /// Main image of the release
-    public private(set) var image: GBImage?
+    public private(set) var image: GBImageURLs?
     
     /// Maximum players
     public private(set) var maximum_players: Int?
@@ -115,7 +115,7 @@ final public class GBGameReleaseResource: GBResourceUpdating {
         game_rating = (json["game_rating"] as? [String: AnyObject])?.idNameTupleMap()
         
         if let imageJSON = json["image"] as? [String: AnyObject] {
-            image = GBImage(json: imageJSON)
+            image = GBImageURLs(json: imageJSON)
         } else {
             image = nil
         }
@@ -150,7 +150,7 @@ public struct GBGameReleaseExtendedInfo: GBResourceExtendedInfo {
     let developers: [GBCompanyResource]
     
     /// List of images associated to the release
-    let images: [GBImage]
+    let images: [GBImageURLs]
     
     /// Companies who published the release
     let publishers: [GBCompanyResource]
@@ -160,11 +160,11 @@ public struct GBGameReleaseExtendedInfo: GBResourceExtendedInfo {
         developers = json.jsonMappedResources("developers")
         publishers = json.jsonMappedResources("publishers")
         
-        var mutableImages = [GBImage]()
+        var mutableImages = [GBImageURLs]()
         if let imagesJSON = json["images"] as? [[String: AnyObject]] {
             
             for imageJSON in imagesJSON {
-                let image = GBImage(json: imageJSON)
+                let image = GBImageURLs(json: imageJSON)
                 mutableImages.append(image)
             }
         }

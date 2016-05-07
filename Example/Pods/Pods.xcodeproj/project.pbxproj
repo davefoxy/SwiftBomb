@@ -15,7 +15,7 @@
 		1A9857B201D49F7BEC648B21EAD71821 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
 		1BA1D5CDBC50A6C32F29EF475CCA9031 /* GBFranchiseResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CC8ACE28328F6C454BADB6F40F203E /* GBFranchiseResource.swift */; };
 		1C8F75B769977446FF1B421AA3540429 /* GBAPIObjectsRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B61E74522264ABB3AF47EFC61C48BC /* GBAPIObjectsRequests.swift */; };
-		1C97817CBD4DE9D454D104DC281ED898 /* GBVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D1D52AA9C9A65B5032D0CF6CC61D37 /* GBVideo.swift */; };
+		1C97817CBD4DE9D454D104DC281ED898 /* GBVideoURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D1D52AA9C9A65B5032D0CF6CC61D37 /* GBVideoURLs.swift */; };
 		1ED1AFABF72872DF481EF229C1294F52 /* GBAPIAuthenticationSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453F77DB1AFE4F575A890F0CB4A18EE5 /* GBAPIAuthenticationSession.swift */; };
 		1F5D23EA33AB1E5B878E392B4A621031 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
 		1F791DA6DED351EB07DACBEE2474A0CC /* Pods-SwiftBomb_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D131C4894B0044EB50B128BFA6A79C9 /* Pods-SwiftBomb_Example-dummy.m */; };
@@ -35,7 +35,7 @@
 		6F5F9F8045B02BEB0DE50583FB609733 /* GBAPIStaffReviewRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B4281ACC0EAE60712549B43A253BB0 /* GBAPIStaffReviewRequests.swift */; };
 		7108D6782F3CAD275ACC87DE1A3F050C /* GBGameResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30D97CA0C60A4DE9957C3CF1F23E027 /* GBGameResource.swift */; };
 		717529A7C3288178D8C674E1B6A2FB57 /* GBAPIProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3F960BCC382C4C36B8127E0636D5AA /* GBAPIProtocols.swift */; };
-		727AC7A5EF087C6AFF071AE0D377A39C /* ModelDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D3194C403598129695CF96ABEB753A /* ModelDefinitions.swift */; };
+		727AC7A5EF087C6AFF071AE0D377A39C /* GBAPIModelDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D3194C403598129695CF96ABEB753A /* GBAPIModelDefinitions.swift */; };
 		78D436F64AE84CC23E9AB8C872C04C9F /* GBCompanyResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DE7EAFC98E7C68A8F3F774C0050A37 /* GBCompanyResource.swift */; };
 		7D75D4FD7141A2B14B050211B4D1FB19 /* GBAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B788498C1209A9B831086A006FB621 /* GBAPI.swift */; };
 		829D993E230CB2BCBD21FE228947FBBA /* GBAPIURLSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF289998CC141EBFFCE117D92B556A1 /* GBAPIURLSessionManager.swift */; };
@@ -49,7 +49,7 @@
 		9E852887BFDD7E1BF38D540BC6175BCD /* GBAPIAuthenticationRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138DB0FE534C37854D6F295340A8A22D /* GBAPIAuthenticationRequests.swift */; };
 		CA4A3780D8A189472895ACA5D38F1F30 /* SwiftBomb-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F4A4E9104B43F424AFF74EDB1E644FE /* SwiftBomb-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CB05A184778A04668DC8D2F811B01C28 /* GBAPIGamesRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0569ACF0ED435ACE8D9722115F98F1F4 /* GBAPIGamesRequests.swift */; };
-		CFB385145BBE5BC4CF079971634D76BD /* GBImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA01A4AA5C0DE61C636C013DD6761EA /* GBImage.swift */; };
+		CFB385145BBE5BC4CF079971634D76BD /* GBImageURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA01A4AA5C0DE61C636C013DD6761EA /* GBImageURLs.swift */; };
 		D6D2CAD5587E373B7BCD1196E2EA066A /* GBGenreResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4D415124D00262DE6C091C5C84FD1A /* GBGenreResource.swift */; };
 		D9966EC55339492525B9988DEBF9DF52 /* GBAPIRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA340BA19DA5A2C1FECE28C6BD04E907 /* GBAPIRequestFactory.swift */; };
 		EFE5442B3408474A83420A7F6B91AC3E /* GBAPILocationsRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F40D51EE1CFF708E5E019C152B13CB /* GBAPILocationsRequests.swift */; };
@@ -84,7 +84,7 @@
 		0569ACF0ED435ACE8D9722115F98F1F4 /* GBAPIGamesRequests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GBAPIGamesRequests.swift; sourceTree = "<group>"; };
 		0B02DE2FF37D245806BFA8116ACADF66 /* Pods-SwiftBomb_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwiftBomb_Tests-umbrella.h"; sourceTree = "<group>"; };
 		0CC2894791475A6BDF58B749B3E3FD99 /* GBAPICompaniesRequests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GBAPICompaniesRequests.swift; sourceTree = "<group>"; };
-		0DA01A4AA5C0DE61C636C013DD6761EA /* GBImage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GBImage.swift; sourceTree = "<group>"; };
+		0DA01A4AA5C0DE61C636C013DD6761EA /* GBImageURLs.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GBImageURLs.swift; sourceTree = "<group>"; };
 		0E488FBF693548BF6AC56FFF8395202D /* JSONMappingEnums.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JSONMappingEnums.swift; sourceTree = "<group>"; };
 		138DB0FE534C37854D6F295340A8A22D /* GBAPIAuthenticationRequests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GBAPIAuthenticationRequests.swift; sourceTree = "<group>"; };
 		166171433953B246DB02E2FE002BFCED /* GBStaffReviewResource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GBStaffReviewResource.swift; sourceTree = "<group>"; };
@@ -100,7 +100,7 @@
 		453F77DB1AFE4F575A890F0CB4A18EE5 /* GBAPIAuthenticationSession.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GBAPIAuthenticationSession.swift; sourceTree = "<group>"; };
 		49735853A4B121A9983E83263850ACD4 /* Pods-SwiftBomb_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftBomb_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		4E6BEE798A18989F3D7A69949E4D5A4E /* GBAPICharacterRequests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GBAPICharacterRequests.swift; sourceTree = "<group>"; };
-		51D1D52AA9C9A65B5032D0CF6CC61D37 /* GBVideo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GBVideo.swift; sourceTree = "<group>"; };
+		51D1D52AA9C9A65B5032D0CF6CC61D37 /* GBVideoURLs.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GBVideoURLs.swift; sourceTree = "<group>"; };
 		524D252272B5F68949D8E9AB9E2135DA /* JSONParsing.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JSONParsing.swift; sourceTree = "<group>"; };
 		52C6EFDE1CDDEF7700394296 /* GBGameReleaseResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GBGameReleaseResource.swift; sourceTree = "<group>"; };
 		52C6EFE11CDDF95500394296 /* GBAPIGameReleasesRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GBAPIGameReleasesRequests.swift; sourceTree = "<group>"; };
@@ -111,7 +111,7 @@
 		626E633A54A7F66937B1683D64515BB8 /* GBPersonResource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GBPersonResource.swift; sourceTree = "<group>"; };
 		62DC435671C176294F0F3548AD9D980B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6416EBCE58F207FCE1302E29EFBB7C20 /* Pods-SwiftBomb_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftBomb_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		66D3194C403598129695CF96ABEB753A /* ModelDefinitions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModelDefinitions.swift; sourceTree = "<group>"; };
+		66D3194C403598129695CF96ABEB753A /* GBAPIModelDefinitions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GBAPIModelDefinitions.swift; sourceTree = "<group>"; };
 		6F4B616C4E5D3A04A1A64E5683EEB317 /* Pods-SwiftBomb_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwiftBomb_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		6FD1B8EB1ABE80CE197E182FD9BC9FAB /* GBLocationResource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GBLocationResource.swift; sourceTree = "<group>"; };
 		7E50377410639A5DC0F35DBFE3032E12 /* GBAPIGenreRequests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GBAPIGenreRequests.swift; sourceTree = "<group>"; };
@@ -220,7 +220,7 @@
 		57872F1D8742036297AC45A2DDEFE8A9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				66D3194C403598129695CF96ABEB753A /* ModelDefinitions.swift */,
+				66D3194C403598129695CF96ABEB753A /* GBAPIModelDefinitions.swift */,
 				8AC4B981363B37780FA3B762EA82DEBA /* GBAPIPaginatedResults.swift */,
 				80DCE1CD31FE2EC6C5BD81F1D5AF6B00 /* GBAccessoryResource.swift */,
 				D0E6D2E4D866AC6857CFBBE95B3D0717 /* GBCharacterResource.swift */,
@@ -384,8 +384,8 @@
 		F41F81CF9D86C59E9A896290A375F2C5 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				0DA01A4AA5C0DE61C636C013DD6761EA /* GBImage.swift */,
-				51D1D52AA9C9A65B5032D0CF6CC61D37 /* GBVideo.swift */,
+				0DA01A4AA5C0DE61C636C013DD6761EA /* GBImageURLs.swift */,
+				51D1D52AA9C9A65B5032D0CF6CC61D37 /* GBVideoURLs.swift */,
 				0E488FBF693548BF6AC56FFF8395202D /* JSONMappingEnums.swift */,
 				524D252272B5F68949D8E9AB9E2135DA /* JSONParsing.swift */,
 			);
@@ -554,17 +554,17 @@
 				1BA1D5CDBC50A6C32F29EF475CCA9031 /* GBFranchiseResource.swift in Sources */,
 				7108D6782F3CAD275ACC87DE1A3F050C /* GBGameResource.swift in Sources */,
 				D6D2CAD5587E373B7BCD1196E2EA066A /* GBGenreResource.swift in Sources */,
-				CFB385145BBE5BC4CF079971634D76BD /* GBImage.swift in Sources */,
+				CFB385145BBE5BC4CF079971634D76BD /* GBImageURLs.swift in Sources */,
 				87D750431FDF6EFDB98543469B08D52E /* GBLocationResource.swift in Sources */,
 				03501BFA22295FE1476E910FFF3E7F0E /* GBObjectResource.swift in Sources */,
 				8972615DCFD4FB86A9B7A9F60B1F7E7F /* GBPersonResource.swift in Sources */,
 				514200F78D6F3F5AC5E38A980A5DE5C3 /* GBSearchResults.swift in Sources */,
 				F68C35310235E6F9249DB37ADBF612FB /* GBStaffReviewResource.swift in Sources */,
-				1C97817CBD4DE9D454D104DC281ED898 /* GBVideo.swift in Sources */,
+				1C97817CBD4DE9D454D104DC281ED898 /* GBVideoURLs.swift in Sources */,
 				0F92D7C41F4C39BCEAF6C481E6ADB792 /* GBVideoResource.swift in Sources */,
 				298B41BCBB412051AEF57364D277DFA9 /* JSONMappingEnums.swift in Sources */,
 				F86810F1AE6E93EA692BA49CB93E6826 /* JSONParsing.swift in Sources */,
-				727AC7A5EF087C6AFF071AE0D377A39C /* ModelDefinitions.swift in Sources */,
+				727AC7A5EF087C6AFF071AE0D377A39C /* GBAPIModelDefinitions.swift in Sources */,
 				52C6EFE01CDDF37600394296 /* GBGameReleaseResource.swift in Sources */,
 				94470B6DA77C681EDE52D643C9AAEF35 /* SwiftBomb-dummy.m in Sources */,
 			);

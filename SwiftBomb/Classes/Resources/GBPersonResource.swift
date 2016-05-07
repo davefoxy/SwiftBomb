@@ -53,7 +53,7 @@ final public class GBPersonResource: GBResourceUpdating {
     public let id: Int?
     
     /// Main image of the person
-    public private(set) var image: GBImage?
+    public private(set) var image: GBImageURLs?
     
     /// Name of the person.
     public private(set) var name: String?
@@ -102,7 +102,7 @@ final public class GBPersonResource: GBResourceUpdating {
         
         hometown = json["hometown"] as? String
         if let imageJSON = json["image"] as? [String: AnyObject] {
-            image = GBImage(json: imageJSON)
+            image = GBImageURLs(json: imageJSON)
         } else {
             image = nil
         }

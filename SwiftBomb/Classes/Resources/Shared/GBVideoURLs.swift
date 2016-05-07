@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct GBVideo {
+public struct GBVideoURLs {
     
     /// URL to the HD version of the video
     let hd: NSURL?

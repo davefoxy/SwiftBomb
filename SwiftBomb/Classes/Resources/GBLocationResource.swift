@@ -38,7 +38,7 @@ final public class GBLocationResource: GBResourceUpdating {
     public let id: Int?
     
     /// Main image of the location
-    public private(set) var image: GBImage?
+    public private(set) var image: GBImageURLs?
     
     /// Name of the location
     public private(set) var name: String?
@@ -77,7 +77,7 @@ final public class GBLocationResource: GBResourceUpdating {
         }
         
         if let imageJSON = json["image"] as? [String: AnyObject] {
-            image = GBImage(json: imageJSON)
+            image = GBImageURLs(json: imageJSON)
         } else {
             image = nil
         }

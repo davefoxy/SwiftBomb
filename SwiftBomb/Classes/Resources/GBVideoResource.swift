@@ -47,10 +47,10 @@ final public class GBVideoResource: GBResource {
     public let url: String?
     
     // Container for the video's image
-    public let image: GBImage?
+    public let image: GBImageURLs?
     
     // Container for the video's URLs
-    public let video: GBVideo?
+    public let video: GBVideoURLs?
     
     /// Extended info
     public var extendedInfo: GBUnusedExtendedInfo?
@@ -70,12 +70,12 @@ final public class GBVideoResource: GBResource {
         url = json["url"] as? String
         
         if let imageJSON = json["image"] as? JSONDict {
-            image = GBImage(json: imageJSON)
+            image = GBImageURLs(json: imageJSON)
         } else {
             image = nil
         }
         
-        video = GBVideo(json: json)
+        video = GBVideoURLs(json: json)
     }
     
     public var prettyDescription: String {

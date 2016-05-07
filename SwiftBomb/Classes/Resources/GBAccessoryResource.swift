@@ -29,7 +29,7 @@ final public class GBAccessoryResource: GBResourceUpdating {
     public let id: Int?
     
     /// Main image of the accessory
-    public private(set) var image: GBImage?
+    public private(set) var image: GBImageURLs?
     
     /// Name of the accessory
     public private(set) var name: String?
@@ -58,7 +58,7 @@ final public class GBAccessoryResource: GBResourceUpdating {
         description = json["description"] as? String
         
         if let imageJSON = json["image"] as? [String: AnyObject] {
-            image = GBImage(json: imageJSON)
+            image = GBImageURLs(json: imageJSON)
         } else {
             image = nil
         }

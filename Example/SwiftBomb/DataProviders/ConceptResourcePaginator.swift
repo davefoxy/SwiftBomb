@@ -18,7 +18,7 @@ class ConceptResourcePaginator: ResourcePaginator {
     var isLoading = false
     var hasMore: Bool = true
     var resourceType = ResourceType.Concept
-    
+    var concepts = [GBConceptResource]()
     
     init(searchTerm: String? = nil, pagination: PaginationDefinition = PaginationDefinition(offset: 0, limit: 30), sort: SortDefinition = SortDefinition(field: "name", direction: .Ascending)) {
         
@@ -44,17 +44,9 @@ class ConceptResourcePaginator: ResourcePaginator {
                 
                 if let concepts = results?.resources {
                     
-                    var cellPresenters = [ResourceItemCellPresenter]()
-                    for concept in concepts {
-                        
-                        var subtitle = ""
-                        if let deck = concept.deck {
-                            subtitle = deck
-                        }
-                        
-                        let cellPresenter = ResourceItemCellPresenter(imageURL: concept.image?.small, title: concept.name, subtitle: subtitle)
-                        cellPresenters.append(cellPresenter)
-                    }
+                    self.concepts.appendContentsOf(concepts)
+                    
+                    let cellPresenters = self.cellPresentersForResources(concepts)
                     
                     self.pagination = PaginationDefinition(self.pagination.offset + concepts.count, self.pagination.limit)
                     self.hasMore = (results?.hasMoreResults)!
@@ -68,16 +60,34 @@ class ConceptResourcePaginator: ResourcePaginator {
         }
     }
     
+    func cellPresentersForResources(concepts: [GBConceptResource]) -> [ResourceItemCellPresenter] {
+        
+        var cellPresenters = [ResourceItemCellPresenter]()
+        for concept in concepts {
+            
+            var subtitle = ""
+            if let deck = concept.deck {
+                subtitle = deck
+            }
+            
+            let cellPresenter = ResourceItemCellPresenter(imageURL: concept.image?.small, title: concept.name, subtitle: subtitle)
+            cellPresenters.append(cellPresenter)
+        }
+        
+        return cellPresenters
+    }
+    
     func resetPagination() {
         
+        self.concepts.removeAll()
         self.pagination = PaginationDefinition(0, self.pagination.limit)
         self.hasMore = true
     }
     
     func detailViewControllerForResourceAtIndexPath(indexPath: NSIndexPath) -> UIViewController {
         
-        let viewController = CharacterViewController()
-//        viewController.character = characters[indexPath.row]
+        let viewController = ConceptViewController(style: .Grouped)
+        viewController.concept = concepts[indexPath.row]
         
         return viewController
     }

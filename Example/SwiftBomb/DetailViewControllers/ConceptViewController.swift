@@ -1,5 +1,5 @@
 //
-//  GameViewController.swift
+//  ConceptViewController.swift
 //  SwiftBomb
 //
 //  Created by David Fox on 07/05/2016.
@@ -10,14 +10,14 @@ import Foundation
 import UIKit
 import SwiftBomb
 
-class GameViewController: BaseResourceDetailViewController {
+class ConceptViewController: BaseResourceDetailViewController {
     
-    var game: GBGameResource?
+    var concept: GBConceptResource?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        game?.fetchExtendedInfo() { [weak self] error in
+        concept?.fetchExtendedInfo() { [weak self] error in
             
             self?.tableView.reloadData()
         }
@@ -30,7 +30,7 @@ class GameViewController: BaseResourceDetailViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return section == 0 ? 1 : 4
+        return section == 0 ? 1 : 3
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -43,23 +43,17 @@ class GameViewController: BaseResourceDetailViewController {
             cell.textLabel?.numberOfLines = 0
             cell.textLabel?.lineBreakMode = .ByWordWrapping
             
-            var infos = [ResourceInfoTuple(value: game?.name, "Name:"), ResourceInfoTuple(value: game?.deck, "Deck:"), ResourceInfoTuple(value: game?.aliases?.joinWithSeparator(", "), "Aliases:")]
+            var infos = [ResourceInfoTuple(value: concept?.name, "Name:"), ResourceInfoTuple(value: concept?.deck, "Deck:"), ResourceInfoTuple(value: concept?.aliases?.joinWithSeparator(", "), "Aliases:")]
             
-            if game?.platforms?.count > 0 {
-                
-                let platformNames = game?.platforms?.map({ $0.name })
-                infos.append(ResourceInfoTuple(value: platformNames?.joinWithSeparator(", "), label: "Platforms:"))
-            }
-            
-            if let dateAdded = game?.date_added {
+            if let dateAdded = concept?.date_added {
                 infos.append(ResourceInfoTuple(value: dateFormatter.stringFromDate(dateAdded), "Date Added:"))
             }
             
-            if let lastUpdated = game?.date_last_updated {
+            if let lastUpdated = concept?.date_last_updated {
                 infos.append(ResourceInfoTuple(value: dateFormatter.stringFromDate(lastUpdated), "Last Updated:"))
             }
             
-            if (game?.description != nil) {
+            if (concept?.description != nil) {
                 infos.append(ResourceInfoTuple(value: "Tap to view", label: "Description:"))
             }
             
@@ -70,23 +64,18 @@ class GameViewController: BaseResourceDetailViewController {
         else {
             switch indexPath.row {
             case 0:
-                if let characters = game?.extendedInfo?.characters {
-                    title = "Characters (\(characters.count))"
+                if let characters = concept?.extendedInfo?.characters {
+                    title = "Related Characters (\(characters.count))"
                 }
                 
             case 1:
-                if let developers = game?.extendedInfo?.developers {
-                    title = "Developers (\(developers.count))"
+                if let games = concept?.extendedInfo?.games {
+                    title = "Related Games (\(games.count))"
                 }
                 
             case 2:
-                if let people = game?.extendedInfo?.people {
-                    title = "People (\(people.count))"
-                }
-                
-            case 3:
-                if let publishers = game?.extendedInfo?.publishers {
-                    title = "Publishers (\(publishers.count))"
+                if let characters = concept?.extendedInfo?.characters {
+                    title = "Related Characters (\(characters.count))"
                 }
                 
             default:
@@ -102,7 +91,7 @@ class GameViewController: BaseResourceDetailViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         if indexPath.section == 0 {
-            guard let description = game?.description else {
+            guard let description = concept?.description else {
                 tableView.deselectRowAtIndexPath(indexPath, animated: true)
                 return
             }
@@ -118,30 +107,23 @@ class GameViewController: BaseResourceDetailViewController {
             case 0:
                 // characters
                 let charactersPaginator = CharactersResourcePaginator()
-                charactersPaginator.characters = (game?.extendedInfo?.characters)!
+                charactersPaginator.characters = (concept?.extendedInfo?.characters)!
                 resourcesList.resourcePaginator = charactersPaginator
-                resourcesList.cellPresenters = charactersPaginator.cellPresentersForResources((game?.extendedInfo?.characters)!)
+                resourcesList.cellPresenters = charactersPaginator.cellPresentersForResources((concept?.extendedInfo?.characters)!)
                 
             case 1:
-                // developers
-                let companyPaginator = CompanyResourcePaginator()
-                companyPaginator.companies = (game?.extendedInfo?.developers)!
-                resourcesList.resourcePaginator = companyPaginator
-                resourcesList.cellPresenters = companyPaginator.cellPresentersForResources((game?.extendedInfo?.developers)!)
+                // related games
+                let gamesPaginator = GameResourcePaginator()
+                gamesPaginator.games = (concept?.extendedInfo?.games)!
+                resourcesList.resourcePaginator = gamesPaginator
+                resourcesList.cellPresenters = gamesPaginator.cellPresentersForResources((concept?.extendedInfo?.games)!)
                 
             case 2:
                 // people
                 let personPaginator = PersonResourcePaginator()
-                personPaginator.people = (game?.extendedInfo?.people)!
+                personPaginator.people = (concept?.extendedInfo?.people)!
                 resourcesList.resourcePaginator = personPaginator
-                resourcesList.cellPresenters = personPaginator.cellPresentersForResources((game?.extendedInfo?.people)!)
-                
-            case 3:
-                // publishers
-                let companyPaginator = CompanyResourcePaginator()
-                companyPaginator.companies = (game?.extendedInfo?.publishers)!
-                resourcesList.resourcePaginator = companyPaginator
-                resourcesList.cellPresenters = companyPaginator.cellPresentersForResources((game?.extendedInfo?.publishers)!)
+                resourcesList.cellPresenters = personPaginator.cellPresentersForResources((concept?.extendedInfo?.people)!)
                 
             default:
                 break

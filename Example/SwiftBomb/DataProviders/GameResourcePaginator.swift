@@ -38,9 +38,6 @@ class GameResourcePaginator: ResourcePaginator {
         
         isLoading = true
         
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = .MediumStyle
-        
         GBAPI.retrieveGames(searchTerm, pagination: pagination, sort: sort) { results, error in
             
             self.isLoading = false
@@ -91,7 +88,7 @@ class GameResourcePaginator: ResourcePaginator {
     
     func detailViewControllerForResourceAtIndexPath(indexPath: NSIndexPath) -> UIViewController {
         
-        let viewController = GameViewController()
+        let viewController = GameViewController(style: .Grouped)
         viewController.game = games[indexPath.row]
         
         return viewController

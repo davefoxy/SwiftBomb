@@ -18,6 +18,7 @@ class FranchiseResourcePaginator: ResourcePaginator {
     var isLoading = false
     var hasMore: Bool = true
     var resourceType = ResourceType.Franchise
+    var franchises = [GBFranchiseResource]()
     
     init(searchTerm: String? = nil, pagination: PaginationDefinition = PaginationDefinition(offset: 0, limit: 30), sort: SortDefinition = SortDefinition(field: "name", direction: .Ascending)) {
         
@@ -43,17 +44,9 @@ class FranchiseResourcePaginator: ResourcePaginator {
                 
                 if let franchises = results?.resources {
                     
-                    var cellPresenters = [ResourceItemCellPresenter]()
-                    for franchise in franchises {
-                        
-                        var subtitle = ""
-                        if let deck = franchise.deck {
-                            subtitle = deck
-                        }
-                        
-                        let cellPresenter = ResourceItemCellPresenter(imageURL: franchise.image?.small, title: franchise.name, subtitle: subtitle)
-                        cellPresenters.append(cellPresenter)
-                    }
+                    self.franchises.appendContentsOf(franchises)
+                    
+                    let cellPresenters = self.cellPresentersForResources(franchises)
                     
                     self.pagination = PaginationDefinition(self.pagination.offset + franchises.count, self.pagination.limit)
                     self.hasMore = (results?.hasMoreResults)!
@@ -67,16 +60,34 @@ class FranchiseResourcePaginator: ResourcePaginator {
         }
     }
     
+    func cellPresentersForResources(games: [GBFranchiseResource]) -> [ResourceItemCellPresenter] {
+        
+        var cellPresenters = [ResourceItemCellPresenter]()
+        for franchise in franchises {
+            
+            var subtitle = ""
+            if let deck = franchise.deck {
+                subtitle = deck
+            }
+            
+            let cellPresenter = ResourceItemCellPresenter(imageURL: franchise.image?.small, title: franchise.name, subtitle: subtitle)
+            cellPresenters.append(cellPresenter)
+        }
+        
+        return cellPresenters
+    }
+    
     func resetPagination() {
         
+        self.franchises.removeAll()
         self.pagination = PaginationDefinition(0, self.pagination.limit)
         self.hasMore = true
     }
     
     func detailViewControllerForResourceAtIndexPath(indexPath: NSIndexPath) -> UIViewController {
         
-        let viewController = CharacterViewController()
-//        viewController.character = characters[indexPath.row]
+        let viewController = FranchiseViewController(style: .Grouped)
+        viewController.franchise = franchises[indexPath.row]
         
         return viewController
     }

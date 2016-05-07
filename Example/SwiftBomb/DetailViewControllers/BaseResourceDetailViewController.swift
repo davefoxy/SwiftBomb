@@ -22,4 +22,13 @@ class BaseResourceDetailViewController: UITableViewController {
         dateFormatter.dateStyle = .MediumStyle
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
     }
+    
+    func showWebViewController(html: String) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let webViewController = storyboard.instantiateViewControllerWithIdentifier("DetailWebViewController") as! DetailWebViewController
+        webViewController.htmlContent = html
+        
+        navigationController?.pushViewController(webViewController, animated: true)
+    }
 }

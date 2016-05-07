@@ -388,6 +388,40 @@
             </objects>
             <point key="canvasLocation" x="1371" y="706"/>
         </scene>
+        <!--Detail Web View Controller-->
+        <scene sceneID="dKB-GW-VbW">
+            <objects>
+                <viewController storyboardIdentifier="DetailWebViewController" id="v3E-Jo-99p" customClass="DetailWebViewController" customModule="SwiftBomb_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3j5-gb-AIq"/>
+                        <viewControllerLayoutGuide type="bottom" id="hdR-Z5-QPN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lAt-r0-qtJ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="642-Lv-msA">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="642-Lv-msA" firstAttribute="leading" secondItem="lAt-r0-qtJ" secondAttribute="leadingMargin" constant="-20" id="qtb-Ug-xmN"/>
+                            <constraint firstItem="hdR-Z5-QPN" firstAttribute="top" secondItem="642-Lv-msA" secondAttribute="bottom" id="usU-bh-dIb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="642-Lv-msA" secondAttribute="trailing" constant="-20" id="wSA-lX-hE4"/>
+                            <constraint firstItem="642-Lv-msA" firstAttribute="top" secondItem="3j5-gb-AIq" secondAttribute="bottom" constant="-64" id="wkQ-bl-MTh"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="webView" destination="642-Lv-msA" id="3wj-eK-W6E"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BuM-re-3jf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2000" y="706"/>
+        </scene>
         <!--Search-->
         <scene sceneID="bYo-wD-bXy">
             <objects>

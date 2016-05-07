@@ -81,6 +81,7 @@ class CompanyResourcePaginator: ResourcePaginator {
     
     func resetPagination() {
         
+        self.companies.removeAll()
         self.pagination = PaginationDefinition(0, self.pagination.limit)
         self.hasMore = true
     }

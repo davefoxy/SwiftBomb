@@ -69,7 +69,7 @@ class VideoResourcePaginator: ResourcePaginator {
     
     func detailViewControllerForResourceAtIndexPath(indexPath: NSIndexPath) -> UIViewController {
         
-        let viewController = CharacterViewController()
+        let viewController = CharacterViewController(style: .Grouped)
 //        viewController.character = characters[indexPath.row]
         
         return viewController

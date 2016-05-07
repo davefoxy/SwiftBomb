@@ -8,43 +8,43 @@
 
 import Foundation
 
-final public class GBStaffReviewResource: GBResource {
+final public class GBStaffReviewResource: GBResourceUpdating {
     
     /// The resource type
-    public let resourceType = ResourceType.Review
+    public private(set) var resourceType = ResourceType.Review
     
     /// URL pointing to the review detail resource
-    public let api_detail_url: NSURL?
+    public private(set) var api_detail_url: NSURL?
     
     /// Brief summary of the review
-    public let deck: String?
+    public private(set) var deck: String?
     
     /// Description of the review
-    public let description: String?
+    public private(set) var description: String?
     
     /// Name of the Downloadable Content package
-    public let dlc_name: String?
+    public private(set) var dlc_name: String?
     
     /// Game the review is for
-    public let game: GBGameResource?
+    public private(set) var game: GBGameResource?
     
     /// Date the review was published on Giant Bomb
-    public let publish_date: NSDate?
+    public private(set) var publish_date: NSDate?
     
     /// Release of game for review
-    public let release: GBGameResource?
+    public private(set) var release: GBGameResource?
     
     /// Name of the review's author
-    public let reviewer: String?
+    public private(set) var reviewer: String?
     
     /// The score given to the game on a scale of 1 to 5
-    public let score: Int?
+    public private(set) var score: Int?
     
     /// URL pointing to the review on Giant Bomb
-    public let site_detail_url: NSURL?
+    public private(set) var site_detail_url: NSURL?
     
     /// IDs don't exist for reviews in the Giant Bomb database! But to satisfy the GBResource protocol...
-    public let id: Int? = 0
+    public private(set) var id: Int? = 0
     
     /// Take the image from the game
     public var image: GBImageURLs? {
@@ -57,6 +57,11 @@ final public class GBStaffReviewResource: GBResource {
     public var extendedInfo: GBUnusedExtendedInfo?
     
     public init(json: [String: AnyObject]) {
+        
+        update(json)
+    }
+    
+    func update(json: [String : AnyObject]) {
         
         api_detail_url = (json["api_detail_url"] as? String)?.url()
         deck = json["deck"] as? String

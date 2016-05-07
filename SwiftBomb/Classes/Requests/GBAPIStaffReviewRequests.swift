@@ -38,3 +38,21 @@ extension GBGameResource {
         networkingManager.performPaginatedRequest(request, objectType: GBStaffReviewResource.self, completion: completion)
     }
 }
+
+extension GBStaffReviewResource {
+    
+    public func fetchExtendedInfo(completion: (error: GBAPIError?) -> Void) {
+        
+        let api = GBAPI.framework
+        
+        guard
+            let networkingManager = api.networkingManager,
+            let id = id,
+            let request = api.requestFactory?.simpleRequest("review/\(id)/") else {
+                completion(error: .FrameworkConfigError)
+                return
+        }
+        
+        networkingManager.performDetailRequest(request, resource: self, completion: completion)
+    }
+}

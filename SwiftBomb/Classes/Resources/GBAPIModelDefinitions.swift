@@ -21,6 +21,8 @@ public protocol GBResource: class {
     
     init(json: [String: AnyObject])
     
+    func fetchExtendedInfo(completion: (error: GBAPIError?) -> Void)
+    
     var id: Int? { get }
     var prettyDescription: String { get }
     var resourceType: ResourceType { get }

@@ -18,7 +18,8 @@ class GenreResourcePaginator: ResourcePaginator {
     var isLoading = false
     var hasMore: Bool = true
     var resourceType = ResourceType.Genre
-    
+    var genres = [GBGenreResource]()
+
     init(searchTerm: String? = nil, pagination: PaginationDefinition = PaginationDefinition(offset: 0, limit: 30), sort: SortDefinition = SortDefinition(field: "name", direction: .Ascending)) {
         
         self.searchTerm = searchTerm
@@ -43,17 +44,9 @@ class GenreResourcePaginator: ResourcePaginator {
                 
                 if let genres = results?.resources {
                     
-                    var cellPresenters = [ResourceItemCellPresenter]()
-                    for genre in genres {
-                        
-                        var subtitle = ""
-                        if let deck = genre.deck {
-                            subtitle = deck
-                        }
-                        
-                        let cellPresenter = ResourceItemCellPresenter(imageURL: genre.image?.small, title: genre.name, subtitle: subtitle)
-                        cellPresenters.append(cellPresenter)
-                    }
+                    self.genres.appendContentsOf(genres)
+                    
+                    let cellPresenters = self.cellPresentersForResources(genres)
                     
                     self.pagination = PaginationDefinition(self.pagination.offset + genres.count, self.pagination.limit)
                     self.hasMore = (results?.hasMoreResults)!
@@ -67,16 +60,34 @@ class GenreResourcePaginator: ResourcePaginator {
         }
     }
     
+    func cellPresentersForResources(genres: [GBGenreResource]) -> [ResourceItemCellPresenter] {
+        
+        var cellPresenters = [ResourceItemCellPresenter]()
+        for genre in genres {
+            
+            var subtitle = ""
+            if let deck = genre.deck {
+                subtitle = deck
+            }
+            
+            let cellPresenter = ResourceItemCellPresenter(imageURL: genre.image?.small, title: genre.name, subtitle: subtitle)
+            cellPresenters.append(cellPresenter)
+        }
+        
+        return cellPresenters
+    }
+    
     func resetPagination() {
         
+        self.genres.removeAll()
         self.pagination = PaginationDefinition(0, self.pagination.limit)
         self.hasMore = true
     }
     
     func detailViewControllerForResourceAtIndexPath(indexPath: NSIndexPath) -> UIViewController {
         
-        let viewController = CharacterViewController(style: .Grouped)
-//        viewController.character = characters[indexPath.row]
+        let viewController = GenreViewController(style: .Grouped)
+        viewController.genre = genres[indexPath.row]
         
         return viewController
     }

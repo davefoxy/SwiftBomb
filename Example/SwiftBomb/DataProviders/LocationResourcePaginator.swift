@@ -18,6 +18,7 @@ class LocationResourcePaginator: ResourcePaginator {
     var isLoading = false
     var hasMore: Bool = true
     var resourceType = ResourceType.Location
+    var locations = [GBLocationResource]()
     
     init(searchTerm: String? = nil, pagination: PaginationDefinition = PaginationDefinition(offset: 0, limit: 30), sort: SortDefinition = SortDefinition(field: "name", direction: .Ascending)) {
         
@@ -43,17 +44,9 @@ class LocationResourcePaginator: ResourcePaginator {
                 
                 if let locations = results?.resources {
                     
-                    var cellPresenters = [ResourceItemCellPresenter]()
-                    for location in locations {
-                        
-                        var subtitle = ""
-                        if let deck = location.deck {
-                            subtitle = deck
-                        }
-                        
-                        let cellPresenter = ResourceItemCellPresenter(imageURL: location.image?.small, title: location.name, subtitle: subtitle)
-                        cellPresenters.append(cellPresenter)
-                    }
+                    self.locations.appendContentsOf(locations)
+                    
+                    let cellPresenters = self.cellPresentersForResources(locations)
                     
                     self.pagination = PaginationDefinition(self.pagination.offset + locations.count, self.pagination.limit)
                     self.hasMore = (results?.hasMoreResults)!
@@ -67,16 +60,34 @@ class LocationResourcePaginator: ResourcePaginator {
         }
     }
     
+    func cellPresentersForResources(locations: [GBLocationResource]) -> [ResourceItemCellPresenter] {
+        
+        var cellPresenters = [ResourceItemCellPresenter]()
+        for location in locations {
+            
+            var subtitle = ""
+            if let deck = location.deck {
+                subtitle = deck
+            }
+            
+            let cellPresenter = ResourceItemCellPresenter(imageURL: location.image?.small, title: location.name, subtitle: subtitle)
+            cellPresenters.append(cellPresenter)
+        }
+        
+        return cellPresenters
+    }
+    
     func resetPagination() {
         
+        self.locations.removeAll()
         self.pagination = PaginationDefinition(0, self.pagination.limit)
         self.hasMore = true
     }
     
     func detailViewControllerForResourceAtIndexPath(indexPath: NSIndexPath) -> UIViewController {
         
-        let viewController = CharacterViewController(style: .Grouped)
-//        viewController.character = characters[indexPath.row]
+        let viewController = LocationViewController(style: .Grouped)
+        viewController.location = locations[indexPath.row]
         
         return viewController
     }

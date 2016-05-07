@@ -18,7 +18,8 @@ class ObjectResourcePaginator: ResourcePaginator {
     var isLoading = false
     var hasMore: Bool = true
     var resourceType = ResourceType.Object
-    
+    var objects = [GBObjectResource]()
+
     init(searchTerm: String? = nil, pagination: PaginationDefinition = PaginationDefinition(offset: 0, limit: 30), sort: SortDefinition = SortDefinition(field: "name", direction: .Ascending)) {
         
         self.searchTerm = searchTerm
@@ -43,17 +44,10 @@ class ObjectResourcePaginator: ResourcePaginator {
                 
                 if let objects = results?.resources {
                     
-                    var cellPresenters = [ResourceItemCellPresenter]()
-                    for object in objects {
-                        
-                        var subtitle = ""
-                        if let deck = object.deck {
-                            subtitle = deck
-                        }
-                        
-                        let cellPresenter = ResourceItemCellPresenter(imageURL: object.image?.small, title: object.name, subtitle: subtitle)
-                        cellPresenters.append(cellPresenter)
-                    }
+                    self.objects.appendContentsOf(objects)
+                    
+                    let cellPresenters = self.cellPresentersForResources(objects)
+                    
                     
                     self.pagination = PaginationDefinition(self.pagination.offset + objects.count, self.pagination.limit)
                     self.hasMore = (results?.hasMoreResults)!
@@ -67,16 +61,34 @@ class ObjectResourcePaginator: ResourcePaginator {
         }
     }
     
+    func cellPresentersForResources(objects: [GBObjectResource]) -> [ResourceItemCellPresenter] {
+        
+        var cellPresenters = [ResourceItemCellPresenter]()
+        for object in objects {
+            
+            var subtitle = ""
+            if let deck = object.deck {
+                subtitle = deck
+            }
+            
+            let cellPresenter = ResourceItemCellPresenter(imageURL: object.image?.small, title: object.name, subtitle: subtitle)
+            cellPresenters.append(cellPresenter)
+        }
+        
+        return cellPresenters
+    }
+    
     func resetPagination() {
         
+        self.objects.removeAll()
         self.pagination = PaginationDefinition(0, self.pagination.limit)
         self.hasMore = true
     }
     
     func detailViewControllerForResourceAtIndexPath(indexPath: NSIndexPath) -> UIViewController {
         
-        let viewController = CharacterViewController(style: .Grouped)
-//        viewController.character = characters[indexPath.row]
+        let viewController = ObjectViewController(style: .Grouped)
+        viewController.object = objects[indexPath.row]
         
         return viewController
     }

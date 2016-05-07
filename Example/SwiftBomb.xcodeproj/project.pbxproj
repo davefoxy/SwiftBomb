@@ -39,6 +39,10 @@
 		52C6EFE61CDE2C2000394296 /* FranchiseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C6EFE51CDE2C2000394296 /* FranchiseViewController.swift */; };
 		52C6EFE81CDE378C00394296 /* PersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C6EFE71CDE378C00394296 /* PersonViewController.swift */; };
 		52C6EFEA1CDE5F7900394296 /* ConceptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C6EFE91CDE5F7900394296 /* ConceptViewController.swift */; };
+		52C6EFEC1CDE665900394296 /* GenreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C6EFEB1CDE665900394296 /* GenreViewController.swift */; };
+		52C6EFEE1CDE69A900394296 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C6EFED1CDE69A900394296 /* LocationViewController.swift */; };
+		52C6EFF01CDE840B00394296 /* ObjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C6EFEF1CDE840B00394296 /* ObjectViewController.swift */; };
+		52C6EFF21CDE881E00394296 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C6EFF11CDE881E00394296 /* VideoViewController.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
@@ -92,6 +96,10 @@
 		52C6EFE51CDE2C2000394296 /* FranchiseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FranchiseViewController.swift; sourceTree = "<group>"; };
 		52C6EFE71CDE378C00394296 /* PersonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonViewController.swift; sourceTree = "<group>"; };
 		52C6EFE91CDE5F7900394296 /* ConceptViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConceptViewController.swift; sourceTree = "<group>"; };
+		52C6EFEB1CDE665900394296 /* GenreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenreViewController.swift; sourceTree = "<group>"; };
+		52C6EFED1CDE69A900394296 /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		52C6EFEF1CDE840B00394296 /* ObjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectViewController.swift; sourceTree = "<group>"; };
+		52C6EFF11CDE881E00394296 /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* SwiftBomb_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftBomb_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -182,7 +190,11 @@
 				52C6EFE91CDE5F7900394296 /* ConceptViewController.swift */,
 				52C6EFE51CDE2C2000394296 /* FranchiseViewController.swift */,
 				52C6EFDC1CDDE4B700394296 /* GameViewController.swift */,
+				52C6EFEB1CDE665900394296 /* GenreViewController.swift */,
+				52C6EFED1CDE69A900394296 /* LocationViewController.swift */,
+				52C6EFEF1CDE840B00394296 /* ObjectViewController.swift */,
 				52C6EFE71CDE378C00394296 /* PersonViewController.swift */,
+				52C6EFF11CDE881E00394296 /* VideoViewController.swift */,
 			);
 			path = DetailViewControllers;
 			sourceTree = "<group>";
@@ -480,9 +492,11 @@
 				5229CCE61CD7C7F0008A13BE /* UIImage+ImageLoader.swift in Sources */,
 				52C6EFEA1CDE5F7900394296 /* ConceptViewController.swift in Sources */,
 				5229CCC61CD7B34C008A13BE /* GenreResourcePaginator.swift in Sources */,
+				52C6EFEC1CDE665900394296 /* GenreViewController.swift in Sources */,
 				5229CCE31CD7C7F0008A13BE /* ImageLoader.swift in Sources */,
 				5229CCE71CD7C7F0008A13BE /* UIImageView+ImageLoader.swift in Sources */,
 				5229CCCA1CD7B34C008A13BE /* VideoResourcePaginator.swift in Sources */,
+				52C6EFF21CDE881E00394296 /* VideoViewController.swift in Sources */,
 				5229CCE51CD7C7F0008A13BE /* Manager.swift in Sources */,
 				5229CCC31CD7B34C008A13BE /* ConceptResourcePaginator.swift in Sources */,
 				5229CCC21CD7B34C008A13BE /* CompanyResourcePaginator.swift in Sources */,
@@ -500,8 +514,10 @@
 				52C6EFE61CDE2C2000394296 /* FranchiseViewController.swift in Sources */,
 				5229CCC41CD7B34C008A13BE /* FranchiseResourcePaginator.swift in Sources */,
 				5229CCC81CD7B34C008A13BE /* ObjectResourcePaginator.swift in Sources */,
+				52C6EFF01CDE840B00394296 /* ObjectViewController.swift in Sources */,
 				5229CCD41CD7B836008A13BE /* ResourcesMenuViewController.swift in Sources */,
 				5229CCC71CD7B34C008A13BE /* LocationResourcePaginator.swift in Sources */,
+				52C6EFEE1CDE69A900394296 /* LocationViewController.swift in Sources */,
 				52C6EFE81CDE378C00394296 /* PersonViewController.swift in Sources */,
 				5229CCC51CD7B34C008A13BE /* GameResourcePaginator.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,

@@ -105,11 +105,6 @@ class SearchResultsListViewController: UIViewController, UITableViewDelegate, UI
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        print("Fetching...")
-    }
-    
     /// MARK: UISearchBarDelegate
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         

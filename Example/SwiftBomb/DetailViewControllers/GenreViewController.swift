@@ -1,23 +1,23 @@
 //
-//  AccessoryViewController.swift
-//  GBAPI
+//  GenreViewController.swift
+//  SwiftBomb
 //
-//  Created by David Fox on 01/05/2016.
-//  Copyright © 2016 David Fox. All rights reserved.
+//  Created by David Fox on 07/05/2016.
+//  Copyright © 2016 CocoaPods. All rights reserved.
 //
 
 import Foundation
 import UIKit
 import SwiftBomb
 
-class AccessoryViewController: BaseResourceDetailViewController {
+class GenreViewController: BaseResourceDetailViewController {
     
-    var accessory: GBAccessoryResource?
+    var genre: GBGenreResource?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        accessory?.fetchExtendedInfo() { [weak self] error in
+        genre?.fetchExtendedInfo() { [weak self] error in
             
             self?.tableView.reloadData()
         }
@@ -40,17 +40,17 @@ class AccessoryViewController: BaseResourceDetailViewController {
         cell.textLabel?.numberOfLines = 0
         cell.textLabel?.lineBreakMode = .ByWordWrapping
         
-        var infos = [ResourceInfoTuple(value: accessory?.name, "Name:"), ResourceInfoTuple(value: accessory?.deck, "Deck:")]
+        var infos = [ResourceInfoTuple(value: genre?.name, "Name:"), ResourceInfoTuple(value: genre?.deck, "Deck:")]
         
-        if let dateAdded = accessory?.date_added {
+        if let dateAdded = genre?.date_added {
             infos.append(ResourceInfoTuple(value: dateFormatter.stringFromDate(dateAdded), "Date Added:"))
         }
         
-        if let lastUpdated = accessory?.date_last_updated {
+        if let lastUpdated = genre?.date_last_updated {
             infos.append(ResourceInfoTuple(value: dateFormatter.stringFromDate(lastUpdated), "Last Updated:"))
         }
         
-        if (accessory?.description != nil) {
+        if (genre?.description != nil) {
             infos.append(ResourceInfoTuple(value: "Tap to view", label: "Description:"))
         }
         
@@ -61,7 +61,7 @@ class AccessoryViewController: BaseResourceDetailViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        guard let description = accessory?.description else {
+        guard let description = genre?.description else {
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
             return
         }

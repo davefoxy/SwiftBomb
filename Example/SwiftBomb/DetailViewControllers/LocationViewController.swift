@@ -1,23 +1,23 @@
 //
-//  AccessoryViewController.swift
-//  GBAPI
+//  LocationViewController.swift
+//  SwiftBomb
 //
-//  Created by David Fox on 01/05/2016.
-//  Copyright © 2016 David Fox. All rights reserved.
+//  Created by David Fox on 07/05/2016.
+//  Copyright © 2016 CocoaPods. All rights reserved.
 //
 
 import Foundation
 import UIKit
 import SwiftBomb
 
-class AccessoryViewController: BaseResourceDetailViewController {
+class LocationViewController: BaseResourceDetailViewController {
     
-    var accessory: GBAccessoryResource?
+    var location: GBLocationResource?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        accessory?.fetchExtendedInfo() { [weak self] error in
+        location?.fetchExtendedInfo() { [weak self] error in
             
             self?.tableView.reloadData()
         }
@@ -30,7 +30,7 @@ class AccessoryViewController: BaseResourceDetailViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 1
+        return section == 0 ? 1 : 4
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -40,17 +40,17 @@ class AccessoryViewController: BaseResourceDetailViewController {
         cell.textLabel?.numberOfLines = 0
         cell.textLabel?.lineBreakMode = .ByWordWrapping
         
-        var infos = [ResourceInfoTuple(value: accessory?.name, "Name:"), ResourceInfoTuple(value: accessory?.deck, "Deck:")]
+        var infos = [ResourceInfoTuple(value: location?.name, "Name:"), ResourceInfoTuple(value: location?.deck, "Deck:"), ResourceInfoTuple(value: location?.aliases?.joinWithSeparator(", "), "Aliases:")]
         
-        if let dateAdded = accessory?.date_added {
+        if let dateAdded = location?.date_added {
             infos.append(ResourceInfoTuple(value: dateFormatter.stringFromDate(dateAdded), "Date Added:"))
         }
         
-        if let lastUpdated = accessory?.date_last_updated {
+        if let lastUpdated = location?.date_last_updated {
             infos.append(ResourceInfoTuple(value: dateFormatter.stringFromDate(lastUpdated), "Last Updated:"))
         }
         
-        if (accessory?.description != nil) {
+        if (location?.description != nil) {
             infos.append(ResourceInfoTuple(value: "Tap to view", label: "Description:"))
         }
         
@@ -61,11 +61,12 @@ class AccessoryViewController: BaseResourceDetailViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        guard let description = accessory?.description else {
+        guard let description = location?.description else {
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
             return
         }
         
         showWebViewController(description)
+        
     }
 }

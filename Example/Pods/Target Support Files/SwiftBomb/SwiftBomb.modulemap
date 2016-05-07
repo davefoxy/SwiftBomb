@@ -1,0 +1,6 @@
+framework module SwiftBomb {
+  umbrella header "SwiftBomb-umbrella.h"
+
+  export *
+  module * { export * }
+}

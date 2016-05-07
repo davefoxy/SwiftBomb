@@ -1,0 +1,14 @@
+PODS:
+  - SwiftBomb (0.1.0)
+
+DEPENDENCIES:
+  - SwiftBomb (from `../`)
+
+EXTERNAL SOURCES:
+  SwiftBomb:
+    :path: ../
+
+SPEC CHECKSUMS:
+  SwiftBomb: e862bf86230ad0cb55663a35d699b05ec7223531
+
+COCOAPODS: 0.39.0

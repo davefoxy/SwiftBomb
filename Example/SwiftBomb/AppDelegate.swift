@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftBomb
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        let configuration = GBAPIConfiguration(apiKey: "ZZZ", userAgentIdentifier: "GBTV")
+        GBAPI.configure(configuration)
+        
         return true
     }
 

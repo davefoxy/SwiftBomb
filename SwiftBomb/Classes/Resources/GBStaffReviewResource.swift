@@ -8,6 +8,11 @@
 
 import Foundation
 
+/**
+ A class representing a *Staff Review* on the Giant Bomb wiki. These are reviews specifically written by the editorial team at Giant Bomb.
+ 
+ To retrieve extended info for a staff review, call -`fetchExtendedInfo(completion: (error: GBAPIError?)` upon it.
+ */
 final public class GBStaffReviewResource: GBResourceUpdating {
     
     /// The resource type

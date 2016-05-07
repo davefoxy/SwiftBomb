@@ -8,6 +8,11 @@
 
 import Foundation
 
+/**
+ A class representing an *Accessory* on the Giant Bomb wiki. Examples include controllers and VR headsets.
+ 
+ To retrieve extended info for an accessory, call -`fetchExtendedInfo(completion: (error: GBAPIError?)` upon it.
+*/
 final public class GBAccessoryResource: GBResourceUpdating {
     
     /// The resource type

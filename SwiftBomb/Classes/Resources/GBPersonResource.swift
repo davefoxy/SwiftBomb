@@ -8,6 +8,11 @@
 
 import Foundation
 
+/**
+ A class representing a *Person* on the Giant Bomb wiki. Examples include *Jeff Gerstmann* and *Hideo Kojima*. These are typically real people as apposed to `GBCharacter` which represents fictional people or, in some cases, real people who appear as themselves in games.
+ 
+ To retrieve extended info for a person, call -`fetchExtendedInfo(completion: (error: GBAPIError?)` upon it.
+ */
 final public class GBPersonResource: GBResourceUpdating {
     
     /// The resource type

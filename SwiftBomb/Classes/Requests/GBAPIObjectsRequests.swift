@@ -27,6 +27,11 @@ extension GBAPI {
 
 extension GBAPIRequestFactory {
     
+    /**
+     Fetches extended info for this object. Also re-populates base data in the case where this object is a stub from another parent resource
+     
+     - parameter completion: A closure containing an optional `GBAPIError` if the request failed
+     */
     func objectRequest(query: String? = nil, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil) -> GBAPIRequest {
         
         var request = GBAPIRequest(configuration: configuration, path: "objects", method: .GET, pagination: pagination, sort: sort)

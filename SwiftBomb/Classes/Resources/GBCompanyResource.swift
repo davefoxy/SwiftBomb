@@ -8,6 +8,11 @@
 
 import Foundation
 
+/**
+ A class representing a *Company* on the Giant Bomb wiki. Examples include *Square Enix* and *Sony Computer Entertainment*. 
+ 
+ To retrieve extended info for a company, call -`fetchExtendedInfo(completion: (error: GBAPIError?)` upon it.
+ */
 final public class GBCompanyResource: GBResourceUpdating {
     
     /// The resource type

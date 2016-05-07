@@ -8,6 +8,11 @@
 
 import Foundation
 
+/**
+ A class representing a *Character* on the Giant Bomb wiki. Examples include *Solid Snake* and *Mario*. 
+ 
+ To retrieve extended info for a character, call -`fetchExtendedInfo(completion: (error: GBAPIError?)` upon it.
+ */
 final public class GBCharacterResource: GBResourceUpdating {
     
     /// The resource type

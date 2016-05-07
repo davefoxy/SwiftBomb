@@ -8,6 +8,11 @@
 
 import Foundation
 
+/**
+ A class representing a *Genre* on the Giant Bomb wiki. Examples include *Adventure* and *RPG*.
+ 
+ To retrieve extended info for a genre, call -`fetchExtendedInfo(completion: (error: GBAPIError?)` upon it.
+ */
 final public class GBGenreResource: GBResourceUpdating {
     
     /// The resource type

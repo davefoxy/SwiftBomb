@@ -8,6 +8,11 @@
 
 import Foundation
 
+/**
+ A class representing a *Franchise* on the Giant Bomb wiki. Examples include *Metal Gear Solid* and *Assassin's Creed*. 
+ 
+ To retrieve extended info for a character, call -`fetchExtendedInfo(completion: (error: GBAPIError?)` upon it.
+ */
 final public class GBFranchiseResource: GBResourceUpdating {
     
     /// The resource type

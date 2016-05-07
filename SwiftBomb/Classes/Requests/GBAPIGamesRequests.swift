@@ -42,6 +42,11 @@ extension GBAPIRequestFactory {
 
 extension GBGameResource {
     
+    /**
+     Fetches extended info for this game. Also re-populates base data in the case where this object is a stub from another parent resource
+     
+     - parameter completion: A closure containing an optional `GBAPIError` if the request failed
+     */
     public func fetchExtendedInfo(completion: (error: GBAPIError?) -> Void) {
         
         let api = GBAPI.framework

@@ -8,6 +8,11 @@
 
 import Foundation
 
+/**
+ A class representing a *Game* on the Giant Bomb wiki. Examples include *Farcry 3* and *Splatoon*.
+ 
+ To retrieve extended info for a game, call -`fetchExtendedInfo(completion: (error: GBAPIError?)` upon it.
+ */
 final public class GBGameResource: GBResourceUpdating {
     
     /// The resource type

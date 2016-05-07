@@ -8,11 +8,16 @@
 
 import Foundation
 
+/**
+ A class representing a *Game Release* on the Giant Bomb wiki. Examples include *Grand Theft Auto: UK Release* and *Spelunky: Vita Edition*. The distinction between a `GBGameResource` and `GBGameReleaseResource` can be summarised that *a game consists of releases* and they typically refer to releases in different countries, collector's editions etc.
+ 
+ To retrieve extended info for a game release, call -`fetchExtendedInfo(completion: (error: GBAPIError?)` upon it.
+ */
 final public class GBGameReleaseResource: GBResourceUpdating {
     
     /// The resource type
     public let resourceType = ResourceType.Release
-
+    
     /// URL pointing to the release detail resource
     public private(set) var api_detail_url: NSURL?
     
@@ -145,7 +150,7 @@ final public class GBGameReleaseResource: GBResourceUpdating {
 }
 
 public struct GBGameReleaseExtendedInfo: GBResourceExtendedInfo {
-
+    
     /// Companies who developed the release
     let developers: [GBCompanyResource]
     

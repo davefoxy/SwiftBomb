@@ -8,6 +8,11 @@
 
 import Foundation
 
+/**
+ A class representing a *Video* on the Giant Bomb database. This includes quick looks and other Giant Bomb-created content as well as trailers for games amongst others.
+ 
+ To retrieve extended info for a video, call -`fetchExtendedInfo(completion: (error: GBAPIError?)` upon it.
+ */
 final public class GBVideoResource: GBResourceUpdating {
 
     /// The resource type

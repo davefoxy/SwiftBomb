@@ -8,6 +8,11 @@
 
 import Foundation
 
+/**
+ A class representing an *Object* on the Giant Bomb wiki. Examples include *Map* and *Teleporter*.
+ 
+ To retrieve extended info for an object, call -`fetchExtendedInfo(completion: (error: GBAPIError?)` upon it.
+ */
 final public class GBObjectResource: GBResourceUpdating {
     
     /// The resource type

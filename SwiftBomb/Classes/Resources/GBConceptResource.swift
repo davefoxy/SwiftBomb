@@ -8,6 +8,11 @@
 
 import Foundation
 
+/**
+ A class representing a *Concept* on the Giant Bomb wiki. Examples include *Free To Play* and *Quick Time Event*.
+ 
+ To retrieve extended info for a concept, call -`fetchExtendedInfo(completion: (error: GBAPIError?)` upon it.
+ */
 final public class GBConceptResource: GBResourceUpdating {
     
     /// The resource type

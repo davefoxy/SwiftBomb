@@ -8,6 +8,9 @@
 
 import Foundation
 
+/**
+ A structure which is returned by base framework calls which contains paginated results and the meta data associated with the current page. Uses generics to strongly type the fetched resources to the expected `GBResource` type.
+*/
 public struct GBAPIPaginatedResults<T: GBResource> {
     
     /// The number of results on this page

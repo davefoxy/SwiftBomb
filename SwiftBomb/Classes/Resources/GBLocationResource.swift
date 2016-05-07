@@ -8,6 +8,11 @@
 
 import Foundation
 
+/**
+ A class representing a *Location* on the Giant Bomb wiki. Examples include *The Moon* and *Underwater*.
+ 
+ To retrieve extended info for a location, call -`fetchExtendedInfo(completion: (error: GBAPIError?)` upon it.
+ */
 final public class GBLocationResource: GBResourceUpdating {
     
     /// The resource type

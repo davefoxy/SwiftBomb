@@ -15,7 +15,7 @@ class SearchResultsListViewController: UIViewController, UITableViewDelegate, UI
     @IBOutlet weak var tableView: UITableView!
     let cellName = "ResourceTableViewCell"
     var resourcePaginator: ResourcePaginator?
-    var searchResults: GBSearchResults?
+    var searchResults: SearchResults?
     
     override func viewDidLoad() {
         
@@ -29,7 +29,7 @@ class SearchResultsListViewController: UIViewController, UITableViewDelegate, UI
         
         setLoadingPage(true)
         
-        GBAPI.performSearch(query) { [weak self] searchResults, error in
+        SwiftBomb.performSearch(query) { [weak self] searchResults, error in
             
             self?.setLoadingPage(false)
             
@@ -119,7 +119,7 @@ class SearchResultsListViewController: UIViewController, UITableViewDelegate, UI
     }
 }
 
-struct ResourceDescription<T: GBResource> {
+struct ResourceDescription<T: Resource> {
     
     let title: String
     

@@ -12,7 +12,7 @@ import SwiftBomb
 
 class ObjectViewController: BaseResourceDetailViewController {
     
-    var object: GBObjectResource?
+    var object: ObjectResource?
     
     override func viewDidLoad() {
         super.viewDidLoad()

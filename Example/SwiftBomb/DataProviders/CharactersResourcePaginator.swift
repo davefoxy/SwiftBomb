@@ -17,7 +17,7 @@ class CharactersResourcePaginator: ResourcePaginator {
     var sort: SortDefinition
     var isLoading = false
     var hasMore: Bool = true
-    var characters = [GBCharacterResource]()
+    var characters = [CharacterResource]()
     
     init(searchTerm: String? = nil, pagination: PaginationDefinition = PaginationDefinition(offset: 0, limit: 30), sort: SortDefinition = SortDefinition(field: "name", direction: .Ascending)) {
         
@@ -26,7 +26,7 @@ class CharactersResourcePaginator: ResourcePaginator {
         self.sort = sort
     }
     
-    func loadMore(completion: (cellPresenters: [ResourceItemCellPresenter]?, error: GBAPIError?) -> Void) {
+    func loadMore(completion: (cellPresenters: [ResourceItemCellPresenter]?, error: RequestError?) -> Void) {
         
         if isLoading {
             
@@ -35,7 +35,7 @@ class CharactersResourcePaginator: ResourcePaginator {
         
         isLoading = true
         
-        GBAPI.retrieveCharacters(searchTerm, pagination: pagination, sort: sort) { results, error in
+        SwiftBomb.retrieveCharacters(searchTerm, pagination: pagination, sort: sort) { results, error in
             
             self.isLoading = false
             
@@ -59,7 +59,7 @@ class CharactersResourcePaginator: ResourcePaginator {
         }
     }
     
-    func cellPresentersForResources(characters: [GBCharacterResource]) -> [ResourceItemCellPresenter] {
+    func cellPresentersForResources(characters: [CharacterResource]) -> [ResourceItemCellPresenter] {
         
         var cellPresenters = [ResourceItemCellPresenter]()
         for character in characters {

@@ -18,7 +18,7 @@ class LocationResourcePaginator: ResourcePaginator {
     var isLoading = false
     var hasMore: Bool = true
     var resourceType = ResourceType.Location
-    var locations = [GBLocationResource]()
+    var locations = [LocationResource]()
     
     init(searchTerm: String? = nil, pagination: PaginationDefinition = PaginationDefinition(offset: 0, limit: 30), sort: SortDefinition = SortDefinition(field: "name", direction: .Ascending)) {
         
@@ -27,7 +27,7 @@ class LocationResourcePaginator: ResourcePaginator {
         self.sort = sort
     }
     
-    func loadMore(completion: (cellPresenters: [ResourceItemCellPresenter]?, error: GBAPIError?) -> Void) {
+    func loadMore(completion: (cellPresenters: [ResourceItemCellPresenter]?, error: RequestError?) -> Void) {
         
         if isLoading {
             
@@ -36,7 +36,7 @@ class LocationResourcePaginator: ResourcePaginator {
         
         isLoading = true
         
-        GBAPI.retrieveLocations(searchTerm, pagination: pagination, sort: sort) { results, error in
+        SwiftBomb.retrieveLocations(searchTerm, pagination: pagination, sort: sort) { results, error in
             
             self.isLoading = false
             
@@ -60,7 +60,7 @@ class LocationResourcePaginator: ResourcePaginator {
         }
     }
     
-    func cellPresentersForResources(locations: [GBLocationResource]) -> [ResourceItemCellPresenter] {
+    func cellPresentersForResources(locations: [LocationResource]) -> [ResourceItemCellPresenter] {
         
         var cellPresenters = [ResourceItemCellPresenter]()
         for location in locations {

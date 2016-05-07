@@ -12,7 +12,7 @@ import SwiftBomb
 
 class AccessoryViewController: BaseResourceDetailViewController {
     
-    var accessory: GBAccessoryResource?
+    var accessory: AccessoryResource?
     
     override func viewDidLoad() {
         super.viewDidLoad()

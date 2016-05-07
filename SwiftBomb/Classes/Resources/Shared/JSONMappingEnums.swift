@@ -1,6 +1,6 @@
 //
 //  JSONMappingEnums.swift
-//  GBAPI
+//  SwiftBomb
 //
 //  Created by David Fox on 22/04/2016.
 //  Copyright © 2016 David Fox. All rights reserved.
@@ -11,7 +11,7 @@ import Foundation
 // Definition of a standard string to anyobject dictionary mapping
 typealias JSONDict = [String: AnyObject]
 
-/// Enum to define a character's gender. Used for strong-typing the `gender` variable
+/// Enum to define a `Character`'s gender. Used for strong-typing the `gender` variable
 public enum Gender: Int {
     case Unknown = 0, Male, Female, Other
     

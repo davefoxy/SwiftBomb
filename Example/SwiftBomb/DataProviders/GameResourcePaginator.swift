@@ -19,7 +19,7 @@ class GameResourcePaginator: ResourcePaginator {
     var hasMore: Bool = true
     var resourceType = ResourceType.Game
     let dateFormatter = NSDateFormatter()
-    var games = [GBGameResource]()
+    var games = [GameResource]()
     
     init(searchTerm: String? = nil, pagination: PaginationDefinition = PaginationDefinition(offset: 0, limit: 30), sort: SortDefinition = SortDefinition(field: "name", direction: .Ascending)) {
         
@@ -29,7 +29,7 @@ class GameResourcePaginator: ResourcePaginator {
         self.sort = sort
     }
     
-    func loadMore(completion: (cellPresenters: [ResourceItemCellPresenter]?, error: GBAPIError?) -> Void) {
+    func loadMore(completion: (cellPresenters: [ResourceItemCellPresenter]?, error: RequestError?) -> Void) {
         
         if isLoading {
             
@@ -38,7 +38,7 @@ class GameResourcePaginator: ResourcePaginator {
         
         isLoading = true
         
-        GBAPI.retrieveGames(searchTerm, pagination: pagination, sort: sort) { results, error in
+        SwiftBomb.retrieveGames(searchTerm, pagination: pagination, sort: sort) { results, error in
             
             self.isLoading = false
             
@@ -62,7 +62,7 @@ class GameResourcePaginator: ResourcePaginator {
         }
     }
     
-    func cellPresentersForResources(games: [GBGameResource]) -> [ResourceItemCellPresenter] {
+    func cellPresentersForResources(games: [GameResource]) -> [ResourceItemCellPresenter] {
         
         var cellPresenters = [ResourceItemCellPresenter]()
         for game in games {

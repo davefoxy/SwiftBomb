@@ -19,7 +19,7 @@ class CompanyResourcePaginator: ResourcePaginator {
     var hasMore: Bool = true
     var resourceType = ResourceType.Company
     let dateFormatter = NSDateFormatter()
-    var companies = [GBCompanyResource]()
+    var companies = [CompanyResource]()
 
     init(searchTerm: String? = nil, pagination: PaginationDefinition = PaginationDefinition(offset: 0, limit: 30), sort: SortDefinition = SortDefinition(field: "name", direction: .Ascending)) {
         
@@ -29,7 +29,7 @@ class CompanyResourcePaginator: ResourcePaginator {
         self.sort = sort
     }
     
-    func loadMore(completion: (cellPresenters: [ResourceItemCellPresenter]?, error: GBAPIError?) -> Void) {
+    func loadMore(completion: (cellPresenters: [ResourceItemCellPresenter]?, error: RequestError?) -> Void) {
         
         if isLoading {
             
@@ -38,7 +38,7 @@ class CompanyResourcePaginator: ResourcePaginator {
         
         isLoading = true
         
-        GBAPI.retrieveCompanies(searchTerm, pagination: pagination, sort: sort) { results, error in
+        SwiftBomb.retrieveCompanies(searchTerm, pagination: pagination, sort: sort) { results, error in
             
             self.isLoading = false
             
@@ -62,7 +62,7 @@ class CompanyResourcePaginator: ResourcePaginator {
         }
     }
     
-    func cellPresentersForResources(companies: [GBCompanyResource]) -> [ResourceItemCellPresenter] {
+    func cellPresentersForResources(companies: [CompanyResource]) -> [ResourceItemCellPresenter] {
         
         var cellPresenters = [ResourceItemCellPresenter]()
         for company in companies {

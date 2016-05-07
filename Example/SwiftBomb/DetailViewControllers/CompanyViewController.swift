@@ -12,7 +12,7 @@ import SwiftBomb
 
 class CompanyViewController: BaseResourceDetailViewController {
     
-    var company: GBCompanyResource?
+    var company: CompanyResource?
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -14,11 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        let configuration = GBAPIConfiguration(apiKey: "ZZZ", loggingLevel: .Requests, userAgentIdentifier: "GBTV")
-        GBAPI.configure(configuration)
+        let configuration = Configuration(apiKey: "YOUR_API_KEY", loggingLevel: .Requests, userAgentIdentifier: "Your User Agent")
+        SwiftBomb.configure(configuration)
         
         return true
     }

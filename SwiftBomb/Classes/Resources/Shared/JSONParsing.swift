@@ -1,6 +1,6 @@
 //
 //  JSONParsing.swift
-//  GBAPI
+//  SwiftBomb
 //
 //  Created by David Fox on 17/04/2016.
 //  Copyright © 2016 David Fox. All rights reserved.
@@ -31,7 +31,7 @@ extension Dictionary where Key: StringLiteralConvertible, Value: AnyObject {
     /**
      Returns an array of resources from a json payload containing a subarray found within `key`
      */
-    func jsonMappedResources<T: GBResource>(key: Key) -> [T] {
+    func jsonMappedResources<T: Resource>(key: Key) -> [T] {
         
         var resources = [T]()
         
@@ -87,7 +87,7 @@ extension String {
      */
     func newlineSeparatedStrings() -> [String] {
         
-        var cleaned = self.stringByReplacingOccurrencesOfString("\r\n", withString: "\n")
+        let cleaned = self.stringByReplacingOccurrencesOfString("\r\n", withString: "\n")
         return cleaned.componentsSeparatedByString("\n")
     }
     

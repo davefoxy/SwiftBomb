@@ -12,7 +12,7 @@ import SwiftBomb
 
 class GenreViewController: BaseResourceDetailViewController {
     
-    var genre: GBGenreResource?
+    var genre: GenreResource?
     
     override func viewDidLoad() {
         super.viewDidLoad()

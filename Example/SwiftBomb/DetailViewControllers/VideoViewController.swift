@@ -12,7 +12,7 @@ import SwiftBomb
 
 class VideoViewController: BaseResourceDetailViewController {
     
-    var video: GBVideoResource?
+    var video: VideoResource?
     
     override func viewDidLoad() {
         super.viewDidLoad()

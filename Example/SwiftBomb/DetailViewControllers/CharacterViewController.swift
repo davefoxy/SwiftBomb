@@ -12,7 +12,7 @@ import SwiftBomb
 
 class CharacterViewController: BaseResourceDetailViewController {
     
-    var character: GBCharacterResource?
+    var character: CharacterResource?
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -12,7 +12,7 @@ import SwiftBomb
 
 class GameViewController: BaseResourceDetailViewController {
     
-    var game: GBGameResource?
+    var game: GameResource?
     
     override func viewDidLoad() {
         super.viewDidLoad()

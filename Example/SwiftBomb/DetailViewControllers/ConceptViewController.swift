@@ -12,7 +12,7 @@ import SwiftBomb
 
 class ConceptViewController: BaseResourceDetailViewController {
     
-    var concept: GBConceptResource?
+    var concept: ConceptResource?
     
     override func viewDidLoad() {
         super.viewDidLoad()

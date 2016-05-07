@@ -18,7 +18,7 @@ class GenreResourcePaginator: ResourcePaginator {
     var isLoading = false
     var hasMore: Bool = true
     var resourceType = ResourceType.Genre
-    var genres = [GBGenreResource]()
+    var genres = [GenreResource]()
 
     init(searchTerm: String? = nil, pagination: PaginationDefinition = PaginationDefinition(offset: 0, limit: 30), sort: SortDefinition = SortDefinition(field: "name", direction: .Ascending)) {
         
@@ -27,7 +27,7 @@ class GenreResourcePaginator: ResourcePaginator {
         self.sort = sort
     }
     
-    func loadMore(completion: (cellPresenters: [ResourceItemCellPresenter]?, error: GBAPIError?) -> Void) {
+    func loadMore(completion: (cellPresenters: [ResourceItemCellPresenter]?, error: RequestError?) -> Void) {
         
         if isLoading {
             
@@ -36,7 +36,7 @@ class GenreResourcePaginator: ResourcePaginator {
         
         isLoading = true
         
-        GBAPI.retrieveGenres(searchTerm, pagination: pagination, sort: sort) { results, error in
+        SwiftBomb.retrieveGenres(searchTerm, pagination: pagination, sort: sort) { results, error in
             
             self.isLoading = false
             
@@ -60,7 +60,7 @@ class GenreResourcePaginator: ResourcePaginator {
         }
     }
     
-    func cellPresentersForResources(genres: [GBGenreResource]) -> [ResourceItemCellPresenter] {
+    func cellPresentersForResources(genres: [GenreResource]) -> [ResourceItemCellPresenter] {
         
         var cellPresenters = [ResourceItemCellPresenter]()
         for genre in genres {

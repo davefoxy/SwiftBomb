@@ -18,7 +18,7 @@ class FranchiseResourcePaginator: ResourcePaginator {
     var isLoading = false
     var hasMore: Bool = true
     var resourceType = ResourceType.Franchise
-    var franchises = [GBFranchiseResource]()
+    var franchises = [FranchiseResource]()
     
     init(searchTerm: String? = nil, pagination: PaginationDefinition = PaginationDefinition(offset: 0, limit: 30), sort: SortDefinition = SortDefinition(field: "name", direction: .Ascending)) {
         
@@ -27,7 +27,7 @@ class FranchiseResourcePaginator: ResourcePaginator {
         self.sort = sort
     }
     
-    func loadMore(completion: (cellPresenters: [ResourceItemCellPresenter]?, error: GBAPIError?) -> Void) {
+    func loadMore(completion: (cellPresenters: [ResourceItemCellPresenter]?, error: RequestError?) -> Void) {
         
         if isLoading {
             
@@ -36,7 +36,7 @@ class FranchiseResourcePaginator: ResourcePaginator {
         
         isLoading = true
         
-        GBAPI.retrieveFranchises(searchTerm, pagination: pagination, sort: sort) { results, error in
+        SwiftBomb.retrieveFranchises(searchTerm, pagination: pagination, sort: sort) { results, error in
             
             self.isLoading = false
             
@@ -60,7 +60,7 @@ class FranchiseResourcePaginator: ResourcePaginator {
         }
     }
     
-    func cellPresentersForResources(games: [GBFranchiseResource]) -> [ResourceItemCellPresenter] {
+    func cellPresentersForResources(games: [FranchiseResource]) -> [ResourceItemCellPresenter] {
         
         var cellPresenters = [ResourceItemCellPresenter]()
         for franchise in franchises {

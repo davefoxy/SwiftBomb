@@ -12,7 +12,7 @@ import SwiftBomb
 
 class LocationViewController: BaseResourceDetailViewController {
     
-    var location: GBLocationResource?
+    var location: LocationResource?
     
     override func viewDidLoad() {
         super.viewDidLoad()

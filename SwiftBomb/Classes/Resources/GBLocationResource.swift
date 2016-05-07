@@ -58,12 +58,7 @@ final public class GBLocationResource: GBResourceUpdating {
     
     func update(json: [String : AnyObject]) {
         
-        if let aliasesString = json["aliases"] as? String {
-            aliases = aliasesString.componentsSeparatedByString("\n")
-        } else {
-            aliases = [String]()
-        }
-        
+        aliases = (json["aliases"] as? String)?.newlineSeparatedStrings()
         api_detail_url = (json["api_detail_url"] as? String)?.url()
         date_added = (json["date_added"] as? String)?.dateRepresentation()
         date_last_updated = (json["date_last_updated"] as? String)?.dateRepresentation()

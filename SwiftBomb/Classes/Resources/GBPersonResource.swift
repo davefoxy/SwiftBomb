@@ -73,12 +73,7 @@ final public class GBPersonResource: GBResourceUpdating {
     
     func update(json: [String : AnyObject]) {
         
-        if let aliasesString = json["aliases"] as? String {
-            aliases = aliasesString.componentsSeparatedByString("\n")
-        } else {
-            aliases = [String]()
-        }
-        
+        aliases = (json["aliases"] as? String)?.newlineSeparatedStrings()
         api_detail_url = (json["api_detail_url"] as? String)?.url()
         birth_date = (json["birthday_date"] as? String)?.shortDateRepresentation()
         country = json["country"] as? String

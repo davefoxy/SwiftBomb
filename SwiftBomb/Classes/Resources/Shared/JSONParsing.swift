@@ -83,6 +83,15 @@ extension String {
     }
     
     /**
+     Splits and returns an array of objects which are separated by a new line. Used in parsing the common `aliases` property
+     */
+    func newlineSeparatedStrings() -> [String] {
+        
+        var cleaned = self.stringByReplacingOccurrencesOfString("\r\n", withString: "\n")
+        return cleaned.componentsSeparatedByString("\n")
+    }
+    
+    /**
      Creates a date from strings defined in things like created_at etc
      */
     func dateRepresentation() -> NSDate? {

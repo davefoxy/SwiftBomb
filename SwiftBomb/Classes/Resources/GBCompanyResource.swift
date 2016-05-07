@@ -79,12 +79,7 @@ final public class GBCompanyResource: GBResourceUpdating {
     
     func update(json: [String : AnyObject]) {
         
-        if let aliasesString = json["aliases"] as? String {
-            aliases = aliasesString.componentsSeparatedByString("\n")
-        } else {
-            aliases = [String]()
-        }
-        
+        aliases = (json["aliases"] as? String)?.newlineSeparatedStrings()
         abbreviation = json["abbreviation"] as? String
         api_detail_url = (json["api_detail_url"] as? String)?.url()
         date_added = (json["date_added"] as? String)?.dateRepresentation()

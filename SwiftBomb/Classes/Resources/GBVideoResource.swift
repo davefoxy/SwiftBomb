@@ -8,58 +8,64 @@
 
 import Foundation
 
-final public class GBVideoResource: GBResource {
+final public class GBVideoResource: GBResourceUpdating {
 
     /// The resource type
     public let resourceType = ResourceType.Video
     
     /// URL pointing to the video detail resource
-    public let api_detail_url: NSURL?
+    public private(set) var api_detail_url: NSURL?
     
     /// Brief summary of the video
-    public let deck: String?
+    public private(set) var deck: String?
     
     /// Unique ID of the video
     public let id: Int?
     
     /// Length (in seconds) of the video
-    public let length_seconds: Int?
+    public private(set) var length_seconds: Int?
     
     /// Name of the video
-    public let name: String?
+    public private(set) var name: String?
     
     /// Date the video was published on Giant Bomb
-    public let publish_date: NSDate?
+    public private(set) var publish_date: NSDate?
     
     /// URL pointing to the video on Giant Bomb
-    public let site_detail_url: NSURL?
+    public private(set) var site_detail_url: NSURL?
     
     /// Author of the video
-    public let user: String?
+    public private(set) var user: String?
     
     /// Video category
-    public let video_type: String?
+    public private(set) var video_type: String?
     
     /// Youtube ID for the video
-    public let youtube_id: String?
+    public private(set) var youtube_id: String?
     
     /// The video's filename
-    public let url: String?
+    public private(set) var url: String?
     
     // Container for the video's image
-    public let image: GBImageURLs?
+    public private(set) var image: GBImageURLs?
     
     // Container for the video's URLs
-    public let video: GBVideoURLs?
+    public private(set) var video: GBVideoURLs?
     
     /// Extended info
     public var extendedInfo: GBUnusedExtendedInfo?
     
-    public init(json: [String: AnyObject]) {
+    public init(json: [String : AnyObject]) {
+        
+        id = json["id"] as? Int
+        
+        update(json)
+    }
+    
+    func update(json: [String : AnyObject]) {
         
         api_detail_url = (json["api_detail_url"] as? String)?.url()
         deck = json["deck"] as? String
-        id = json["id"] as? Int
         length_seconds = json["length_seconds"] as? Int
         name = json["name"] as? String
         publish_date = (json["publish_date"] as? String)?.dateRepresentation()

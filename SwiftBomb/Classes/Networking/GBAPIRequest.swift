@@ -58,21 +58,21 @@ struct GBAPIRequest {
     func urlRequest() -> NSURLRequest {
         
         // Build base URL components
-        let components = NSURLComponents(string: path)
-        components?.scheme = "http"
-        components?.host = configuration.baseAPIURL.host
-        components?.path = "\(configuration.baseAPIURL.path!)/\(path)"
+        let components = NSURLComponents()
+        components.scheme = configuration.baseAPIURL.scheme
+        components.host = configuration.baseAPIURL.host
+        components.path = "\(configuration.baseAPIURL.path!)/\(path)"
         
         // Query string
-        var query = responseFormat == .JSON ? "format=json&" : ""
+        var query = responseFormat == .JSON ? "format=json&" : "format=xml&"
         for (key, value) in urlParameters {
             query += "\(key)=\(value)&"
         }
         query = query.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "&"))
-        components?.query = query
+        components.query = query
         
         // Generate the URL
-        let url = components?.URL
+        let url = components.URL
         
         // Create the URL request
         let urlRequest = NSMutableURLRequest(URL: url!)

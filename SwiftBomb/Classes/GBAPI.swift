@@ -13,10 +13,10 @@ import Foundation
  */
 public struct GBAPIConfiguration {
     
-    /// An enum specifying the various levels of logging the framework should make. `None` should be used in production
+    /// An enum specifying the various levels of logging the framework should make. `None` should be used in production.
     public enum GBAPILoggingLevel {
         
-        /// No logs will be made by the framework
+        /// No logs will be made by the framework.
         case None
         
         /// Requests will be logged when being sent to the Giant Bomb API.
@@ -29,7 +29,7 @@ public struct GBAPIConfiguration {
     let apiKey: String
     let userAgentIdentifier: String?
     let baseURL = NSURL(string: "http://www.giantbomb.com")!
-    let baseAPIURL = NSURL(string: "http://www.giantbomb.com/api/")!
+    let baseAPIURL = NSURL(string: "http://www.giantbomb.com/api")!
     let loggingLevel: GBAPILoggingLevel
     
     public init(apiKey: String, loggingLevel: GBAPILoggingLevel = .RequestsAndResponses, userAgentIdentifier: String? = nil) {
@@ -46,6 +46,7 @@ public class GBAPI {
     var requestFactory: GBAPIRequestFactory?
     var networkingManager: GBAPINetworkingManager?
     
+    /// Client apps **must** call this method and pass in an instance of `GBAPIConfiguration`. Typically happens in the application delegate.
     public static func configure(configuration: GBAPIConfiguration) {
         
         let api = GBAPI.framework

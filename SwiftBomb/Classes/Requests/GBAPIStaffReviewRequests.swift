@@ -24,9 +24,9 @@ extension GBAPIRequestFactory {
 extension GBGameResource {
     
     /**
-     Fetches extended info for this staff review. Also re-populates base data in the case where this object is a stub from another parent resource
+     Retrieves a paginated list of `GBStaffReviewResource` instances for this game.
      
-     - parameter completion: A closure containing an optional `GBAPIError` if the request failed
+     - Parameter completion: A closure returning an optional generic `GBAPIPaginatedResults` object containing the returned `GBAccessoryResource` objects and pagination information and also, an optional `GBAPIError` object if the request failed.
      */
     public func fetchStaffReviews(completion: (GBAPIPaginatedResults<GBStaffReviewResource>?, error: GBAPIError?) -> Void) {
         

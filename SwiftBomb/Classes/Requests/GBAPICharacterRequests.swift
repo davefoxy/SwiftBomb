@@ -10,6 +10,14 @@ import Foundation
 
 extension GBAPI {
     
+    /**
+     Retrieves a paginated list of `GBCharacterResource` instances. This list can be filtered to a search term, paginated and sorted.
+     
+     - Parameter query: An optional search term used to filter for a particular character.
+     - Parameter pagination: An optional `PaginationDefinition` to define the limit and offset when paginating results.
+     - Parameter sort: An optional `SortDefinition` to define how the results should be sorted.
+     - Parameter completion: A closure returning an optional generic `GBAPIPaginatedResults` object containing the returned `GBCharacterResource` objects and pagination information and also, an optional `GBAPIError` object if the request failed.
+     */
     public static func retrieveCharacters(name: String? = nil, pagination: PaginationDefinition?, sort: SortDefinition?, completion: (GBAPIPaginatedResults<GBCharacterResource>?, error: GBAPIError?) -> Void) {
         
         let instance = GBAPI.framework

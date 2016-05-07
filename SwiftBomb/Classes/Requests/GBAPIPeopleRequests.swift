@@ -10,6 +10,14 @@ import Foundation
 
 extension GBAPI {
     
+    /**
+     Retrieves a paginated list of `GBPersonResource` instances. This list can be filtered to a search term, paginated and sorted.
+     
+     - Parameter query: An optional search term used to filter for a particular person.
+     - Parameter pagination: An optional `PaginationDefinition` to define the limit and offset when paginating results.
+     - Parameter sort: An optional `SortDefinition` to define how the results should be sorted.
+     - Parameter completion: A closure returning an optional generic `GBAPIPaginatedResults` object containing the returned `GBPersonResource` objects and pagination information and also, an optional `GBAPIError` object if the request failed.
+     */
     public static func retrievePeople(query: String? = nil, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil, completion: (GBAPIPaginatedResults<GBPersonResource>?, error: GBAPIError?) -> Void) {
         
         let instance = GBAPI.framework

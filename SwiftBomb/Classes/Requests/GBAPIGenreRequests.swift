@@ -29,8 +29,9 @@ extension GBAPIRequestFactory {
     
     func genreRequest(query: String? = nil, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil) -> GBAPIRequest {
         
-        var request = GBAPIRequest(baseURL: configuration.baseURL, path: "api/genres", method: .GET, pagination: pagination, sort: sort)
+        var request = GBAPIRequest(configuration: configuration, path: "genres", method: .GET, pagination: pagination, sort: sort)
         addAuthentication(&request)
+        
         if let query = query {
             request.addURLParameter("filter", value: "name:\(query)")
         }
@@ -48,7 +49,7 @@ extension GBGenreResource {
         guard
             let networkingManager = api.networkingManager,
             let id = id,
-            let request = api.requestFactory?.simpleRequest("api/genre/\(id)/") else {
+            let request = api.requestFactory?.simpleRequest("genre/\(id)/") else {
                 completion(error: .FrameworkConfigError)
                 return
         }

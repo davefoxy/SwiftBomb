@@ -50,7 +50,7 @@ final class GBAPIRequestFactory {
     // MARK: Base requests
     func simpleRequest(path: String) -> GBAPIRequest {
         
-        var request = GBAPIRequest(baseURL: configuration.baseURL, path: path, method: .GET)
+        var request = GBAPIRequest(configuration: configuration, path: path, method: .GET)
         addAuthentication(&request)
         
         return request

@@ -48,8 +48,9 @@ extension GBAPIRequestFactory {
     
     func searchRequest(query: String? = nil, resourceTypes: [ResourceType]? = nil, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil) -> GBAPIRequest {
         
-        var request = GBAPIRequest(baseURL: configuration.baseURL, path: "api/search/", method: .GET, pagination: pagination, sort: sort)
+        var request = GBAPIRequest(configuration: configuration, path: "search", method: .GET, pagination: pagination, sort: sort)
         addAuthentication(&request)
+        
         if let query = query {
             request.addURLParameter("query", value: query)
         }

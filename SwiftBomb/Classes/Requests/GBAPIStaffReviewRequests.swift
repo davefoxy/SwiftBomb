@@ -12,8 +12,9 @@ extension GBAPIRequestFactory {
     
     func staffReviewRequest(game: GBGameResource, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil) -> GBAPIRequest {
         
-        var request = GBAPIRequest(baseURL: configuration.baseURL, path: "api/reviews", method: .GET, pagination: pagination, sort: sort)
+        var request = GBAPIRequest(configuration: configuration, path: "reviews", method: .GET, pagination: pagination, sort: sort)
         addAuthentication(&request)
+        
         request.addURLParameter("filter", value: "game:\(game.id)")
         
         return request

@@ -29,8 +29,9 @@ extension GBAPIRequestFactory {
     
     func accessoriesRequest(query: String? = nil, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil) -> GBAPIRequest {
         
-        var request = GBAPIRequest(baseURL: configuration.baseURL, path: "api/accessories", method: .GET, pagination: pagination, sort: sort)
+        var request = GBAPIRequest(configuration: configuration, path: "accessories", method: .GET, pagination: pagination, sort: sort)
         addAuthentication(&request)
+        
         if let query = query {
             request.addURLParameter("filter", value: "name:\(query)")
         }

@@ -29,8 +29,9 @@ extension GBAPIRequestFactory {
     
     func objectRequest(query: String? = nil, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil) -> GBAPIRequest {
         
-        var request = GBAPIRequest(baseURL: configuration.baseURL, path: "api/objects", method: .GET, pagination: pagination, sort: sort)
+        var request = GBAPIRequest(configuration: configuration, path: "objects", method: .GET, pagination: pagination, sort: sort)
         addAuthentication(&request)
+        
         if let query = query {
             request.addURLParameter("filter", value: "name:\(query)")
         }
@@ -48,7 +49,7 @@ extension GBObjectResource {
         guard
             let networkingManager = api.networkingManager,
             let id = id,
-            let request = api.requestFactory?.simpleRequest("api/object/\(id)/") else {
+            let request = api.requestFactory?.simpleRequest("object/\(id)/") else {
                 completion(error: .FrameworkConfigError)
                 return
         }

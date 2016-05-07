@@ -29,8 +29,9 @@ extension GBAPIRequestFactory {
     
     func charactersRequest(name: String? = nil, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil) -> GBAPIRequest {
         
-        var request = GBAPIRequest(baseURL: configuration.baseURL, path: "api/characters/", method: .GET, pagination: pagination, sort: sort)
+        var request = GBAPIRequest(configuration: configuration, path: "characters", method: .GET, pagination: pagination, sort: sort)
         addAuthentication(&request)
+        
         if let name = name {
             request.addURLParameter("filter", value: "name:\(name)")
         }
@@ -48,7 +49,7 @@ extension GBCharacterResource {
         guard
             let networkingManager = api.networkingManager,
             let id = id,
-            let request = api.requestFactory?.simpleRequest("api/character/\(id)/") else {
+            let request = api.requestFactory?.simpleRequest("character/\(id)/") else {
                 completion(error: .FrameworkConfigError)
                 return
         }

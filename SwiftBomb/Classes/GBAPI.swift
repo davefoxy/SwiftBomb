@@ -11,10 +11,11 @@ import Foundation
 public struct GBAPIConfiguration {
     
     var apiKey: String
-    var userAgentIdentifier: String
-    let baseURL = NSURL(string: "http://www.giantbomb.com/api/")!
+    var userAgentIdentifier: String?
+    let baseURL = NSURL(string: "http://www.giantbomb.com")!
+    let baseAPIURL = NSURL(string: "http://www.giantbomb.com/api/")!
     
-    public init(apiKey: String, userAgentIdentifier: String) {
+    public init(apiKey: String, userAgentIdentifier: String? = nil) {
         
         self.apiKey = apiKey
         self.userAgentIdentifier = userAgentIdentifier

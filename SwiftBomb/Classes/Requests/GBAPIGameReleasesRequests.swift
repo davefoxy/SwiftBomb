@@ -29,8 +29,9 @@ extension GBAPIRequestFactory {
     
     func gameReleasesRequest(query: String? = nil, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil) -> GBAPIRequest {
         
-        var request = GBAPIRequest(baseURL: configuration.baseURL, path: "api/releases", method: .GET, pagination: pagination, sort: sort)
+        var request = GBAPIRequest(configuration: configuration, path: "releases", method: .GET, pagination: pagination, sort: sort)
         addAuthentication(&request)
+        
         if let query = query {
             request.addURLParameter("filter", value: "name:\(query)")
         }
@@ -48,7 +49,7 @@ extension GBGameReleaseResource {
         guard
             let networkingManager = api.networkingManager,
             let id = id,
-            let request = api.requestFactory?.simpleRequest("api/release/\(id)/") else {
+            let request = api.requestFactory?.simpleRequest("release/\(id)/") else {
                 completion(error: .FrameworkConfigError)
                 return
         }

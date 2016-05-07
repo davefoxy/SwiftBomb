@@ -29,8 +29,9 @@ extension GBAPIRequestFactory {
     
     func franchisesRequest(query: String? = nil, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil) -> GBAPIRequest {
         
-        var request = GBAPIRequest(baseURL: configuration.baseURL, path: "api/franchises", method: .GET, pagination: pagination, sort: sort)
+        var request = GBAPIRequest(configuration: configuration, path: "franchises", method: .GET, pagination: pagination, sort: sort)
         addAuthentication(&request)
+
         if let query = query {
             request.addURLParameter("filter", value: "name:\(query)")
         }
@@ -49,7 +50,7 @@ extension GBFranchiseResource {
         guard
             let networkingManager = api.networkingManager,
             let id = id,
-            let request = api.requestFactory?.simpleRequest("api/franchise/\(id)/") else {
+            let request = api.requestFactory?.simpleRequest("franchise/\(id)/") else {
                 completion(error: .FrameworkConfigError)
                 return
         }

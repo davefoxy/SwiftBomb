@@ -29,8 +29,9 @@ extension GBAPIRequestFactory {
     
     func gamesRequest(query: String? = nil, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil) -> GBAPIRequest {
         
-        var request = GBAPIRequest(baseURL: configuration.baseURL, path: "api/games", method: .GET, pagination: pagination, sort: sort)
+        var request = GBAPIRequest(configuration: configuration, path: "games", method: .GET, pagination: pagination, sort: sort)
         addAuthentication(&request)
+        
         if let query = query {
             request.addURLParameter("filter", value: "name:\(query)")
         }
@@ -48,7 +49,7 @@ extension GBGameResource {
         guard
             let networkingManager = api.networkingManager,
             let id = id,
-            let request = api.requestFactory?.simpleRequest("api/game/\(id)/") else {
+            let request = api.requestFactory?.simpleRequest("game/\(id)/") else {
                 completion(error: .FrameworkConfigError)
                 return
         }

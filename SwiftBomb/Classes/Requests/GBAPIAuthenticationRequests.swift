@@ -22,7 +22,7 @@ extension GBAPIRequestFactory {
     
     func authenticationRegCodeRequest() -> GBAPIRequest {
         
-        var request = GBAPIRequest(baseURL: configuration.baseURL, path: "apple-tv/get-code", method: .GET)
+        var request = GBAPIRequest(configuration: configuration, path: "apple-tv/get-code", method: .GET)
         request.responseFormat = .XML
         request.addURLParameter("deviceID", value: "XXX") // TODO: real value
         
@@ -31,7 +31,7 @@ extension GBAPIRequestFactory {
     
     func authenticationAPIKeyRequest(regCode: String) -> GBAPIRequest {
         
-        var request = GBAPIRequest(baseURL: configuration.baseURL, path: "apple-tv/get-result", method: .GET)
+        var request = GBAPIRequest(configuration: configuration, path: "apple-tv/get-result", method: .GET)
         request.addURLParameter("deviceID", value: "XXX") // TODO: real value
         request.addURLParameter("partner", value: "apple-tv")
         request.addURLParameter("regCode", value: regCode)

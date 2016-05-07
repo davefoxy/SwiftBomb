@@ -29,7 +29,7 @@ extension GBAPIRequestFactory {
     
     func videosRequest(query: String?, pagination: PaginationDefinition?, sort: SortDefinition?) -> GBAPIRequest {
         
-        var request = GBAPIRequest(baseURL: configuration.baseURL, path: "api/videos", method: .GET, pagination: pagination, sort: sort)
+        var request = GBAPIRequest(configuration: configuration, path: "videos", method: .GET, pagination: pagination, sort: sort)
         addAuthentication(&request)
         
         if let query = query {

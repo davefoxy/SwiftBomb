@@ -20,7 +20,7 @@ struct GBAPIRequest {
         case XML
     }
     
-    let baseURL: NSURL
+    let configuration: GBAPIConfiguration
     let path: String
     let method: Method
     var responseFormat = ResponseFormat.JSON
@@ -28,9 +28,9 @@ struct GBAPIRequest {
     private (set) var headers: [String: String] = [:]
     private (set) var body: NSData?
     
-    init(baseURL: NSURL, path: String, method: Method, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil) {
+    init(configuration: GBAPIConfiguration, path: String, method: Method, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil) {
         
-        self.baseURL = baseURL
+        self.configuration = configuration
         self.path = path
         self.method = method
         
@@ -57,11 +57,13 @@ struct GBAPIRequest {
     /// Returns the appropriate NSURLRequest for use in the networking manager
     func urlRequest() -> NSURLRequest {
         
+        // Build base URL components
         let components = NSURLComponents(string: path)
         components?.scheme = "http"
-        components?.host = "www.giantbomb.com" // TODO: rework and use from baseURL
-        components?.path = "/\(path)"
+        components?.host = configuration.baseAPIURL.host
+        components?.path = "\(configuration.baseAPIURL.path!)/\(path)"
         
+        // Query string
         var query = responseFormat == .JSON ? "format=json&" : ""
         for (key, value) in urlParameters {
             query += "\(key)=\(value)&"
@@ -69,13 +71,22 @@ struct GBAPIRequest {
         query = query.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "&"))
         components?.query = query
         
+        // Generate the URL
         let url = components?.URL
         
+        // Create the URL request
         let urlRequest = NSMutableURLRequest(URL: url!)
         urlRequest.HTTPMethod = method.rawValue
         
+        // Headers
         urlRequest.allHTTPHeaderFields = headers
         
+        // User agent (optional)
+        if let userAgent = configuration.userAgentIdentifier {
+            urlRequest.setValue(userAgent, forHTTPHeaderField: "User-Agent")
+        }
+        
+        // Body
         if let body = body {
             urlRequest.HTTPBody = body
         }

@@ -8,11 +8,21 @@
 
 import Foundation
 
+/**
+ A struct which the client app is required to instantiate and pass into the API instance containing the user's API key, optional level of logging and user agent.
+ */
 public struct GBAPIConfiguration {
     
+    /// An enum specifying the various levels of logging the framework should make. `None` should be used in production
     public enum GBAPILoggingLevel {
+        
+        /// No logs will be made by the framework
         case None
+        
+        /// Requests will be logged when being sent to the Giant Bomb API.
         case Requests
+        
+        /// Requests and the resulting response headers will be logged.
         case RequestsAndResponses
     }
     

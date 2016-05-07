@@ -13,18 +13,42 @@ public enum GBAPIRequestResult<T> {
     case Error(GBAPIError)
 }
 
+/**
+ An enum returned by network requests which defines the various errors which can occur during communication with the Giant Bomb API.
+ */
 public enum GBAPIError: ErrorType {
+    
+    /// An issue with constructing the required framework components to make the request. Typically occurs when the framework hasn't been initialized with a `GBAPIConfiguration`.
     case FrameworkConfigError
+    
+    /// An error making the request such as no network signal. Contains a reference to the actual NSError object.
     case NetworkError(NSError?)
+    
+    /// An error parsing the response from the server. Contains a reference to the actual NSError object.
     case ResponseSerializationError(NSError?)
+    
+    /// An error specifically returned by the Giant Bomb API. Contains the appropriate enum as defined in `GBAPIResourceRequestError`
     case RequestError(GBAPIResourceRequestError)
 }
 
+/**
+ An enum representing the possible error codes the Giant Bomb API can throw back in it's responses.
+ */
 public enum GBAPIResourceRequestError: Int {
+    
+    /// An invalid API key was provided. Check the API has been initialised with an appropriate `GBAPIConfiguration` and that the provided API key is OK.
     case InvalidAPIKey = 100
+    
+    /// An invalid resource was requested.
     case ResourceNotFound = 101
+    
+    /// An issue with the request. If you receive this issue, please file a bug on the Github repo.
     case MalformedRequest = 102
+    
+    /// An error with the filter type passed in.
     case FilterError = 104
+    
+    /// A subscriber-only video was requested with a free member's API key.
     case SubscriberOnlyVideo = 105
 }
 
@@ -78,7 +102,7 @@ class GBAPIURLSessionManager: GBAPINetworkingManager {
                     let json = json as? [String: AnyObject],
                     let resultJSON = json["results"] as? [String: AnyObject]
                     else {
-                        dispatch_async(dispatch_get_main_queue(), { 
+                        dispatch_async(dispatch_get_main_queue(), {
                             completion(error: .ResponseSerializationError(nil))
                         })
                         return

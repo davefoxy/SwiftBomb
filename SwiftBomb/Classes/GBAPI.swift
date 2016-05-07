@@ -51,7 +51,8 @@ public class GBAPI {
         
         let api = GBAPI.framework
         
-        let authenticationStore = GBAPIKeychainStore()
+        let authenticationStore = GBAPIInMemoryAuthenticationStore()
+        authenticationStore.apiKey = configuration.apiKey
         api.requestFactory = GBAPIRequestFactory(configuration: configuration, authenticationStore: authenticationStore)
         api.networkingManager = GBAPIURLSessionManager(configuration: configuration)
     }

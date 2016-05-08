@@ -66,7 +66,7 @@ final public class PlatformResource: ResourceUpdating {
     /// URL pointing to the platform on Giant Bomb.
     public private(set) var site_detail_url: NSURL?
     
-    /// Extended info.
+    /// Extended info. Unused for this resource type.
     public var extendedInfo: UnusedExtendedInfo?
     
     /// Used to create a `PlatformResource` from JSON.

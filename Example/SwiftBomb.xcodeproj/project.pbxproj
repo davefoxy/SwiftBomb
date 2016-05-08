@@ -36,6 +36,8 @@
 		526FB9781CDEDDCE00F9EFDE /* ExtendedInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526FB9771CDEDDCE00F9EFDE /* ExtendedInfoTests.swift */; };
 		526FB97A1CDF96AF00F9EFDE /* PaginationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526FB9791CDF96AF00F9EFDE /* PaginationTests.swift */; };
 		526FB97D1CDF980500F9EFDE /* FivePaginatedResultsJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 526FB97C1CDF980500F9EFDE /* FivePaginatedResultsJSON.json */; };
+		529EEE731CDFC95300D7A981 /* PlatformViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529EEE721CDFC95300D7A981 /* PlatformViewController.swift */; };
+		529EEE751CDFC9D300D7A981 /* PlatformResourcePaginator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529EEE741CDFC9D300D7A981 /* PlatformResourcePaginator.swift */; };
 		52C6EFD91CDDD86C00394296 /* BaseResourceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C6EFD81CDDD86C00394296 /* BaseResourceDetailViewController.swift */; };
 		52C6EFDB1CDDD8FD00394296 /* CompanyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C6EFDA1CDDD8FD00394296 /* CompanyViewController.swift */; };
 		52C6EFDD1CDDE4B700394296 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C6EFDC1CDDE4B700394296 /* GameViewController.swift */; };
@@ -97,6 +99,8 @@
 		526FB9771CDEDDCE00F9EFDE /* ExtendedInfoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtendedInfoTests.swift; sourceTree = "<group>"; };
 		526FB9791CDF96AF00F9EFDE /* PaginationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginationTests.swift; sourceTree = "<group>"; };
 		526FB97C1CDF980500F9EFDE /* FivePaginatedResultsJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FivePaginatedResultsJSON.json; sourceTree = "<group>"; };
+		529EEE721CDFC95300D7A981 /* PlatformViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlatformViewController.swift; sourceTree = "<group>"; };
+		529EEE741CDFC9D300D7A981 /* PlatformResourcePaginator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlatformResourcePaginator.swift; sourceTree = "<group>"; };
 		52C6EFD81CDDD86C00394296 /* BaseResourceDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseResourceDetailViewController.swift; sourceTree = "<group>"; };
 		52C6EFDA1CDDD8FD00394296 /* CompanyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyViewController.swift; sourceTree = "<group>"; };
 		52C6EFDC1CDDE4B700394296 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -168,6 +172,7 @@
 				5229CCBC1CD7B34C008A13BE /* LocationResourcePaginator.swift */,
 				5229CCBD1CD7B34C008A13BE /* ObjectResourcePaginator.swift */,
 				5229CCBE1CD7B34C008A13BE /* PersonResourcePaginator.swift */,
+				529EEE741CDFC9D300D7A981 /* PlatformResourcePaginator.swift */,
 				5229CCBF1CD7B34C008A13BE /* VideoResourcePaginator.swift */,
 			);
 			path = DataProviders;
@@ -202,6 +207,7 @@
 				52C6EFED1CDE69A900394296 /* LocationViewController.swift */,
 				52C6EFEF1CDE840B00394296 /* ObjectViewController.swift */,
 				52C6EFE71CDE378C00394296 /* PersonViewController.swift */,
+				529EEE721CDFC95300D7A981 /* PlatformViewController.swift */,
 				52C6EFF11CDE881E00394296 /* VideoViewController.swift */,
 			);
 			path = DetailViewControllers;
@@ -517,6 +523,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				529EEE751CDFC9D300D7A981 /* PlatformResourcePaginator.swift in Sources */,
 				52C6EFE41CDE135200394296 /* DetailWebViewController.swift in Sources */,
 				5229CCE61CD7C7F0008A13BE /* UIImage+ImageLoader.swift in Sources */,
 				52C6EFEA1CDE5F7900394296 /* ConceptViewController.swift in Sources */,
@@ -535,6 +542,7 @@
 				5229CCC91CD7B34C008A13BE /* PersonResourcePaginator.swift in Sources */,
 				5229CCEA1CD7D6AC008A13BE /* AccessoryResourcePaginator.swift in Sources */,
 				52C6EFDD1CDDE4B700394296 /* GameViewController.swift in Sources */,
+				529EEE731CDFC95300D7A981 /* PlatformViewController.swift in Sources */,
 				5229CCD61CD7B836008A13BE /* SearchResultsListViewController.swift in Sources */,
 				5229CCD51CD7B836008A13BE /* ResourceTableViewCell.swift in Sources */,
 				5229CCED1CD7D7D6008A13BE /* AccessoryViewController.swift in Sources */,

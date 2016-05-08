@@ -16,7 +16,7 @@ extension SwiftBomb {
      - parameter query: An optional search term used to filter for a particular platform.
      - parameter pagination: An optional `PaginationDefinition` to define the limit and offset when paginating results.
      - parameter sort: An optional `SortDefinition` to define how the results should be sorted.
-     - parameter completion: A closure returning an optional generic `PaginatedResults` object containing the returned `PersonResource` objects and pagination information and also, an optional `RequestError` object if the request failed.
+     - parameter completion: A closure returning an optional generic `PaginatedResults` object containing the returned `PlatformResource` objects and pagination information and also, an optional `RequestError` object if the request failed.
      */
     public static func retrievePlatforms(query: String? = nil, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil, completion: (PaginatedResults<PlatformResource>?, error: RequestError?) -> Void) {
         

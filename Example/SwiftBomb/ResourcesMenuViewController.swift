@@ -66,6 +66,10 @@ class ResourcesMenuViewController: UITableViewController {
             resourcesList.title = "People"
             resourcesList.resourcePaginator = PersonResourcePaginator(sort: SortDefinition(field: "name", direction: .Ascending))
         }
+        else if (segue.identifier == "platforms") {
+            resourcesList.title = "Platforms"
+            resourcesList.resourcePaginator = PlatformResourcePaginator(sort: SortDefinition(field: "name", direction: .Ascending))
+        }
         else if (segue.identifier == "accessories") {
             resourcesList.title = "Accessories"
             resourcesList.resourcePaginator = AccessoryResourcePaginator(sort: SortDefinition(field: "name", direction: .Ascending))

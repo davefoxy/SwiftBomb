@@ -42,6 +42,8 @@ SwiftBomb.fetchGames { result, error in
 
 Check out all the other resource requests you can make in the [SwiftBomb documentation](http://cocoadocs.org/docsets/SwiftBomb/0.1.0/Classes/SwiftBomb.html).
 
+The `result` object returned by these methods is of type `PaginatedResults` object. It provides useful information on the total number of results and the number returned in this request. You can use this for implementing pagination as seen in the example app.
+
 ## Filtering, Pagination and Sorting
 Additionally, all these requests can be sorted and paginated using the same requests by passing in `PaginationDefinition` and `SortDefinition` aliases. The following does exactly the same as above but will search for *Uncharted*, starting at the 5th object, limited to 10 results and sorted in ascending order by name:
 ```swift
@@ -69,7 +71,7 @@ Already have a resource stub or summary downloaded from one of SwiftBomb's calls
 SwiftBomb.fetchGames("Uncharted") { result, error in
 
     if let firstGame = result?.resources.first {
-    	
+
         firstGame.fetchExtendedInfo { error in
             // firstGame's `extendedInfo` property is now available...
             for gameCharacter in (firstGame.extendedInfo?.characters)! {
@@ -80,6 +82,33 @@ SwiftBomb.fetchGames("Uncharted") { result, error in
 }
 ```
 Check out the documentation on the `Resource` objects to see exactly what's available for each type.
+
+## Error Handling
+All interactions with SwiftBomb optionally return a `Request` error enum. Check out [it's reference](http://cocoadocs.org/docsets/SwiftBomb/0.1.0/Enums/RequestError.html) for the possible errors. In addition, some can return `NSError` objects representing the detail of what went wrong. For example:
+
+```swift
+SwiftBomb.fetchGames("Metal Gear Solid") { result, error in
+            
+    if let error = error {
+        switch error {
+            case .FrameworkConfigError:
+                print("Framework config error")
+                
+            case .NetworkError(let nsError):
+                print("Network error: \(nsError?.localizedDescription)")
+                    
+            case .ResponseSerializationError(let nsError):
+                print("Response error: \(nsError?.localizedDescription)")
+
+            case .RequestError(let gbError):
+                // This error is of type `ResourceResponseError`
+                print("Request error: \(gbError)")
+        }
+    }
+            
+    ...
+}
+```
 
 ## Sample Code
 Still not making enough sense? The repo comes with an example app demonstrating all the fetches in action. Sorry it's a little messy right now but it gives a general idea and again, [check out the class references](http://cocoadocs.org/docsets/SwiftBomb/0.1.0/). I've written up fairly extensive docs for every method in the lib.

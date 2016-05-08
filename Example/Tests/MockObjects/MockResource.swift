@@ -3,7 +3,7 @@
 //  SwiftBomb
 //
 //  Created by David Fox on 08/05/2016.
-//  Copyright © 2016 CocoaPods. All rights reserved.
+//  Copyright © 2016 David Fox. All rights reserved.
 //
 
 import Foundation
@@ -27,8 +27,6 @@ final public class MockResource: ResourceUpdating {
     
     public func fetchExtendedInfo(completion: (error: RequestError?) -> Void) {
         
-//        let test = MockNetworkingManager(configuration: nil)
-//        test.performDetailRequest(request, resource: self, completion: completion)
     }
     
     public var prettyDescription: String {

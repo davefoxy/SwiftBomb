@@ -3,7 +3,7 @@
 //  SwiftBomb
 //
 //  Created by David Fox on 08/05/2016.
-//  Copyright © 2016 CocoaPods. All rights reserved.
+//  Copyright © 2016 David Fox. All rights reserved.
 //
 
 import XCTest

@@ -36,7 +36,6 @@
 		526FB9781CDEDDCE00F9EFDE /* ExtendedInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526FB9771CDEDDCE00F9EFDE /* ExtendedInfoTests.swift */; };
 		526FB97A1CDF96AF00F9EFDE /* PaginationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526FB9791CDF96AF00F9EFDE /* PaginationTests.swift */; };
 		526FB97D1CDF980500F9EFDE /* FivePaginatedResultsJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 526FB97C1CDF980500F9EFDE /* FivePaginatedResultsJSON.json */; };
-		52C6EFD71CDDD72E00394296 /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C6EFD61CDDD72E00394296 /* StringUtils.swift */; };
 		52C6EFD91CDDD86C00394296 /* BaseResourceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C6EFD81CDDD86C00394296 /* BaseResourceDetailViewController.swift */; };
 		52C6EFDB1CDDD8FD00394296 /* CompanyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C6EFDA1CDDD8FD00394296 /* CompanyViewController.swift */; };
 		52C6EFDD1CDDE4B700394296 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C6EFDC1CDDE4B700394296 /* GameViewController.swift */; };
@@ -98,7 +97,6 @@
 		526FB9771CDEDDCE00F9EFDE /* ExtendedInfoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtendedInfoTests.swift; sourceTree = "<group>"; };
 		526FB9791CDF96AF00F9EFDE /* PaginationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginationTests.swift; sourceTree = "<group>"; };
 		526FB97C1CDF980500F9EFDE /* FivePaginatedResultsJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FivePaginatedResultsJSON.json; sourceTree = "<group>"; };
-		52C6EFD61CDDD72E00394296 /* StringUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
 		52C6EFD81CDDD86C00394296 /* BaseResourceDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseResourceDetailViewController.swift; sourceTree = "<group>"; };
 		52C6EFDA1CDDD8FD00394296 /* CompanyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyViewController.swift; sourceTree = "<group>"; };
 		52C6EFDC1CDDE4B700394296 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -252,7 +250,6 @@
 			children = (
 				5229CCDA1CD7C7D5008A13BE /* ImageLoader */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				52C6EFD61CDDD72E00394296 /* StringUtils.swift */,
 				5229CCB41CD7B302008A13BE /* DataProviders */,
 				5229CCE81CD7D68D008A13BE /* DetailViewControllers */,
 				5229CCCE1CD7B836008A13BE /* ResourcesMenuViewController.swift */,
@@ -538,7 +535,6 @@
 				5229CCC91CD7B34C008A13BE /* PersonResourcePaginator.swift in Sources */,
 				5229CCEA1CD7D6AC008A13BE /* AccessoryResourcePaginator.swift in Sources */,
 				52C6EFDD1CDDE4B700394296 /* GameViewController.swift in Sources */,
-				52C6EFD71CDDD72E00394296 /* StringUtils.swift in Sources */,
 				5229CCD61CD7B836008A13BE /* SearchResultsListViewController.swift in Sources */,
 				5229CCD51CD7B836008A13BE /* ResourceTableViewCell.swift in Sources */,
 				5229CCED1CD7D7D6008A13BE /* AccessoryViewController.swift in Sources */,

@@ -129,7 +129,7 @@ final public class GameReleaseResource: ResourceUpdating {
         minimum_players = json["minimum_players"] as? Int
         name = json["name"] as? String
         
-        if let platformJSON = json["platform"] as? [String: AnyObject] { // TODO: also used in GameResource. add it as an extension method on dictionary or array?
+        if let platformJSON = json["platform"] as? [String: AnyObject] {
             if
                 let id = platformJSON["id"] as? Int,
                 let name = platformJSON["name"] as? String,

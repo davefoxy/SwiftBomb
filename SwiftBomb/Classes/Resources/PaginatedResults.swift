@@ -51,7 +51,6 @@ public struct PaginatedResults<T: Resource> {
         offset = json["offset"] as? Int
         version = json["version"] as? String
         
-        // TODO: can use flatMap or something cleaner here instead of checking for array or dict?
         if let resultsArray = json["results"] as? [[String: AnyObject]] {
             for resultJSON in resultsArray {
                 let result = resultsType.init(json: resultJSON)

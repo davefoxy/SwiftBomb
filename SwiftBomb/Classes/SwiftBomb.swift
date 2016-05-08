@@ -28,7 +28,6 @@ public struct Configuration {
     
     let apiKey: String
     let userAgentIdentifier: String?
-    let baseURL = NSURL(string: "http://www.giantbomb.com")!
     let baseAPIURL = NSURL(string: "http://www.giantbomb.com/api")!
     let loggingLevel: LoggingLevel
     

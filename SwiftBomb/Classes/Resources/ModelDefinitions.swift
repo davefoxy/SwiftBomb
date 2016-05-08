@@ -11,10 +11,10 @@ import Foundation
 /**
  A tuple containing useful, basic information about a `Resource`
  */
-public typealias ResourceSummary = (id: Int, prettyDescription: String, image: ImageURLs?, resourceType: ResourceType)
+public typealias ResourceSummary = (id: Int, prettyDescription: String, resourceType: ResourceType)
 
 /**
- A simple tuple which contains information regarding a "Platform" on the Giant Bomb wiki. Examples are "Playstation 4" and "Xbox One". Resources such as `GameResource` often contain an array of these to signify which platforms the game is available on.
+ A simple tuple which contains information regarding a *Platform* on the Giant Bomb wiki. Examples are *Playstation 4* and *Xbox One*. Resources such as `GameResource` often contain an array of these to signify which platforms the game is available on.
  */
 public typealias PlatformResource = (id: Int, name: String, abbreviation: String)
 
@@ -102,6 +102,6 @@ extension Resource {
             return nil
         }
         
-        return ResourceSummary(id, prettyDescription: self.prettyDescription, image: ImageURLs(json: [:]), self.resourceType) // TODO: bring the image back in
+        return ResourceSummary(id, prettyDescription: self.prettyDescription, self.resourceType)
     }
 }

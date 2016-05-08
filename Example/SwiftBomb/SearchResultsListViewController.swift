@@ -99,7 +99,7 @@ class SearchResultsListViewController: UIViewController, UITableViewDelegate, UI
         let resourceType = searchResults.availableResourceTypes()[indexPath.section]
         let summary = searchResults.resourceSummariesOfType(resourceType)[indexPath.row]
 
-        let cellPresenter = ResourceItemCellPresenter(imageURL: summary.image?.small, title: summary.prettyDescription, subtitle: nil)
+        let cellPresenter = ResourceItemCellPresenter(imageURL: nil, title: summary.prettyDescription, subtitle: nil)
         cell.cellPresenter = cellPresenter
         
         return cell

@@ -30,6 +30,7 @@ SwiftBomb.configure(configuration)
 The `SwiftBomb` class is your entry point to fetching all resources. Let autocomplete show you what's available. For example, to fetch all games in the database:
 ```swift
 SwiftBomb.fetchGames { result, error in
+
     if let games = result?.resources {
         // games now contains an array of `GameResource`s
         for game in games {
@@ -46,7 +47,9 @@ Additionally, all these requests can be sorted and paginated using the same requ
 ```swift
 let pagination = PaginationDefinition(offset: 4, limit: 10)
 let sorting = SortDefinition(field: "name", direction: .Ascending)
+
 SwiftBomb.fetchGames("Uncharted", pagination: pagination, sort: sorting) { result, error in
+
     if let games = result?.resources {
         // games now contains an array of `GameResource`s
         for game in games {
@@ -64,7 +67,9 @@ Already have a resource stub or summary downloaded from one of SwiftBomb's calls
 
 ```swift
 SwiftBomb.fetchGames("Uncharted") { result, error in
+
     if let firstGame = result?.resources.first {
+    	
         firstGame.fetchExtendedInfo { error in
             // firstGame's `extendedInfo` property is now available...
             for gameCharacter in (firstGame.extendedInfo?.characters)! {

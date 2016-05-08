@@ -4,14 +4,14 @@ import XCTest
 
 class RequestTests: XCTestCase {
     
+    var configuration = Configuration(apiKey: "")
     var requestFactory: RequestFactory?
     let authenticationStore = MockAuthenticationStore()
-
+    
     override func setUp() {
         
         super.setUp()
         
-        let configuration = Configuration(apiKey: "")
         requestFactory = RequestFactory(configuration: configuration, authenticationStore: authenticationStore)
     }
     
@@ -25,7 +25,7 @@ class RequestTests: XCTestCase {
         let accessoriesRequest = requestFactory?.accessoriesRequest("searchTerm", pagination: PaginationDefinition(offset: 10, limit: 20), sort: SortDefinition(field: "sortField", direction: .Ascending))
         
         let requestURL = accessoriesRequest?.urlRequest().URL
-
+        
         XCTAssertEqual(requestURL!.host, "www.giantbomb.com")
         XCTAssertEqual(requestURL!.path, "/api/accessories")
         XCTAssert(requestURL!.query!.containsString("filter=name:searchTerm"))
@@ -67,7 +67,7 @@ class RequestTests: XCTestCase {
         XCTAssertEqual(requestURL!.path, "/api/concepts")
         XCTAssert(requestURL!.query!.containsString("filter=name:searchTerm"))
         performBasicURLTests(requestURL!)
-
+        
     }
     
     func testFranchiseRequests() {

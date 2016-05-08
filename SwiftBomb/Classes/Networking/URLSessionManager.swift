@@ -54,6 +54,7 @@ public enum ResourceResponseError: Int {
 
 class URLSessionManager: NetworkingManager {
     
+    var urlSession = NSURLSession.sharedSession()
     var configuration: Configuration
     
     init(configuration: Configuration) {
@@ -132,7 +133,7 @@ class URLSessionManager: NetworkingManager {
             print("Making request: \(urlRequest)")
         }
         
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(urlRequest) { responseData, urlResponse, error in
+        let task = urlSession.dataTaskWithRequest(urlRequest) { responseData, urlResponse, error in
             
             if let error = error {
                 

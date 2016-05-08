@@ -38,7 +38,7 @@ class GameResourcePaginator: ResourcePaginator {
         
         isLoading = true
         
-        SwiftBomb.retrieveGames(searchTerm, pagination: pagination, sort: sort) { results, error in
+        SwiftBomb.fetchGames(searchTerm, pagination: pagination, sort: sort) { results, error in
             
             self.isLoading = false
             

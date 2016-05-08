@@ -2,7 +2,6 @@
 [![Version](https://img.shields.io/cocoapods/v/SwiftBomb.svg?style=flat)](http://cocoapods.org/pods/SwiftBomb)
 [![License](https://img.shields.io/cocoapods/l/SwiftBomb.svg?style=flat)](http://cocoapods.org/pods/SwiftBomb)
 [![Platform](https://img.shields.io/cocoapods/p/SwiftBomb.svg?style=flat)](http://cocoapods.org/pods/SwiftBomb)
-
 # SwiftBomb
 A Swift library to integrate with the Giant Bomb wiki for the retrieval of all things video games.
 

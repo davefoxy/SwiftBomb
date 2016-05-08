@@ -38,7 +38,7 @@ class CompanyResourcePaginator: ResourcePaginator {
         
         isLoading = true
         
-        SwiftBomb.retrieveCompanies(searchTerm, pagination: pagination, sort: sort) { results, error in
+        SwiftBomb.fetchCompanies(searchTerm, pagination: pagination, sort: sort) { results, error in
             
             self.isLoading = false
             

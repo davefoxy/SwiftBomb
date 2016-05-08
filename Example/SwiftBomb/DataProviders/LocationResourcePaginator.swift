@@ -36,7 +36,7 @@ class LocationResourcePaginator: ResourcePaginator {
         
         isLoading = true
         
-        SwiftBomb.retrieveLocations(searchTerm, pagination: pagination, sort: sort) { results, error in
+        SwiftBomb.fetchLocations(searchTerm, pagination: pagination, sort: sort) { results, error in
             
             self.isLoading = false
             

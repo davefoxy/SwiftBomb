@@ -35,7 +35,7 @@ class AccessoryResourcePaginator: ResourcePaginator {
         
         isLoading = true
         
-        SwiftBomb.retrieveAccessories(searchTerm, pagination: pagination, sort: sort) { results, error in
+        SwiftBomb.fetchAccessories(searchTerm, pagination: pagination, sort: sort) { results, error in
             
             self.isLoading = false
             

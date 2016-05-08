@@ -36,7 +36,7 @@ class PlatformResourcePaginator: ResourcePaginator {
         
         isLoading = true
         
-        SwiftBomb.retrievePlatforms(searchTerm, pagination: pagination, sort: sort) { results, error in
+        SwiftBomb.fetchPlatforms(searchTerm, pagination: pagination, sort: sort) { results, error in
             
             self.isLoading = false
             

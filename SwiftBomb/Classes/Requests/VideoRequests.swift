@@ -11,14 +11,14 @@ import Foundation
 extension SwiftBomb {
     
     /**
-     Retrieves a paginated list of `VideoResource` instances. This list can be filtered to a search term, paginated and sorted.
+     Fetches a paginated list of `VideoResource` instances. This list can be filtered to a search term, paginated and sorted.
      
      - parameter query: An optional search term used to filter for a particular video.
      - parameter pagination: An optional `PaginationDefinition` to define the limit and offset when paginating results.
      - parameter sort: An optional `SortDefinition` to define how the results should be sorted.
      - parameter completion: A closure returning an optional generic `PaginatedResults` object containing the returned `VideoResource` objects and pagination information and also, an optional `RequestError` object if the request failed.
      */
-    public static func retrieveVideos(query: String?, pagination: PaginationDefinition?, sort: SortDefinition?, completion: (PaginatedResults<VideoResource>?, error: RequestError?) -> Void) {
+    public static func fetchVideos(query: String?, pagination: PaginationDefinition?, sort: SortDefinition?, completion: (PaginatedResults<VideoResource>?, error: RequestError?) -> Void) {
         
         let instance = SwiftBomb.framework
         guard

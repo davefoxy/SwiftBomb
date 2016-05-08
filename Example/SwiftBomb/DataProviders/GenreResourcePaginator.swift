@@ -36,7 +36,7 @@ class GenreResourcePaginator: ResourcePaginator {
         
         isLoading = true
         
-        SwiftBomb.retrieveGenres(searchTerm, pagination: pagination, sort: sort) { results, error in
+        SwiftBomb.fetchGenres(searchTerm, pagination: pagination, sort: sort) { results, error in
             
             self.isLoading = false
             

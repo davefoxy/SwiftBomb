@@ -36,7 +36,7 @@ class PersonResourcePaginator: ResourcePaginator {
         
         isLoading = true
         
-        SwiftBomb.retrievePeople(searchTerm, pagination: pagination, sort: sort) { results, error in
+        SwiftBomb.fetchPeople(searchTerm, pagination: pagination, sort: sort) { results, error in
             
             self.isLoading = false
             

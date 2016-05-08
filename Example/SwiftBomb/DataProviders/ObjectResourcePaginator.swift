@@ -36,7 +36,7 @@ class ObjectResourcePaginator: ResourcePaginator {
         
         isLoading = true
         
-        SwiftBomb.retrieveObjects(searchTerm, pagination: pagination, sort: sort) { results, error in
+        SwiftBomb.fetchObjects(searchTerm, pagination: pagination, sort: sort) { results, error in
             
             self.isLoading = false
             

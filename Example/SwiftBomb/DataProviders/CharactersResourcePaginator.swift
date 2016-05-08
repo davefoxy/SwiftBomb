@@ -35,7 +35,7 @@ class CharactersResourcePaginator: ResourcePaginator {
         
         isLoading = true
         
-        SwiftBomb.retrieveCharacters(searchTerm, pagination: pagination, sort: sort) { results, error in
+        SwiftBomb.fetchCharacters(searchTerm, pagination: pagination, sort: sort) { results, error in
             
             self.isLoading = false
             

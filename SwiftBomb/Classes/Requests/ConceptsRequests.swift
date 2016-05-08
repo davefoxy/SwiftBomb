@@ -11,14 +11,14 @@ import Foundation
 extension SwiftBomb {
     
     /**
-     Retrieves a paginated list of `ConceptResource` instances. This list can be filtered to a search term, paginated and sorted.
+     Fetches a paginated list of `ConceptResource` instances. This list can be filtered to a search term, paginated and sorted.
      
      - parameter query: An optional search term used to filter for a particular concept.
      - parameter pagination: An optional `PaginationDefinition` to define the limit and offset when paginating results.
      - parameter sort: An optional `SortDefinition` to define how the results should be sorted.
      - parameter completion: A closure returning an optional generic `PaginatedResults` object containing the returned `ConceptResource` objects and pagination information and also, an optional `RequestError` object if the request failed.
      */
-    public static func retrieveConcepts(query: String? = nil, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil, completion: (PaginatedResults<ConceptResource>?, error: RequestError?) -> Void) {
+    public static func fetchConcepts(query: String? = nil, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil, completion: (PaginatedResults<ConceptResource>?, error: RequestError?) -> Void) {
         
         let instance = SwiftBomb.framework
         guard

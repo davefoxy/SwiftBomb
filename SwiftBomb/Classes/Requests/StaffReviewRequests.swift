@@ -24,7 +24,7 @@ extension RequestFactory {
 extension GameResource {
     
     /**
-     Retrieves a paginated list of `StaffReviewResource` instances for this game.
+     Fetches a paginated list of `StaffReviewResource` instances for this game.
      
      - parameter completion: A closure returning an optional generic `PaginatedResults` object containing the returned `AccessoryResource` objects and pagination information and also, an optional `RequestError` object if the request failed.
      */

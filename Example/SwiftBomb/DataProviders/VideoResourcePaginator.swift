@@ -36,7 +36,7 @@ class VideoResourcePaginator: ResourcePaginator {
         
         isLoading = true
         
-        SwiftBomb.retrieveVideos(searchTerm, pagination: pagination, sort: sort) { results, error in
+        SwiftBomb.fetchVideos(searchTerm, pagination: pagination, sort: sort) { results, error in
             
             self.isLoading = false
             

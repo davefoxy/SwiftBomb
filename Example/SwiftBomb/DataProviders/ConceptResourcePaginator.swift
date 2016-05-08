@@ -36,7 +36,7 @@ class ConceptResourcePaginator: ResourcePaginator {
         
         isLoading = true
         
-        SwiftBomb.retrieveConcepts(searchTerm, pagination: pagination, sort: sort) { results, error in
+        SwiftBomb.fetchConcepts(searchTerm, pagination: pagination, sort: sort) { results, error in
             
             self.isLoading = false
             

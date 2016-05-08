@@ -84,7 +84,7 @@ SwiftBomb.fetchGames("Uncharted") { result, error in
 Check out the documentation on the `Resource` objects to see exactly what's available for each type.
 
 ## Error Handling
-All interactions with SwiftBomb optionally return a `Request` error enum. Check out [it's reference](http://cocoadocs.org/docsets/SwiftBomb/0.1.0/Enums/RequestError.html) for the possible errors. In addition, some can return `NSError` objects representing the detail of what went wrong. For example:
+All interactions with SwiftBomb optionally return a `RequestError` enum if something's gone wrong. Check out [it's reference](http://cocoadocs.org/docsets/SwiftBomb/0.1.0/Enums/RequestError.html) for the possible errors. In addition, some can return `NSError` objects representing the detail of what went wrong. For example:
 
 ```swift
 SwiftBomb.fetchGames("Metal Gear Solid") { result, error in

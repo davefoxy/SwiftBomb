@@ -28,7 +28,7 @@ extension SwiftBomb {
                 return
         }
         
-        let request = requestFactory.objectRequest(query, pagination: pagination, sort: sort)
+        let request = requestFactory.objectsRequest(query, pagination: pagination, sort: sort)
         networkingManager.performPaginatedRequest(request, objectType: ObjectResource.self, completion: completion)
     }
 }
@@ -40,7 +40,7 @@ extension RequestFactory {
      
      - parameter completion: A closure containing an optional `RequestError` if the request failed
      */
-    func objectRequest(query: String? = nil, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil) -> Request {
+    func objectsRequest(query: String? = nil, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil) -> Request {
         
         var request = Request(configuration: configuration, path: "objects", method: .GET, pagination: pagination, sort: sort)
         addAuthentication(&request)

@@ -28,14 +28,14 @@ extension SwiftBomb {
                 return
         }
         
-        let request = requestFactory.personRequest(query, pagination: pagination, sort: sort)
+        let request = requestFactory.peopleRequest(query, pagination: pagination, sort: sort)
         networkingManager.performPaginatedRequest(request, objectType: PersonResource.self, completion: completion)
     }
 }
 
 extension RequestFactory {
     
-    func personRequest(query: String? = nil, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil) -> Request {
+    func peopleRequest(query: String? = nil, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil) -> Request {
         
         var request = Request(configuration: configuration, path: "people", method: .GET, pagination: pagination, sort: sort)
         addAuthentication(&request)

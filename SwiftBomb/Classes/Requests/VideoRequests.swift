@@ -35,7 +35,7 @@ extension SwiftBomb {
 
 extension RequestFactory {
     
-    func videosRequest(query: String?, pagination: PaginationDefinition?, sort: SortDefinition?) -> Request {
+    func videosRequest(query: String? = nil, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil) -> Request {
         
         var request = Request(configuration: configuration, path: "videos", method: .GET, pagination: pagination, sort: sort)
         addAuthentication(&request)

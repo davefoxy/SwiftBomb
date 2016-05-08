@@ -1,6 +1,6 @@
 //
 //  NetworkingEnums.swift
-//  Pods
+//  SwiftBomb
 //
 //  Created by David Fox on 08/05/2016.
 //

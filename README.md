@@ -111,7 +111,7 @@ SwiftBomb.fetchGames("Metal Gear Solid") { result, error in
 ```
 
 ## Sample Code
-Still not making enough sense? The repo comes with an example app demonstrating all the fetches in action. Sorry it's a little messy right now but it gives a general idea and again, [check out the class references](http://cocoadocs.org/docsets/SwiftBomb/0.1.0/). I've written up fairly extensive docs for every method in the lib.
+The repo comes with an example app demonstrating all the fetches in action. Sorry it's a little messy right now but it gives a general idea and again, [check out the class references](http://cocoadocs.org/docsets/SwiftBomb/0.1.0/). I've written up fairly extensive docs for every method in the lib.
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 

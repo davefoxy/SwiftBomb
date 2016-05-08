@@ -11,7 +11,7 @@ import Foundation
 /**
  A class representing a *Game* on the Giant Bomb wiki. Examples include *Farcry 3* and *Splatoon*.
  
- To retrieve extended info for a game, call `fetchExtendedInfo(completion: (error: RequestError?)` upon it.
+ To retrieve extended info for a game, call `fetchExtendedInfo(_:)` upon it.
  */
 final public class GameResource: ResourceUpdating {
     
@@ -66,6 +66,7 @@ final public class GameResource: ResourceUpdating {
     /// Extended info
     public var extendedInfo: GameExtendedInfo?
     
+    /// Used to create a `GameResource` from JSON
     public init(json: [String : AnyObject]) {
         
         id = json["id"] as? Int

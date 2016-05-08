@@ -49,6 +49,7 @@ public struct SearchResults {
     /// An array of `Video`s found in the search results.
     public private(set) var videos = [VideoResource]()
     
+    /// Used to create an instance of `SearchResults` from JSON
     init(json: [String : AnyObject]) {
         
         number_of_page_results = json["number_of_page_results"] as? Int

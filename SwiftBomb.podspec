@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = "SwiftBomb"
   s.version          = "0.1.0"
-  s.summary          = "A short description of SwiftBomb."
+  s.summary          = "A Swift library to integrate with the Giant Bomb video game wiki."
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -21,12 +21,12 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/SwiftBomb"
+  s.homepage         = "https://github.com/davefoxy/SwiftBomb"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "David Fox" => "davidfox@icloud.com" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/SwiftBomb.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => "https://github.com/davefoxy/SwiftBomb.git", :tag => s.version.to_s }
+  # s.social_media_url = 'https://twitter.com/davefoxy'
 
   s.ios.deployment_target = '8.0'
 

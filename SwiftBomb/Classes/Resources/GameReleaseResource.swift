@@ -84,6 +84,7 @@ final public class GameReleaseResource: ResourceUpdating {
     /// Extended info.
     public var extendedInfo: GameReleaseExtendedInfo?
     
+    /// Used to create a `GameReleaseResource` from JSON
     public init(json: [String : AnyObject]) {
         
         id = json["id"] as? Int

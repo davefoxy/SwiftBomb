@@ -11,7 +11,7 @@ import Foundation
 /**
  A class representing a *Staff Review* on the Giant Bomb wiki. These are reviews specifically written by the editorial team at Giant Bomb.
  
- To retrieve extended info for a staff review, call `fetchExtendedInfo(completion: (error: RequestError?)` upon it.
+ To retrieve extended info for a staff review, call `fetchExtendedInfo(_:)` upon it.
  */
 final public class StaffReviewResource: ResourceUpdating {
     
@@ -61,6 +61,7 @@ final public class StaffReviewResource: ResourceUpdating {
     /// Extended info
     public var extendedInfo: UnusedExtendedInfo?
     
+    /// Used to create a `StaffReviewResource` from JSON
     public init(json: [String: AnyObject]) {
         
         update(json)

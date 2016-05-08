@@ -23,16 +23,20 @@ class ResourceTableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         
+        super.prepareForReuse()
+        
         thumbnailImageView.image = nil
     }
     
     func updateFromPresenter(presenter: ResourceItemCellPresenter) {
         
-        titleLabel.text = presenter.title
-        subtitleLabel.text = presenter.subtitle
+        titleLabel.text = presenter.title?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        subtitleLabel.text = presenter.subtitle?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
         
         if let thumbURL = presenter.imageURL {
             thumbnailImageView.load(thumbURL)
+        } else {
+            thumbnailImageView.image = UIImage(named: "PlaceholderCellImage")
         }
     }
 }

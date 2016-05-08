@@ -11,7 +11,7 @@ import Foundation
 /**
  A class representing an *Accessory* on the Giant Bomb wiki. Examples include controllers and VR headsets.
  
- To retrieve extended info for an accessory, call `fetchExtendedInfo(completion: (error: RequestError?)` upon it.
+ To retrieve extended info for an accessory, call `fetchExtendedInfo(_:)` upon it.
 */
 final public class AccessoryResource: ResourceUpdating {
     
@@ -48,6 +48,7 @@ final public class AccessoryResource: ResourceUpdating {
     /// Extended info. Unused for this resource type.
     public var extendedInfo: UnusedExtendedInfo?
     
+    /// Used to create a `AccessoryResource` from JSON
     public init(json: [String : AnyObject]) {
         
         id = json["id"] as? Int

@@ -27,7 +27,7 @@ public enum RequestError: ErrorType {
     /// An error parsing the response from the server. Contains a reference to the actual NSError object.
     case ResponseSerializationError(NSError?)
     
-    /// An error specifically returned by the Giant Bomb API. Contains the appropriate enum as defined in `ResourceRequestError`
+    /// An error specifically returned by the Giant Bomb API. Contains the appropriate enum as defined in `ResourceResponseError`
     case RequestError(ResourceResponseError)
 }
 

@@ -11,7 +11,7 @@ import Foundation
 /**
  A class representing a *Franchise* on the Giant Bomb wiki. Examples include *Metal Gear Solid* and *Assassin's Creed*. 
  
- To retrieve extended info for a character, call `fetchExtendedInfo(completion: (error: RequestError?)` upon it.
+ To retrieve extended info for a character, call `fetchExtendedInfo(_:)` upon it.
  */
 final public class FranchiseResource: ResourceUpdating {
     
@@ -51,6 +51,7 @@ final public class FranchiseResource: ResourceUpdating {
     /// Extended info.
     public var extendedInfo: FranchiseExtendedInfo?
     
+    /// Used to create a `FranchiseResource` from JSON
     public init(json: [String : AnyObject]) {
         
         id = json["id"] as? Int

@@ -11,7 +11,7 @@ import Foundation
 /**
  A class representing a *Video* on the Giant Bomb database. This includes quick looks and other Giant Bomb-created content as well as trailers for games amongst others.
  
- To retrieve extended info for a video, call `fetchExtendedInfo(completion: (error: RequestError?)` upon it.
+ To retrieve extended info for a video, call `fetchExtendedInfo(_:)` upon it.
  */
 final public class VideoResource: ResourceUpdating {
 
@@ -60,6 +60,7 @@ final public class VideoResource: ResourceUpdating {
     /// Extended info.
     public var extendedInfo: UnusedExtendedInfo?
     
+    /// Used to create a `VideoResource` from JSON
     public init(json: [String : AnyObject]) {
         
         id = json["id"] as? Int

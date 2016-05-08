@@ -14,6 +14,7 @@ final public class MockResource: ResourceUpdating {
     public let resourceType = ResourceType.Unknown
     public let id: Int?
     public var extendedInfo: MockResourceExtendedInfo?
+    public var image: ImageURLs?
     
     public init(json: [String : AnyObject]) {
         

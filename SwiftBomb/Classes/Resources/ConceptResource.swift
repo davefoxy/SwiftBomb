@@ -11,7 +11,7 @@ import Foundation
 /**
  A class representing a *Concept* on the Giant Bomb wiki. Examples include *Free To Play* and *Quick Time Event*.
  
- To retrieve extended info for a concept, call `fetchExtendedInfo(completion: (error: RequestError?)` upon it.
+ To retrieve extended info for a concept, call `fetchExtendedInfo(_:)` upon it.
  */
 final public class ConceptResource: ResourceUpdating {
     
@@ -57,6 +57,7 @@ final public class ConceptResource: ResourceUpdating {
     /// Extended info.
     public var extendedInfo: ConceptExtendedInfo?
     
+    /// Used to create a `ConceptResource` from JSON
     public init(json: [String : AnyObject]) {
         
         id = json["id"] as? Int

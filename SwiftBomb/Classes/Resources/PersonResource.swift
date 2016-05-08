@@ -11,7 +11,7 @@ import Foundation
 /**
  A class representing a *Person* on the Giant Bomb wiki. Examples include *Jeff Gerstmann* and *Hideo Kojima*. These are typically real people as apposed to `Character` which represents fictional people or, in some cases, real people who appear as themselves in games.
  
- To retrieve extended info for a person, call `fetchExtendedInfo(completion: (error: RequestError?)` upon it.
+ To retrieve extended info for a person, call `fetchExtendedInfo(_:)` upon it.
  */
 final public class PersonResource: ResourceUpdating {
     
@@ -69,6 +69,7 @@ final public class PersonResource: ResourceUpdating {
     /// Extended info.
     public var extendedInfo: PersonExtendedInfo?
     
+    /// Used to create a `PersonResource` from JSON
     public init(json: [String : AnyObject]) {
         
         id = json["id"] as? Int

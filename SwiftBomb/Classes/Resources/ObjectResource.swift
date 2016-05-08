@@ -11,7 +11,7 @@ import Foundation
 /**
  A class representing an *Object* on the Giant Bomb wiki. Examples include *Map* and *Teleporter*.
  
- To retrieve extended info for an object, call `fetchExtendedInfo(completion: (error: RequestError?)` upon it.
+ To retrieve extended info for an object, call `fetchExtendedInfo(_:)` upon it.
  */
 final public class ObjectResource: ResourceUpdating {
     
@@ -54,6 +54,7 @@ final public class ObjectResource: ResourceUpdating {
     /// Extended info.
     public var extendedInfo: ObjectExtendedInfo?
     
+    /// Used to create a `ObjectResource` from JSON
     public init(json: [String : AnyObject]) {
         
         id = json["id"] as? Int

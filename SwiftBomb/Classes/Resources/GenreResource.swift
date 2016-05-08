@@ -11,7 +11,7 @@ import Foundation
 /**
  A class representing a *Genre* on the Giant Bomb wiki. Examples include *Adventure* and *RPG*.
  
- To retrieve extended info for a genre, call `fetchExtendedInfo(completion: (error: RequestError?)` upon it.
+ To retrieve extended info for a genre, call `fetchExtendedInfo(_:)` upon it.
  */
 final public class GenreResource: ResourceUpdating {
     
@@ -48,6 +48,7 @@ final public class GenreResource: ResourceUpdating {
     /// Extended info.
     public var extendedInfo: UnusedExtendedInfo?
     
+    /// Used to create a `GenreResource` from JSON
     public init(json: [String : AnyObject]) {
         
         id = json["id"] as? Int

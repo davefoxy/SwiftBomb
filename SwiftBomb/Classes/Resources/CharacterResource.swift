@@ -11,7 +11,7 @@ import Foundation
 /**
  A class representing a *Character* on the Giant Bomb wiki. Examples include *Solid Snake* and *Mario*. 
  
- To retrieve extended info for a character, call `fetchExtendedInfo(completion: (error: RequestError?)` upon it.
+ To retrieve extended info for a character, call `fetchExtendedInfo(_:)` upon it.
  */
 final public class CharacterResource: ResourceUpdating {
     
@@ -66,6 +66,7 @@ final public class CharacterResource: ResourceUpdating {
     /// Extended info
     public var extendedInfo: CharacterExtendedInfo?
     
+    /// Used to create a `CharacterResource` from JSON
     public init(json: [String: AnyObject]) {
         
         id = json["id"] as? Int
@@ -107,6 +108,7 @@ final public class CharacterResource: ResourceUpdating {
         }
     }
     
+    /// Pretty description of the character.
     public var prettyDescription: String {
         return name ?? "Character \(id)"
     }

@@ -11,7 +11,7 @@ import Foundation
 /**
  A class representing a *Location* on the Giant Bomb wiki. Examples include *The Moon* and *Underwater*.
  
- To retrieve extended info for a location, call `fetchExtendedInfo(completion: (error: RequestError?)` upon it.
+ To retrieve extended info for a location, call `fetchExtendedInfo(_:)` upon it.
  */
 final public class LocationResource: ResourceUpdating {
     
@@ -54,6 +54,7 @@ final public class LocationResource: ResourceUpdating {
     /// Extended info.
     public var extendedInfo: UnusedExtendedInfo?
     
+    /// Used to create a `LocationResource` from JSON
     public init(json: [String : AnyObject]) {
         
         id = json["id"] as? Int

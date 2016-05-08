@@ -11,7 +11,7 @@ import Foundation
 /**
  A tuple containing useful, basic information about a `Resource`
  */
-public typealias ResourceSummary = (id: Int, prettyDescription: String, resourceType: ResourceType)
+public typealias ResourceSummary = (id: Int, prettyDescription: String, image: ImageURLs?, resourceType: ResourceType)
 
 /**
  A simple tuple which contains information regarding a *Platform* on the Giant Bomb wiki. Examples are *Playstation 4* and *Xbox One*. Resources such as `GameResource` often contain an array of these to signify which platforms the game is available on.
@@ -40,8 +40,11 @@ public protocol Resource: class {
     /// The unique ID for a resource.
     var id: Int? { get }
     
-    /// A, potentially user-facing description of the resource. Not localized.
+    /// A potentially user-facing description of the resource. Not localized.
     var prettyDescription: String { get }
+    
+    /// A main image for the resource. Can be nil for some resource types or if the wiki doens't include one
+    var image: ImageURLs? { get }
     
     /// The type of this resource.
     var resourceType: ResourceType { get }
@@ -102,6 +105,6 @@ extension Resource {
             return nil
         }
         
-        return ResourceSummary(id, prettyDescription: self.prettyDescription, self.resourceType)
+        return ResourceSummary(id, prettyDescription: self.prettyDescription, self.image, self.resourceType)
     }
 }

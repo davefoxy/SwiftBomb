@@ -11,7 +11,7 @@ import Foundation
 /**
  A class representing a *Company* on the Giant Bomb wiki. Examples include *Square Enix* and *Sony Computer Entertainment*. 
  
- To retrieve extended info for a company, call `fetchExtendedInfo(completion: (error: RequestError?)` upon it.
+ To retrieve extended info for a company, call `fetchExtendedInfo(_:)` upon it.
  */
 final public class CompanyResource: ResourceUpdating {
     
@@ -75,6 +75,7 @@ final public class CompanyResource: ResourceUpdating {
     /// Extended info.
     public var extendedInfo: CompanyExtendedInfo?
 
+    /// Used to create a `CompanyResource` from JSON
     public init(json: [String: AnyObject]) {
         
         id = json["id"] as? Int

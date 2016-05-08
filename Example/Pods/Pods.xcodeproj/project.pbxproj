@@ -27,7 +27,7 @@
 		514200F78D6F3F5AC5E38A980A5DE5C3 /* SearchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B767C8CADDE9B36BAE9808B46AEB0BEA /* SearchResults.swift */; };
 		52C6EFE01CDDF37600394296 /* GameReleaseResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C6EFDE1CDDEF7700394296 /* GameReleaseResource.swift */; };
 		52C6EFE21CDDF95500394296 /* GameReleasesRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C6EFE11CDDF95500394296 /* GameReleasesRequests.swift */; };
-		52C6EFF41CDE8A7800394296 /* GBAPIInMemoryAuthenticationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C6EFF31CDE8A7800394296 /* GBAPIInMemoryAuthenticationStore.swift */; };
+		52C6EFF41CDE8A7800394296 /* InMemoryAuthenticationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C6EFF31CDE8A7800394296 /* InMemoryAuthenticationStore.swift */; };
 		568CF3C0EF04204F522133611609968E /* VideoRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E5ACD6A35C5DC5384BF492DB6FE7C4 /* VideoRequests.swift */; };
 		5B776A4E2A0D068A2D9AEE29BE2153A2 /* SearchRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA0353799C37203B3DC0413D1D23DC0 /* SearchRequests.swift */; };
 		68ED6EE2A87FA90202FD4F032BDA00F3 /* AccessoriesRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958D596BC22FD028704029F107C616BC /* AccessoriesRequests.swift */; };
@@ -104,7 +104,7 @@
 		524D252272B5F68949D8E9AB9E2135DA /* JSONParsing.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JSONParsing.swift; sourceTree = "<group>"; };
 		52C6EFDE1CDDEF7700394296 /* GameReleaseResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameReleaseResource.swift; sourceTree = "<group>"; };
 		52C6EFE11CDDF95500394296 /* GameReleasesRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameReleasesRequests.swift; sourceTree = "<group>"; };
-		52C6EFF31CDE8A7800394296 /* GBAPIInMemoryAuthenticationStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GBAPIInMemoryAuthenticationStore.swift; sourceTree = "<group>"; };
+		52C6EFF31CDE8A7800394296 /* InMemoryAuthenticationStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InMemoryAuthenticationStore.swift; sourceTree = "<group>"; };
 		54CC8ACE28328F6C454BADB6F40F203E /* FranchiseResource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FranchiseResource.swift; sourceTree = "<group>"; };
 		597F1C5BE1222B04C5050BCD4807A249 /* Pods-SwiftBomb_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftBomb_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		5EA0353799C37203B3DC0413D1D23DC0 /* SearchRequests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SearchRequests.swift; sourceTree = "<group>"; };
@@ -349,7 +349,7 @@
 			isa = PBXGroup;
 			children = (
 				453F77DB1AFE4F575A890F0CB4A18EE5 /* AuthenticationSession.swift */,
-				52C6EFF31CDE8A7800394296 /* GBAPIInMemoryAuthenticationStore.swift */,
+				52C6EFF31CDE8A7800394296 /* InMemoryAuthenticationStore.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -556,7 +556,7 @@
 				CFB385145BBE5BC4CF079971634D76BD /* ImageURLs.swift in Sources */,
 				87D750431FDF6EFDB98543469B08D52E /* LocationResource.swift in Sources */,
 				03501BFA22295FE1476E910FFF3E7F0E /* ObjectResource.swift in Sources */,
-				52C6EFF41CDE8A7800394296 /* GBAPIInMemoryAuthenticationStore.swift in Sources */,
+				52C6EFF41CDE8A7800394296 /* InMemoryAuthenticationStore.swift in Sources */,
 				8972615DCFD4FB86A9B7A9F60B1F7E7F /* PersonResource.swift in Sources */,
 				514200F78D6F3F5AC5E38A980A5DE5C3 /* SearchResults.swift in Sources */,
 				F68C35310235E6F9249DB37ADBF612FB /* StaffReviewResource.swift in Sources */,

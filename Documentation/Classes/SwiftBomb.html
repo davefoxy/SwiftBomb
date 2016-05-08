@@ -1,0 +1,1501 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SwiftBomb Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/SwiftBomb" class="dashAnchor"></a>
+    <a title="SwiftBomb Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (100% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        SwiftBomb Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AccessoryResource.html">AccessoryResource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CharacterResource.html">CharacterResource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CompanyResource.html">CompanyResource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ConceptResource.html">ConceptResource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FranchiseResource.html">FranchiseResource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GameReleaseResource.html">GameReleaseResource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GameResource.html">GameResource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GenreResource.html">GenreResource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LocationResource.html">LocationResource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ObjectResource.html">ObjectResource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PersonResource.html">PersonResource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PlatformResource.html">PlatformResource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StaffReviewResource.html">StaffReviewResource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SwiftBomb.html">SwiftBomb</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VideoResource.html">VideoResource</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/Gender.html">Gender</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/RequestError.html">RequestError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ResourceResponseError.html">ResourceResponseError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ResourceType.html">ResourceType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/Resource.html">Resource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ResourceExtendedInfo.html">ResourceExtendedInfo</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/CharacterExtendedInfo.html">CharacterExtendedInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CompanyExtendedInfo.html">CompanyExtendedInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ConceptExtendedInfo.html">ConceptExtendedInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Configuration.html">Configuration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/FranchiseExtendedInfo.html">FranchiseExtendedInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/GameExtendedInfo.html">GameExtendedInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/GameReleaseExtendedInfo.html">GameReleaseExtendedInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ImageURLs.html">ImageURLs</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ObjectExtendedInfo.html">ObjectExtendedInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PaginatedResults.html">PaginatedResults</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PersonExtendedInfo.html">PersonExtendedInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SearchResults.html">SearchResults</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SortDefinition.html">SortDefinition</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/UnusedExtendedInfo.html">UnusedExtendedInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/VideoURLs.html">VideoURLs</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Typealiases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:9SwiftBomb20PaginationDefinition">PaginationDefinition</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:9SwiftBomb15ResourceSummary">ResourceSummary</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>SwiftBomb</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SwiftBomb</span></code></pre>
+
+                </div>
+              </div>
+            <p>A singleton from which SwiftBomb does it&rsquo;s setup. Ensure to configure the framework on app startup by calling <code>configure(_:)</code> before attempting to make any requests.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC9SwiftBomb9SwiftBomb9configureFVS_13ConfigurationT_"></a>
+                    <a name="//apple_ref/swift/Method/configure(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC9SwiftBomb9SwiftBomb9configureFVS_13ConfigurationT_">configure(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Client apps <strong>must</strong> call this method and pass in an instance of <code><a href="../Structs/Configuration.html">Configuration</a></code>. Typically happens in the application delegate.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">configure</span><span class="p">(</span><span class="nv">configuration</span><span class="p">:</span> <span class="kt">Configuration</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC9SwiftBomb9SwiftBomb16fetchAccessoriesFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_17AccessoryResource__5errorGSqOS_12RequestError__T__T_"></a>
+                    <a name="//apple_ref/swift/Method/fetchAccessories(_:pagination:sort:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC9SwiftBomb9SwiftBomb16fetchAccessoriesFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_17AccessoryResource__5errorGSqOS_12RequestError__T__T_">fetchAccessories(_:pagination:sort:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetches a paginated list of <code><a href="../Classes/AccessoryResource.html">AccessoryResource</a></code> instances. This list can be filtered to a search term, paginated and sorted.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">fetchAccessories</span><span class="p">(</span><span class="nv">query</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">pagination</span><span class="p">:</span> <span class="kt">PaginationDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">sort</span><span class="p">:</span> <span class="kt">SortDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt">PaginatedResults</span><span class="o">&lt;</span><span class="kt">AccessoryResource</span><span class="o">&gt;</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">RequestError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>query</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional search term used to filter for a particular accessory.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>pagination</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional <code>PaginationDefinition</code> to define the limit and offset when paginating results.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sort</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional <code>SortDefinition</code> to define how the results should be sorted.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A closure returning an optional generic <code>PaginatedResults</code> object containing the returned <code>AccessoryResource</code> objects and pagination information and also, an optional <code>RequestError</code> object if the request failed.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC9SwiftBomb9SwiftBomb15fetchCharactersFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_17CharacterResource__5errorGSqOS_12RequestError__T__T_"></a>
+                    <a name="//apple_ref/swift/Method/fetchCharacters(_:pagination:sort:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC9SwiftBomb9SwiftBomb15fetchCharactersFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_17CharacterResource__5errorGSqOS_12RequestError__T__T_">fetchCharacters(_:pagination:sort:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetches a paginated list of <code><a href="../Classes/CharacterResource.html">CharacterResource</a></code> instances. This list can be filtered to a search term, paginated and sorted.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">fetchCharacters</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">pagination</span><span class="p">:</span> <span class="kt">PaginationDefinition</span><span class="p">?,</span> <span class="nv">sort</span><span class="p">:</span> <span class="kt">SortDefinition</span><span class="p">?,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt">PaginatedResults</span><span class="o">&lt;</span><span class="kt">CharacterResource</span><span class="o">&gt;</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">RequestError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>query</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional search term used to filter for a particular character.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>pagination</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional <code>PaginationDefinition</code> to define the limit and offset when paginating results.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sort</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional <code>SortDefinition</code> to define how the results should be sorted.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A closure returning an optional generic <code>PaginatedResults</code> object containing the returned <code>CharacterResource</code> objects and pagination information and also, an optional <code>RequestError</code> object if the request failed.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC9SwiftBomb9SwiftBomb14fetchPlatformsFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_16PlatformResource__5errorGSqOS_12RequestError__T__T_"></a>
+                    <a name="//apple_ref/swift/Method/fetchPlatforms(_:pagination:sort:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC9SwiftBomb9SwiftBomb14fetchPlatformsFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_16PlatformResource__5errorGSqOS_12RequestError__T__T_">fetchPlatforms(_:pagination:sort:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetches a paginated list of <code><a href="../Classes/PlatformResource.html">PlatformResource</a></code> instances. This list can be filtered to a search term, paginated and sorted.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">fetchPlatforms</span><span class="p">(</span><span class="nv">query</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">pagination</span><span class="p">:</span> <span class="kt">PaginationDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">sort</span><span class="p">:</span> <span class="kt">SortDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt">PaginatedResults</span><span class="o">&lt;</span><span class="kt">PlatformResource</span><span class="o">&gt;</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">RequestError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>query</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional search term used to filter for a particular platform.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>pagination</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional <code>PaginationDefinition</code> to define the limit and offset when paginating results.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sort</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional <code>SortDefinition</code> to define how the results should be sorted.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A closure returning an optional generic <code>PaginatedResults</code> object containing the returned <code>PlatformResource</code> objects and pagination information and also, an optional <code>RequestError</code> object if the request failed.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC9SwiftBomb9SwiftBomb14fetchCompaniesFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_15CompanyResource__5errorGSqOS_12RequestError__T__T_"></a>
+                    <a name="//apple_ref/swift/Method/fetchCompanies(_:pagination:sort:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC9SwiftBomb9SwiftBomb14fetchCompaniesFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_15CompanyResource__5errorGSqOS_12RequestError__T__T_">fetchCompanies(_:pagination:sort:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetches a paginated list of <code><a href="../Classes/CompanyResource.html">CompanyResource</a></code> instances. This list can be filtered to a search term, paginated and sorted.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">fetchCompanies</span><span class="p">(</span><span class="nv">query</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">pagination</span><span class="p">:</span> <span class="kt">PaginationDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">sort</span><span class="p">:</span> <span class="kt">SortDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt">PaginatedResults</span><span class="o">&lt;</span><span class="kt">CompanyResource</span><span class="o">&gt;</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">RequestError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>query</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional search term used to filter for a particular company.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>pagination</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional <code>PaginationDefinition</code> to define the limit and offset when paginating results.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sort</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional <code>SortDefinition</code> to define how the results should be sorted.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A closure returning an optional generic <code>PaginatedResults</code> object containing the returned <code>CompanyResource</code> objects and pagination information and also, an optional <code>RequestError</code> object if the request failed.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC9SwiftBomb9SwiftBomb13fetchReleasesFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_19GameReleaseResource__5errorGSqOS_12RequestError__T__T_"></a>
+                    <a name="//apple_ref/swift/Method/fetchReleases(_:pagination:sort:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC9SwiftBomb9SwiftBomb13fetchReleasesFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_19GameReleaseResource__5errorGSqOS_12RequestError__T__T_">fetchReleases(_:pagination:sort:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetches a paginated list of <code><a href="../Classes/GameReleaseResource.html">GameReleaseResource</a></code> instances. This list can be filtered to a search term, paginated and sorted.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">fetchReleases</span><span class="p">(</span><span class="nv">query</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">pagination</span><span class="p">:</span> <span class="kt">PaginationDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">sort</span><span class="p">:</span> <span class="kt">SortDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt">PaginatedResults</span><span class="o">&lt;</span><span class="kt">GameReleaseResource</span><span class="o">&gt;</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">RequestError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>query</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional search term used to filter for a particular game release.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>pagination</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional <code>PaginationDefinition</code> to define the limit and offset when paginating results.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sort</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional <code>SortDefinition</code> to define how the results should be sorted.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A closure returning an optional generic <code>PaginatedResults</code> object containing the returned <code>GameReleaseResource</code> objects and pagination information and also, an optional <code>RequestError</code> object if the request failed.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC9SwiftBomb9SwiftBomb13fetchConceptsFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_15ConceptResource__5errorGSqOS_12RequestError__T__T_"></a>
+                    <a name="//apple_ref/swift/Method/fetchConcepts(_:pagination:sort:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC9SwiftBomb9SwiftBomb13fetchConceptsFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_15ConceptResource__5errorGSqOS_12RequestError__T__T_">fetchConcepts(_:pagination:sort:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetches a paginated list of <code><a href="../Classes/ConceptResource.html">ConceptResource</a></code> instances. This list can be filtered to a search term, paginated and sorted.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">fetchConcepts</span><span class="p">(</span><span class="nv">query</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">pagination</span><span class="p">:</span> <span class="kt">PaginationDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">sort</span><span class="p">:</span> <span class="kt">SortDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt">PaginatedResults</span><span class="o">&lt;</span><span class="kt">ConceptResource</span><span class="o">&gt;</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">RequestError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>query</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional search term used to filter for a particular concept.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>pagination</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional <code>PaginationDefinition</code> to define the limit and offset when paginating results.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sort</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional <code>SortDefinition</code> to define how the results should be sorted.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A closure returning an optional generic <code>PaginatedResults</code> object containing the returned <code>ConceptResource</code> objects and pagination information and also, an optional <code>RequestError</code> object if the request failed.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC9SwiftBomb9SwiftBomb15fetchFranchisesFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_17FranchiseResource__5errorGSqOS_12RequestError__T__T_"></a>
+                    <a name="//apple_ref/swift/Method/fetchFranchises(_:pagination:sort:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC9SwiftBomb9SwiftBomb15fetchFranchisesFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_17FranchiseResource__5errorGSqOS_12RequestError__T__T_">fetchFranchises(_:pagination:sort:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetches a paginated list of <code><a href="../Classes/FranchiseResource.html">FranchiseResource</a></code> instances. This list can be filtered to a search term, paginated and sorted.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">fetchFranchises</span><span class="p">(</span><span class="nv">query</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">pagination</span><span class="p">:</span> <span class="kt">PaginationDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">sort</span><span class="p">:</span> <span class="kt">SortDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt">PaginatedResults</span><span class="o">&lt;</span><span class="kt">FranchiseResource</span><span class="o">&gt;</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">RequestError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>query</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional search term used to filter for a particular franchise.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>pagination</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional <code>PaginationDefinition</code> to define the limit and offset when paginating results.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sort</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional <code>SortDefinition</code> to define how the results should be sorted.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A closure returning an optional generic <code>PaginatedResults</code> object containing the returned <code>FranchiseResource</code> objects and pagination information and also, an optional <code>RequestError</code> object if the request failed.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC9SwiftBomb9SwiftBomb10fetchGamesFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_12GameResource__5errorGSqOS_12RequestError__T__T_"></a>
+                    <a name="//apple_ref/swift/Method/fetchGames(_:pagination:sort:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC9SwiftBomb9SwiftBomb10fetchGamesFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_12GameResource__5errorGSqOS_12RequestError__T__T_">fetchGames(_:pagination:sort:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetches a paginated list of <code><a href="../Classes/GameResource.html">GameResource</a></code> instances. This list can be filtered to a search term, paginated and sorted.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">fetchGames</span><span class="p">(</span><span class="nv">query</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">pagination</span><span class="p">:</span> <span class="kt">PaginationDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">sort</span><span class="p">:</span> <span class="kt">SortDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt">PaginatedResults</span><span class="o">&lt;</span><span class="kt">GameResource</span><span class="o">&gt;</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">RequestError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>query</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional search term used to filter for a particular game.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>pagination</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional <code>PaginationDefinition</code> to define the limit and offset when paginating results.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sort</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional <code>SortDefinition</code> to define how the results should be sorted.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A closure returning an optional generic <code>PaginatedResults</code> object containing the returned <code>GameResource</code> objects and pagination information and also, an optional <code>RequestError</code> object if the request failed.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC9SwiftBomb9SwiftBomb11fetchGenresFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_13GenreResource__5errorGSqOS_12RequestError__T__T_"></a>
+                    <a name="//apple_ref/swift/Method/fetchGenres(_:pagination:sort:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC9SwiftBomb9SwiftBomb11fetchGenresFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_13GenreResource__5errorGSqOS_12RequestError__T__T_">fetchGenres(_:pagination:sort:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetches a paginated list of <code><a href="../Classes/GenreResource.html">GenreResource</a></code> instances. This list can be filtered to a search term, paginated and sorted.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">fetchGenres</span><span class="p">(</span><span class="nv">query</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">pagination</span><span class="p">:</span> <span class="kt">PaginationDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">sort</span><span class="p">:</span> <span class="kt">SortDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt">PaginatedResults</span><span class="o">&lt;</span><span class="kt">GenreResource</span><span class="o">&gt;</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">RequestError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>query</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional search term used to filter for a particular genre.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>pagination</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional <code>PaginationDefinition</code> to define the limit and offset when paginating results.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sort</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional <code>SortDefinition</code> to define how the results should be sorted.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A closure returning an optional generic <code>PaginatedResults</code> object containing the returned <code>GenreResource</code> objects and pagination information and also, an optional <code>RequestError</code> object if the request failed.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC9SwiftBomb9SwiftBomb14fetchLocationsFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_16LocationResource__5errorGSqOS_12RequestError__T__T_"></a>
+                    <a name="//apple_ref/swift/Method/fetchLocations(_:pagination:sort:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC9SwiftBomb9SwiftBomb14fetchLocationsFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_16LocationResource__5errorGSqOS_12RequestError__T__T_">fetchLocations(_:pagination:sort:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetches a paginated list of <code><a href="../Classes/LocationResource.html">LocationResource</a></code> instances. This list can be filtered to a search term, paginated and sorted.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">fetchLocations</span><span class="p">(</span><span class="nv">query</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">pagination</span><span class="p">:</span> <span class="kt">PaginationDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">sort</span><span class="p">:</span> <span class="kt">SortDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt">PaginatedResults</span><span class="o">&lt;</span><span class="kt">LocationResource</span><span class="o">&gt;</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">RequestError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>query</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional search term used to filter for a particular location.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>pagination</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional <code>PaginationDefinition</code> to define the limit and offset when paginating results.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sort</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional <code>SortDefinition</code> to define how the results should be sorted.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A closure returning an optional generic <code>PaginatedResults</code> object containing the returned <code>LocationResource</code> objects and pagination information and also, an optional <code>RequestError</code> object if the request failed.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC9SwiftBomb9SwiftBomb12fetchObjectsFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_14ObjectResource__5errorGSqOS_12RequestError__T__T_"></a>
+                    <a name="//apple_ref/swift/Method/fetchObjects(_:pagination:sort:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC9SwiftBomb9SwiftBomb12fetchObjectsFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_14ObjectResource__5errorGSqOS_12RequestError__T__T_">fetchObjects(_:pagination:sort:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetches a paginated list of <code><a href="../Classes/ObjectResource.html">ObjectResource</a></code> instances. This list can be filtered to a search term, paginated and sorted.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">fetchObjects</span><span class="p">(</span><span class="nv">query</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">pagination</span><span class="p">:</span> <span class="kt">PaginationDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">sort</span><span class="p">:</span> <span class="kt">SortDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt">PaginatedResults</span><span class="o">&lt;</span><span class="kt">ObjectResource</span><span class="o">&gt;</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">RequestError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>query</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional search term used to filter for a particular object.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>pagination</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional <code>PaginationDefinition</code> to define the limit and offset when paginating results.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sort</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional <code>SortDefinition</code> to define how the results should be sorted.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A closure returning an optional generic <code>PaginatedResults</code> object containing the returned <code>ObjectResource</code> objects and pagination information and also, an optional <code>RequestError</code> object if the request failed.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC9SwiftBomb9SwiftBomb11fetchPeopleFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_14PersonResource__5errorGSqOS_12RequestError__T__T_"></a>
+                    <a name="//apple_ref/swift/Method/fetchPeople(_:pagination:sort:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC9SwiftBomb9SwiftBomb11fetchPeopleFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_14PersonResource__5errorGSqOS_12RequestError__T__T_">fetchPeople(_:pagination:sort:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetches a paginated list of <code><a href="../Classes/PersonResource.html">PersonResource</a></code> instances. This list can be filtered to a search term, paginated and sorted.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">fetchPeople</span><span class="p">(</span><span class="nv">query</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">pagination</span><span class="p">:</span> <span class="kt">PaginationDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">sort</span><span class="p">:</span> <span class="kt">SortDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt">PaginatedResults</span><span class="o">&lt;</span><span class="kt">PersonResource</span><span class="o">&gt;</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">RequestError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>query</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional search term used to filter for a particular person.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>pagination</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional <code>PaginationDefinition</code> to define the limit and offset when paginating results.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sort</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional <code>SortDefinition</code> to define how the results should be sorted.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A closure returning an optional generic <code>PaginatedResults</code> object containing the returned <code>PersonResource</code> objects and pagination information and also, an optional <code>RequestError</code> object if the request failed.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC9SwiftBomb9SwiftBomb13performSearchFTGSqSS_13resourceTypesGSqGSaOS_12ResourceType__10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFT13searchResultsGSqVS_13SearchResults_5errorGSqOS_12RequestError__T__T_"></a>
+                    <a name="//apple_ref/swift/Method/performSearch(_:resourceTypes:pagination:sort:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC9SwiftBomb9SwiftBomb13performSearchFTGSqSS_13resourceTypesGSqGSaOS_12ResourceType__10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFT13searchResultsGSqVS_13SearchResults_5errorGSqOS_12RequestError__T__T_">performSearch(_:resourceTypes:pagination:sort:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Performs a generic search on the Giant Bomb API.</p>
+
+<p>Note that this call can take quite a long time so specifying as few resource types as possible is in the best interest of your app&rsquo;s performance. Additionally, the pagination definition used limits how many resources will be returned <em>for each resource type</em> and not the amount of resources in total across all types.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">performSearch</span><span class="p">(</span><span class="nv">query</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">resourceTypes</span><span class="p">:</span> <span class="p">[</span><span class="kt">ResourceType</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">pagination</span><span class="p">:</span> <span class="kt">PaginationDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">sort</span><span class="p">:</span> <span class="kt">SortDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="nv">searchResults</span><span class="p">:</span> <span class="kt">SearchResults</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">RequestError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>query</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A string for which to search upon.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>resourceTypes</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional array of <code>ResourceType</code>s for which you would like to search. The fewer, the faster.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>pagination</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional definition of how to offset and limit the search results.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sort</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional definition of how to sort the resources</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A closure which contains an instance of <code>SearchResults</code> where the results can be found and, optionally, a <code>RequestError</code> if the operation failed.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC9SwiftBomb9SwiftBomb11fetchVideosFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_13VideoResource__5errorGSqOS_12RequestError__T__T_"></a>
+                    <a name="//apple_ref/swift/Method/fetchVideos(_:pagination:sort:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC9SwiftBomb9SwiftBomb11fetchVideosFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_13VideoResource__5errorGSqOS_12RequestError__T__T_">fetchVideos(_:pagination:sort:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetches a paginated list of <code><a href="../Classes/VideoResource.html">VideoResource</a></code> instances. This list can be filtered to a search term, paginated and sorted.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">fetchVideos</span><span class="p">(</span><span class="nv">query</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">pagination</span><span class="p">:</span> <span class="kt">PaginationDefinition</span><span class="p">?,</span> <span class="nv">sort</span><span class="p">:</span> <span class="kt">SortDefinition</span><span class="p">?,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt">PaginatedResults</span><span class="o">&lt;</span><span class="kt">VideoResource</span><span class="o">&gt;</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">RequestError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>query</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional search term used to filter for a particular video.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>pagination</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional <code>PaginationDefinition</code> to define the limit and offset when paginating results.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sort</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional <code>SortDefinition</code> to define how the results should be sorted.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A closure returning an optional generic <code>PaginatedResults</code> object containing the returned <code>VideoResource</code> objects and pagination information and also, an optional <code>RequestError</code> object if the request failed.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2016-05-08)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.6.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

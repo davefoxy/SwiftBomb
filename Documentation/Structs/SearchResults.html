@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SearchResults Struct Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Struct/SearchResults" class="dashAnchor"></a>
+    <a title="SearchResults Struct Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (100% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        SearchResults Struct Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AccessoryResource.html">AccessoryResource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CharacterResource.html">CharacterResource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CompanyResource.html">CompanyResource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ConceptResource.html">ConceptResource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FranchiseResource.html">FranchiseResource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GameReleaseResource.html">GameReleaseResource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GameResource.html">GameResource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GenreResource.html">GenreResource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LocationResource.html">LocationResource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ObjectResource.html">ObjectResource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PersonResource.html">PersonResource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PlatformResource.html">PlatformResource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StaffReviewResource.html">StaffReviewResource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SwiftBomb.html">SwiftBomb</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VideoResource.html">VideoResource</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/Gender.html">Gender</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/RequestError.html">RequestError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ResourceResponseError.html">ResourceResponseError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ResourceType.html">ResourceType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/Resource.html">Resource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ResourceExtendedInfo.html">ResourceExtendedInfo</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/CharacterExtendedInfo.html">CharacterExtendedInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CompanyExtendedInfo.html">CompanyExtendedInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ConceptExtendedInfo.html">ConceptExtendedInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Configuration.html">Configuration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/FranchiseExtendedInfo.html">FranchiseExtendedInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/GameExtendedInfo.html">GameExtendedInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/GameReleaseExtendedInfo.html">GameReleaseExtendedInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ImageURLs.html">ImageURLs</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ObjectExtendedInfo.html">ObjectExtendedInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PaginatedResults.html">PaginatedResults</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PersonExtendedInfo.html">PersonExtendedInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SearchResults.html">SearchResults</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SortDefinition.html">SortDefinition</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/UnusedExtendedInfo.html">UnusedExtendedInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/VideoURLs.html">VideoURLs</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Typealiases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:9SwiftBomb20PaginationDefinition">PaginationDefinition</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:9SwiftBomb15ResourceSummary">ResourceSummary</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>SearchResults</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">SearchResults</span></code></pre>
+
+                </div>
+              </div>
+            <p>A struct containing the results of a call to the Giant Bomb search API. Clients can do so by calling <code>performSearch(_:resourceTypes:pagination:sort:completion:)</code> on the <code><a href="../Classes/SwiftBomb.html">SwiftBomb</a></code> singleton.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vV9SwiftBomb13SearchResults22number_of_page_resultsGSqSi_"></a>
+                    <a name="//apple_ref/swift/Property/number_of_page_results" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vV9SwiftBomb13SearchResults22number_of_page_resultsGSqSi_">number_of_page_results</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The number of results on this page.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">number_of_page_results</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vV9SwiftBomb13SearchResults23number_of_total_resultsGSqSi_"></a>
+                    <a name="//apple_ref/swift/Property/number_of_total_results" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vV9SwiftBomb13SearchResults23number_of_total_resultsGSqSi_">number_of_total_results</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The number of total results matching the filter conditions specified.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">number_of_total_results</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vV9SwiftBomb13SearchResults6offsetGSqSi_"></a>
+                    <a name="//apple_ref/swift/Property/offset" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vV9SwiftBomb13SearchResults6offsetGSqSi_">offset</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The value of the offset filter specified, or 0 if not specified.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">offset</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vV9SwiftBomb13SearchResults7versionGSqSS_"></a>
+                    <a name="//apple_ref/swift/Property/version" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vV9SwiftBomb13SearchResults7versionGSqSS_">version</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The API version.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">version</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vV9SwiftBomb13SearchResults10charactersGSaCS_17CharacterResource_"></a>
+                    <a name="//apple_ref/swift/Property/characters" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vV9SwiftBomb13SearchResults10charactersGSaCS_17CharacterResource_">characters</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An array of <code><a href="../Classes/CharacterResource.html">CharacterResource</a></code>s found in the search results.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">private(set)</span> <span class="k">var</span> <span class="nv">characters</span> <span class="o">=</span> <span class="p">[</span><span class="kt">CharacterResource</span><span class="p">]()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vV9SwiftBomb13SearchResults9companiesGSaCS_15CompanyResource_"></a>
+                    <a name="//apple_ref/swift/Property/companies" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vV9SwiftBomb13SearchResults9companiesGSaCS_15CompanyResource_">companies</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An array of <code><a href="../Classes/CompanyResource.html">CompanyResource</a></code>s found in the search results.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">private(set)</span> <span class="k">var</span> <span class="nv">companies</span> <span class="o">=</span> <span class="p">[</span><span class="kt">CompanyResource</span><span class="p">]()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vV9SwiftBomb13SearchResults8conceptsGSaCS_15ConceptResource_"></a>
+                    <a name="//apple_ref/swift/Property/concepts" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vV9SwiftBomb13SearchResults8conceptsGSaCS_15ConceptResource_">concepts</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An array of <code><a href="../Classes/ConceptResource.html">ConceptResource</a></code>s found in the search results.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">private(set)</span> <span class="k">var</span> <span class="nv">concepts</span> <span class="o">=</span> <span class="p">[</span><span class="kt">ConceptResource</span><span class="p">]()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vV9SwiftBomb13SearchResults10franchisesGSaCS_17FranchiseResource_"></a>
+                    <a name="//apple_ref/swift/Property/franchises" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vV9SwiftBomb13SearchResults10franchisesGSaCS_17FranchiseResource_">franchises</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An array of <code><a href="../Classes/FranchiseResource.html">FranchiseResource</a></code>s found in the search results.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">private(set)</span> <span class="k">var</span> <span class="nv">franchises</span> <span class="o">=</span> <span class="p">[</span><span class="kt">FranchiseResource</span><span class="p">]()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vV9SwiftBomb13SearchResults5gamesGSaCS_12GameResource_"></a>
+                    <a name="//apple_ref/swift/Property/games" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vV9SwiftBomb13SearchResults5gamesGSaCS_12GameResource_">games</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An array of <code><a href="../Classes/GameResource.html">GameResource</a></code>s found in the search results.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">private(set)</span> <span class="k">var</span> <span class="nv">games</span> <span class="o">=</span> <span class="p">[</span><span class="kt">GameResource</span><span class="p">]()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vV9SwiftBomb13SearchResults9locationsGSaCS_16LocationResource_"></a>
+                    <a name="//apple_ref/swift/Property/locations" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vV9SwiftBomb13SearchResults9locationsGSaCS_16LocationResource_">locations</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An array of <code><a href="../Classes/LocationResource.html">LocationResource</a></code>s found in the search results.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">private(set)</span> <span class="k">var</span> <span class="nv">locations</span> <span class="o">=</span> <span class="p">[</span><span class="kt">LocationResource</span><span class="p">]()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vV9SwiftBomb13SearchResults7objectsGSaCS_14ObjectResource_"></a>
+                    <a name="//apple_ref/swift/Property/objects" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vV9SwiftBomb13SearchResults7objectsGSaCS_14ObjectResource_">objects</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An array of <code><a href="../Classes/ObjectResource.html">ObjectResource</a></code>s found in the search results.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">private(set)</span> <span class="k">var</span> <span class="nv">objects</span> <span class="o">=</span> <span class="p">[</span><span class="kt">ObjectResource</span><span class="p">]()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vV9SwiftBomb13SearchResults6peopleGSaCS_14PersonResource_"></a>
+                    <a name="//apple_ref/swift/Property/people" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vV9SwiftBomb13SearchResults6peopleGSaCS_14PersonResource_">people</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An array of <code><a href="../Classes/PersonResource.html">PersonResource</a></code>s found in the search results.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">private(set)</span> <span class="k">var</span> <span class="nv">people</span> <span class="o">=</span> <span class="p">[</span><span class="kt">PersonResource</span><span class="p">]()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vV9SwiftBomb13SearchResults6videosGSaCS_13VideoResource_"></a>
+                    <a name="//apple_ref/swift/Property/videos" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vV9SwiftBomb13SearchResults6videosGSaCS_13VideoResource_">videos</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An array of <code><a href="../Classes/VideoResource.html">VideoResource</a></code>s found in the search results.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">private(set)</span> <span class="k">var</span> <span class="nv">videos</span> <span class="o">=</span> <span class="p">[</span><span class="kt">VideoResource</span><span class="p">]()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FV9SwiftBomb13SearchResults22availableResourceTypesFT_GSaOS_12ResourceType_"></a>
+                    <a name="//apple_ref/swift/Method/availableResourceTypes()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FV9SwiftBomb13SearchResults22availableResourceTypesFT_GSaOS_12ResourceType_">availableResourceTypes()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns an array of the types of resource which were found during the search</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">availableResourceTypes</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">ResourceType</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FV9SwiftBomb13SearchResults23resourceSummariesOfTypeFOS_12ResourceTypeGSaT2idSi17prettyDescriptionSS5imageGSqVS_9ImageURLs_12resourceTypeS1___"></a>
+                    <a name="//apple_ref/swift/Method/resourceSummariesOfType(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FV9SwiftBomb13SearchResults23resourceSummariesOfTypeFOS_12ResourceTypeGSaT2idSi17prettyDescriptionSS5imageGSqVS_9ImageURLs_12resourceTypeS1___">resourceSummariesOfType(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns <code><a href="../Typealiases.html#/s:9SwiftBomb15ResourceSummary">ResourceSummary</a></code>s representing each of the resources found during the search</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">resourceSummariesOfType</span><span class="p">(</span><span class="nv">resourceType</span><span class="p">:</span> <span class="kt">ResourceType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">ResourceSummary</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2016-05-08)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.6.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

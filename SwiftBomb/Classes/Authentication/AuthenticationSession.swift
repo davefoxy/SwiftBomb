@@ -53,7 +53,7 @@ class AuthenticationSession {
             switch result {
             case .Success(let responseData):
                 
-                // TODO: this is xml! :(
+                // This is xml! :(
                 self.apiPollingDirective = APIPollingDirective(xml: responseData as! NSData)
                 
                 if let regCode = self.apiPollingDirective?.regCode {

@@ -24,7 +24,7 @@ extension RequestFactory {
         
         var request = Request(configuration: configuration, path: "apple-tv/get-code", method: .GET)
         request.responseFormat = .XML
-        request.addURLParameter("deviceID", value: "XXX") // TODO: real value
+        request.addURLParameter("deviceID", value: "XXX")
         
         return request
     }
@@ -32,7 +32,7 @@ extension RequestFactory {
     func authenticationAPIKeyRequest(regCode: String) -> Request {
         
         var request = Request(configuration: configuration, path: "apple-tv/get-result", method: .GET)
-        request.addURLParameter("deviceID", value: "XXX") // TODO: real value
+        request.addURLParameter("deviceID", value: "XXX")
         request.addURLParameter("partner", value: "apple-tv")
         request.addURLParameter("regCode", value: regCode)
         

@@ -131,12 +131,7 @@ final public class GameReleaseResource: ResourceUpdating {
         name = json["name"] as? String
         
         if let platformJSON = json["platform"] as? [String: AnyObject] {
-            if
-                let id = platformJSON["id"] as? Int,
-                let name = platformJSON["name"] as? String,
-                let abbreviation = platformJSON["abbreviation"] as? String {
-                platform = PlatformResource(id: id, name: name, abbreviation: abbreviation)
-            }
+            platform = PlatformResource(json: platformJSON)
         }
         
         product_code_value = json["product_code_value"] as? String

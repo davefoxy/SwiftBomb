@@ -9,7 +9,7 @@
 import Foundation
 
 /**
- A singleton from which SwiftBomb does it's setup. Ensure to configure the framework on app startup by calling `configure(_)` before attempting to make any requests.
+ A singleton from which SwiftBomb does it's setup. Ensure to configure the framework on app startup by calling `configure(_:)` before attempting to make any requests.
  */
 public class SwiftBomb {
     

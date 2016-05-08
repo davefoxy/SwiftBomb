@@ -47,7 +47,7 @@ class GameViewController: BaseResourceDetailViewController {
             
             if game?.platforms?.count > 0 {
                 
-                let platformNames = game?.platforms?.map({ $0.name })
+                let platformNames = game?.platforms?.map({ $0.name ?? "" })
                 infos.append(ResourceInfoTuple(value: platformNames?.joinWithSeparator(", "), label: "Platforms:"))
             }
             

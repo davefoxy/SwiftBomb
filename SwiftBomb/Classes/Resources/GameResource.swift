@@ -104,19 +104,7 @@ final public class GameResource: ResourceUpdating {
         
         original_game_rating = (json["original_game_rating"] as? [[String: AnyObject]])?.idNameTupleMaps()
         
-        platforms = [PlatformResource]()
-        if let platformsJSON = json["platforms"] as? [[String: AnyObject]] {
-            
-            for platformJSON in platformsJSON {
-                if
-                    let id = platformJSON["id"] as? Int,
-                    let name = platformJSON["name"] as? String,
-                    let abbreviation = platformJSON["abbreviation"] as? String {
-                    let platform = PlatformResource(id: id, name: name, abbreviation: abbreviation)
-                    platforms?.append(platform)
-                }
-            }
-        }
+        platforms = json.jsonMappedResources("platforms")
     }
     
     /// Pretty description of the game.

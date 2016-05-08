@@ -45,10 +45,10 @@ final public class GenreResource: ResourceUpdating {
     /// URL pointing to the genre on Giant Bomb.
     public private(set) var site_detail_url: NSURL?
     
-    /// Extended info.
+    /// Extended info. Unused for this resource type.
     public var extendedInfo: UnusedExtendedInfo?
     
-    /// Used to create a `GenreResource` from JSON
+    /// Used to create a `GenreResource` from JSON.
     public init(json: [String : AnyObject]) {
         
         id = json["id"] as? Int
@@ -74,6 +74,7 @@ final public class GenreResource: ResourceUpdating {
         site_detail_url = (json["site_detail_url"] as? String)?.url()
     }
     
+    /// Pretty description of the genre.
     public var prettyDescription: String {
         return name ?? "Genre \(id)"
     }

@@ -8,16 +8,19 @@
 
 import Foundation
 
+/**
+ A container to hold all the possible URLs for a video hosted on Giant Bomb.
+ */
 public struct VideoURLs {
     
     /// URL to the HD version of the video
-    let hd: NSURL?
+    public let hd: NSURL?
     
     /// URL to the High Res version of the video
-    let high: NSURL?
+    public let high: NSURL?
     
     /// URL to the Low Res version of the video
-    let low: NSURL?
+    public let low: NSURL?
     
     init(json: [String: AnyObject]) {
         

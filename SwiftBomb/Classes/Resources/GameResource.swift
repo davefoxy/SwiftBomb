@@ -9,64 +9,64 @@
 import Foundation
 
 /**
- A class representing a *Game* on the Giant Bomb wiki. Examples include *Farcry 3* and *Splatoon*.
+ A class representing a *Game* on the Giant Bomb wiki. Examples include *Farcry 3* and *Splatoon*. To retrieve information about a specific *release* of a game, see `GameReleaseResource`.
  
  To retrieve extended info for a game, call `fetchExtendedInfo(_:)` upon it.
  */
 final public class GameResource: ResourceUpdating {
     
-    /// The resource type
+    /// The resource type.
     public let resourceType = ResourceType.Game
     
-    /// Array of aliases the game is known by
+    /// Array of aliases the game is known by.
     public private(set) var aliases: [String]?
     
-    /// URL pointing to the game detail resource
+    /// URL pointing to the game detail resource.
     public private(set) var api_detail_url: NSURL?
     
-    /// Date the game was added to Giant Bomb
+    /// Date the game was added to Giant Bomb.
     public private(set) var date_added: NSDate?
     
-    /// Date the game was last updated on Giant Bomb
+    /// Date the game was last updated on Giant Bomb.
     public private(set) var date_last_updated: NSDate?
     
-    /// Brief summary of the game
+    /// Brief summary of the game.
     public private(set) var deck: String?
     
-    /// Description of the game
+    /// Description of the game.
     public private(set) var description: String?
     
-    /// Expected date the game will be released. Only contains the month and year. Fetch extended info for the full date
+    /// Expected date the game will be released. Only contains the month and year. Fetch extended info for the full date.
     public private(set) var expected_release_date: NSDate?
     
-    /// Unique ID of the game
+    /// Unique ID of the game.
     public let id: Int?
     
-    /// Main image of the game
+    /// Main image of the game.
     public private(set) var image: ImageURLs?
     
-    /// Name of the game
+    /// Name of the game.
     public private(set) var name: String?
     
-    /// Number of user reviews of the game on Giant Bomb
+    /// Number of user reviews of the game on Giant Bomb.
     public private(set) var number_of_user_reviews: Int?
     
-    /// Rating of the first release of the game
+    /// Rating of the first release of the game.
     public private(set) var original_game_rating: [(id: Int, name: String)]?
     
-    /// Date the game was first released
+    /// Date the game was first released.
     public private(set) var original_release_date: NSDate?
     
-    /// The platforms the game exists on
+    /// The platforms the game exists on.
     public private(set) var platforms: [PlatformResource]?
     
-    /// URL pointing to the game on Giant Bomb
+    /// URL pointing to the game on Giant Bomb.
     public private(set) var site_detail_url: NSURL?
     
-    /// Extended info
+    /// Extended info.
     public var extendedInfo: GameExtendedInfo?
     
-    /// Used to create a `GameResource` from JSON
+    /// Used to create a `GameResource` from JSON.
     public init(json: [String : AnyObject]) {
         
         id = json["id"] as? Int
@@ -119,13 +119,14 @@ final public class GameResource: ResourceUpdating {
         }
     }
     
+    /// Pretty description of the game.
     public var prettyDescription: String {
         return name ?? "Game \(id)"
     }
 }
 
 /**
- Struct containing extended information for `GameResource`s. To retrieve, call `fetchExtendedInfo(completion: (error: RequestError?)` upon the original resource then access the data on the resource's `extendedInfo` property.
+ Struct containing extended information for `GameResource`s. To retrieve, call `fetchExtendedInfo(_:)` upon the original resource then access the data on the resource's `extendedInfo` property.
  */
 public struct GameExtendedInfo: ResourceExtendedInfo {
     
@@ -198,6 +199,7 @@ public struct GameExtendedInfo: ResourceExtendedInfo {
     /// Videos associated to the game.
     public let videos: [VideoURLs]?
     
+    /// Used to create a `GameExtendedInfo` from JSON.
     public init(json: [String : AnyObject]) {
         
         characters = json.jsonMappedResources("characters")

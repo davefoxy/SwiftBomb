@@ -57,7 +57,7 @@ final public class ConceptResource: ResourceUpdating {
     /// Extended info.
     public var extendedInfo: ConceptExtendedInfo?
     
-    /// Used to create a `ConceptResource` from JSON
+    /// Used to create a `ConceptResource` from JSON.
     public init(json: [String : AnyObject]) {
         
         id = json["id"] as? Int
@@ -96,13 +96,14 @@ final public class ConceptResource: ResourceUpdating {
         }
     }
     
+    /// Pretty description of the concept.
     public var prettyDescription: String {
         return name ?? "Concept \(id)"
     }
 }
 
 /**
- Struct containing extended information for `ConceptResource`s. To retrieve, call `fetchExtendedInfo(completion: (error: RequestError?)` upon the original resource then access the data on the resource's `extendedInfo` property.
+ Struct containing extended information for `ConceptResource`s. To retrieve, call `fetchExtendedInfo(_:)` upon the original resource then access the data on the resource's `extendedInfo` property.
  */
 public struct ConceptExtendedInfo: ResourceExtendedInfo {
     
@@ -130,6 +131,7 @@ public struct ConceptExtendedInfo: ResourceExtendedInfo {
     /// Other concepts related to the concept.
     public let related_concepts: [ConceptResource]
     
+    /// Used to create a `ConceptExtendedInfo` from JSON.
     public init(json: [String : AnyObject]) {
         
         characters = json.jsonMappedResources("characters")

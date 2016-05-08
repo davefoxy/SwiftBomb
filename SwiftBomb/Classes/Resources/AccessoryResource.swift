@@ -48,7 +48,7 @@ final public class AccessoryResource: ResourceUpdating {
     /// Extended info. Unused for this resource type.
     public var extendedInfo: UnusedExtendedInfo?
     
-    /// Used to create a `AccessoryResource` from JSON
+    /// Used to create an `AccessoryResource` from JSON.
     public init(json: [String : AnyObject]) {
         
         id = json["id"] as? Int
@@ -74,6 +74,7 @@ final public class AccessoryResource: ResourceUpdating {
         api_detail_url = (json["api_detail_url"] as? String)?.url()
     }
     
+    /// Pretty description of the accessory.
     public var prettyDescription: String {
         return name ?? "Accessory \(id)"
     }

@@ -8,11 +8,6 @@
 
 import Foundation
 
-public enum RequestResult<T> {
-    case Success(T)
-    case Error(RequestError)
-}
-
 /**
  An enum returned by network requests which defines the various errors which can occur during communication with the Giant Bomb API.
  */
@@ -125,7 +120,7 @@ class URLSessionManager: NetworkingManager {
         }
     }
     
-    func performRequest(request: Request, completion: RequestResult<AnyObject> -> Void) {
+    func performRequest(request: Request, completion: RequestResult -> Void) {
         
         let urlRequest = request.urlRequest()
         

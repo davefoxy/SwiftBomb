@@ -13,10 +13,10 @@ extension SwiftBomb {
     /**
      Retrieves a paginated list of `ObjectResource` instances. This list can be filtered to a search term, paginated and sorted.
      
-     - Parameter query: An optional search term used to filter for a particular object.
-     - Parameter pagination: An optional `PaginationDefinition` to define the limit and offset when paginating results.
-     - Parameter sort: An optional `SortDefinition` to define how the results should be sorted.
-     - Parameter completion: A closure returning an optional generic `PaginatedResults` object containing the returned `ObjectResource` objects and pagination information and also, an optional `RequestError` object if the request failed.
+     - parameter query: An optional search term used to filter for a particular object.
+     - parameter pagination: An optional `PaginationDefinition` to define the limit and offset when paginating results.
+     - parameter sort: An optional `SortDefinition` to define how the results should be sorted.
+     - parameter completion: A closure returning an optional generic `PaginatedResults` object containing the returned `ObjectResource` objects and pagination information and also, an optional `RequestError` object if the request failed.
      */
     public static func retrieveObjects(query: String? = nil, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil, completion: (PaginatedResults<ObjectResource>?, error: RequestError?) -> Void) {
         
@@ -35,11 +35,6 @@ extension SwiftBomb {
 
 extension RequestFactory {
     
-    /**
-     Fetches extended info for this object. Also re-populates base data in the case where this object is a stub from another parent resource
-     
-     - parameter completion: A closure containing an optional `RequestError` if the request failed
-     */
     func objectsRequest(query: String? = nil, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil) -> Request {
         
         var request = Request(configuration: configuration, path: "objects", method: .GET, pagination: pagination, sort: sort)
@@ -55,6 +50,11 @@ extension RequestFactory {
 
 extension ObjectResource {
     
+    /**
+     Fetches extended info for this object. Also re-populates base data in the case where this object is a stub from another parent resource.
+     
+     - parameter completion: A closure containing an optional `RequestError` if the request failed.
+     */
     public func fetchExtendedInfo(completion: (error: RequestError?) -> Void) {
         
         let api = SwiftBomb.framework

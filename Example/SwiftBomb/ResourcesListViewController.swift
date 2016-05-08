@@ -150,7 +150,7 @@ class ResourcesListViewController: UIViewController, UITableViewDelegate, UITabl
             return
         }
         
-        if resourcePaginator?.hasMore == true && scrollView.contentOffset.y + CGRectGetHeight(scrollView.frame) > scrollView.contentSize.height - 700 {
+        if resourcePaginator?.hasMore == true && scrollView.contentOffset.y + CGRectGetHeight(scrollView.frame) > scrollView.contentSize.height - (CGRectGetHeight(scrollView.frame) * 1.3) {
             
             loadMoreResources()
         }

@@ -51,10 +51,10 @@ final public class LocationResource: ResourceUpdating {
     /// URL pointing to the location on Giant Bomb.
     public private(set) var site_detail_url: NSURL?
     
-    /// Extended info.
+    /// Extended info. Unused for this resource type.
     public var extendedInfo: UnusedExtendedInfo?
     
-    /// Used to create a `LocationResource` from JSON
+    /// Used to create a `LocationResource` from JSON.
     public init(json: [String : AnyObject]) {
         
         id = json["id"] as? Int
@@ -87,6 +87,7 @@ final public class LocationResource: ResourceUpdating {
         site_detail_url = (json["site_detail_url"] as? String)?.url()
     }
     
+    /// Pretty description of the location.
     public var prettyDescription: String {
         return name ?? "Location \(id)"
     }

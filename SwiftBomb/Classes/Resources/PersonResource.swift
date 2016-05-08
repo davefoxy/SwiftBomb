@@ -69,7 +69,7 @@ final public class PersonResource: ResourceUpdating {
     /// Extended info.
     public var extendedInfo: PersonExtendedInfo?
     
-    /// Used to create a `PersonResource` from JSON
+    /// Used to create a `PersonResource` from JSON.
     public init(json: [String : AnyObject]) {
         
         id = json["id"] as? Int
@@ -112,13 +112,14 @@ final public class PersonResource: ResourceUpdating {
         site_detail_url = (json["site_detail_url"] as? String)?.url()
     }
     
+    /// Pretty description of the person.
     public var prettyDescription: String {
         return name ?? "Person \(id)"
     }
 }
 
 /**
- Struct containing extended information for `PersonResource`s. To retrieve, call `fetchExtendedInfo(completion: (error: RequestError?)` upon the original resource then access the data on the resource's `extendedInfo` property.
+ Struct containing extended information for `PersonResource`s. To retrieve, call `fetchExtendedInfo(_:)` upon the original resource then access the data on the resource's `extendedInfo` property.
  */
 public struct PersonExtendedInfo: ResourceExtendedInfo {
     
@@ -143,6 +144,7 @@ public struct PersonExtendedInfo: ResourceExtendedInfo {
     /// People who have worked with the person.
     public let people: [PersonResource]
     
+    /// Used to create a `PersonExtendedInfo` from JSON.
     public init(json: [String : AnyObject]) {
         
         characters = json.jsonMappedResources("characters")

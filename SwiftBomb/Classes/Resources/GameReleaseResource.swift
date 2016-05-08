@@ -11,7 +11,7 @@ import Foundation
 /**
  A class representing a *Game Release* on the Giant Bomb wiki. Examples include *Grand Theft Auto: UK Release* and *Spelunky: Vita Edition*. The distinction between a `GameResource` and `GameReleaseResource` can be summarised that *a game consists of releases* and they typically refer to releases in different countries, collector's editions etc.
  
- To retrieve extended info for a game release, call `fetchExtendedInfo(completion: (error: RequestError?)` upon it.
+ To retrieve extended info for a game release, call `fetchExtendedInfo(_:)` upon it.
  */
 final public class GameReleaseResource: ResourceUpdating {
     
@@ -84,7 +84,7 @@ final public class GameReleaseResource: ResourceUpdating {
     /// Extended info.
     public var extendedInfo: GameReleaseExtendedInfo?
     
-    /// Used to create a `GameReleaseResource` from JSON
+    /// Used to create a `GameReleaseResource` from JSON.
     public init(json: [String : AnyObject]) {
         
         id = json["id"] as? Int
@@ -145,13 +145,14 @@ final public class GameReleaseResource: ResourceUpdating {
         resolutions = (json["resolutions"] as? [[String: AnyObject]])?.idNameTupleMaps()
     }
     
+    /// Pretty description of the release.
     public var prettyDescription: String {
         return name ?? "Release \(id)"
     }
 }
 
 /**
- Struct containing extended information for `GameReleaseResource`s. To retrieve, call `fetchExtendedInfo(completion: (error: RequestError?)` upon the original resource then access the data on the resource's `extendedInfo` property.
+ Struct containing extended information for `GameReleaseResource`s. To retrieve, call `fetchExtendedInfo(_:)` upon the original resource then access the data on the resource's `extendedInfo` property.
  */
 public struct GameReleaseExtendedInfo: ResourceExtendedInfo {
     
@@ -164,6 +165,7 @@ public struct GameReleaseExtendedInfo: ResourceExtendedInfo {
     /// Companies who published the release.
     let publishers: [CompanyResource]
     
+    /// Used to create a `GameReleaseExtendedInfo` from JSON.
     public init(json: [String : AnyObject]) {
         
         developers = json.jsonMappedResources("developers")

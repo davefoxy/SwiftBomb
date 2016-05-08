@@ -9,31 +9,32 @@
 import Foundation
 
 /**
- A tuple describing how a request should be paginated. Takes an `offset` and a fetch `limit`
+ A tuple describing how a request should be paginated. Takes an `offset` and a fetch `limit`.
  */
 public typealias PaginationDefinition = (offset: Int, limit: Int)
 
 /**
- Struct defining how a request's results should be sorted. Note that this sorting is done on Giant Bomb's server side and not by the framework. `SortDefinition` just acts as a convenient and strongly typed way to add in the appropriate url parameters when making the request.
+ Struct defining how a request's results should be sorted. Note that this sorting is done on Giant Bomb's server side and not by the framework. `SortDefinition` just acts as a convenient and strongly typed way to add in the appropriate url parameters when making requests.
  */
 public struct SortDefinition {
     
-    /// The field upon which to sort by
+    /// The field upon which to sort by.
     let field: String
     
-    /// The direction in which to sort
+    /// The direction in which to sort.
     let direction: SortDirection
     
-    /// An enum which declares in which direction results should be sorted by
+    /// An enum which declares in which direction results should be sorted by.
     public enum SortDirection: String {
         
-        /// Sort in ascending order
+        /// Sort in ascending order.
         case Ascending = "asc"
         
-        /// Sort in descending order
+        /// Sort in descending order.
         case Descending = "desc"
     }
     
+    /// Designated initializer for making a SortDefinition.
     public init(field: String, direction: SortDirection) {
         self.field = field
         self.direction = direction

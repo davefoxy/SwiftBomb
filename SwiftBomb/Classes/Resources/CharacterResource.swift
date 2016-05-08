@@ -15,7 +15,7 @@ import Foundation
  */
 final public class CharacterResource: ResourceUpdating {
     
-    /// The resource type
+    /// The resource type.
     public let resourceType = ResourceType.Character
     
     /// Array of aliases the character is known by.
@@ -24,7 +24,7 @@ final public class CharacterResource: ResourceUpdating {
     /// URL pointing to the character detail resource.
     public private(set) var api_detail_url: NSURL?
     
-    /// Birthday of the character
+    /// Birthday of the character.
     public private(set) var birthday: NSDate?
     
     /// Date the character was added to Giant Bomb.
@@ -63,10 +63,10 @@ final public class CharacterResource: ResourceUpdating {
     /// URL pointing to the character on Giant Bomb.
     public private(set) var site_detail_url: NSURL?
 
-    /// Extended info
+    /// Extended info.
     public var extendedInfo: CharacterExtendedInfo?
     
-    /// Used to create a `CharacterResource` from JSON
+    /// Used to create a `CharacterResource` from JSON.
     public init(json: [String: AnyObject]) {
         
         id = json["id"] as? Int
@@ -115,14 +115,14 @@ final public class CharacterResource: ResourceUpdating {
 }
 
 /**
- Struct containing extended information for `CharacterResource`s. To retrieve, call `fetchExtendedInfo(completion: (error: RequestError?)` upon the original resource then access the data on the resource's `extendedInfo` property.
+ Struct containing extended information for `CharacterResource`s. To retrieve, call `fetchExtendedInfo(_:)` upon the original resource then access the data on the resource's `extendedInfo` property.
  */
 public struct CharacterExtendedInfo: ResourceExtendedInfo {
 
     /// Concepts related to the character.
     public let concepts: [ConceptResource]
     
-    /// Enemeis of the character.
+    /// Enemies of the character.
     public let enemies: [CharacterResource]
     
     /// Franchises related to the character.
@@ -143,6 +143,7 @@ public struct CharacterExtendedInfo: ResourceExtendedInfo {
     /// People who have worked with the character.
     public let people: [PersonResource]
     
+    /// Used to create a `CharacterExtendedInfo` from JSON.
     public init(json: [String: AnyObject]) {
 
         concepts = json.jsonMappedResources("concepts")

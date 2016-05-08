@@ -26,7 +26,7 @@ extension GameResource {
     /**
      Retrieves a paginated list of `StaffReviewResource` instances for this game.
      
-     - Parameter completion: A closure returning an optional generic `PaginatedResults` object containing the returned `AccessoryResource` objects and pagination information and also, an optional `RequestError` object if the request failed.
+     - parameter completion: A closure returning an optional generic `PaginatedResults` object containing the returned `AccessoryResource` objects and pagination information and also, an optional `RequestError` object if the request failed.
      */
     public func fetchStaffReviews(completion: (PaginatedResults<StaffReviewResource>?, error: RequestError?) -> Void) {
         
@@ -46,6 +46,11 @@ extension GameResource {
 
 extension StaffReviewResource {
     
+    /**
+     Fetches extended info for this staff review. Also re-populates base data in the case where this object is a stub from another parent resource.
+     
+     - parameter completion: A closure containing an optional `RequestError` if the request failed.
+     */
     public func fetchExtendedInfo(completion: (error: RequestError?) -> Void) {
         
         let api = SwiftBomb.framework

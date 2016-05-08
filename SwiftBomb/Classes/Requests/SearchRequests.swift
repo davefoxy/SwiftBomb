@@ -10,6 +10,17 @@ import Foundation
 
 extension SwiftBomb {
     
+    /**
+     Performs a generic search on the Giant Bomb API.
+     
+     Note that this call can take quite a long time so specifying as few resource types as possible is in the best interest of your app's performance. Additionally, the pagination definition used limits how many resources will be returned *for each resource type* and not the amount of resources in total across all types.
+     
+     - parameter query: A string for which to search upon.
+     - parameter resourceTypes: An optional array of `ResourceType`s for which you would like to search. The fewer, the faster.
+     - parameter pagination: An optional definition of how to offset and limit the search results.
+     - parameter sort: An optional definition of how to sort the resources
+     - parameter completion: A closure which contains an instance of `SearchResults` where the results can be found and, optionally, a `RequestError` if the operation failed.
+     */
     public static func performSearch(query: String? = nil, resourceTypes: [ResourceType]? = nil, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil, completion: (searchResults: SearchResults?, error: RequestError?) -> Void) {
         
         let instance = SwiftBomb.framework
@@ -54,7 +65,7 @@ extension RequestFactory {
         if let query = query {
             request.addURLParameter("query", value: query)
         }
-
+        
         if let resourceTypes = resourceTypes {
             var resourceTypesField = ""
             for resourceType in resourceTypes {

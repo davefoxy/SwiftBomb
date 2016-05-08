@@ -23,5 +23,5 @@ protocol NetworkingManager {
     
     func performDetailRequest<T: ResourceUpdating>(request: Request, resource: T, completion: (error: RequestError?) -> Void)
     
-    func performRequest(request: Request, completion: RequestResult<AnyObject> -> Void)
+    func performRequest(request: Request, completion: RequestResult -> Void)
 }

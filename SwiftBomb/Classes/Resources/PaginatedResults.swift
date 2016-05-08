@@ -13,19 +13,19 @@ import Foundation
 */
 public struct PaginatedResults<T: Resource> {
     
-    /// The number of results on this page
+    /// The number of results on this page.
     public let number_of_page_results: Int?
     
-    /// The number of total results matching the filter conditions specified
+    /// The number of total results matching the filter conditions specified.
     public let number_of_total_results: Int?
     
-    /// The value of the offset filter specified, or 0 if not specified
+    /// The value of the offset filter specified, or 0 if not specified.
     public let offset: Int?
     
-    /// The API version returned by Giant Bomb's API
+    /// The API version returned by Giant Bomb's API.
     public let version: String?
     
-    /// Helper to decide whether there's more results or not
+    /// Helper to decide whether there's more results or not.
     public var hasMoreResults: Bool {
         get {
             guard
@@ -38,7 +38,7 @@ public struct PaginatedResults<T: Resource> {
         }
     }
     
-    /// An array of objects generic to the request that made this call. For example, when fetching videos, this will contain an array of Video structs
+    /// An array of objects generic to the request that made this call. For example, when fetching videos, this will contain an array of `VideoResource`s.
     public private(set) var resources = [T]()
     
     /// Extended info. Unused for this resource type

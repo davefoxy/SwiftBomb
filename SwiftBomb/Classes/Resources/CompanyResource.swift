@@ -75,7 +75,7 @@ final public class CompanyResource: ResourceUpdating {
     /// Extended info.
     public var extendedInfo: CompanyExtendedInfo?
 
-    /// Used to create a `CompanyResource` from JSON
+    /// Used to create a `CompanyResource` from JSON.
     public init(json: [String: AnyObject]) {
         
         id = json["id"] as? Int
@@ -109,13 +109,14 @@ final public class CompanyResource: ResourceUpdating {
         }
     }
     
+    /// Pretty description of the company.
     public var prettyDescription: String {
         return name ?? "Company \(id)"
     }
 }
 
 /**
- Struct containing extended information for `CompanyResource`s. To retrieve, call `fetchExtendedInfo(completion: (error: RequestError?)` upon the original resource then access the data on the resource's `extendedInfo` property.
+ Struct containing extended information for `CompanyResource`s. To retrieve, call `fetchExtendedInfo(_:)` upon the original resource then access the data on the resource's `extendedInfo` property.
  */
 public struct CompanyExtendedInfo: ResourceExtendedInfo {
     
@@ -149,6 +150,7 @@ public struct CompanyExtendedInfo: ResourceExtendedInfo {
     /// Releases the company has published.
     public let publisher_releases: [GameReleaseResource]
     
+    /// Used to create a `CompanyExtendedInfo` from JSON.
     public init(json: [String : AnyObject]) {
         
         characters = json.jsonMappedResources("characters")

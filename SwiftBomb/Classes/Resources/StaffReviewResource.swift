@@ -48,7 +48,7 @@ final public class StaffReviewResource: ResourceUpdating {
     /// URL pointing to the review on Giant Bomb.
     public private(set) var site_detail_url: NSURL?
     
-    /// IDs don't exist for reviews in the Giant Bomb database! But to satisfy the Resource protocol...
+    /// IDs don't exist for staff reviews in the Giant Bomb database! But to satisfy the `Resource` protocol...
     public private(set) var id: Int? = 0
     
     /// Take the image from the game
@@ -58,10 +58,10 @@ final public class StaffReviewResource: ResourceUpdating {
         }
     }
     
-    /// Extended info
+    /// Extended info. Unused for this resource type.
     public var extendedInfo: UnusedExtendedInfo?
     
-    /// Used to create a `StaffReviewResource` from JSON
+    /// Used to create a `StaffReviewResource` from JSON.
     public init(json: [String: AnyObject]) {
         
         update(json)
@@ -93,9 +93,10 @@ final public class StaffReviewResource: ResourceUpdating {
         site_detail_url = (json["site_detail_url"] as? String)?.url()
     }
     
+    /// Pretty description of the staff review.
     public var prettyDescription: String {
         if let game = game, let gameName = game.name {
-            return "\(gameName) Review"
+            return "\(gameName) Staff Review"
         }
         
         return "Review"

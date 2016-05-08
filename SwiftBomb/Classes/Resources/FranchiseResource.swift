@@ -51,7 +51,7 @@ final public class FranchiseResource: ResourceUpdating {
     /// Extended info.
     public var extendedInfo: FranchiseExtendedInfo?
     
-    /// Used to create a `FranchiseResource` from JSON
+    /// Used to create a `FranchiseResource` from JSON.
     public init(json: [String : AnyObject]) {
         
         id = json["id"] as? Int
@@ -77,13 +77,14 @@ final public class FranchiseResource: ResourceUpdating {
         }
     }
     
+    /// Pretty description of the franchise.
     public var prettyDescription: String {
         return name ?? "Franchise \(id)"
     }
 }
 
 /**
- Struct containing extended information for `FranchiseResource`s. To retrieve, call `fetchExtendedInfo(completion: (error: RequestError?)` upon the original resource then access the data on the resource's `extendedInfo` property.
+ Struct containing extended information for `FranchiseResource`s. To retrieve, call `fetchExtendedInfo(_:)` upon the original resource then access the data on the resource's `extendedInfo` property.
  */
 public struct FranchiseExtendedInfo: ResourceExtendedInfo {
     
@@ -105,6 +106,7 @@ public struct FranchiseExtendedInfo: ResourceExtendedInfo {
     /// People who have worked with the franchise.
     public let people: [PersonResource]
 
+    /// Used to create a `FranchiseExtendedInfo` from JSON.
     public init(json: [String : AnyObject]) {
         
         characters = json.jsonMappedResources("characters")

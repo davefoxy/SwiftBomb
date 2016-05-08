@@ -51,16 +51,16 @@ final public class VideoResource: ResourceUpdating {
     /// The video's filename.
     public private(set) var url: String?
     
-    // Container for the video's image.
+    /// Container for the video's image.
     public private(set) var image: ImageURLs?
     
-    // Container for the video's URLs.
-    public private(set) var video: VideoURLs?
+    /// Container for the video's URLs.
+    public private(set) var urls: VideoURLs?
     
-    /// Extended info.
+    /// Extended info. Unused for this resource type.
     public var extendedInfo: UnusedExtendedInfo?
     
-    /// Used to create a `VideoResource` from JSON
+    /// Used to create a `VideoResource` from JSON.
     public init(json: [String : AnyObject]) {
         
         id = json["id"] as? Int
@@ -81,15 +81,16 @@ final public class VideoResource: ResourceUpdating {
         youtube_id = json["youtube_id"] as? String
         url = json["url"] as? String
         
-        if let imageJSON = json["image"] as? JSONDict {
+        if let imageJSON = json["image"] as? [String: AnyObject] {
             image = ImageURLs(json: imageJSON)
         } else {
             image = nil
         }
         
-        video = VideoURLs(json: json)
+        urls = VideoURLs(json: json)
     }
     
+    /// Pretty description of the video.
     public var prettyDescription: String {
         return name ?? "Video \(id)"
     }

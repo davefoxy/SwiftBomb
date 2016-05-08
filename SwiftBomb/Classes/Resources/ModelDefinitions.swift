@@ -21,7 +21,19 @@ public typealias PlatformResource = (id: Int, name: String, abbreviation: String
 /**
  An empty struct type for resources which don't contain extended info. Included primarily to satisfy the requirements of the `Resource` protocol.
  */
-public struct UnusedExtendedInfo: ResourceExtendedInfo { public init(json: [String : AnyObject]) {} }
+public struct UnusedExtendedInfo: ResourceExtendedInfo {
+    
+    /// Unused
+    public init(json: [String : AnyObject]) {}
+}
+
+/**
+ Enum which is returned by calls to the network. Returns either `Success` along with the returned JSON or `Error` along with a `RequestError` explaining what went wrong.
+ */
+enum RequestResult {
+    case Success(AnyObject)
+    case Error(RequestError)
+}
 
 /**
  A protocol describing any of the main resources available on the Giant Bomb wiki. Includes base information required by the framework in creating and parsing resource objects.
@@ -34,7 +46,10 @@ public protocol Resource: class {
     /// The base init method for parsing the API's response JSON to a native resource object.
     init(json: [String: AnyObject])
     
-    /// Fetches extended info for an already partially-parsed resource.
+    /**
+     Fetches extended info for an already partially-parsed resource.
+     - parameter completion: A closure containing an optional `RequestError` if the request failed.
+     */
     func fetchExtendedInfo(completion: (error: RequestError?) -> Void)
     
     /// The unique ID for a resource.
@@ -66,6 +81,8 @@ internal protocol ResourceUpdating: Resource {
  A protocol which all resource's `extendedInfo` struct types must adhere to.
  */
 public protocol ResourceExtendedInfo {
+    
+    /// The base init method for parsing the API's response JSON to a native extended info object.
     init(json: [String: AnyObject])
 }
 
@@ -91,6 +108,41 @@ public enum ResourceType: String {
     
     init(safeRawValueOrUnknown: String) {
         self = ResourceType(rawValue: safeRawValueOrUnknown) ?? .Unknown
+    }
+}
+
+/// Enum to define a `Character`'s gender. Used for strong-typing the `gender` variable
+public enum Gender: Int {
+    
+    /// The gender could not be inferred from the Giant Bomb API.
+    case Unknown = 0
+    
+    /// Male
+    case Male
+    
+    /// Female
+    case Female
+    
+    /// Other. Used for characters like robots or other entities without a sex.
+    case Other
+    
+    /// Returns a user-facing representation of the gender.
+    public var description: String {
+        get {
+            switch self {
+            case Unknown:
+                return "Unknown"
+                
+            case Male:
+                return "Male"
+                
+            case Female:
+                return "Female"
+                
+            case Other:
+                return "Other"
+            }
+        }
     }
 }
 

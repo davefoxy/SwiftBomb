@@ -8,6 +8,9 @@
 
 import Foundation
 
+/**
+ A struct containing the results of a call to the Giant Bomb search API. Clients can do so by calling `performSearch(_:resourceTypes:pagination:sort:completion:)` on the `SwiftBomb` singleton.
+ */
 public struct SearchResults {
     
     /// The number of results on this page.
@@ -22,34 +25,34 @@ public struct SearchResults {
     /// The API version.
     public let version: String?
     
-    /// An array of `Character`s found in the search results.
+    /// An array of `CharacterResource`s found in the search results.
     public private(set) var characters = [CharacterResource]()
     
-    /// An array of `Company`s found in the search results.
+    /// An array of `CompanyResource`s found in the search results.
     public private(set) var companies = [CompanyResource]()
     
-    /// An array of `Concept`s found in the search results.
+    /// An array of `ConceptResource`s found in the search results.
     public private(set) var concepts = [ConceptResource]()
     
-    /// An array of `Franchise`s found in the search results.
+    /// An array of `FranchiseResource`s found in the search results.
     public private(set) var franchises = [FranchiseResource]()
     
-    /// An array of `Game`s found in the search results.
+    /// An array of `GameResource`s found in the search results.
     public private(set) var games = [GameResource]()
     
-    /// An array of `Location`s found in the search results.
+    /// An array of `LocationResource`s found in the search results.
     public private(set) var locations = [LocationResource]()
     
-    /// An array of `Object`s found in the search results.
+    /// An array of `ObjectResource`s found in the search results.
     public private(set) var objects = [ObjectResource]()
     
-    /// An array of `Person`s found in the search results.
+    /// An array of `PersonResource`s found in the search results.
     public private(set) var people = [PersonResource]()
     
-    /// An array of `Video`s found in the search results.
+    /// An array of `VideoResource`s found in the search results.
     public private(set) var videos = [VideoResource]()
     
-    /// Used to create an instance of `SearchResults` from JSON
+    /// Used to create an instance of `SearchResults` from JSON.
     init(json: [String : AnyObject]) {
         
         number_of_page_results = json["number_of_page_results"] as? Int
@@ -91,7 +94,7 @@ public struct SearchResults {
                     case ResourceType.Object.rawValue:
                         let object = ObjectResource(json: resultJSON)
                         objects.append(object)
-                    
+                        
                     case ResourceType.Person.rawValue:
                         let person = PersonResource(json: resultJSON)
                         people.append(person)
@@ -133,7 +136,7 @@ public struct SearchResults {
      Returns `ResourceSummary`s representing each of the resources found during the search
      */
     public func resourceSummariesOfType(resourceType: ResourceType) -> [ResourceSummary] {
-
+        
         var results = [ResourceSummary]()
         
         switch resourceType {

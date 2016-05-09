@@ -19,7 +19,7 @@ pod "SwiftBomb"
 ```
 
 ## Setup
-Before accessing the framework, you must configure it with your API key and optional desired logging level and user agent. Typically you do this in your application delegate during startup:
+Before accessing the framework, you must configure it with your API key (get one from [http://www.giantbomb.com/api](http://www.giantbomb.com/api)) and optional desired logging level and user agent. Typically you do this in your application delegate during startup:
 ```swift
 import SwiftBomb
 

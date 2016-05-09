@@ -3,7 +3,9 @@
 [![Platform](https://img.shields.io/cocoapods/p/SwiftBomb.svg?style=flat)](http://cocoapods.org/pods/SwiftBomb)
 
 # SwiftBomb
-SwiftBomb is a simple-to-use iOS library written in Swift to interface with the GiantBomb.com API. Giant Bomb is a website with a massive wiki around video games. Search information on games, their publishers, characters, developers, genres, even objects within games and loads more.
+SwiftBomb is a simple-to-use iOS library written in Swift to interface with the GiantBomb.com API. 
+
+Giant Bomb is a website with a massive wiki around video games. Search information on games, their publishers, characters, developers, genres, even objects within games and loads more.
 
 [Fully documented](http://cocoadocs.org/docsets/SwiftBomb/0.1.0) with a simple integration process, SwiftBomb allows retrieval of resources in one line and uses generics to strongly type all responses and errors to make consumption within your apps easy.
 
@@ -44,7 +46,7 @@ Check out all the other resource requests you can make in the [SwiftBomb documen
 The `result` object returned by these methods is of type `PaginatedResults` object. It provides useful information on the total number of results and the number returned in this request. You can use this for implementing pagination as seen in the example app.
 
 ### Filtering, Pagination and Sorting
-Additionally, all these requests can be sorted and paginated using the same requests by passing in `PaginationDefinition` and `SortDefinition` aliases. The following does exactly the same as above but will search for *Uncharted*, starting at the 5th object, limited to 10 results and sorted in ascending order by name:
+Additionally, all these requests can be filtered and sorted and paginated using the same requests by passing in `PaginationDefinition` and `SortDefinition` aliases. The following does exactly the same as above but will search for *Uncharted*, starting at the 5th object, limited to 10 results and sorted in ascending order by name:
 ```swift
 let pagination = PaginationDefinition(offset: 4, limit: 10)
 let sorting = SortDefinition(field: "name", direction: .Ascending)
@@ -67,7 +69,7 @@ SwiftBomb provides many different requests and resource types which you can sear
 Already have a resource stub or summary downloaded from one of SwiftBomb's calls but want extended information? Many of the resources in SwiftBomb have an `extendedInfo` property within them. It will initially be nil but if you want what's inside, call `fetchExtendedInfo` upon it and the original object will now be populated with more detailed info. For example:
 
 ```swift
-SwiftBomb.fetchGames("Uncharted") { result, error in
+SwiftBomb.fetchGames("Super Mario Galaxy") { result, error in
 
     if let firstGame = result?.resources.first {
 

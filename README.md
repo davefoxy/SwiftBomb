@@ -3,7 +3,7 @@
 [![Platform](https://img.shields.io/cocoapods/p/SwiftBomb.svg?style=flat)](http://cocoapods.org/pods/SwiftBomb)
 
 # SwiftBomb
-SwiftBomb is a simple-to-use interface with the GiantBomb.com API. Giant Bomb is a website with a massive wiki around video games. Search information on games, their publishers, characters, developers, genres, even objects within games and loads more.
+SwiftBomb is a simple-to-use iOS library written in Swift to interface with the GiantBomb.com API. Giant Bomb is a website with a massive wiki around video games. Search information on games, their publishers, characters, developers, genres, even objects within games and loads more.
 
 [Fully documented](http://cocoadocs.org/docsets/SwiftBomb/0.1.0) with a simple integration process, SwiftBomb allows retrieval of resources in one line and uses generics to strongly type all responses and errors to make consumption within your apps easy.
 

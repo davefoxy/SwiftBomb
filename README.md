@@ -7,7 +7,7 @@ SwiftBomb is a simple-to-use iOS library written in Swift to interface with the 
 
 Giant Bomb is a website with a massive wiki around video games. Search information on games, their publishers, characters, developers, genres, even objects within games and loads more.
 
-[Fully documented](http://cocoadocs.org/docsets/SwiftBomb/0.1.0) with a simple integration process, SwiftBomb allows retrieval of resources in one line and uses generics to strongly type all responses and errors to make consumption within your apps easy.
+[Fully documented](http://cocoadocs.org/docsets/SwiftBomb/0.1.0) with a simple integration process, SwiftBomb allows retrieval of resources in one line and strongly types all responses and errors to make consumption within your apps easy.
 
 Check out www.giantbomb.com for plenty of video game-related shenanigans.
 
@@ -43,7 +43,7 @@ SwiftBomb.fetchGames { result, error in
 
 Check out all the other resource requests you can make in the [SwiftBomb documentation](http://cocoadocs.org/docsets/SwiftBomb/0.1.0/Classes/SwiftBomb.html).
 
-The `result` object returned by these methods is of type `PaginatedResults` object. It provides useful information on the total number of results and the number returned in this request. You can use this for implementing pagination as seen in the example app.
+The `result` object returned by these methods is a `PaginatedResults` object. It contains a strongly-typed array, `resources`, of all the resources returned by the call and additional useful information on the total number of results and the number returned in this request. You can use this for implementing pagination as seen in the example app.
 
 ### Filtering, Pagination and Sorting
 Additionally, all these requests can be filtered and sorted and paginated using the same requests by passing in `PaginationDefinition` and `SortDefinition` aliases. The following does exactly the same as above but will search for *Uncharted*, starting at the 5th object, limited to 10 results and sorted in ascending order by name:

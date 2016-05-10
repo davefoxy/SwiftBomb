@@ -23,7 +23,7 @@ Before accessing the framework, you must configure it with your API key (get one
 ```swift
 import SwiftBomb
 
-let configuration = Configuration(apiKey: "YOUR_API_KEY", loggingLevel: .Requests, userAgentIdentifier: "Your User Agent")
+let configuration = SwiftBombConfig(apiKey: "YOUR_API_KEY", loggingLevel: .Requests, userAgentIdentifier: "Your User Agent")
 SwiftBomb.configure(configuration)
 ```
 

@@ -11,7 +11,7 @@ import XCTest
 
 class ExtendedInfoTests: XCTestCase {
 
-    let configuration = Configuration(apiKey: "")
+    let configuration = SwiftBombConfig(apiKey: "")
 
     override func setUp() {
         

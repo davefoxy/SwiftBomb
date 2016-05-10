@@ -17,8 +17,8 @@ public class SwiftBomb {
     var requestFactory: RequestFactory?
     var networkingManager: NetworkingManager?
     
-    /// Client apps **must** call this method and pass in an instance of `Configuration`. Typically happens in the application delegate.
-    public static func configure(configuration: Configuration) {
+    /// Client apps **must** call this method and pass in an instance of `SwiftBombConfig`. Typically happens in the application delegate.
+    public static func configure(configuration: SwiftBombConfig) {
         
         let api = SwiftBomb.framework
         

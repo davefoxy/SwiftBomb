@@ -20,7 +20,7 @@ struct Request {
         case XML
     }
     
-    let configuration: Configuration
+    let configuration: SwiftBombConfig
     let path: String
     let method: Method
     var responseFormat = ResponseFormat.JSON
@@ -28,7 +28,7 @@ struct Request {
     private (set) var headers: [String: String] = [:]
     private (set) var body: NSData?
     
-    init(configuration: Configuration, path: String, method: Method, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil) {
+    init(configuration: SwiftBombConfig, path: String, method: Method, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil) {
         
         self.configuration = configuration
         self.path = path

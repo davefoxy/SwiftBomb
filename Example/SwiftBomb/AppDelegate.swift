@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        let configuration = Configuration(apiKey: "YOUR_API_KEY", loggingLevel: .Requests, userAgentIdentifier: "Your User Agent")
+        let configuration = SwiftBombConfig(apiKey: "YOUR_API_KEY", loggingLevel: .Requests, userAgentIdentifier: "Your User Agent")
         SwiftBomb.configure(configuration)
         
         return true

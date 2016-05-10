@@ -11,9 +11,9 @@ import Foundation
 class URLSessionManager: NetworkingManager {
     
     var urlSession = NSURLSession.sharedSession()
-    var configuration: Configuration
+    var configuration: SwiftBombConfig
     
-    init(configuration: Configuration) {
+    init(configuration: SwiftBombConfig) {
         
         self.configuration = configuration
     }

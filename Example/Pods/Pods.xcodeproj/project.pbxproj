@@ -24,7 +24,7 @@
 		4A56132DA70A8AF6255BACED93B73171 /* CompaniesRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC2894791475A6BDF58B749B3E3FD99 /* CompaniesRequests.swift */; };
 		4B2AA3C220C502279FC9740CF31CEB49 /* FranchisesRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D267256935231AB8B085D8DA877BC2D1 /* FranchisesRequests.swift */; };
 		514200F78D6F3F5AC5E38A980A5DE5C3 /* SearchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B767C8CADDE9B36BAE9808B46AEB0BEA /* SearchResults.swift */; };
-		529EEE671CDFAF8800D7A981 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529EEE651CDFAF5C00D7A981 /* Configuration.swift */; };
+		529EEE671CDFAF8800D7A981 /* SwiftBombConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529EEE651CDFAF5C00D7A981 /* SwiftBombConfig.swift */; };
 		529EEE691CDFBDDB00D7A981 /* ResourceDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529EEE681CDFBDDB00D7A981 /* ResourceDefinition.swift */; };
 		529EEE6B1CDFBE9C00D7A981 /* NetworkingEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529EEE6A1CDFBE9C00D7A981 /* NetworkingEnums.swift */; };
 		529EEE6D1CDFBEEC00D7A981 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529EEE6C1CDFBEEC00D7A981 /* Gender.swift */; };
@@ -105,7 +105,7 @@
 		4E6BEE798A18989F3D7A69949E4D5A4E /* CharacterRequests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CharacterRequests.swift; sourceTree = "<group>"; };
 		51D1D52AA9C9A65B5032D0CF6CC61D37 /* VideoURLs.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VideoURLs.swift; sourceTree = "<group>"; };
 		524D252272B5F68949D8E9AB9E2135DA /* JSONParsing.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = JSONParsing.swift; sourceTree = "<group>"; };
-		529EEE651CDFAF5C00D7A981 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		529EEE651CDFAF5C00D7A981 /* SwiftBombConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftBombConfig.swift; sourceTree = "<group>"; };
 		529EEE681CDFBDDB00D7A981 /* ResourceDefinition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceDefinition.swift; sourceTree = "<group>"; };
 		529EEE6A1CDFBE9C00D7A981 /* NetworkingEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingEnums.swift; sourceTree = "<group>"; };
 		529EEE6C1CDFBEEC00D7A981 /* Gender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
@@ -369,7 +369,7 @@
 			isa = PBXGroup;
 			children = (
 				00B788498C1209A9B831086A006FB621 /* SwiftBomb.swift */,
-				529EEE651CDFAF5C00D7A981 /* Configuration.swift */,
+				529EEE651CDFAF5C00D7A981 /* SwiftBombConfig.swift */,
 				8B3F960BCC382C4C36B8127E0636D5AA /* SwiftBombProtocols.swift */,
 				DAD4B6F2DA773057A69BB5B55FE86A81 /* Authentication */,
 				203F3985DE348D6720E9C5AFC0CFFFD8 /* Networking */,
@@ -548,7 +548,7 @@
 				52C6EFE21CDDF95500394296 /* GameReleasesRequests.swift in Sources */,
 				529EEE691CDFBDDB00D7A981 /* ResourceDefinition.swift in Sources */,
 				4546B8A7F699F1CACFEDB44892F7583B /* ConceptsRequests.swift in Sources */,
-				529EEE671CDFAF8800D7A981 /* Configuration.swift in Sources */,
+				529EEE671CDFAF8800D7A981 /* SwiftBombConfig.swift in Sources */,
 				4B2AA3C220C502279FC9740CF31CEB49 /* FranchisesRequests.swift in Sources */,
 				CB05A184778A04668DC8D2F811B01C28 /* GamesRequests.swift in Sources */,
 				874489A44BC3294E80E863DC5ACF1721 /* GenreRequests.swift in Sources */,

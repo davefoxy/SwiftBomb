@@ -1,5 +1,5 @@
 //
-//  Configuration.swift
+//  SwiftBombConfig.swift
 //  SwiftBomb
 //
 //  Created by David Fox on 08/05/2016.
@@ -11,7 +11,7 @@ import Foundation
 /**
  A struct which the client app is required to instantiate and pass into the API instance containing the user's API key, optional level of logging and user agent.
  */
-public struct Configuration {
+public struct SwiftBombConfig {
     
     /// An enum specifying the various levels of logging the framework should make. `None` should be used in production.
     public enum LoggingLevel {

@@ -47,10 +47,10 @@ public struct SortDefinition {
 
 final class RequestFactory {
     
-    let configuration: Configuration
+    let configuration: SwiftBombConfig
     let authenticationStore: AuthenticationStore
     
-    init(configuration: Configuration, authenticationStore: AuthenticationStore) {
+    init(configuration: SwiftBombConfig, authenticationStore: AuthenticationStore) {
         
         self.configuration = configuration
         self.authenticationStore = authenticationStore

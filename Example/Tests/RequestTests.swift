@@ -4,7 +4,7 @@ import XCTest
 
 class RequestTests: XCTestCase {
     
-    var configuration = Configuration(apiKey: "")
+    var configuration = SwiftBombConfig(apiKey: "")
     var requestFactory: RequestFactory?
     let authenticationStore = MockAuthenticationStore()
     

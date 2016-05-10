@@ -11,7 +11,7 @@
  */
 public enum RequestError: ErrorType {
     
-    /// An issue with constructing the required framework components to make the request. Typically occurs when the framework hasn't been initialized with a `Configuration`.
+    /// An issue with constructing the required framework components to make the request. Typically occurs when the framework hasn't been initialized with a `SwiftBombConfig` instance.
     case FrameworkConfigError
     
     /// An error making the request such as no network signal. Contains a reference to the actual NSError object.
@@ -29,7 +29,7 @@ public enum RequestError: ErrorType {
  */
 public enum ResourceResponseError: Int {
     
-    /// An invalid API key was provided. Check the API has been initialised with an appropriate `Configuration` and that the provided API key is OK.
+    /// An invalid API key was provided. Check the API has been initialised with an appropriate `SwiftBombConfig` and that the provided API key is OK.
     case InvalidAPIKey = 100
     
     /// An invalid resource was requested.

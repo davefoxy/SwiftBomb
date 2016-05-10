@@ -17,7 +17,7 @@ protocol NetworkingManager {
     
     var urlSession: NSURLSession { get set }
 
-    var configuration: Configuration { get }
+    var configuration: SwiftBombConfig { get }
     
     func performPaginatedRequest<T>(request: Request, objectType: T.Type, completion: (PaginatedResults<T>?, error: RequestError?) -> Void)
     

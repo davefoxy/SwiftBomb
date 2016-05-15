@@ -66,7 +66,12 @@ class URLSessionManager: NetworkingManager {
                 }
                 
                 resource.update(resultJSON)
-                resource.extendedInfo = resource.dynamicType.ExtendedInfoAlias.init(json: resultJSON)
+                if resource.extendedInfo != nil {
+                    resource.extendedInfo?.update(resultJSON)
+                }
+                else {
+                    resource.extendedInfo = resource.dynamicType.ExtendedInfoAlias.init(json: resultJSON)
+                }
                 
                 dispatch_async(dispatch_get_main_queue(), {
                     completion(error: nil)

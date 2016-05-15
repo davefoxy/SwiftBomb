@@ -37,9 +37,14 @@ final public class MockResource: ResourceUpdating {
 
 public struct MockResourceExtendedInfo: ResourceExtendedInfo {
     
-    var json: [String: AnyObject]
+    var json: [String: AnyObject]?
     
     public init(json: [String : AnyObject]) {
+        
+        update(json)
+    }
+    
+    public mutating func update(json: [String : AnyObject]) {
         
         self.json = json
     }

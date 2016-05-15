@@ -94,11 +94,11 @@ final public class GameReleaseResource: ResourceUpdating {
     
     func update(json: [String : AnyObject]) {
         
-        api_detail_url = (json["api_detail_url"] as? String)?.url()
-        date_added = (json["date_added"] as? String)?.dateRepresentation()
-        date_last_updated = (json["date_last_updated"] as? String)?.dateRepresentation()
-        deck = json["deck"] as? String
-        description = json["description"] as? String
+        api_detail_url = (json["api_detail_url"] as? String)?.url() ?? api_detail_url
+        date_added = (json["date_added"] as? String)?.dateRepresentation() ?? date_added
+        date_last_updated = (json["date_last_updated"] as? String)?.dateRepresentation() ?? date_last_updated
+        deck = json["deck"] as? String ?? deck
+        description = json["description"] as? String ?? description
         
         if let expectedReleaseDay = json["expected_release_day"] as? Int,
             let expectedReleaseMonth = json["expected_release_month"] as? Int,
@@ -114,24 +114,24 @@ final public class GameReleaseResource: ResourceUpdating {
             game = GameResource(json: gameJSON)
         }
         
-        game_rating = (json["game_rating"] as? [String: AnyObject])?.idNameTupleMap()
+        game_rating = (json["game_rating"] as? [String: AnyObject])?.idNameTupleMap() ?? game_rating
         
         if let imageJSON = json["image"] as? [String: AnyObject] {
             image = ImageURLs(json: imageJSON)
         }
         
-        maximum_players = json["maximum_players"] as? Int
-        minimum_players = json["minimum_players"] as? Int
-        name = json["name"] as? String
+        maximum_players = json["maximum_players"] as? Int ?? maximum_players
+        minimum_players = json["minimum_players"] as? Int ?? minimum_players
+        name = json["name"] as? String ?? name
         
         if let platformJSON = json["platform"] as? [String: AnyObject] {
             platform = PlatformResource(json: platformJSON)
         }
         
-        product_code_value = json["product_code_value"] as? String
-        region = (json["region"] as? [String: AnyObject])?.idNameTupleMap()
-        release_date = (json["release_date"] as? String)?.dateRepresentation()
-        resolutions = (json["resolutions"] as? [[String: AnyObject]])?.idNameTupleMaps()
+        product_code_value = json["product_code_value"] as? String ?? product_code_value
+        region = (json["region"] as? [String: AnyObject])?.idNameTupleMap() ?? region
+        release_date = (json["release_date"] as? String)?.dateRepresentation() ?? release_date
+        resolutions = (json["resolutions"] as? [[String: AnyObject]])?.idNameTupleMaps() ?? resolutions
     }
     
     /// Pretty description of the release.
@@ -146,28 +146,33 @@ final public class GameReleaseResource: ResourceUpdating {
 public struct GameReleaseExtendedInfo: ResourceExtendedInfo {
     
     /// Companies who developed the release.
-    let developers: [CompanyResource]
+    public private(set) var developers: [CompanyResource]?
     
     /// List of images associated to the release.
-    let images: [ImageURLs]
+    public private(set) var images: [ImageURLs]?
     
     /// Companies who published the release.
-    let publishers: [CompanyResource]
+    public private(set) var publishers: [CompanyResource]?
     
     /// Used to create a `GameReleaseExtendedInfo` from JSON.
     public init(json: [String : AnyObject]) {
         
-        developers = json.jsonMappedResources("developers")
-        publishers = json.jsonMappedResources("publishers")
+        update(json)
+    }
+    
+    /// A method used for updating structs. Usually after further requests for more field data.
+    public mutating func update(json: [String : AnyObject]) {
         
-        var mutableImages = [ImageURLs]()
+        developers = json.jsonMappedResources("developers") ?? developers
+        publishers = json.jsonMappedResources("publishers") ?? publishers
+        
         if let imagesJSON = json["images"] as? [[String: AnyObject]] {
             
+            images = [ImageURLs]()
             for imageJSON in imagesJSON {
                 let image = ImageURLs(json: imageJSON)
-                mutableImages.append(image)
+                images?.append(image)
             }
         }
-        images = mutableImages
     }
 }

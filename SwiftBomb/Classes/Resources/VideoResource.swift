@@ -70,16 +70,16 @@ final public class VideoResource: ResourceUpdating {
     
     func update(json: [String : AnyObject]) {
         
-        api_detail_url = (json["api_detail_url"] as? String)?.url()
-        deck = json["deck"] as? String
-        length_seconds = json["length_seconds"] as? Int
-        name = json["name"] as? String
-        publish_date = (json["publish_date"] as? String)?.dateRepresentation()
-        site_detail_url = (json["site_detail_url"] as? String)?.url()
-        user = json["user"] as? String
-        video_type = json["video_type"] as? String
-        youtube_id = json["youtube_id"] as? String
-        url = json["url"] as? String
+        api_detail_url = (json["api_detail_url"] as? String)?.url() ?? api_detail_url
+        deck = json["deck"] as? String ?? deck
+        length_seconds = json["length_seconds"] as? Int ?? length_seconds
+        name = json["name"] as? String ?? name
+        publish_date = (json["publish_date"] as? String)?.dateRepresentation() ?? publish_date
+        site_detail_url = (json["site_detail_url"] as? String)?.url() ?? site_detail_url
+        user = json["user"] as? String ?? user
+        video_type = json["video_type"] as? String ?? video_type
+        youtube_id = json["youtube_id"] as? String ?? youtube_id
+        url = json["url"] as? String ?? url
         
         if let imageJSON = json["image"] as? [String: AnyObject] {
             image = ImageURLs(json: imageJSON)

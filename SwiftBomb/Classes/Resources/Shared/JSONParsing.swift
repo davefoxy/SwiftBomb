@@ -31,18 +31,20 @@ extension Dictionary where Key: StringLiteralConvertible, Value: AnyObject {
     /**
      Returns an array of resources from a json payload containing a subarray found within `key`
      */
-    func jsonMappedResources<T: Resource>(key: Key) -> [T] {
-        
-        var resources = [T]()
+    func jsonMappedResources<T: Resource>(key: Key) -> [T]? {
         
         if let arrayJSON = self[key] as? [[String: AnyObject]] {
+            
+            var resources = [T]()
             
             resources = arrayJSON.map({ resourceJSON in
                 return T(json: resourceJSON)
             })
+            
+            return resources
         }
         
-        return resources
+        return nil
     }
     
     /**

@@ -53,7 +53,7 @@ class ExtendedInfoTests: XCTestCase {
             let assertions = {_ in
                 XCTAssertEqual(mockCharacter.id, 123)
                 XCTAssertEqual(mockCharacter.name, "Mock Character")
-                XCTAssertEqual(mockCharacter.extendedInfo?.friends.count, 1)
+                XCTAssertEqual(mockCharacter.extendedInfo?.friends?.count, 1)
                 } as XCWaitCompletionHandler
             
             performAsyncTest(mockCharacter, assertions: assertions)
@@ -70,7 +70,7 @@ class ExtendedInfoTests: XCTestCase {
             let assertions = {_ in
                 XCTAssertEqual(mockCompany.id, 123)
                 XCTAssertEqual(mockCompany.name, "Mock Company")
-                XCTAssertEqual(mockCompany.extendedInfo?.characters.count, 1)
+                XCTAssertEqual(mockCompany.extendedInfo?.characters?.count, 1)
                 } as XCWaitCompletionHandler
             
             performAsyncTest(mockCompany, assertions: assertions)
@@ -87,7 +87,7 @@ class ExtendedInfoTests: XCTestCase {
             let assertions = {_ in
                 XCTAssertEqual(mockConcept.id, 123)
                 XCTAssertEqual(mockConcept.name, "Mock Concept")
-                XCTAssertEqual(mockConcept.extendedInfo?.characters.count, 1)
+                XCTAssertEqual(mockConcept.extendedInfo?.characters?.count, 1)
                 } as XCWaitCompletionHandler
             
             performAsyncTest(mockConcept, assertions: assertions)
@@ -104,7 +104,7 @@ class ExtendedInfoTests: XCTestCase {
             let assertions = {_ in
                 XCTAssertEqual(mockFranchise.id, 123)
                 XCTAssertEqual(mockFranchise.name, "Mock Franchise")
-                XCTAssertEqual(mockFranchise.extendedInfo?.characters.count, 1)
+                XCTAssertEqual(mockFranchise.extendedInfo?.characters?.count, 1)
                 } as XCWaitCompletionHandler
             
             performAsyncTest(mockFranchise, assertions: assertions)
@@ -121,7 +121,7 @@ class ExtendedInfoTests: XCTestCase {
             let assertions = {_ in
                 XCTAssertEqual(mockGame.id, 123)
                 XCTAssertEqual(mockGame.name, "Mock Game")
-                XCTAssertEqual(mockGame.extendedInfo?.characters.count, 1)
+                XCTAssertEqual(mockGame.extendedInfo?.characters?.count, 1)
                 } as XCWaitCompletionHandler
             
             performAsyncTest(mockGame, assertions: assertions)
@@ -138,7 +138,7 @@ class ExtendedInfoTests: XCTestCase {
             let assertions = {_ in
                 XCTAssertEqual(mockRelease.id, 123)
                 XCTAssertEqual(mockRelease.name, "Mock Release")
-                XCTAssertEqual(mockRelease.extendedInfo?.developers.count, 1)
+                XCTAssertEqual(mockRelease.extendedInfo?.developers?.count, 1)
                 } as XCWaitCompletionHandler
             
             performAsyncTest(mockRelease, assertions: assertions)
@@ -187,7 +187,7 @@ class ExtendedInfoTests: XCTestCase {
             let assertions = {_ in
                 XCTAssertEqual(mockObject.id, 123)
                 XCTAssertEqual(mockObject.name, "Mock Object")
-                XCTAssertEqual(mockObject.extendedInfo?.games.count, 1)
+                XCTAssertEqual(mockObject.extendedInfo?.games?.count, 1)
                 } as XCWaitCompletionHandler
             
             performAsyncTest(mockObject, assertions: assertions)
@@ -204,7 +204,7 @@ class ExtendedInfoTests: XCTestCase {
             let assertions = {_ in
                 XCTAssertEqual(mockPerson.id, 123)
                 XCTAssertEqual(mockPerson.name, "Mock Person")
-                XCTAssertEqual(mockPerson.extendedInfo?.games.count, 1)
+                XCTAssertEqual(mockPerson.extendedInfo?.games?.count, 1)
                 } as XCWaitCompletionHandler
             
             performAsyncTest(mockPerson, assertions: assertions)

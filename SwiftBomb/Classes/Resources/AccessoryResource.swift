@@ -56,20 +56,21 @@ final public class AccessoryResource: ResourceUpdating {
         update(json)
     }
     
+    /// A method used for updating structs. Usually after further requests for more field data.
     func update(json: [String : AnyObject]) {
         
-        date_added = (json["date_added"] as? String)?.dateRepresentation()
-        date_last_updated = (json["date_last_updated"] as? String)?.dateRepresentation()
-        deck = json["deck"] as? String
-        description = json["description"] as? String
+        date_added = (json["date_added"] as? String)?.dateRepresentation() ?? date_added
+        date_last_updated = (json["date_last_updated"] as? String)?.dateRepresentation() ?? date_last_updated
+        deck = json["deck"] as? String ?? deck
+        description = json["description"] as? String ?? description
         
         if let imageJSON = json["image"] as? [String: AnyObject] {
             image = ImageURLs(json: imageJSON)
         }
         
-        name = json["name"] as? String
-        site_detail_url = (json["site_detail_url"] as? String)?.url()
-        api_detail_url = (json["api_detail_url"] as? String)?.url()
+        name = json["name"] as? String ?? name
+        site_detail_url = (json["site_detail_url"] as? String)?.url() ?? site_detail_url
+        api_detail_url = (json["api_detail_url"] as? String)?.url() ?? api_detail_url
     }
     
     /// Pretty description of the accessory.

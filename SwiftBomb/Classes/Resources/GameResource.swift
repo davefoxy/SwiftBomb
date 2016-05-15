@@ -76,12 +76,12 @@ final public class GameResource: ResourceUpdating {
     
     func update(json: [String : AnyObject]) {
         
-        aliases = (json["aliases"] as? String)?.newlineSeparatedStrings()
-        api_detail_url = (json["api_detail_url"] as? String)?.url()
-        date_added = (json["date_added"] as? String)?.dateRepresentation()
-        date_last_updated = (json["date_last_updated"] as? String)?.dateRepresentation()
-        deck = json["deck"] as? String
-        description = json["description"] as? String
+        aliases = (json["aliases"] as? String)?.newlineSeparatedStrings() ?? aliases
+        api_detail_url = (json["api_detail_url"] as? String)?.url() ?? api_detail_url
+        date_added = (json["date_added"] as? String)?.dateRepresentation() ?? date_added
+        date_last_updated = (json["date_last_updated"] as? String)?.dateRepresentation() ?? date_last_updated
+        deck = json["deck"] as? String ?? deck
+        description = json["description"] as? String ?? description
         
         if let expectedReleaseMonth = json["expected_release_month"] as? Int,
             let expectedReleaseYear = json["expected_release_year"] as? Int {
@@ -95,14 +95,14 @@ final public class GameResource: ResourceUpdating {
             image = ImageURLs(json: imageJSON)
         }
         
-        name = json["name"] as? String
-        number_of_user_reviews = json["number_of_user_reviews"] as? Int
-        original_release_date = (json["original_release_date"] as? String)?.dateRepresentation()
-        site_detail_url = (json["site_detail_url"] as? String)?.url()
+        name = json["name"] as? String ?? name
+        number_of_user_reviews = json["number_of_user_reviews"] as? Int ?? number_of_user_reviews
+        original_release_date = (json["original_release_date"] as? String)?.dateRepresentation() ?? original_release_date
+        site_detail_url = (json["site_detail_url"] as? String)?.url() ?? site_detail_url
         
-        original_game_rating = (json["original_game_rating"] as? [[String: AnyObject]])?.idNameTupleMaps()
+        original_game_rating = (json["original_game_rating"] as? [[String: AnyObject]])?.idNameTupleMaps() ?? original_game_rating
         
-        platforms = json.jsonMappedResources("platforms")
+        platforms = json.jsonMappedResources("platforms") ?? platforms
     }
     
     /// Pretty description of the game.
@@ -117,113 +117,119 @@ final public class GameResource: ResourceUpdating {
 public struct GameExtendedInfo: ResourceExtendedInfo {
     
     /// Characters related to the game.
-    public let characters: [CharacterResource]
+    public private(set) var characters: [CharacterResource]?
     
     /// Concepts related to the game.
-    public let concepts: [ConceptResource]
+    public private(set) var concepts: [ConceptResource]?
     
     /// Companies who developed the game.
-    public let developers: [CompanyResource]
+    public private(set) var developers: [CompanyResource]?
     
     /// Expected date the game will be released. The extended info version of this date also includes the day of release.
-    public let expected_release_date: NSDate?
+    public private(set) var expected_release_date: NSDate?
     
     /// Characters that first appeared in the game.
-    public let first_appearance_characters: [CharacterResource]
+    public private(set) var first_appearance_characters: [CharacterResource]?
     
     /// Concepts that first appeared in the game.
-    public let first_appearance_concepts: [ConceptResource]
+    public private(set) var first_appearance_concepts: [ConceptResource]?
     
     /// Locations that first appeared in the game.
-    public let first_appearance_locations: [LocationResource]
+    public private(set) var first_appearance_locations: [LocationResource]?
     
     /// Objects that first appeared in the game.
-    public let first_appearance_objects: [ObjectResource]
+    public private(set) var first_appearance_objects: [ObjectResource]?
     
     /// People that were first credited in the game.
-    public let first_appearance_people: [PersonResource]
+    public private(set) var first_appearance_people: [PersonResource]?
     
     /// Franchises related to the game.
-    public let franchises: [FranchiseResource]
+    public private(set) var franchises: [FranchiseResource]?
     
     /// Genres that encompass the game.
-    public let genres: [GenreResource]
+    public private(set) var genres: [GenreResource]?
     
     /// List of images associated to the game.
-    public let images: [ImageURLs]
+    public private(set) var images: [ImageURLs]?
     
     /// Characters killed in the game.
-    public let killed_characters: [CharacterResource]
+    public private(set) var killed_characters: [CharacterResource]?
     
     /// Locations related to the game.
-    public let locations: [LocationResource]
+    public private(set) var locations: [LocationResource]?
     
     /// Objects related to the game.
-    public let objects: [ObjectResource]
+    public private(set) var objects: [ObjectResource]?
     
     /// Rating of the first release of the game.
-    public let original_game_rating: [(id: Int, name: String)]?
+    public private(set) var original_game_rating: [(id: Int, name: String)]?
     
     /// People who have worked with the game.
-    public let people: [PersonResource]
+    public private(set) var people: [PersonResource]?
     
     /// Companies who published the game.
-    public let publishers: [CompanyResource]
+    public private(set) var publishers: [CompanyResource]?
     
     /// Releases of the game.
-    public let releases: [GameReleaseResource]?
+    public private(set) var releases: [GameReleaseResource]?
     
     /// Staff reviews of the game.
-    public let reviews: [StaffReviewResource]?
+    public private(set) var reviews: [StaffReviewResource]?
     
     /// Other games similar to the game.
-    public let similar_games: [GameResource]
+    public private(set) var similar_games: [GameResource]?
     
     /// Themes that encompass the game.
-    public let themes: [(id: Int, name: String)]?
+    public private(set) var themes: [(id: Int, name: String)]?
     
     /// Videos associated to the game.
-    public let videos: [VideoURLs]?
+    public private(set) var videos: [VideoURLs]?
     
     /// Used to create a `GameExtendedInfo` from JSON.
     public init(json: [String : AnyObject]) {
         
-        characters = json.jsonMappedResources("characters")
-        concepts = json.jsonMappedResources("concepts")
-        developers = json.jsonMappedResources("developers")
-        first_appearance_characters = json.jsonMappedResources("first_appearance_characters")
-        first_appearance_concepts = json.jsonMappedResources("first_appearance_concepts")
-        first_appearance_locations = json.jsonMappedResources("first_appearance_locations")
-        first_appearance_objects = json.jsonMappedResources("first_appearance_objects")
-        first_appearance_people = json.jsonMappedResources("first_appearance_people")
-        franchises = json.jsonMappedResources("franchises")
-        genres = json.jsonMappedResources("genres")
+        update(json)
+    }
+    
+    /// A method used for updating structs. Usually after further requests for more field data.
+    public mutating func update(json: [String : AnyObject]) {
         
-        var mutatableImages = [ImageURLs]()
+        characters = json.jsonMappedResources("characters") ?? characters
+        concepts = json.jsonMappedResources("concepts") ?? concepts
+        developers = json.jsonMappedResources("developers") ?? developers
+        first_appearance_characters = json.jsonMappedResources("first_appearance_characters") ?? first_appearance_characters
+        first_appearance_concepts = json.jsonMappedResources("first_appearance_concepts") ?? first_appearance_concepts
+        first_appearance_locations = json.jsonMappedResources("first_appearance_locations") ?? first_appearance_locations
+        first_appearance_objects = json.jsonMappedResources("first_appearance_objects") ?? first_appearance_objects
+        first_appearance_people = json.jsonMappedResources("first_appearance_people") ?? first_appearance_people
+        franchises = json.jsonMappedResources("franchises") ?? franchises
+        genres = json.jsonMappedResources("genres") ?? genres
+        
         if let imagesJSON = json["images"] as? [[String: AnyObject]] {
+            
+            images = [ImageURLs]()
             
             for imageJSON in imagesJSON {
                 let image = ImageURLs(json: imageJSON)
-                mutatableImages.append(image)
+                images?.append(image)
             }
         }
-        images = mutatableImages
         
-        killed_characters = json.jsonMappedResources("killed_characters")
-        locations = json.jsonMappedResources("locations")
-        objects = json.jsonMappedResources("objects")
-        original_game_rating = (json["original_game_rating"] as? [[String: AnyObject]])?.idNameTupleMaps()
-        people = json.jsonMappedResources("people")
+        killed_characters = json.jsonMappedResources("killed_characters") ?? killed_characters
+        locations = json.jsonMappedResources("locations") ?? locations
+        objects = json.jsonMappedResources("objects") ?? objects
+        original_game_rating = (json["original_game_rating"] as? [[String: AnyObject]])?.idNameTupleMaps() ?? original_game_rating
+        people = json.jsonMappedResources("people") ?? people
         
-        publishers = json.jsonMappedResources("publishers")
-        releases = json.jsonMappedResources("releases")
-        reviews = json.jsonMappedResources("reviews")
-        similar_games = json.jsonMappedResources("similar_games")
-        themes = (json["themes"] as? [[String: AnyObject]])?.idNameTupleMaps()
+        publishers = json.jsonMappedResources("publishers") ?? publishers
+        releases = json.jsonMappedResources("releases") ?? releases
+        reviews = json.jsonMappedResources("reviews") ?? reviews
+        similar_games = json.jsonMappedResources("similar_games") ?? similar_games
+        themes = (json["themes"] as? [[String: AnyObject]])?.idNameTupleMaps() ?? themes
         
-        videos = [VideoURLs]()
         if let videosJSON = json["videos"] as? [[String: AnyObject]] {
             
+            videos = [VideoURLs]()
             for videoJSON in videosJSON {
                 let video = VideoURLs(json: videoJSON)
                 videos?.append(video)
@@ -238,8 +244,6 @@ public struct GameExtendedInfo: ResourceExtendedInfo {
             dateComponents.month = expectedReleaseMonth
             dateComponents.year = expectedReleaseYear
             expected_release_date = NSCalendar.currentCalendar().dateFromComponents(dateComponents)
-        } else {
-            expected_release_date = nil
         }
         
     }

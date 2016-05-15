@@ -64,12 +64,12 @@ final public class LocationResource: ResourceUpdating {
     
     func update(json: [String : AnyObject]) {
         
-        aliases = (json["aliases"] as? String)?.newlineSeparatedStrings()
-        api_detail_url = (json["api_detail_url"] as? String)?.url()
-        date_added = (json["date_added"] as? String)?.dateRepresentation()
-        date_last_updated = (json["date_last_updated"] as? String)?.dateRepresentation()
-        deck = json["deck"] as? String
-        description = json["description"] as? String
+        aliases = (json["aliases"] as? String)?.newlineSeparatedStrings() ?? aliases
+        api_detail_url = (json["api_detail_url"] as? String)?.url() ?? api_detail_url
+        date_added = (json["date_added"] as? String)?.dateRepresentation() ?? date_added
+        date_last_updated = (json["date_last_updated"] as? String)?.dateRepresentation() ?? date_last_updated
+        deck = json["deck"] as? String ?? deck
+        description = json["description"] as? String ?? description
         
         if let firstAppearedInGameJSON = json["first_appeared_in_game"] as? [String: AnyObject] {
             first_appeared_in_game = GameResource(json: firstAppearedInGameJSON)
@@ -79,8 +79,8 @@ final public class LocationResource: ResourceUpdating {
             image = ImageURLs(json: imageJSON)
         }
         
-        name = json["name"] as? String
-        site_detail_url = (json["site_detail_url"] as? String)?.url()
+        name = json["name"] as? String ?? name
+        site_detail_url = (json["site_detail_url"] as? String)?.url() ?? site_detail_url
     }
     
     /// Pretty description of the location.

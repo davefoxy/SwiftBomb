@@ -77,31 +77,32 @@ final public class PlatformResource: ResourceUpdating {
         update(json)
     }
     
+    /// A method used for updating structs. Usually after further requests for more field data.
     func update(json: [String : AnyObject]) {
         
-        abbreviation = json["abbreviation"] as? String
-        aliases = (json["aliases"] as? String)?.newlineSeparatedStrings()
-        api_detail_url = (json["api_detail_url"] as? String)?.url()
+        abbreviation = json["abbreviation"] as? String ?? abbreviation
+        aliases = (json["aliases"] as? String)?.newlineSeparatedStrings() ?? aliases
+        api_detail_url = (json["api_detail_url"] as? String)?.url() ?? api_detail_url
         
         if let companyJSON = json["company"] as? [String: AnyObject] {
             company = CompanyResource(json: companyJSON)
         }
         
-        date_added = (json["date_added"] as? String)?.dateRepresentation()
-        date_last_updated = (json["date_last_updated"] as? String)?.dateRepresentation()
-        deck = json["deck"] as? String
-        description = json["description"] as? String
+        date_added = (json["date_added"] as? String)?.dateRepresentation() ?? date_added
+        date_last_updated = (json["date_last_updated"] as? String)?.dateRepresentation() ?? date_last_updated
+        deck = json["deck"] as? String ?? deck
+        description = json["description"] as? String ?? description
         
         if let imageJSON = json["image"] as? [String: AnyObject] {
             image = ImageURLs(json: imageJSON)
         }
         
-        install_base = json["install_base"] as? String
-        name = json["name"] as? String
-        online_support = json["online_support"] as? Bool
-        original_price = json["original_price"] as? String
-        release_date = (json["release_date"] as? String)?.dateRepresentation()
-        site_detail_url = (json["site_detail_url"] as? String)?.url()
+        install_base = json["install_base"] as? String ?? install_base
+        name = json["name"] as? String ?? name
+        online_support = json["online_support"] as? Bool ?? online_support
+        original_price = json["original_price"] as? String ?? original_price
+        release_date = (json["release_date"] as? String)?.dateRepresentation() ?? release_date
+        site_detail_url = (json["site_detail_url"] as? String)?.url() ?? site_detail_url
     }
     
     /// Pretty description of the platform.

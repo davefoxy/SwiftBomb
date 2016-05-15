@@ -61,6 +61,9 @@ public protocol ResourceExtendedInfo {
     
     /// The base init method for parsing the API's response JSON to a native extended info object.
     init(json: [String: AnyObject])
+    
+    /// A method used for updating structs. Usually after further requests for more field data.
+    mutating func update(json: [String: AnyObject])
 }
 
 /**
@@ -70,6 +73,9 @@ public struct UnusedExtendedInfo: ResourceExtendedInfo {
     
     /// Unused
     public init(json: [String : AnyObject]) {}
+    
+    /// Unused
+    mutating public func update(json: [String: AnyObject]) {}
 }
 
 /**

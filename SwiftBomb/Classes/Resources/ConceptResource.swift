@@ -67,12 +67,12 @@ final public class ConceptResource: ResourceUpdating {
     
     func update(json: [String : AnyObject]) {
         
-        aliases = (json["aliases"] as? String)?.newlineSeparatedStrings()
-        api_detail_url = (json["api_detail_url"] as? String)?.url()
-        date_added = (json["date_added"] as? String)?.dateRepresentation()
-        date_last_updated = (json["date_last_updated"] as? String)?.dateRepresentation()
-        deck = json["deck"] as? String
-        description = json["description"] as? String
+        aliases = (json["aliases"] as? String)?.newlineSeparatedStrings() ?? aliases
+        api_detail_url = (json["api_detail_url"] as? String)?.url() ?? api_detail_url
+        date_added = (json["date_added"] as? String)?.dateRepresentation() ?? date_added
+        date_last_updated = (json["date_last_updated"] as? String)?.dateRepresentation() ?? date_last_updated
+        deck = json["deck"] as? String ?? deck
+        description = json["description"] as? String ?? description
         
         if let firstAppearedInFranchiseJSON = json["first_appeared_in_franchise"] as? [String: AnyObject] {
             first_appeared_in_franchise = FranchiseResource(json: firstAppearedInFranchiseJSON)
@@ -82,8 +82,8 @@ final public class ConceptResource: ResourceUpdating {
             first_appeared_in_game = GameResource(json: firstAppearedInGameJSON)
         }
         
-        name = json["name"] as? String
-        site_detail_url = (json["site_detail_url"] as? String)?.url()
+        name = json["name"] as? String ?? name
+        site_detail_url = (json["site_detail_url"] as? String)?.url() ?? site_detail_url
         
         if let imageJSON = json["image"] as? [String: AnyObject] {
             image = ImageURLs(json: imageJSON)
@@ -102,39 +102,45 @@ final public class ConceptResource: ResourceUpdating {
 public struct ConceptExtendedInfo: ResourceExtendedInfo {
     
     /// Characters related to the concept.
-    public let characters: [CharacterResource]
+    public private(set) var characters: [CharacterResource]?
     
     /// Concepts related to the concept.
-    public let concepts: [ConceptResource]
+    public private(set) var concepts: [ConceptResource]?
     
     /// Franchises related to the concept.
-    public let franchises: [FranchiseResource]
+    public private(set) var franchises: [FranchiseResource]?
     
     /// Games the concept has appeared in.
-    public let games: [GameResource]
+    public private(set) var games: [GameResource]?
     
     /// Locations related to the concept.
-    public let locations: [LocationResource]
+    public private(set) var locations: [LocationResource]?
     
     /// Objects related to the concept.
-    public let objects: [ObjectResource]
+    public private(set) var objects: [ObjectResource]?
     
     /// People who have worked with the concept.
-    public let people: [PersonResource]
+    public private(set) var people: [PersonResource]?
     
     /// Other concepts related to the concept.
-    public let related_concepts: [ConceptResource]
+    public private(set) var related_concepts: [ConceptResource]?
     
     /// Used to create a `ConceptExtendedInfo` from JSON.
     public init(json: [String : AnyObject]) {
         
-        characters = json.jsonMappedResources("characters")
-        concepts = json.jsonMappedResources("concepts")
-        franchises = json.jsonMappedResources("franchises")
-        games = json.jsonMappedResources("games")
-        locations = json.jsonMappedResources("locations")
-        objects = json.jsonMappedResources("objects")
-        people = json.jsonMappedResources("people")
-        related_concepts = json.jsonMappedResources("related_concepts")
+        update(json)
+    }
+    
+    /// A method used for updating structs. Usually after further requests for more field data.
+    public mutating func update(json: [String : AnyObject]) {
+        
+        characters = json.jsonMappedResources("characters") ?? characters
+        concepts = json.jsonMappedResources("concepts") ?? concepts
+        franchises = json.jsonMappedResources("franchises") ?? franchises
+        games = json.jsonMappedResources("games") ?? games
+        locations = json.jsonMappedResources("locations") ?? locations
+        objects = json.jsonMappedResources("objects") ?? objects
+        people = json.jsonMappedResources("people") ?? people
+        related_concepts = json.jsonMappedResources("related_concepts") ?? related_concepts
     }
 }

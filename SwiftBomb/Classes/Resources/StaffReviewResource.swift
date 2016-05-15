@@ -69,24 +69,24 @@ final public class StaffReviewResource: ResourceUpdating {
     
     func update(json: [String : AnyObject]) {
         
-        api_detail_url = (json["api_detail_url"] as? String)?.url()
-        deck = json["deck"] as? String
-        description = json["description"] as? String
-        dlc_name = json["dlc_name"] as? String
+        api_detail_url = (json["api_detail_url"] as? String)?.url() ?? api_detail_url
+        deck = json["deck"] as? String ?? deck
+        description = json["description"] as? String ?? description
+        dlc_name = json["dlc_name"] as? String ?? dlc_name
         
         if let gameJSON = json["game"] as? [String: AnyObject] {
             game = GameResource(json: gameJSON)
         }
         
-        publish_date = (json["publish_date"] as? String)?.dateRepresentation()
+        publish_date = (json["publish_date"] as? String)?.dateRepresentation() ?? publish_date
         
         if let releaseJSON = json["release"] as? [String: AnyObject] {
             release = GameResource(json: releaseJSON)
         }
         
-        reviewer = json["reviewer"] as? String
-        score = json["score"] as? Int
-        site_detail_url = (json["site_detail_url"] as? String)?.url()
+        reviewer = json["reviewer"] as? String ?? reviewer
+        score = json["score"] as? Int ?? score
+        site_detail_url = (json["site_detail_url"] as? String)?.url() ?? site_detail_url
     }
     
     /// Pretty description of the staff review.

@@ -85,22 +85,22 @@ final public class CompanyResource: ResourceUpdating {
     
     func update(json: [String : AnyObject]) {
         
-        aliases = (json["aliases"] as? String)?.newlineSeparatedStrings()
-        abbreviation = json["abbreviation"] as? String
-        api_detail_url = (json["api_detail_url"] as? String)?.url()
-        date_added = (json["date_added"] as? String)?.dateRepresentation()
-        date_founded = (json["date_founded"] as? String)?.dateRepresentation()
-        date_last_updated = (json["date_last_updated"] as? String)?.dateRepresentation()
-        deck = json["deck"] as? String
-        description = json["description"] as? String
-        location_address = json["location_address"] as? String
-        location_city = json["location_city"] as? String
-        location_state = json["location_state"] as? String
-        location_country = json["location_country"] as? String
-        name = json["name"] as? String
-        phone = json["phone"] as? String
-        site_detail_url = (json["site_detail_url"] as? String)?.url()
-        website = (json["website"] as? String)?.url()
+        aliases = (json["aliases"] as? String)?.newlineSeparatedStrings() ?? aliases
+        abbreviation = json["abbreviation"] as? String ?? abbreviation
+        api_detail_url = (json["api_detail_url"] as? String)?.url() ?? api_detail_url
+        date_added = (json["date_added"] as? String)?.dateRepresentation() ?? date_added
+        date_founded = (json["date_founded"] as? String)?.dateRepresentation() ?? date_founded
+        date_last_updated = (json["date_last_updated"] as? String)?.dateRepresentation() ?? date_last_updated
+        deck = json["deck"] as? String ?? deck
+        description = json["description"] as? String ?? description
+        location_address = json["location_address"] as? String ?? location_address
+        location_city = json["location_city"] as? String ?? location_city
+        location_state = json["location_state"] as? String ?? location_state
+        location_country = json["location_country"] as? String ?? location_country
+        name = json["name"] as? String ?? name
+        phone = json["phone"] as? String ?? phone
+        site_detail_url = (json["site_detail_url"] as? String)?.url() ?? site_detail_url
+        website = (json["website"] as? String)?.url() ?? website
         
         if let imageJSON = json["image"] as? [String: AnyObject] {
             image = ImageURLs(json: imageJSON)
@@ -119,47 +119,53 @@ final public class CompanyResource: ResourceUpdating {
 public struct CompanyExtendedInfo: ResourceExtendedInfo {
     
     /// Characters related to the company.
-    public let characters: [CharacterResource]
+    public private(set) var characters: [CharacterResource]?
     
     /// Concepts related to the company.
-    public let concepts: [ConceptResource]
+    public private(set) var concepts: [ConceptResource]?
     
     /// Games the company has developed.
-    public let developed_games: [GameResource]
+    public private(set) var developed_games: [GameResource]?
     
     /// Releases the company has developed.
-    public let developer_releases: [GameReleaseResource]
+    public private(set) var developer_releases: [GameReleaseResource]?
     
     /// Releases the company has distributed.
-    public let distributor_releases: [GameReleaseResource]
+    public private(set) var distributor_releases: [GameReleaseResource]?
     
     /// Locations related to the company.
-    public let locations: [LocationResource]
+    public private(set) var locations: [LocationResource]?
     
     /// Objects related to the company.
-    public let objects: [ObjectResource]
+    public private(set) var objects: [ObjectResource]?
     
     /// People who have worked with the company.
-    public let people: [PersonResource]
+    public private(set) var people: [PersonResource]?
     
     /// Games published by the company.
-    public let published_games: [GameResource]
+    public private(set) var published_games: [GameResource]?
     
     /// Releases the company has published.
-    public let publisher_releases: [GameReleaseResource]
+    public private(set) var publisher_releases: [GameReleaseResource]?
     
     /// Used to create a `CompanyExtendedInfo` from JSON.
     public init(json: [String : AnyObject]) {
         
-        characters = json.jsonMappedResources("characters")
-        concepts = json.jsonMappedResources("concepts")
-        developed_games = json.jsonMappedResources("developed_games")
-        developer_releases = json.jsonMappedResources("developer_releases")
-        distributor_releases = json.jsonMappedResources("distributor_releases")
-        locations = json.jsonMappedResources("locations")
-        objects = json.jsonMappedResources("objects")
-        people = json.jsonMappedResources("people")
-        published_games = json.jsonMappedResources("published_games")
-        publisher_releases = json.jsonMappedResources("publisher_releases")
+        update(json)
+    }
+    
+    /// A method used for updating structs. Usually after further requests for more field data.
+    public mutating func update(json: [String : AnyObject]) {
+        
+        characters = json.jsonMappedResources("characters") ?? characters
+        concepts = json.jsonMappedResources("concepts") ?? concepts
+        developed_games = json.jsonMappedResources("developed_games") ?? developed_games
+        developer_releases = json.jsonMappedResources("developer_releases") ?? developer_releases
+        distributor_releases = json.jsonMappedResources("distributor_releases") ?? distributor_releases
+        locations = json.jsonMappedResources("locations") ?? locations
+        objects = json.jsonMappedResources("objects") ?? objects
+        people = json.jsonMappedResources("people") ?? people
+        published_games = json.jsonMappedResources("published_games") ?? published_games
+        publisher_releases = json.jsonMappedResources("publisher_releases") ?? publisher_releases
     }
 }

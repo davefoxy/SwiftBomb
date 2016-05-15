@@ -64,12 +64,12 @@ final public class ObjectResource: ResourceUpdating {
     
     func update(json: [String : AnyObject]) {
         
-        aliases = (json["aliases"] as? String)?.newlineSeparatedStrings()
-        api_detail_url = (json["api_detail_url"] as? String)?.url()
-        date_added = (json["date_added"] as? String)?.dateRepresentation()
-        date_last_updated = (json["date_last_updated"] as? String)?.dateRepresentation()
-        deck = json["deck"] as? String
-        description = json["description"] as? String
+        aliases = (json["aliases"] as? String)?.newlineSeparatedStrings() ?? aliases
+        api_detail_url = (json["api_detail_url"] as? String)?.url() ?? api_detail_url
+        date_added = (json["date_added"] as? String)?.dateRepresentation() ?? date_added
+        date_last_updated = (json["date_last_updated"] as? String)?.dateRepresentation() ?? date_last_updated
+        deck = json["deck"] as? String ?? deck
+        description = json["description"] as? String ?? description
         
         if let firstAppearedInGameJSON = json["first_appeared_in_game"] as? [String: AnyObject] {
             first_appeared_in_game = GameResource(json: firstAppearedInGameJSON)
@@ -79,8 +79,8 @@ final public class ObjectResource: ResourceUpdating {
             image = ImageURLs(json: imageJSON)
         }
         
-        name = json["name"] as? String
-        site_detail_url = (json["site_detail_url"] as? String)?.url()
+        name = json["name"] as? String ?? name
+        site_detail_url = (json["site_detail_url"] as? String)?.url() ?? site_detail_url
     }
     
     /// Pretty description of the object.
@@ -95,39 +95,45 @@ final public class ObjectResource: ResourceUpdating {
 public struct ObjectExtendedInfo: ResourceExtendedInfo {
     
     /// Characters related to the object.
-    public let characters: [CharacterResource]
+    public private(set) var characters: [CharacterResource]?
     
     /// Companies related to the object.
-    public let companies: [CompanyResource]
+    public private(set) var companies: [CompanyResource]?
     
     /// Concepts related to the object.
-    public let concepts: [ConceptResource]
+    public private(set) var concepts: [ConceptResource]?
     
     /// Franchises related to the object.
-    public let franchises: [FranchiseResource]
+    public private(set) var franchises: [FranchiseResource]?
     
     /// Games the object has appeared in.
-    public let games: [GameResource]
+    public private(set) var games: [GameResource]?
     
     /// Locations related to the object.
-    public let locations: [LocationResource]
+    public private(set) var locations: [LocationResource]?
     
     /// Objects related to the object.
-    public let objects: [ObjectResource]
+    public private(set) var objects: [ObjectResource]?
     
     /// People who have worked with the object.
-    public let people: [PersonResource]
+    public private(set) var people: [PersonResource]?
     
     /// Used to create a `ObjectExtendedInfo` from JSON.
     public init(json: [String : AnyObject]) {
         
-        characters = json.jsonMappedResources("characters")
-        companies = json.jsonMappedResources("companies")
-        concepts = json.jsonMappedResources("concepts")
-        franchises = json.jsonMappedResources("franchises")
-        games = json.jsonMappedResources("games")
-        locations = json.jsonMappedResources("locations")
-        objects = json.jsonMappedResources("objects")
-        people = json.jsonMappedResources("people")
+        update(json)
+    }
+    
+    /// A method used for updating structs. Usually after further requests for more field data.
+    public mutating func update(json: [String : AnyObject]) {
+        
+        characters = json.jsonMappedResources("characters") ?? characters
+        companies = json.jsonMappedResources("companies") ?? companies
+        concepts = json.jsonMappedResources("concepts") ?? concepts
+        franchises = json.jsonMappedResources("franchises") ?? franchises
+        games = json.jsonMappedResources("games") ?? games
+        locations = json.jsonMappedResources("locations") ?? locations
+        objects = json.jsonMappedResources("objects") ?? objects
+        people = json.jsonMappedResources("people") ?? people
     }
 }

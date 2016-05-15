@@ -218,9 +218,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFC9SwiftBomb9SwiftBomb16fetchAccessoriesFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_17AccessoryResource__5errorGSqOS_12RequestError__T__T_"></a>
-                    <a name="//apple_ref/swift/Method/fetchAccessories(_:pagination:sort:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFC9SwiftBomb9SwiftBomb16fetchAccessoriesFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_17AccessoryResource__5errorGSqOS_12RequestError__T__T_">fetchAccessories(_:pagination:sort:completion:)</a>
+                    <a name="/s:ZFC9SwiftBomb9SwiftBomb16fetchAccessoriesFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_6fieldsGSqGSaSS__10completionFTGSqGVS_16PaginatedResultsCS_17AccessoryResource__5errorGSqOS_12RequestError__T__T_"></a>
+                    <a name="//apple_ref/swift/Method/fetchAccessories(_:pagination:sort:fields:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC9SwiftBomb9SwiftBomb16fetchAccessoriesFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_6fieldsGSqGSaSS__10completionFTGSqGVS_16PaginatedResultsCS_17AccessoryResource__5errorGSqOS_12RequestError__T__T_">fetchAccessories(_:pagination:sort:fields:completion:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -235,7 +235,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">fetchAccessories</span><span class="p">(</span><span class="nv">query</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">pagination</span><span class="p">:</span> <span class="kt">PaginationDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">sort</span><span class="p">:</span> <span class="kt">SortDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt">PaginatedResults</span><span class="o">&lt;</span><span class="kt">AccessoryResource</span><span class="o">&gt;</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">RequestError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">fetchAccessories</span><span class="p">(</span><span class="nv">query</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">pagination</span><span class="p">:</span> <span class="kt">PaginationDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">sort</span><span class="p">:</span> <span class="kt">SortDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">fields</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt">PaginatedResults</span><span class="o">&lt;</span><span class="kt">AccessoryResource</span><span class="o">&gt;</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">RequestError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -285,6 +285,19 @@
                             <tr>
                               <td>
                                 <code>
+                                <em>fields</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional array of fields to return in the response. See the available options at <a href="http://www.giantbomb.com/api/documentation#toc-0-2">http://www.giantbomb.com/api/documentation#toc-0-2</a>. Pass nil to return everything.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
                                 <em>completion</em>
                                 </code>
                               </td>
@@ -308,9 +321,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFC9SwiftBomb9SwiftBomb15fetchCharactersFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_17CharacterResource__5errorGSqOS_12RequestError__T__T_"></a>
-                    <a name="//apple_ref/swift/Method/fetchCharacters(_:pagination:sort:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFC9SwiftBomb9SwiftBomb15fetchCharactersFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_17CharacterResource__5errorGSqOS_12RequestError__T__T_">fetchCharacters(_:pagination:sort:completion:)</a>
+                    <a name="/s:ZFC9SwiftBomb9SwiftBomb15fetchCharactersFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_6fieldsGSqGSaSS__10completionFTGSqGVS_16PaginatedResultsCS_17CharacterResource__5errorGSqOS_12RequestError__T__T_"></a>
+                    <a name="//apple_ref/swift/Method/fetchCharacters(_:pagination:sort:fields:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC9SwiftBomb9SwiftBomb15fetchCharactersFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_6fieldsGSqGSaSS__10completionFTGSqGVS_16PaginatedResultsCS_17CharacterResource__5errorGSqOS_12RequestError__T__T_">fetchCharacters(_:pagination:sort:fields:completion:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -325,7 +338,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">fetchCharacters</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">pagination</span><span class="p">:</span> <span class="kt">PaginationDefinition</span><span class="p">?,</span> <span class="nv">sort</span><span class="p">:</span> <span class="kt">SortDefinition</span><span class="p">?,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt">PaginatedResults</span><span class="o">&lt;</span><span class="kt">CharacterResource</span><span class="o">&gt;</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">RequestError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">fetchCharacters</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">pagination</span><span class="p">:</span> <span class="kt">PaginationDefinition</span><span class="p">?,</span> <span class="nv">sort</span><span class="p">:</span> <span class="kt">SortDefinition</span><span class="p">?,</span> <span class="nv">fields</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt">PaginatedResults</span><span class="o">&lt;</span><span class="kt">CharacterResource</span><span class="o">&gt;</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">RequestError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -375,6 +388,19 @@
                             <tr>
                               <td>
                                 <code>
+                                <em>fields</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional array of fields to return in the response. See the available options at <a href="http://www.giantbomb.com/api/documentation#toc-0-4">http://www.giantbomb.com/api/documentation#toc-0-4</a>. Pass nil to return everything.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
                                 <em>completion</em>
                                 </code>
                               </td>
@@ -398,9 +424,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFC9SwiftBomb9SwiftBomb14fetchPlatformsFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_16PlatformResource__5errorGSqOS_12RequestError__T__T_"></a>
-                    <a name="//apple_ref/swift/Method/fetchPlatforms(_:pagination:sort:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFC9SwiftBomb9SwiftBomb14fetchPlatformsFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_16PlatformResource__5errorGSqOS_12RequestError__T__T_">fetchPlatforms(_:pagination:sort:completion:)</a>
+                    <a name="/s:ZFC9SwiftBomb9SwiftBomb14fetchPlatformsFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_6fieldsGSqGSaSS__10completionFTGSqGVS_16PaginatedResultsCS_16PlatformResource__5errorGSqOS_12RequestError__T__T_"></a>
+                    <a name="//apple_ref/swift/Method/fetchPlatforms(_:pagination:sort:fields:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC9SwiftBomb9SwiftBomb14fetchPlatformsFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_6fieldsGSqGSaSS__10completionFTGSqGVS_16PaginatedResultsCS_16PlatformResource__5errorGSqOS_12RequestError__T__T_">fetchPlatforms(_:pagination:sort:fields:completion:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -415,7 +441,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">fetchPlatforms</span><span class="p">(</span><span class="nv">query</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">pagination</span><span class="p">:</span> <span class="kt">PaginationDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">sort</span><span class="p">:</span> <span class="kt">SortDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt">PaginatedResults</span><span class="o">&lt;</span><span class="kt">PlatformResource</span><span class="o">&gt;</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">RequestError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">fetchPlatforms</span><span class="p">(</span><span class="nv">query</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">pagination</span><span class="p">:</span> <span class="kt">PaginationDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">sort</span><span class="p">:</span> <span class="kt">SortDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">fields</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt">PaginatedResults</span><span class="o">&lt;</span><span class="kt">PlatformResource</span><span class="o">&gt;</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">RequestError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -465,6 +491,19 @@
                             <tr>
                               <td>
                                 <code>
+                                <em>fields</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional array of fields to return in the response. See the available options at <a href="http://www.giantbomb.com/api/documentation#toc-0-26">http://www.giantbomb.com/api/documentation#toc-0-26</a>. Pass nil to return everything.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
                                 <em>completion</em>
                                 </code>
                               </td>
@@ -488,9 +527,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFC9SwiftBomb9SwiftBomb14fetchCompaniesFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_15CompanyResource__5errorGSqOS_12RequestError__T__T_"></a>
-                    <a name="//apple_ref/swift/Method/fetchCompanies(_:pagination:sort:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFC9SwiftBomb9SwiftBomb14fetchCompaniesFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_15CompanyResource__5errorGSqOS_12RequestError__T__T_">fetchCompanies(_:pagination:sort:completion:)</a>
+                    <a name="/s:ZFC9SwiftBomb9SwiftBomb14fetchCompaniesFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_6fieldsGSqGSaSS__10completionFTGSqGVS_16PaginatedResultsCS_15CompanyResource__5errorGSqOS_12RequestError__T__T_"></a>
+                    <a name="//apple_ref/swift/Method/fetchCompanies(_:pagination:sort:fields:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC9SwiftBomb9SwiftBomb14fetchCompaniesFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_6fieldsGSqGSaSS__10completionFTGSqGVS_16PaginatedResultsCS_15CompanyResource__5errorGSqOS_12RequestError__T__T_">fetchCompanies(_:pagination:sort:fields:completion:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -505,7 +544,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">fetchCompanies</span><span class="p">(</span><span class="nv">query</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">pagination</span><span class="p">:</span> <span class="kt">PaginationDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">sort</span><span class="p">:</span> <span class="kt">SortDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt">PaginatedResults</span><span class="o">&lt;</span><span class="kt">CompanyResource</span><span class="o">&gt;</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">RequestError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">fetchCompanies</span><span class="p">(</span><span class="nv">query</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">pagination</span><span class="p">:</span> <span class="kt">PaginationDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">sort</span><span class="p">:</span> <span class="kt">SortDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">fields</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt">PaginatedResults</span><span class="o">&lt;</span><span class="kt">CompanyResource</span><span class="o">&gt;</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">RequestError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -555,6 +594,19 @@
                             <tr>
                               <td>
                                 <code>
+                                <em>fields</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional array of fields to return in the response. See the available options at <a href="http://www.giantbomb.com/api/documentation#toc-0-8">http://www.giantbomb.com/api/documentation#toc-0-8</a>. Pass nil to return everything.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
                                 <em>completion</em>
                                 </code>
                               </td>
@@ -578,9 +630,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFC9SwiftBomb9SwiftBomb13fetchReleasesFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_19GameReleaseResource__5errorGSqOS_12RequestError__T__T_"></a>
-                    <a name="//apple_ref/swift/Method/fetchReleases(_:pagination:sort:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFC9SwiftBomb9SwiftBomb13fetchReleasesFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_19GameReleaseResource__5errorGSqOS_12RequestError__T__T_">fetchReleases(_:pagination:sort:completion:)</a>
+                    <a name="/s:ZFC9SwiftBomb9SwiftBomb13fetchReleasesFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_6fieldsGSqGSaSS__10completionFTGSqGVS_16PaginatedResultsCS_19GameReleaseResource__5errorGSqOS_12RequestError__T__T_"></a>
+                    <a name="//apple_ref/swift/Method/fetchReleases(_:pagination:sort:fields:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC9SwiftBomb9SwiftBomb13fetchReleasesFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_6fieldsGSqGSaSS__10completionFTGSqGVS_16PaginatedResultsCS_19GameReleaseResource__5errorGSqOS_12RequestError__T__T_">fetchReleases(_:pagination:sort:fields:completion:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -595,7 +647,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">fetchReleases</span><span class="p">(</span><span class="nv">query</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">pagination</span><span class="p">:</span> <span class="kt">PaginationDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">sort</span><span class="p">:</span> <span class="kt">SortDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt">PaginatedResults</span><span class="o">&lt;</span><span class="kt">GameReleaseResource</span><span class="o">&gt;</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">RequestError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">fetchReleases</span><span class="p">(</span><span class="nv">query</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">pagination</span><span class="p">:</span> <span class="kt">PaginationDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">sort</span><span class="p">:</span> <span class="kt">SortDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">fields</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt">PaginatedResults</span><span class="o">&lt;</span><span class="kt">GameReleaseResource</span><span class="o">&gt;</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">RequestError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -645,6 +697,19 @@
                             <tr>
                               <td>
                                 <code>
+                                <em>fields</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional array of fields to return in the response. See the available options at <a href="http://www.giantbomb.com/api/documentation#toc-0-34">http://www.giantbomb.com/api/documentation#toc-0-34</a>. Pass nil to return everything.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
                                 <em>completion</em>
                                 </code>
                               </td>
@@ -668,9 +733,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFC9SwiftBomb9SwiftBomb13fetchConceptsFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_15ConceptResource__5errorGSqOS_12RequestError__T__T_"></a>
-                    <a name="//apple_ref/swift/Method/fetchConcepts(_:pagination:sort:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFC9SwiftBomb9SwiftBomb13fetchConceptsFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_15ConceptResource__5errorGSqOS_12RequestError__T__T_">fetchConcepts(_:pagination:sort:completion:)</a>
+                    <a name="/s:ZFC9SwiftBomb9SwiftBomb13fetchConceptsFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_6fieldsGSqGSaSS__10completionFTGSqGVS_16PaginatedResultsCS_15ConceptResource__5errorGSqOS_12RequestError__T__T_"></a>
+                    <a name="//apple_ref/swift/Method/fetchConcepts(_:pagination:sort:fields:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC9SwiftBomb9SwiftBomb13fetchConceptsFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_6fieldsGSqGSaSS__10completionFTGSqGVS_16PaginatedResultsCS_15ConceptResource__5errorGSqOS_12RequestError__T__T_">fetchConcepts(_:pagination:sort:fields:completion:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -685,7 +750,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">fetchConcepts</span><span class="p">(</span><span class="nv">query</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">pagination</span><span class="p">:</span> <span class="kt">PaginationDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">sort</span><span class="p">:</span> <span class="kt">SortDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt">PaginatedResults</span><span class="o">&lt;</span><span class="kt">ConceptResource</span><span class="o">&gt;</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">RequestError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">fetchConcepts</span><span class="p">(</span><span class="nv">query</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">pagination</span><span class="p">:</span> <span class="kt">PaginationDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">sort</span><span class="p">:</span> <span class="kt">SortDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">fields</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt">PaginatedResults</span><span class="o">&lt;</span><span class="kt">ConceptResource</span><span class="o">&gt;</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">RequestError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -735,6 +800,19 @@
                             <tr>
                               <td>
                                 <code>
+                                <em>fields</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional array of fields to return in the response. See the available options at <a href="http://www.giantbomb.com/api/documentation#toc-0-10">http://www.giantbomb.com/api/documentation#toc-0-10</a>. Pass nil to return everything.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
                                 <em>completion</em>
                                 </code>
                               </td>
@@ -758,9 +836,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFC9SwiftBomb9SwiftBomb15fetchFranchisesFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_17FranchiseResource__5errorGSqOS_12RequestError__T__T_"></a>
-                    <a name="//apple_ref/swift/Method/fetchFranchises(_:pagination:sort:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFC9SwiftBomb9SwiftBomb15fetchFranchisesFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_17FranchiseResource__5errorGSqOS_12RequestError__T__T_">fetchFranchises(_:pagination:sort:completion:)</a>
+                    <a name="/s:ZFC9SwiftBomb9SwiftBomb15fetchFranchisesFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_6fieldsGSqGSaSS__10completionFTGSqGVS_16PaginatedResultsCS_17FranchiseResource__5errorGSqOS_12RequestError__T__T_"></a>
+                    <a name="//apple_ref/swift/Method/fetchFranchises(_:pagination:sort:fields:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC9SwiftBomb9SwiftBomb15fetchFranchisesFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_6fieldsGSqGSaSS__10completionFTGSqGVS_16PaginatedResultsCS_17FranchiseResource__5errorGSqOS_12RequestError__T__T_">fetchFranchises(_:pagination:sort:fields:completion:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -775,7 +853,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">fetchFranchises</span><span class="p">(</span><span class="nv">query</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">pagination</span><span class="p">:</span> <span class="kt">PaginationDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">sort</span><span class="p">:</span> <span class="kt">SortDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt">PaginatedResults</span><span class="o">&lt;</span><span class="kt">FranchiseResource</span><span class="o">&gt;</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">RequestError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">fetchFranchises</span><span class="p">(</span><span class="nv">query</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">pagination</span><span class="p">:</span> <span class="kt">PaginationDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">sort</span><span class="p">:</span> <span class="kt">SortDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">fields</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt">PaginatedResults</span><span class="o">&lt;</span><span class="kt">FranchiseResource</span><span class="o">&gt;</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">RequestError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -825,6 +903,19 @@
                             <tr>
                               <td>
                                 <code>
+                                <em>fields</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional array of fields to return in the response. See the available options at <a href="http://www.giantbomb.com/api/documentation#toc-0-12">http://www.giantbomb.com/api/documentation#toc-0-12</a>. Pass nil to return everything.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
                                 <em>completion</em>
                                 </code>
                               </td>
@@ -848,9 +939,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFC9SwiftBomb9SwiftBomb10fetchGamesFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_12GameResource__5errorGSqOS_12RequestError__T__T_"></a>
-                    <a name="//apple_ref/swift/Method/fetchGames(_:pagination:sort:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFC9SwiftBomb9SwiftBomb10fetchGamesFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_12GameResource__5errorGSqOS_12RequestError__T__T_">fetchGames(_:pagination:sort:completion:)</a>
+                    <a name="/s:ZFC9SwiftBomb9SwiftBomb10fetchGamesFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_6fieldsGSqGSaSS__10completionFTGSqGVS_16PaginatedResultsCS_12GameResource__5errorGSqOS_12RequestError__T__T_"></a>
+                    <a name="//apple_ref/swift/Method/fetchGames(_:pagination:sort:fields:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC9SwiftBomb9SwiftBomb10fetchGamesFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_6fieldsGSqGSaSS__10completionFTGSqGVS_16PaginatedResultsCS_12GameResource__5errorGSqOS_12RequestError__T__T_">fetchGames(_:pagination:sort:fields:completion:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -865,7 +956,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">fetchGames</span><span class="p">(</span><span class="nv">query</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">pagination</span><span class="p">:</span> <span class="kt">PaginationDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">sort</span><span class="p">:</span> <span class="kt">SortDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt">PaginatedResults</span><span class="o">&lt;</span><span class="kt">GameResource</span><span class="o">&gt;</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">RequestError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">fetchGames</span><span class="p">(</span><span class="nv">query</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">pagination</span><span class="p">:</span> <span class="kt">PaginationDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">sort</span><span class="p">:</span> <span class="kt">SortDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">fields</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt">PaginatedResults</span><span class="o">&lt;</span><span class="kt">GameResource</span><span class="o">&gt;</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">RequestError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -915,6 +1006,19 @@
                             <tr>
                               <td>
                                 <code>
+                                <em>fields</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional array of fields to return in the response. See the available options at <a href="http://www.giantbomb.com/api/documentation#toc-0-14">http://www.giantbomb.com/api/documentation#toc-0-14</a>. Pass nil to return everything.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
                                 <em>completion</em>
                                 </code>
                               </td>
@@ -938,9 +1042,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFC9SwiftBomb9SwiftBomb11fetchGenresFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_13GenreResource__5errorGSqOS_12RequestError__T__T_"></a>
-                    <a name="//apple_ref/swift/Method/fetchGenres(_:pagination:sort:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFC9SwiftBomb9SwiftBomb11fetchGenresFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_13GenreResource__5errorGSqOS_12RequestError__T__T_">fetchGenres(_:pagination:sort:completion:)</a>
+                    <a name="/s:ZFC9SwiftBomb9SwiftBomb11fetchGenresFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_6fieldsGSqGSaSS__10completionFTGSqGVS_16PaginatedResultsCS_13GenreResource__5errorGSqOS_12RequestError__T__T_"></a>
+                    <a name="//apple_ref/swift/Method/fetchGenres(_:pagination:sort:fields:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC9SwiftBomb9SwiftBomb11fetchGenresFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_6fieldsGSqGSaSS__10completionFTGSqGVS_16PaginatedResultsCS_13GenreResource__5errorGSqOS_12RequestError__T__T_">fetchGenres(_:pagination:sort:fields:completion:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -955,7 +1059,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">fetchGenres</span><span class="p">(</span><span class="nv">query</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">pagination</span><span class="p">:</span> <span class="kt">PaginationDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">sort</span><span class="p">:</span> <span class="kt">SortDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt">PaginatedResults</span><span class="o">&lt;</span><span class="kt">GenreResource</span><span class="o">&gt;</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">RequestError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">fetchGenres</span><span class="p">(</span><span class="nv">query</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">pagination</span><span class="p">:</span> <span class="kt">PaginationDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">sort</span><span class="p">:</span> <span class="kt">SortDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">fields</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt">PaginatedResults</span><span class="o">&lt;</span><span class="kt">GenreResource</span><span class="o">&gt;</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">RequestError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -1005,6 +1109,19 @@
                             <tr>
                               <td>
                                 <code>
+                                <em>fields</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional array of fields to return in the response. See the available options at <a href="http://www.giantbomb.com/api/documentation#toc-0-18">http://www.giantbomb.com/api/documentation#toc-0-18</a>. Pass nil to return everything.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
                                 <em>completion</em>
                                 </code>
                               </td>
@@ -1028,9 +1145,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFC9SwiftBomb9SwiftBomb14fetchLocationsFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_16LocationResource__5errorGSqOS_12RequestError__T__T_"></a>
-                    <a name="//apple_ref/swift/Method/fetchLocations(_:pagination:sort:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFC9SwiftBomb9SwiftBomb14fetchLocationsFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_16LocationResource__5errorGSqOS_12RequestError__T__T_">fetchLocations(_:pagination:sort:completion:)</a>
+                    <a name="/s:ZFC9SwiftBomb9SwiftBomb14fetchLocationsFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_6fieldsGSqGSaSS__10completionFTGSqGVS_16PaginatedResultsCS_16LocationResource__5errorGSqOS_12RequestError__T__T_"></a>
+                    <a name="//apple_ref/swift/Method/fetchLocations(_:pagination:sort:fields:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC9SwiftBomb9SwiftBomb14fetchLocationsFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_6fieldsGSqGSaSS__10completionFTGSqGVS_16PaginatedResultsCS_16LocationResource__5errorGSqOS_12RequestError__T__T_">fetchLocations(_:pagination:sort:fields:completion:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1045,7 +1162,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">fetchLocations</span><span class="p">(</span><span class="nv">query</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">pagination</span><span class="p">:</span> <span class="kt">PaginationDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">sort</span><span class="p">:</span> <span class="kt">SortDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt">PaginatedResults</span><span class="o">&lt;</span><span class="kt">LocationResource</span><span class="o">&gt;</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">RequestError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">fetchLocations</span><span class="p">(</span><span class="nv">query</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">pagination</span><span class="p">:</span> <span class="kt">PaginationDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">sort</span><span class="p">:</span> <span class="kt">SortDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">fields</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt">PaginatedResults</span><span class="o">&lt;</span><span class="kt">LocationResource</span><span class="o">&gt;</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">RequestError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -1095,6 +1212,19 @@
                             <tr>
                               <td>
                                 <code>
+                                <em>fields</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional array of fields to return in the response. See the available options at <a href="http://www.giantbomb.com/api/documentation#toc-0-20">http://www.giantbomb.com/api/documentation#toc-0-20</a>. Pass nil to return everything.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
                                 <em>completion</em>
                                 </code>
                               </td>
@@ -1118,9 +1248,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFC9SwiftBomb9SwiftBomb12fetchObjectsFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_14ObjectResource__5errorGSqOS_12RequestError__T__T_"></a>
-                    <a name="//apple_ref/swift/Method/fetchObjects(_:pagination:sort:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFC9SwiftBomb9SwiftBomb12fetchObjectsFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_14ObjectResource__5errorGSqOS_12RequestError__T__T_">fetchObjects(_:pagination:sort:completion:)</a>
+                    <a name="/s:ZFC9SwiftBomb9SwiftBomb12fetchObjectsFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_6fieldsGSqGSaSS__10completionFTGSqGVS_16PaginatedResultsCS_14ObjectResource__5errorGSqOS_12RequestError__T__T_"></a>
+                    <a name="//apple_ref/swift/Method/fetchObjects(_:pagination:sort:fields:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC9SwiftBomb9SwiftBomb12fetchObjectsFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_6fieldsGSqGSaSS__10completionFTGSqGVS_16PaginatedResultsCS_14ObjectResource__5errorGSqOS_12RequestError__T__T_">fetchObjects(_:pagination:sort:fields:completion:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1135,7 +1265,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">fetchObjects</span><span class="p">(</span><span class="nv">query</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">pagination</span><span class="p">:</span> <span class="kt">PaginationDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">sort</span><span class="p">:</span> <span class="kt">SortDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt">PaginatedResults</span><span class="o">&lt;</span><span class="kt">ObjectResource</span><span class="o">&gt;</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">RequestError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">fetchObjects</span><span class="p">(</span><span class="nv">query</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">pagination</span><span class="p">:</span> <span class="kt">PaginationDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">sort</span><span class="p">:</span> <span class="kt">SortDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">fields</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt">PaginatedResults</span><span class="o">&lt;</span><span class="kt">ObjectResource</span><span class="o">&gt;</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">RequestError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -1185,6 +1315,19 @@
                             <tr>
                               <td>
                                 <code>
+                                <em>fields</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional array of fields to return in the response. See the available options at <a href="http://www.giantbomb.com/api/documentation#toc-0-22">http://www.giantbomb.com/api/documentation#toc-0-22</a>. Pass nil to return everything.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
                                 <em>completion</em>
                                 </code>
                               </td>
@@ -1208,9 +1351,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFC9SwiftBomb9SwiftBomb11fetchPeopleFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_14PersonResource__5errorGSqOS_12RequestError__T__T_"></a>
-                    <a name="//apple_ref/swift/Method/fetchPeople(_:pagination:sort:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFC9SwiftBomb9SwiftBomb11fetchPeopleFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_14PersonResource__5errorGSqOS_12RequestError__T__T_">fetchPeople(_:pagination:sort:completion:)</a>
+                    <a name="/s:ZFC9SwiftBomb9SwiftBomb11fetchPeopleFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_6fieldsGSqGSaSS__10completionFTGSqGVS_16PaginatedResultsCS_14PersonResource__5errorGSqOS_12RequestError__T__T_"></a>
+                    <a name="//apple_ref/swift/Method/fetchPeople(_:pagination:sort:fields:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC9SwiftBomb9SwiftBomb11fetchPeopleFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_6fieldsGSqGSaSS__10completionFTGSqGVS_16PaginatedResultsCS_14PersonResource__5errorGSqOS_12RequestError__T__T_">fetchPeople(_:pagination:sort:fields:completion:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1225,7 +1368,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">fetchPeople</span><span class="p">(</span><span class="nv">query</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">pagination</span><span class="p">:</span> <span class="kt">PaginationDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">sort</span><span class="p">:</span> <span class="kt">SortDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt">PaginatedResults</span><span class="o">&lt;</span><span class="kt">PersonResource</span><span class="o">&gt;</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">RequestError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">fetchPeople</span><span class="p">(</span><span class="nv">query</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">pagination</span><span class="p">:</span> <span class="kt">PaginationDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">sort</span><span class="p">:</span> <span class="kt">SortDefinition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">fields</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt">PaginatedResults</span><span class="o">&lt;</span><span class="kt">PersonResource</span><span class="o">&gt;</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">RequestError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -1268,6 +1411,19 @@
                               <td>
                                 <div>
                                   <p>An optional <code>SortDefinition</code> to define how the results should be sorted.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fields</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional array of fields to return in the response. See the available options at <a href="http://www.giantbomb.com/api/documentation#toc-0-24">http://www.giantbomb.com/api/documentation#toc-0-24</a>. Pass nil to return everything.</p>
 
                                 </div>
                               </td>
@@ -1403,9 +1559,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFC9SwiftBomb9SwiftBomb11fetchVideosFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_13VideoResource__5errorGSqOS_12RequestError__T__T_"></a>
-                    <a name="//apple_ref/swift/Method/fetchVideos(_:pagination:sort:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFC9SwiftBomb9SwiftBomb11fetchVideosFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_10completionFTGSqGVS_16PaginatedResultsCS_13VideoResource__5errorGSqOS_12RequestError__T__T_">fetchVideos(_:pagination:sort:completion:)</a>
+                    <a name="/s:ZFC9SwiftBomb9SwiftBomb11fetchVideosFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_6fieldsGSqGSaSS__10completionFTGSqGVS_16PaginatedResultsCS_13VideoResource__5errorGSqOS_12RequestError__T__T_"></a>
+                    <a name="//apple_ref/swift/Method/fetchVideos(_:pagination:sort:fields:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC9SwiftBomb9SwiftBomb11fetchVideosFTGSqSS_10paginationGSqT6offsetSi5limitSi__4sortGSqVS_14SortDefinition_6fieldsGSqGSaSS__10completionFTGSqGVS_16PaginatedResultsCS_13VideoResource__5errorGSqOS_12RequestError__T__T_">fetchVideos(_:pagination:sort:fields:completion:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1420,7 +1576,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">fetchVideos</span><span class="p">(</span><span class="nv">query</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">pagination</span><span class="p">:</span> <span class="kt">PaginationDefinition</span><span class="p">?,</span> <span class="nv">sort</span><span class="p">:</span> <span class="kt">SortDefinition</span><span class="p">?,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt">PaginatedResults</span><span class="o">&lt;</span><span class="kt">VideoResource</span><span class="o">&gt;</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">RequestError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">fetchVideos</span><span class="p">(</span><span class="nv">query</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">pagination</span><span class="p">:</span> <span class="kt">PaginationDefinition</span><span class="p">?,</span> <span class="nv">sort</span><span class="p">:</span> <span class="kt">SortDefinition</span><span class="p">?,</span> <span class="nv">fields</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt">PaginatedResults</span><span class="o">&lt;</span><span class="kt">VideoResource</span><span class="o">&gt;</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">RequestError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -1470,6 +1626,19 @@
                             <tr>
                               <td>
                                 <code>
+                                <em>fields</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional array of fields to return in the response. See the available options at <a href="http://www.giantbomb.com/api/documentation#toc-0-44">http://www.giantbomb.com/api/documentation#toc-0-44</a>. Pass nil to return everything.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
                                 <em>completion</em>
                                 </code>
                               </td>
@@ -1491,7 +1660,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2016-05-10)</p>
+          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2016-05-15)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.6.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

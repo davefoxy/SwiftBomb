@@ -10,9 +10,9 @@ import Foundation
 
 extension RequestFactory {
     
-    func staffReviewRequest(game: GameResource, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil) -> Request {
+    func staffReviewRequest(game: GameResource, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil) -> SwiftBombRequest {
         
-        var request = Request(configuration: configuration, path: "reviews", method: .GET, pagination: pagination, sort: sort)
+        var request = SwiftBombRequest(configuration: configuration, path: "reviews", method: .GET, pagination: pagination, sort: sort)
         addAuthentication(&request)
         
         request.addURLParameter("filter", value: "game:\(game.id)")
@@ -49,16 +49,17 @@ extension StaffReviewResource {
     /**
      Fetches extended info for this staff review. Also re-populates base data in the case where this object is a stub from another parent resource.
      
+     - parameter fields: An optional array of fields to return in the response. See the available options at http://www.giantbomb.com/api/documentation#toc-0-36. Pass nil to return everything.
      - parameter completion: A closure containing an optional `RequestError` if the request failed.
      */
-    public func fetchExtendedInfo(completion: (error: RequestError?) -> Void) {
+    public func fetchExtendedInfo(fields: [String]? = nil, completion: (error: RequestError?) -> Void) {
         
         let api = SwiftBomb.framework
         
         guard
             let networkingManager = api.networkingManager,
             let id = id,
-            let request = api.requestFactory?.simpleRequest("review/\(id)/") else {
+            let request = api.requestFactory?.simpleRequest("review/\(id)/", fields: fields) else {
                 completion(error: .FrameworkConfigError)
                 return
         }

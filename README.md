@@ -84,6 +84,15 @@ SwiftBomb.fetchGames("Super Mario Galaxy") { result, error in
 ```
 Check out the documentation on the `Resource` objects to see exactly what's available for each type.
 
+### Optimizing Requests
+All requests to SwiftBomb may be passed an optional `fields` array. This allows you to specify only the fields you require in the response. This can speed up fetches on the serverside massively. See the [Giant Bomb documentation](http://http://www.giantbomb.com/api/documentation) for a list of field names available. Alternatively, just don't specify one or pass nil to retrieve everything. For example, the following request performs a search for *Splatoon*, only returning the `name`, `deck` and `image` fields:
+
+```swift
+SwiftBomb.fetchGames("Splatoon", fields: ["name", "deck", "image"]) { (results, error) in
+    ...
+}
+```
+
 ### Error Handling
 All interactions with SwiftBomb optionally return a `Request` error enum. Check out [it's reference](http://cocoadocs.org/docsets/SwiftBomb/0.1.0/Enums/RequestError.html) for the possible errors. In addition, some can return `NSError` objects representing the detail of what went wrong. For example:
 

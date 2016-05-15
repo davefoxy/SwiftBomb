@@ -62,7 +62,6 @@ class SearchResultsListViewController: UIViewController, UITableViewDelegate, UI
             return 0
         }
         
-        print("SECTIONS: \(searchResults.availableResourceTypes().count)")
         return searchResults.availableResourceTypes().count
     }
     
@@ -117,10 +116,4 @@ class SearchResultsListViewController: UIViewController, UITableViewDelegate, UI
         loadMoreResources(searchTerm)
         searchBar.resignFirstResponder()
     }
-}
-
-struct ResourceDescription<T: Resource> {
-    
-    let title: String
-    
 }

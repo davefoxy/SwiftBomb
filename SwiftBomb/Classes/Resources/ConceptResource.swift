@@ -76,14 +76,10 @@ final public class ConceptResource: ResourceUpdating {
         
         if let firstAppearedInFranchiseJSON = json["first_appeared_in_franchise"] as? [String: AnyObject] {
             first_appeared_in_franchise = FranchiseResource(json: firstAppearedInFranchiseJSON)
-        } else {
-            first_appeared_in_franchise = nil
         }
         
         if let firstAppearedInGameJSON = json["first_appeared_in_game"] as? [String: AnyObject] {
             first_appeared_in_game = GameResource(json: firstAppearedInGameJSON)
-        } else {
-            first_appeared_in_game = nil
         }
         
         name = json["name"] as? String
@@ -91,8 +87,6 @@ final public class ConceptResource: ResourceUpdating {
         
         if let imageJSON = json["image"] as? [String: AnyObject] {
             image = ImageURLs(json: imageJSON)
-        } else {
-            image = nil
         }
     }
     

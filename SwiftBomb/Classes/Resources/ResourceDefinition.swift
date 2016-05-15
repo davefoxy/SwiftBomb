@@ -21,15 +21,19 @@ public protocol Resource: class {
     
     /**
      Fetches extended info for an already partially-parsed resource.
+     - parameter fields: An array of fields to return in the response. See the available options at http://www.giantbomb.com/api/documentation. Pass nil to return everything.
      - parameter completion: A closure containing an optional `RequestError` if the request failed.
      */
-    func fetchExtendedInfo(completion: (error: RequestError?) -> Void)
+    func fetchExtendedInfo(fields: [String]?, completion: (error: RequestError?) -> Void)
     
     /// The unique ID for a resource.
     var id: Int? { get }
     
     /// A potentially user-facing description of the resource. Not localized.
     var prettyDescription: String { get }
+    
+    /// Deck for the resource.
+    var deck: String? { get }
     
     /// A main image for the resource. Can be nil for some resource types or if the wiki doens't include one
     var image: ImageURLs? { get }
@@ -97,7 +101,7 @@ public enum ResourceType: String {
 /**
  A tuple containing useful, basic information about a `Resource`
  */
-public typealias ResourceSummary = (id: Int, prettyDescription: String, image: ImageURLs?, resourceType: ResourceType)
+public typealias ResourceSummary = (id: Int, prettyDescription: String, deck: String?, image: ImageURLs?, resourceType: ResourceType)
 
 extension Resource {
 
@@ -110,6 +114,6 @@ extension Resource {
             return nil
         }
         
-        return ResourceSummary(id, prettyDescription: self.prettyDescription, self.image, self.resourceType)
+        return ResourceSummary(id, prettyDescription: self.prettyDescription, self.deck, self.image, self.resourceType)
     }
 }

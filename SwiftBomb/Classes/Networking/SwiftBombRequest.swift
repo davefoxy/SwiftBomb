@@ -1,5 +1,5 @@
 //
-//  Request.swift
+//  SwiftBombRequest.swift
 //  SwiftBomb
 //
 //  Created by David Fox on 18/04/2016.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Request {
+struct SwiftBombRequest {
     
     enum Method: String {
         case POST = "POST"
@@ -28,7 +28,7 @@ struct Request {
     private (set) var headers: [String: String] = [:]
     private (set) var body: NSData?
     
-    init(configuration: SwiftBombConfig, path: String, method: Method, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil) {
+    init(configuration: SwiftBombConfig, path: String, method: Method, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil, fields: [String]? = nil) {
         
         self.configuration = configuration
         self.path = path
@@ -47,11 +47,27 @@ struct Request {
         if let sort = sort {
             addURLParameter("sort", value: sort.urlParameter())
         }
+        
+        // Optional fields
+        addFields(fields)
     }
     
     mutating func addURLParameter(key: String, value: AnyObject) {
         
         urlParameters[key] = value
+    }
+    
+    mutating func addFields(fields: [String]?) {
+        
+        if let fields = fields {
+            
+            var fieldsString = fields.joinWithSeparator(",")
+            if fieldsString.rangeOfString("id") == nil {
+                fieldsString += ",id"
+            }
+            
+            urlParameters["field_list"] = fieldsString
+        }
     }
     
     /// Returns the appropriate NSURLRequest for use in the networking manager

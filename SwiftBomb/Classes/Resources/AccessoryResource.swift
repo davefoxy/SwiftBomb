@@ -65,8 +65,6 @@ final public class AccessoryResource: ResourceUpdating {
         
         if let imageJSON = json["image"] as? [String: AnyObject] {
             image = ImageURLs(json: imageJSON)
-        } else {
-            image = nil
         }
         
         name = json["name"] as? String

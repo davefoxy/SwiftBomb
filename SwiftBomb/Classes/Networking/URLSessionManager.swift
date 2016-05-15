@@ -21,7 +21,7 @@ class URLSessionManager: NetworkingManager {
     /**
      This is the core method used by most requests to kick off a fetch for paginated information. It uses generics so every request which deals with paginated data can use this one method and the completion enum will give strong typing to the correct struct. It also takes a model object type which conforms to a `PaginationResultsType` so this same method can handle population from JSON to swift objects for any type
      */
-    func performPaginatedRequest<T>(request: Request, objectType: T.Type, completion: (PaginatedResults<T>?, error: RequestError?) -> Void) {
+    func performPaginatedRequest<T>(request: SwiftBombRequest, objectType: T.Type, completion: (PaginatedResults<T>?, error: RequestError?) -> Void) {
         
         performRequest(request) { result in
             
@@ -49,7 +49,7 @@ class URLSessionManager: NetworkingManager {
         }
     }
     
-    func performDetailRequest<T: ResourceUpdating>(request: Request, resource: T, completion: (error: RequestError?) -> Void) {
+    func performDetailRequest<T: ResourceUpdating>(request: SwiftBombRequest, resource: T, completion: (error: RequestError?) -> Void) {
         
         performRequest(request) { result in
             
@@ -81,7 +81,7 @@ class URLSessionManager: NetworkingManager {
         }
     }
     
-    func performRequest(request: Request, completion: RequestResult -> Void) {
+    func performRequest(request: SwiftBombRequest, completion: RequestResult -> Void) {
         
         let urlRequest = request.urlRequest()
         

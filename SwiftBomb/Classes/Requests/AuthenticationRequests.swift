@@ -20,18 +20,18 @@ extension SwiftBomb {
 
 extension RequestFactory {
     
-    func authenticationRegCodeRequest() -> Request {
+    func authenticationRegCodeRequest() -> SwiftBombRequest {
         
-        var request = Request(configuration: configuration, path: "apple-tv/get-code", method: .GET)
+        var request = SwiftBombRequest(configuration: configuration, path: "apple-tv/get-code", method: .GET)
         request.responseFormat = .XML
         request.addURLParameter("deviceID", value: "XXX")
         
         return request
     }
     
-    func authenticationAPIKeyRequest(regCode: String) -> Request {
+    func authenticationAPIKeyRequest(regCode: String) -> SwiftBombRequest {
         
-        var request = Request(configuration: configuration, path: "apple-tv/get-result", method: .GET)
+        var request = SwiftBombRequest(configuration: configuration, path: "apple-tv/get-result", method: .GET)
         request.addURLParameter("deviceID", value: "XXX")
         request.addURLParameter("partner", value: "apple-tv")
         request.addURLParameter("regCode", value: regCode)

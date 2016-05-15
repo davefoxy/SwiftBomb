@@ -108,22 +108,16 @@ final public class GameReleaseResource: ResourceUpdating {
             dateComponents.month = expectedReleaseMonth
             dateComponents.year = expectedReleaseYear
             expected_release_date = NSCalendar.currentCalendar().dateFromComponents(dateComponents)
-        } else {
-            expected_release_date = nil
         }
         
         if let gameJSON = json["game"] as? [String: AnyObject] {
             game = GameResource(json: gameJSON)
-        } else {
-            game = nil
         }
         
         game_rating = (json["game_rating"] as? [String: AnyObject])?.idNameTupleMap()
         
         if let imageJSON = json["image"] as? [String: AnyObject] {
             image = ImageURLs(json: imageJSON)
-        } else {
-            image = nil
         }
         
         maximum_players = json["maximum_players"] as? Int

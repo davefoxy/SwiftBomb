@@ -93,8 +93,6 @@ final public class GameResource: ResourceUpdating {
         
         if let imageJSON = json["image"] as? [String: AnyObject] {
             image = ImageURLs(json: imageJSON)
-        } else {
-            image = nil
         }
         
         name = json["name"] as? String
@@ -149,10 +147,10 @@ public struct GameExtendedInfo: ResourceExtendedInfo {
     public let franchises: [FranchiseResource]
     
     /// Genres that encompass the game.
-    public let genres: [GenreResource]?
+    public let genres: [GenreResource]
     
     /// List of images associated to the game.
-    public let images: [ImageURLs]?
+    public let images: [ImageURLs]
     
     /// Characters killed in the game.
     public let killed_characters: [CharacterResource]
@@ -201,14 +199,15 @@ public struct GameExtendedInfo: ResourceExtendedInfo {
         franchises = json.jsonMappedResources("franchises")
         genres = json.jsonMappedResources("genres")
         
-        images = [ImageURLs]()
+        var mutatableImages = [ImageURLs]()
         if let imagesJSON = json["images"] as? [[String: AnyObject]] {
             
             for imageJSON in imagesJSON {
                 let image = ImageURLs(json: imageJSON)
-                images?.append(image)
+                mutatableImages.append(image)
             }
         }
+        images = mutatableImages
         
         killed_characters = json.jsonMappedResources("killed_characters")
         locations = json.jsonMappedResources("locations")

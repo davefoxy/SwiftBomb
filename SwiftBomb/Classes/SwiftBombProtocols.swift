@@ -19,9 +19,9 @@ protocol NetworkingManager {
 
     var configuration: SwiftBombConfig { get }
     
-    func performPaginatedRequest<T>(request: Request, objectType: T.Type, completion: (PaginatedResults<T>?, error: RequestError?) -> Void)
+    func performPaginatedRequest<T>(request: SwiftBombRequest, objectType: T.Type, completion: (PaginatedResults<T>?, error: RequestError?) -> Void)
     
-    func performDetailRequest<T: ResourceUpdating>(request: Request, resource: T, completion: (error: RequestError?) -> Void)
+    func performDetailRequest<T: ResourceUpdating>(request: SwiftBombRequest, resource: T, completion: (error: RequestError?) -> Void)
     
-    func performRequest(request: Request, completion: RequestResult -> Void)
+    func performRequest(request: SwiftBombRequest, completion: RequestResult -> Void)
 }

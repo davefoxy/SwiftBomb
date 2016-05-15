@@ -73,14 +73,10 @@ final public class ObjectResource: ResourceUpdating {
         
         if let firstAppearedInGameJSON = json["first_appeared_in_game"] as? [String: AnyObject] {
             first_appeared_in_game = GameResource(json: firstAppearedInGameJSON)
-        } else {
-            first_appeared_in_game = nil
         }
         
         if let imageJSON = json["image"] as? [String: AnyObject] {
             image = ImageURLs(json: imageJSON)
-        } else {
-            image = nil
         }
         
         name = json["name"] as? String

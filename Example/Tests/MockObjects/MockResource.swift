@@ -15,6 +15,7 @@ final public class MockResource: ResourceUpdating {
     public let id: Int?
     public var extendedInfo: MockResourceExtendedInfo?
     public var image: ImageURLs?
+    public var deck: String?
     
     public init(json: [String : AnyObject]) {
         
@@ -25,7 +26,7 @@ final public class MockResource: ResourceUpdating {
         
     }
     
-    public func fetchExtendedInfo(completion: (error: RequestError?) -> Void) {
+    public func fetchExtendedInfo(fields: [String]? = nil, completion: (error: RequestError?) -> Void) {
         
     }
     

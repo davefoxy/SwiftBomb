@@ -83,8 +83,6 @@ final public class VideoResource: ResourceUpdating {
         
         if let imageJSON = json["image"] as? [String: AnyObject] {
             image = ImageURLs(json: imageJSON)
-        } else {
-            image = nil
         }
         
         urls = VideoURLs(json: json)

@@ -76,16 +76,12 @@ final public class StaffReviewResource: ResourceUpdating {
         
         if let gameJSON = json["game"] as? [String: AnyObject] {
             game = GameResource(json: gameJSON)
-        } else {
-            game = nil
         }
         
         publish_date = (json["publish_date"] as? String)?.dateRepresentation()
         
         if let releaseJSON = json["release"] as? [String: AnyObject] {
             release = GameResource(json: releaseJSON)
-        } else {
-            release = nil
         }
         
         reviewer = json["reviewer"] as? String

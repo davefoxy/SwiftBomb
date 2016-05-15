@@ -16,9 +16,10 @@ extension SwiftBomb {
      - parameter query: An optional search term used to filter for a particular game.
      - parameter pagination: An optional `PaginationDefinition` to define the limit and offset when paginating results.
      - parameter sort: An optional `SortDefinition` to define how the results should be sorted.
+     - parameter fields: An optional array of fields to return in the response. See the available options at http://www.giantbomb.com/api/documentation#toc-0-14. Pass nil to return everything.
      - parameter completion: A closure returning an optional generic `PaginatedResults` object containing the returned `GameResource` objects and pagination information and also, an optional `RequestError` object if the request failed.
      */
-    public static func fetchGames(query: String? = nil, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil, completion: (PaginatedResults<GameResource>?, error: RequestError?) -> Void) {
+    public static func fetchGames(query: String? = nil, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil, fields: [String]? = nil, completion: (PaginatedResults<GameResource>?, error: RequestError?) -> Void) {
         
         let instance = SwiftBomb.framework
         guard
@@ -28,16 +29,16 @@ extension SwiftBomb {
                 return
         }
         
-        let request = requestFactory.gamesRequest(query, pagination: pagination, sort: sort)
+        let request = requestFactory.gamesRequest(query, pagination: pagination, sort: sort, fields: fields)
         networkingManager.performPaginatedRequest(request, objectType: GameResource.self, completion: completion)
     }
 }
 
 extension RequestFactory {
     
-    func gamesRequest(query: String? = nil, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil) -> Request {
+    func gamesRequest(query: String? = nil, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil, fields: [String]? = nil) -> SwiftBombRequest {
         
-        var request = Request(configuration: configuration, path: "games", method: .GET, pagination: pagination, sort: sort)
+        var request = SwiftBombRequest(configuration: configuration, path: "games", method: .GET, pagination: pagination, sort: sort, fields: fields)
         addAuthentication(&request)
         
         if let query = query {
@@ -53,16 +54,17 @@ extension GameResource {
     /**
      Fetches extended info for this game. Also re-populates base data in the case where this object is a stub from another parent resource.
      
+     - parameter fields: An optional array of fields to return in the response. See the available options at http://www.giantbomb.com/api/documentation#toc-0-14. Pass nil to return everything.
      - parameter completion: A closure containing an optional `RequestError` if the request failed.
      */
-    public func fetchExtendedInfo(completion: (error: RequestError?) -> Void) {
+    public func fetchExtendedInfo(fields: [String]? = nil, completion: (error: RequestError?) -> Void) {
         
         let api = SwiftBomb.framework
         
         guard
             let networkingManager = api.networkingManager,
             let id = id,
-            let request = api.requestFactory?.simpleRequest("game/\(id)/") else {
+            let request = api.requestFactory?.simpleRequest("game/\(id)/", fields: fields) else {
                 completion(error: .FrameworkConfigError)
                 return
         }

@@ -247,7 +247,8 @@ class ExtendedInfoTests: XCTestCase {
     func performAsyncTest<T: ResourceUpdating>(resource: T, assertions: XCWaitCompletionHandler) {
         
         let asyncExpectation = expectationWithDescription("extendedInfoFetchExpectation")
-        resource.fetchExtendedInfo { error in
+        
+        resource.fetchExtendedInfo(nil) { error in
             asyncExpectation.fulfill()
         }
         

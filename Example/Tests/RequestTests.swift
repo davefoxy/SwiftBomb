@@ -22,7 +22,7 @@ class RequestTests: XCTestCase {
     
     func testAccessoryRequests() {
         
-        let accessoriesRequest = requestFactory?.accessoriesRequest("searchTerm", pagination: PaginationDefinition(offset: 10, limit: 20), sort: SortDefinition(field: "sortField", direction: .Ascending))
+        let accessoriesRequest = requestFactory?.accessoriesRequest("searchTerm", pagination: PaginationDefinition(offset: 10, limit: 20), sort: SortDefinition(field: "sortField", direction: .Ascending), fields: nil)
         
         let requestURL = accessoriesRequest?.urlRequest().URL
         

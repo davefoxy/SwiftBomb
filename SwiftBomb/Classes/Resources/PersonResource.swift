@@ -91,8 +91,6 @@ final public class PersonResource: ResourceUpdating {
         
         if let firstCreditedGameJSON = json["first_credited_game"] as? [String: AnyObject] {
             first_credited_game = GameResource(json: firstCreditedGameJSON)
-        } else {
-            first_credited_game = nil
         }
         
         if let genderInt = json["gender"] as? Int {
@@ -104,8 +102,6 @@ final public class PersonResource: ResourceUpdating {
         hometown = json["hometown"] as? String
         if let imageJSON = json["image"] as? [String: AnyObject] {
             image = ImageURLs(json: imageJSON)
-        } else {
-            image = nil
         }
         
         name = json["name"] as? String

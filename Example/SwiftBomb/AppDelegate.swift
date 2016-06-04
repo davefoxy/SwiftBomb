@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        let configuration = SwiftBombConfig(apiKey: "95d0ea04ccb8240413fcb395db8f96020c079885", loggingLevel: .Requests, userAgentIdentifier: "Your User Agent")
+        let configuration = SwiftBombConfig(apiKey: "YOUR_API_KEY", loggingLevel: .Requests, userAgentIdentifier: "Your User Agent", urlRequestCachePolicy: .UseProtocolCachePolicy)
         SwiftBomb.configure(configuration)
         
         return true

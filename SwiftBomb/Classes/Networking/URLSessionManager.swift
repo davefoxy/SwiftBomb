@@ -16,6 +16,10 @@ class URLSessionManager: NetworkingManager {
     init(configuration: SwiftBombConfig) {
         
         self.configuration = configuration
+        
+        let sessionConfiguration = NSURLSessionConfiguration.defaultSessionConfiguration()
+        sessionConfiguration.requestCachePolicy = configuration.urlRequestCachePolicy
+        urlSession = NSURLSession(configuration: sessionConfiguration)
     }
     
     /**

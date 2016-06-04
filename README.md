@@ -7,7 +7,7 @@ SwiftBomb is a simple-to-use iOS library written in Swift to interface with the 
 
 Giant Bomb is a website with a massive wiki around video games. Search information on games, their publishers, characters, developers, genres, even objects within games and loads more.
 
-[Fully documented](http://cocoadocs.org/docsets/SwiftBomb/0.2.1) with a simple integration process, SwiftBomb allows retrieval of resources in one line and strongly types all responses and errors to make consumption within your apps easy.
+[Fully documented](http://cocoadocs.org/docsets/SwiftBomb/0.3.0) with a simple integration process, SwiftBomb allows retrieval of resources in one line and strongly types all responses and errors to make consumption within your apps easy.
 
 Check out www.giantbomb.com for plenty of video game-related shenanigans.
 
@@ -41,7 +41,7 @@ SwiftBomb.fetchGames { result, error in
 }
 ```
 
-Check out all the other resource requests you can make in the [SwiftBomb documentation](http://cocoadocs.org/docsets/SwiftBomb/0.2.1/Classes/SwiftBomb.html).
+Check out all the other resource requests you can make in the [SwiftBomb documentation](http://cocoadocs.org/docsets/SwiftBomb/0.3.0/Classes/SwiftBomb.html).
 
 The `result` object returned by these methods is a `PaginatedResults` object. It contains a strongly-typed array, `resources`, of all the resources returned by the call and additional useful information on the total number of results and the number returned in this request. You can use this for implementing pagination as seen in the example app.
 
@@ -63,7 +63,7 @@ SwiftBomb.fetchGames("Uncharted", pagination: pagination, sort: sorting) { resul
 ```
 
 ### Searching Ambiguous Resources
-SwiftBomb provides many different requests and resource types which you can search on specifically but what if you want to perform a *general* search? Try `performSearch(_:resourceTypes:pagination:sort:completion:)`. This returns an instance of `SearchResults` which provides all the info you need. Check out the [SearchResults documentation](http://cocoadocs.org/docsets/SwiftBomb/0.2.1/Structs/SearchResults.html) to see what's on offer.
+SwiftBomb provides many different requests and resource types which you can search on specifically but what if you want to perform a *general* search? Try `performSearch(_:resourceTypes:pagination:sort:completion:)`. This returns an instance of `SearchResults` which provides all the info you need. Check out the [SearchResults documentation](http://cocoadocs.org/docsets/SwiftBomb/0.3.0/Structs/SearchResults.html) to see what's on offer.
 
 ### Retrieving Extended Data
 Already have a resource stub or summary downloaded from one of SwiftBomb's calls but want extended information? Many of the resources in SwiftBomb have an `extendedInfo` property within them. It will initially be nil but if you want what's inside, call `fetchExtendedInfo` upon it and the original object will now be populated with more detailed info. For example:
@@ -94,7 +94,7 @@ SwiftBomb.fetchGames("Splatoon", fields: ["name", "deck", "image"]) { (results, 
 ```
 
 ### Error Handling
-All interactions with SwiftBomb optionally return a `Request` error enum. Check out [it's reference](http://cocoadocs.org/docsets/SwiftBomb/0.2.1/Enums/RequestError.html) for the possible errors. In addition, some can return `NSError` objects representing the detail of what went wrong. For example:
+All interactions with SwiftBomb optionally return a `RequestError` enum. Check out [it's reference](http://cocoadocs.org/docsets/SwiftBomb/0.3.0/Enums/RequestError.html) for the possible errors. In addition, some can return `NSError` objects representing the detail of what went wrong. For example:
 
 ```swift
 SwiftBomb.fetchGames("Metal Gear Solid") { result, error in
@@ -121,7 +121,7 @@ SwiftBomb.fetchGames("Metal Gear Solid") { result, error in
 ```
 
 ## Sample Code
-Still not making enough sense? The repo comes with an example app demonstrating all the fetches in action. Sorry it's a little messy right now but it gives a general idea and again, [check out the class references](http://cocoadocs.org/docsets/SwiftBomb/0.2.0/). I've written up fairly extensive docs for every method in the lib.
+Still not making enough sense? The repo comes with an example app demonstrating all the fetches in action. Sorry it's a little messy right now but it gives a general idea and again, [check out the class references](http://cocoadocs.org/docsets/SwiftBomb/0.3.0/). I've written up fairly extensive docs for every method in the lib.
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 

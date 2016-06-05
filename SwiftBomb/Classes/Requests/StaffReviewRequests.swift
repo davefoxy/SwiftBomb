@@ -10,12 +10,14 @@ import Foundation
 
 extension RequestFactory {
     
-    func staffReviewRequest(game: GameResource, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil) -> SwiftBombRequest {
+    func staffReviewRequest(game: GameResource, fields: [String]? = nil) -> SwiftBombRequest {
         
-        var request = SwiftBombRequest(configuration: configuration, path: "reviews", method: .GET, pagination: pagination, sort: sort)
+        var request = SwiftBombRequest(configuration: configuration, path: "reviews", method: .GET, pagination: nil, sort: nil, fields: fields)
         addAuthentication(&request)
         
-        request.addURLParameter("filter", value: "game:\(game.id)")
+        if let gameID = game.id {
+            request.addURLParameter("filter", value: "game:\(gameID)")
+        }
         
         return request
     }
@@ -24,23 +26,51 @@ extension RequestFactory {
 extension GameResource {
     
     /**
-     Fetches a paginated list of `StaffReviewResource` instances for this game.
+     Fetches the Giant Bomb staff review (if one was written) for this game.
      
-     - parameter completion: A closure returning an optional generic `PaginatedResults` object containing the returned `AccessoryResource` objects and pagination information and also, an optional `RequestError` object if the request failed.
+     - parameter fields: An optional array of fields to return in the response. See the available options at http://www.giantbomb.com/api/documentation#toc-0-36. Pass nil to return everything.
+     - parameter completion: A closure containing an optional `RequestError` if the request failed.
      */
-    public func fetchStaffReviews(completion: (PaginatedResults<StaffReviewResource>?, error: RequestError?) -> Void) {
+    public func fetchStaffReview(fields: [String]? = nil, completion: (error: RequestError?) -> Void) -> Void {
         
         let api = SwiftBomb.framework
         
         guard
-            let requestFactory = api.requestFactory,
-            let networkingManager = api.networkingManager else {
-                completion(nil, error: .FrameworkConfigError)
+            let networkingManager = api.networkingManager,
+            let request = api.requestFactory?.staffReviewRequest(self, fields: fields) else {
+                completion(error: .FrameworkConfigError)
                 return
         }
-    
-        let request = requestFactory.staffReviewRequest(self)
-        networkingManager.performPaginatedRequest(request, objectType: StaffReviewResource.self, completion: completion)
+        
+        networkingManager.performRequest(request) { [weak self] result in
+            
+            switch result {
+            case .Success(let json):
+                guard
+                    let json = json as? [String: AnyObject],
+                    let resultsJSON = json["results"] as? [[String: AnyObject]]
+                    else {
+                        dispatch_async(dispatch_get_main_queue(), {
+                            completion(error: .ResponseSerializationError(nil))
+                        })
+                        return
+                }
+                
+                if let reviewJSON = resultsJSON.first {
+                    self?.staffReview = StaffReviewResource(json: reviewJSON)
+                }
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    completion(error: nil)
+                })
+                
+                
+            case .Error(let error):
+                dispatch_async(dispatch_get_main_queue(), {
+                    completion(error: error)
+                })
+            }
+        }
     }
 }
 

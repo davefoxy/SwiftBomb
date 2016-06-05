@@ -81,7 +81,7 @@ final public class PersonResource: ResourceUpdating {
         
         aliases = (json["aliases"] as? String)?.newlineSeparatedStrings() ?? aliases
         api_detail_url = (json["api_detail_url"] as? String)?.url() ?? api_detail_url
-        birth_date = (json["birthday_date"] as? String)?.shortDateRepresentation() ?? birth_date
+        birth_date = (json["birth_date"] as? String)?.shortDateRepresentation() ?? birth_date
         country = json["country"] as? String ?? country
         date_added = (json["date_added"] as? String)?.dateRepresentation() ?? date_added
         date_last_updated = (json["date_last_updated"] as? String)?.dateRepresentation() ?? date_last_updated

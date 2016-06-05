@@ -136,18 +136,6 @@ class RequestTests: XCTestCase {
         performBasicURLTests(requestURL!)
     }
     
-    func testStaffReviewRequests() {
-        
-        let mockGame = GameResource(json: ["id": 999])
-        let staffReviewsRequest = requestFactory?.staffReviewRequest(mockGame, pagination: PaginationDefinition(offset: 10, limit: 20), sort: SortDefinition(field: "sortField", direction: .Ascending))
-        
-        let requestURL = staffReviewsRequest?.urlRequest().URL
-        
-        XCTAssertEqual(requestURL!.path, "/api/reviews")
-        XCTAssert(requestURL!.query!.containsString("filter=game:\(mockGame.id)"))
-        performBasicURLTests(requestURL!)
-    }
-    
     func testVideoRequests() {
         
         let videosRequest = requestFactory?.videosRequest("searchTerm", pagination: PaginationDefinition(offset: 10, limit: 20), sort: SortDefinition(field: "sortField", direction: .Ascending))

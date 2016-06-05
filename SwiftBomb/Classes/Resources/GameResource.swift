@@ -63,6 +63,9 @@ final public class GameResource: ResourceUpdating {
     /// URL pointing to the game on Giant Bomb.
     public private(set) var site_detail_url: NSURL?
     
+    /// A staff review by a member of the Giant Bomb team for the game. Fetch by calling `fetchStaffReview(_:)` upon a game. Note, however, that most games in the database don't have a staff review.
+    public internal(set) var staffReview: StaffReviewResource?
+    
     /// Extended info.
     public var extendedInfo: GameExtendedInfo?
     

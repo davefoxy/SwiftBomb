@@ -30,6 +30,7 @@ public struct SwiftBombConfig {
     let userAgentIdentifier: String?
     let baseAPIURL = NSURL(string: "http://www.giantbomb.com/api")!
     let loggingLevel: LoggingLevel
+    let networkingDelegate: SwiftBombNetworkingDelegate?
     let urlRequestCachePolicy: NSURLRequestCachePolicy
     
     /**
@@ -38,13 +39,15 @@ public struct SwiftBombConfig {
      - parameter apiKey: Your API key for Giant Bomb. Get one from www.giantbomb.com/api.
      - parameter loggingLevel: Optional level of logging SwiftBomb should make. See `LoggingLevel` for options.
      - parameter userAgentIdentifier: Optional user agent to provide when making requests to the Giant Bomb API.
+     - parameter networkingDelegate: Optional object conforming to `SwiftBombNetworkingDelegate` which allows inspection and denial of requests being made by the library.
      - parameter urlRequestCachePolicy: Optionally define how you would like the internal NSURLSession to handle caching. Defaults to the default policy of `UserProtocolCachePolicy`.
      */
-    public init(apiKey: String, loggingLevel: LoggingLevel = .RequestsAndResponses, userAgentIdentifier: String? = nil, urlRequestCachePolicy: NSURLRequestCachePolicy = .UseProtocolCachePolicy) {
+    public init(apiKey: String, loggingLevel: LoggingLevel = .RequestsAndResponses, userAgentIdentifier: String? = nil, networkingDelegate: SwiftBombNetworkingDelegate? = nil, urlRequestCachePolicy: NSURLRequestCachePolicy = .UseProtocolCachePolicy) {
         
         self.apiKey = apiKey
         self.loggingLevel = loggingLevel
         self.userAgentIdentifier = userAgentIdentifier
+        self.networkingDelegate = networkingDelegate
         self.urlRequestCachePolicy = urlRequestCachePolicy
     }
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>GameReleaseExtendedInfo Struct Reference</title>
+    <title>SwiftBombNetworkingDelegate Protocol Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Struct/GameReleaseExtendedInfo" class="dashAnchor"></a>
-    <a title="GameReleaseExtendedInfo Struct Reference"></a>
+    <a name="//apple_ref/swift/Protocol/SwiftBombNetworkingDelegate" class="dashAnchor"></a>
+    <a title="SwiftBombNetworkingDelegate Protocol Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html"> Docs</a> (100% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html"> Reference</a>
         <img id="carat" src="../img/carat.png" />
-        GameReleaseExtendedInfo Struct Reference
+        SwiftBombNetworkingDelegate Protocol Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -174,14 +174,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>GameReleaseExtendedInfo</h1>
+            <h1>SwiftBombNetworkingDelegate</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">GameReleaseExtendedInfo</span><span class="p">:</span> <span class="kt">ResourceExtendedInfo</span></code></pre>
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SwiftBombNetworkingDelegate</span></code></pre>
 
                 </div>
               </div>
-            <p>Struct containing extended information for <code><a href="../Classes/GameReleaseResource.html">GameReleaseResource</a></code>s. To retrieve, call <code>fetchExtendedInfo(_:)</code> upon the original resource then access the data on the resource&rsquo;s <code>extendedInfo</code> property.</p>
+            <p><code>SwiftBombNetworkingDelegate</code> provides a way to listen in on the requests SwiftBomb is making and to allow or deny those requests be made. Send an object conforming to this protocol into your <code><a href="../Structs/SwiftBombConfig.html">SwiftBombConfig</a></code> instance when initializing the framework.</p>
 
           </section>
           <section class="section task-group-section">
@@ -190,9 +190,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vV9SwiftBomb23GameReleaseExtendedInfo10developersGSqGSaCS_15CompanyResource__"></a>
-                    <a name="//apple_ref/swift/Property/developers" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vV9SwiftBomb23GameReleaseExtendedInfo10developersGSqGSaCS_15CompanyResource__">developers</a>
+                    <a name="/s:FP9SwiftBomb27SwiftBombNetworkingDelegate27swiftBombWillPerformRequestFCSo12NSURLRequestT_"></a>
+                    <a name="//apple_ref/swift/Method/swiftBombWillPerformRequest(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP9SwiftBomb27SwiftBombNetworkingDelegate27swiftBombWillPerformRequestFCSo12NSURLRequestT_">swiftBombWillPerformRequest(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -200,14 +200,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Companies who developed the release.</p>
+                        <p>Called when SwiftBomb is about to perform a request to the Giant Bomb API.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">private(set)</span> <span class="k">var</span> <span class="nv">developers</span><span class="p">:</span> <span class="p">[</span><span class="kt">CompanyResource</span><span class="p">]?</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">swiftBombWillPerformRequest</span><span class="p">(</span><span class="nv">request</span><span class="p">:</span> <span class="kt">NSURLRequest</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -217,9 +217,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vV9SwiftBomb23GameReleaseExtendedInfo6imagesGSqGSaVS_9ImageURLs__"></a>
-                    <a name="//apple_ref/swift/Property/images" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vV9SwiftBomb23GameReleaseExtendedInfo6imagesGSqGSaVS_9ImageURLs__">images</a>
+                    <a name="/s:FP9SwiftBomb27SwiftBombNetworkingDelegate29swiftBombShouldPerformRequestFCSo12NSURLRequestSb"></a>
+                    <a name="//apple_ref/swift/Method/swiftBombShouldPerformRequest(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP9SwiftBomb27SwiftBombNetworkingDelegate29swiftBombShouldPerformRequestFCSo12NSURLRequestSb">swiftBombShouldPerformRequest(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -227,95 +227,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>List of images associated to the release.</p>
+                        <p>Allows the denial of requests being sent to the Giant Bomb API.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">private(set)</span> <span class="k">var</span> <span class="nv">images</span><span class="p">:</span> <span class="p">[</span><span class="kt">ImageURLs</span><span class="p">]?</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vV9SwiftBomb23GameReleaseExtendedInfo10publishersGSqGSaCS_15CompanyResource__"></a>
-                    <a name="//apple_ref/swift/Property/publishers" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vV9SwiftBomb23GameReleaseExtendedInfo10publishersGSqGSaCS_15CompanyResource__">publishers</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Companies who published the release.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">private(set)</span> <span class="k">var</span> <span class="nv">publishers</span><span class="p">:</span> <span class="p">[</span><span class="kt">CompanyResource</span><span class="p">]?</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FV9SwiftBomb23GameReleaseExtendedInfocFT4jsonGVs10DictionarySSPs9AnyObject___S0_"></a>
-                    <a name="//apple_ref/swift/Method/init(json:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV9SwiftBomb23GameReleaseExtendedInfocFT4jsonGVs10DictionarySSPs9AnyObject___S0_">init(json:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Used to create a <code><a href="../Structs/GameReleaseExtendedInfo.html">GameReleaseExtendedInfo</a></code> from JSON.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">json</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">AnyObject</span><span class="p">])</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FV9SwiftBomb23GameReleaseExtendedInfo6updateFGVs10DictionarySSPs9AnyObject__T_"></a>
-                    <a name="//apple_ref/swift/Method/update(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV9SwiftBomb23GameReleaseExtendedInfo6updateFGVs10DictionarySSPs9AnyObject__T_">update(_:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A method used for updating structs. Usually after further requests for more field data.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="nf">update</span><span class="p">(</span><span class="nv">json</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">AnyObject</span><span class="p">])</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">swiftBombShouldPerformRequest</span><span class="p">(</span><span class="nv">request</span><span class="p">:</span> <span class="kt">NSURLRequest</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>

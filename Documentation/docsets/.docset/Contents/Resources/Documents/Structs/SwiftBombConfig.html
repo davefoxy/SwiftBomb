@@ -103,6 +103,9 @@
               <li class="nav-group-task">
                 <a href="../Protocols/ResourceExtendedInfo.html">ResourceExtendedInfo</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SwiftBombNetworkingDelegate.html">SwiftBombNetworkingDelegate</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -215,9 +218,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FV9SwiftBomb15SwiftBombConfigcFT6apiKeySS12loggingLevelOS0_12LoggingLevel19userAgentIdentifierGSqSS_21urlRequestCachePolicyOSC23NSURLRequestCachePolicy_S0_"></a>
-                    <a name="//apple_ref/swift/Method/init(apiKey:loggingLevel:userAgentIdentifier:urlRequestCachePolicy:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV9SwiftBomb15SwiftBombConfigcFT6apiKeySS12loggingLevelOS0_12LoggingLevel19userAgentIdentifierGSqSS_21urlRequestCachePolicyOSC23NSURLRequestCachePolicy_S0_">init(apiKey:loggingLevel:userAgentIdentifier:urlRequestCachePolicy:)</a>
+                    <a name="/s:FV9SwiftBomb15SwiftBombConfigcFT6apiKeySS12loggingLevelOS0_12LoggingLevel19userAgentIdentifierGSqSS_18networkingDelegateGSqPS_27SwiftBombNetworkingDelegate__21urlRequestCachePolicyOSC23NSURLRequestCachePolicy_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(apiKey:loggingLevel:userAgentIdentifier:networkingDelegate:urlRequestCachePolicy:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FV9SwiftBomb15SwiftBombConfigcFT6apiKeySS12loggingLevelOS0_12LoggingLevel19userAgentIdentifierGSqSS_18networkingDelegateGSqPS_27SwiftBombNetworkingDelegate__21urlRequestCachePolicyOSC23NSURLRequestCachePolicy_S0_">init(apiKey:loggingLevel:userAgentIdentifier:networkingDelegate:urlRequestCachePolicy:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -232,7 +235,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">apiKey</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">loggingLevel</span><span class="p">:</span> <span class="kt">LoggingLevel</span> <span class="o">=</span> <span class="o">.</span><span class="kt">RequestsAndResponses</span><span class="p">,</span> <span class="nv">userAgentIdentifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">urlRequestCachePolicy</span><span class="p">:</span> <span class="kt">NSURLRequestCachePolicy</span> <span class="o">=</span> <span class="o">.</span><span class="kt">UseProtocolCachePolicy</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">apiKey</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">loggingLevel</span><span class="p">:</span> <span class="kt">LoggingLevel</span> <span class="o">=</span> <span class="o">.</span><span class="kt">RequestsAndResponses</span><span class="p">,</span> <span class="nv">userAgentIdentifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">networkingDelegate</span><span class="p">:</span> <span class="kt">SwiftBombNetworkingDelegate</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">urlRequestCachePolicy</span><span class="p">:</span> <span class="kt">NSURLRequestCachePolicy</span> <span class="o">=</span> <span class="o">.</span><span class="kt">UseProtocolCachePolicy</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -275,6 +278,19 @@
                               <td>
                                 <div>
                                   <p>Optional user agent to provide when making requests to the Giant Bomb API.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>networkingDelegate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Optional object conforming to <code>SwiftBombNetworkingDelegate</code> which allows inspection and denial of requests being made by the library.</p>
 
                                 </div>
                               </td>

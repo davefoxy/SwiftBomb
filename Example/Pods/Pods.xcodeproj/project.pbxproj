@@ -33,6 +33,7 @@
 		52C6EFE01CDDF37600394296 /* GameReleaseResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C6EFDE1CDDEF7700394296 /* GameReleaseResource.swift */; };
 		52C6EFE21CDDF95500394296 /* GameReleasesRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C6EFE11CDDF95500394296 /* GameReleasesRequests.swift */; };
 		52C6EFF41CDE8A7800394296 /* InMemoryAuthenticationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C6EFF31CDE8A7800394296 /* InMemoryAuthenticationStore.swift */; };
+		52F8E8531D047E4400A79A1A /* SwiftBombNetworkingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F8E8511D047DAD00A79A1A /* SwiftBombNetworkingDelegate.swift */; };
 		568CF3C0EF04204F522133611609968E /* VideoRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E5ACD6A35C5DC5384BF492DB6FE7C4 /* VideoRequests.swift */; };
 		5B776A4E2A0D068A2D9AEE29BE2153A2 /* SearchRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA0353799C37203B3DC0413D1D23DC0 /* SearchRequests.swift */; };
 		68ED6EE2A87FA90202FD4F032BDA00F3 /* AccessoriesRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958D596BC22FD028704029F107C616BC /* AccessoriesRequests.swift */; };
@@ -114,6 +115,7 @@
 		52C6EFDE1CDDEF7700394296 /* GameReleaseResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameReleaseResource.swift; sourceTree = "<group>"; };
 		52C6EFE11CDDF95500394296 /* GameReleasesRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameReleasesRequests.swift; sourceTree = "<group>"; };
 		52C6EFF31CDE8A7800394296 /* InMemoryAuthenticationStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InMemoryAuthenticationStore.swift; sourceTree = "<group>"; };
+		52F8E8511D047DAD00A79A1A /* SwiftBombNetworkingDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftBombNetworkingDelegate.swift; sourceTree = "<group>"; };
 		54CC8ACE28328F6C454BADB6F40F203E /* FranchiseResource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FranchiseResource.swift; sourceTree = "<group>"; };
 		597F1C5BE1222B04C5050BCD4807A249 /* Pods-SwiftBomb_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftBomb_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		5EA0353799C37203B3DC0413D1D23DC0 /* SearchRequests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SearchRequests.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				529EEE6A1CDFBE9C00D7A981 /* NetworkingEnums.swift */,
 				A53F70B70076B9012FBC06C47E239E8E /* SwiftBombRequest.swift */,
 				DAF289998CC141EBFFCE117D92B556A1 /* URLSessionManager.swift */,
+				52F8E8511D047DAD00A79A1A /* SwiftBombNetworkingDelegate.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -572,6 +575,7 @@
 				D6D2CAD5587E373B7BCD1196E2EA066A /* GenreResource.swift in Sources */,
 				CFB385145BBE5BC4CF079971634D76BD /* ImageURLs.swift in Sources */,
 				87D750431FDF6EFDB98543469B08D52E /* LocationResource.swift in Sources */,
+				52F8E8531D047E4400A79A1A /* SwiftBombNetworkingDelegate.swift in Sources */,
 				03501BFA22295FE1476E910FFF3E7F0E /* ObjectResource.swift in Sources */,
 				52C6EFF41CDE8A7800394296 /* InMemoryAuthenticationStore.swift in Sources */,
 				8972615DCFD4FB86A9B7A9F60B1F7E7F /* PersonResource.swift in Sources */,

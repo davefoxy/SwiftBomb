@@ -94,6 +94,14 @@ class URLSessionManager: NetworkingManager {
         
         let urlRequest = request.urlRequest()
         
+        if configuration.networkingDelegate?.swiftBombShouldPerformRequest(urlRequest) == false {
+            
+            completion(.Success([:]))
+            return
+        }
+        
+        configuration.networkingDelegate?.swiftBombWillPerformRequest(urlRequest)
+        
         if (configuration.loggingLevel == .Requests || configuration.loggingLevel == .RequestsAndResponses) {
             print("Making request: \(urlRequest)")
         }

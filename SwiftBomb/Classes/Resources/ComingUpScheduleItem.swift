@@ -1,5 +1,5 @@
 //
-//  ComingUpItemResource.swift
+//  ComingUpScheduleItem.swift
 //  Pods
 //
 //  Created by David Fox on 23/07/2016.
@@ -31,14 +31,14 @@ public enum ComingUpItemType: String {
 }
 
 /**
- A class representing an upcoming post on Giant Bomb. These are basically the contents of the "Coming up on Giant Bomb" panel on the Giant Bomb homepage.
+ A struct representing an upcoming post on Giant Bomb. These are basically the individual items on the "Coming up on Giant Bomb" panel on the Giant Bomb homepage.
  */
-final public class ComingUpItemResource {
+public struct ComingUpScheduleItem {
     
     /// The resource type.
     public let resourceType = ResourceType.ComingUpItem
     
-    /// An `ComingUpItemType` describing this item.
+    /// An `ComingUpItemType` describing this item. Note, this will be `ComingUpItemType.Unknown` for currently live streams found in `ComingUpSchedule`'s `liveNow` property.
     public let type: ComingUpItemType
     
     /// The title of the item.
@@ -47,10 +47,10 @@ final public class ComingUpItemResource {
     /// URL pointing to the image of the item.
     public let imageURL: NSURL?
     
-    /// The date this item will go live on Giant Bomb. This is converted (by Giant Bomb) to the timezone the device is calling from.
+    /// The date this item will go live on Giant Bomb. SwiftBomb will convert the PDT time Giant Bomb returns to an NSDate in the UTC timezone. Set your NSDateFormatter's `timeZone` property to `NSTimeZone.localTimeZone()` to adjust it correctly to your user's device. This will not be available for currently live streams found in `ComingUpSchedule`'s `liveNow` property.
     public let date: NSDate?
     
-    /// Boolean indicating whether or not this a premium item or not.
+    /// Boolean indicating whether or not this a premium item or not. This will not be available for currently live streams found in `ComingUpSchedule`'s `liveNow` property.
     public let premium: Bool
     
     /// Used to create an `UpcomingItemResource` from JSON.

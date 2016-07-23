@@ -129,6 +129,7 @@ extension String {
     private static let dateFormatter: NSDateFormatter = {
         let formatter = NSDateFormatter()
         formatter.dateFormat = "YYYY-MM-dd HH:mm:ss"
+        formatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
         return formatter
     }()
     
@@ -138,6 +139,7 @@ extension String {
     private static let shortDateFormatter: NSDateFormatter = {
         let formatter = NSDateFormatter()
         formatter.dateFormat = "YYYY-MM-dd"
+        formatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
         return formatter
     }()
     
@@ -146,7 +148,9 @@ extension String {
      */
     private static let comingUpItemDateFormatter: NSDateFormatter = {
         let formatter = NSDateFormatter()
-        formatter.dateFormat = "MM dd',' YYYY hh:mm a"
+        formatter.dateFormat = "MMM dd',' yyyy hh:mm a"
+        formatter.timeZone = NSTimeZone(abbreviation: "PDT")
+        formatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
         return formatter
     }()
 }

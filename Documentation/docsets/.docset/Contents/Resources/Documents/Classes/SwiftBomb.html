@@ -37,9 +37,6 @@
                 <a href="../Classes/CharacterResource.html">CharacterResource</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/ComingUpItemResource.html">ComingUpItemResource</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Classes/CompanyResource.html">CompanyResource</a>
               </li>
               <li class="nav-group-task">
@@ -119,6 +116,12 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Structs/CharacterExtendedInfo.html">CharacterExtendedInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ComingUpSchedule.html">ComingUpSchedule</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ComingUpScheduleItem.html">ComingUpScheduleItem</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/CompanyExtendedInfo.html">CompanyExtendedInfo</a>
@@ -1671,9 +1674,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFC9SwiftBomb9SwiftBomb18fetchComingUpItemsFFTGSaCS_20ComingUpItemResource_5errorGSqOS_12RequestError__T_T_"></a>
-                    <a name="//apple_ref/swift/Method/fetchComingUpItems(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFC9SwiftBomb9SwiftBomb18fetchComingUpItemsFFTGSaCS_20ComingUpItemResource_5errorGSqOS_12RequestError__T_T_">fetchComingUpItems(_:)</a>
+                    <a name="/s:ZFC9SwiftBomb9SwiftBomb21fetchComingUpScheduleFFTGSqVS_16ComingUpSchedule_5errorGSqOS_12RequestError__T_T_"></a>
+                    <a name="//apple_ref/swift/Method/fetchComingUpSchedule(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC9SwiftBomb9SwiftBomb21fetchComingUpScheduleFFTGSqVS_16ComingUpSchedule_5errorGSqOS_12RequestError__T_T_">fetchComingUpSchedule(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1681,14 +1684,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Fetches a list of <code><a href="../Classes/ComingUpItemResource.html">ComingUpItemResource</a></code> instances. These are essentially the items which appear in the <q>Coming up on Giant Bomb</q> panel on the Giant Bomb homepage.</p>
+                        <p>Fetches an instance of <code><a href="../Structs/ComingUpSchedule.html">ComingUpSchedule</a></code> containing a number of <code><a href="../Structs/ComingUpScheduleItem.html">ComingUpScheduleItem</a></code> instances. These are essentially the items which appear in the <q>Coming up on Giant Bomb</q> panel on the Giant Bomb homepage.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">fetchComingUpItems</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="p">([</span><span class="kt">ComingUpItemResource</span><span class="p">],</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">RequestError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">fetchComingUpSchedule</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="p">(</span><span class="kt">ComingUpSchedule</span><span class="p">?,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">RequestError</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -1704,7 +1707,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>A closure returning an array of <code>ComingUpItemResource</code> objects and an optional <code>RequestError</code> explaining any errors which occurred during the request.</p>
+                                  <p>A closure returning an instance of <code>ComingUpSchedule</code> where currently-live and scheduled posts, streams and videos on Giant Bomb can be found. Also, an optional <code>RequestError</code> may be returned describing any errors which occurred during the request.</p>
 
                                 </div>
                               </td>
@@ -1720,7 +1723,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2016-07-23)</p>
+          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2016-07-24)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.6.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

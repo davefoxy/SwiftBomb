@@ -11,17 +11,17 @@ import Foundation
 extension SwiftBomb {
     
     /**
-     Fetches a list of `ComingUpItemResource` instances. These are essentially the items which appear in the "Coming up on Giant Bomb" panel on the Giant Bomb homepage.
+     Fetches an instance of `ComingUpSchedule` containing a number of `ComingUpScheduleItem` instances. These are essentially the items which appear in the "Coming up on Giant Bomb" panel on the Giant Bomb homepage.
      
-     - parameter completion: A closure returning an array of `ComingUpItemResource` objects and an optional `RequestError` explaining any errors which occurred during the request.
+     - parameter completion: A closure returning an instance of `ComingUpSchedule` where currently-live and scheduled posts, streams and videos on Giant Bomb can be found. Also, an optional `RequestError` may be returned describing any errors which occurred during the request.
      */
-    public static func fetchComingUpItems(completion: ([ComingUpItemResource], error: RequestError?) -> Void) {
+    public static func fetchComingUpSchedule(completion: (ComingUpSchedule?, error: RequestError?) -> Void) {
         
         let instance = SwiftBomb.framework
         guard
             let requestFactory = instance.requestFactory,
             let networkingManager = instance.networkingManager else {
-                completion([], error: .FrameworkConfigError)
+                completion(nil, error: .FrameworkConfigError)
                 return
         }
         
@@ -32,28 +32,20 @@ extension SwiftBomb {
             switch result {
             case .Success(let upcomingJSON):
                 
-                guard
-                    let json = upcomingJSON as? [String: AnyObject],
-                    let comingUpItemDicts = json["upcoming"] as? [[String: AnyObject]] else {
-                        completion([], error: .ResponseSerializationError(nil))
-                        return
+                guard let json = upcomingJSON as? [String: AnyObject] else {
+                    completion(nil, error: .ResponseSerializationError(nil))
+                    return
                 }
             
-                var comingUpItems = [ComingUpItemResource]()
-                for comingUpItemDict in comingUpItemDicts {
-                    
-                    let comingUpItem = ComingUpItemResource(json: comingUpItemDict)
-                    comingUpItems.append(comingUpItem)
-                }
-                
+                let schedule = ComingUpSchedule(json: json)
                 dispatch_async(dispatch_get_main_queue(), { 
-                    completion(comingUpItems, error: nil)
+                    completion(schedule, error: nil)
                 })
             
             case .Error(let error):
                 
                 dispatch_async(dispatch_get_main_queue(), {
-                    completion([], error: error)
+                    completion(nil, error: error)
                 })
             }
         }

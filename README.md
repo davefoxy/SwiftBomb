@@ -33,12 +33,12 @@ The `SwiftBomb` class is your entry point to fetching all resources. Let autocom
 ```swift
 SwiftBomb.fetchGames { result, error in
 
-if let games = result?.resources {
-// games now contains an array of `GameResource`s
-for game in games {
-print("Game: \(game.name)")
-}
-}
+	if let games = result?.resources {
+		// games now contains an array of `GameResource`s
+		for game in games {
+			print("Game: \(game.name)")
+		}
+	}
 }
 ```
 
@@ -54,12 +54,12 @@ let sorting = SortDefinition(field: "name", direction: .Ascending)
 
 SwiftBomb.fetchGames("Uncharted", pagination: pagination, sort: sorting) { result, error in
 
-if let games = result?.resources {
-// games now contains an array of `GameResource`s
-for game in games {
-print("Game: \(game.name)")
-}
-}
+	if let games = result?.resources {
+		// games now contains an array of `GameResource`s
+		for game in games {
+			print("Game: \(game.name)")
+		}
+	}
 }
 ```
 
@@ -72,15 +72,15 @@ Already have a resource stub or summary downloaded from one of SwiftBomb's calls
 ```swift
 SwiftBomb.fetchGames("Super Mario Galaxy") { result, error in
 
-if let firstGame = result?.resources.first {
+	if let firstGame = result?.resources.first {
 
-firstGame.fetchExtendedInfo { error in
-// firstGame's `extendedInfo` property is now available...
-for gameCharacter in (firstGame.extendedInfo?.characters)! {
-print("Featuring \(gameCharacter.name)")
-}
-}
-}
+		firstGame.fetchExtendedInfo { error in
+			// firstGame's `extendedInfo` property is now available...
+			for gameCharacter in (firstGame.extendedInfo?.characters)! {
+				print("Featuring \(gameCharacter.name)")
+			}
+		}
+	}
 }
 ```
 Check out the documentation on the `Resource` objects to see exactly what's available for each type.
@@ -100,22 +100,22 @@ All interactions with SwiftBomb optionally return a `RequestError` enum. Check o
 ```swift
 SwiftBomb.fetchGames("Metal Gear Solid") { result, error in
 
-if let error = error {
-switch error {
-case .FrameworkConfigError:
-print("Framework config error")
+	if let error = error {
+		switch error {
+		case .FrameworkConfigError:
+			print("Framework config error")
 
-case .NetworkError(let nsError):
-print("Network error: \(nsError?.localizedDescription)")
+		case .NetworkError(let nsError):
+			print("Network error: \(nsError?.localizedDescription)")
 
-case .ResponseSerializationError(let nsError):
-print("Response error: \(nsError?.localizedDescription)")
+		case .ResponseSerializationError(let nsError):
+			print("Response error: \(nsError?.localizedDescription)")
 
-case .RequestError(let gbError):
-// This error is of type `ResourceResponseError`
-print("Request error: \(gbError)")
-}
-}
+		case .RequestError(let gbError):
+			// This error is of type `ResourceResponseError`
+			print("Request error: \(gbError)")
+		}
+	}
 
 ...
 }
@@ -125,9 +125,9 @@ print("Request error: \(gbError)")
 Version 0.6.0 now has a handy method for fetching the contents of the "Coming up on Giant Bomb" panel on the homepage of the site...
 ```
 SwiftBomb.fetchComingUpItems { comingUpItems, error in
-for comingUpItem in comingUpItems {
-print(comingUpItem.title)
-}
+	for comingUpItem in comingUpItems {
+		print(comingUpItem.title)
+	}
 }
 ```
 

@@ -123,7 +123,7 @@ SwiftBomb.fetchGames("Metal Gear Solid") { result, error in
 
 ## Upcoming Giant Bomb Posts
 Version 0.6.0 now has a handy method for fetching the contents of the "Coming up on Giant Bomb" panel on the homepage of the site...
-```
+```swift
 SwiftBomb.fetchComingUpSchedule { comingUpSchedule, error in
 
 	guard let comingUpSchedule = comingUpSchedule else {

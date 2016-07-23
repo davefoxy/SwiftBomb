@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "SwiftBomb"
-  s.version          = "0.5.0"
+  s.version          = "0.6.0"
   s.summary          = "A Swift library to integrate with the Giant Bomb wiki for the retrieval of all things video games."
 
 # This description is used to generate tags and improve search results.

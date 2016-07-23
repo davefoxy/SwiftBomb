@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Enums  Reference</title>
+    <title>Functions  Reference</title>
     <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,7 +10,7 @@
     
   </head>
   <body>
-    <a title="Enums  Reference"></a>
+    <a title="Functions  Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="index.html"> Docs</a> (31% documented)</p>
@@ -20,7 +20,7 @@
       <p id="breadcrumbs">
         <a href="index.html"> Reference</a>
         <img id="carat" src="img/carat.png" />
-        Enums  Reference
+        Functions  Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -112,26 +112,26 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>Enums</h1>
-            <p>The following enums are available globally.</p>
+            <h1>Functions</h1>
+            <p>The following functions are available globally.</p>
 
           </section>
           <section class="section task-group-section">
             <div class="task-group">
               <div class="task-name-container">
-                <a name="/Cache"></a>
-                <a name="//apple_ref/swift/Section/Cache" class="dashAnchor"></a>
-                <a href="#/Cache">
-                  <h3 class="section-name">Cache</h3>
+                <a name="/singleton%20instance"></a>
+                <a name="//apple_ref/swift/Section/singleton instance" class="dashAnchor"></a>
+                <a href="#/singleton%20instance">
+                  <h3 class="section-name">singleton instance</h3>
                 </a>
               </div>
               <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:O17SwiftBomb_Example5State"></a>
-                    <a name="//apple_ref/swift/Enum/State" class="dashAnchor"></a>
-                    <a class="token" href="#/s:O17SwiftBomb_Example5State">State</a>
+                    <a name="/s:F17SwiftBomb_Example4loadFPS_21URLLiteralConvertible_CS_6Loader"></a>
+                    <a name="//apple_ref/swift/Function/load(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:F17SwiftBomb_Example4loadFPS_21URLLiteralConvertible_CS_6Loader">load(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -139,17 +139,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Use to check state of loaders that manager has.
-Ready:      The manager have no loaders
-Running:    The manager has loaders</p>
+                        <p>Creates <code><a href="Classes/Loader.html">Loader</a></code> object using the shared manager instance for the specified URL.</p>
 
-                        <a href="Enums/State.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">State</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">load</span><span class="p">(</span><span class="kt">URL</span><span class="p">:</span> <span class="kt">URLLiteralConvertible</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Loader</span></code></pre>
 
                         </div>
                       </div>
@@ -159,9 +156,9 @@ Running:    The manager has loaders</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:O17SwiftBomb_Example9CacheType"></a>
-                    <a name="//apple_ref/swift/Enum/CacheType" class="dashAnchor"></a>
-                    <a class="token" href="#/s:O17SwiftBomb_Example9CacheType">CacheType</a>
+                    <a name="/s:F17SwiftBomb_Example7suspendFPS_21URLLiteralConvertible_GSqCS_6Loader_"></a>
+                    <a name="//apple_ref/swift/Function/suspend(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:F17SwiftBomb_Example7suspendFPS_21URLLiteralConvertible_GSqCS_6Loader_">suspend(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -169,17 +166,68 @@ Running:    The manager has loaders</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Use to check where image is loaded from.
-None:   fetching from network
-Cache:  getting from <code>ImageCache</code></p>
+                        <p>Suspends <code><a href="Classes/Loader.html">Loader</a></code> object using the shared manager instance for the specified URL.</p>
 
-                        <a href="Enums/CacheType.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">CacheType</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">suspend</span><span class="p">(</span><span class="kt">URL</span><span class="p">:</span> <span class="kt">URLLiteralConvertible</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Loader</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:F17SwiftBomb_Example6cancelFPS_21URLLiteralConvertible_GSqCS_6Loader_"></a>
+                    <a name="//apple_ref/swift/Function/cancel(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:F17SwiftBomb_Example6cancelFPS_21URLLiteralConvertible_GSqCS_6Loader_">cancel(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Cancels <code><a href="Classes/Loader.html">Loader</a></code> object using the shared manager instance for the specified URL.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">cancel</span><span class="p">(</span><span class="kt">URL</span><span class="p">:</span> <span class="kt">URLLiteralConvertible</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Loader</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:F17SwiftBomb_Example5cacheFPS_21URLLiteralConvertible_GSqCSo7UIImage_"></a>
+                    <a name="//apple_ref/swift/Function/cache(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:F17SwiftBomb_Example5cacheFPS_21URLLiteralConvertible_GSqCSo7UIImage_">cache(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetches the image using the shared manager instance&rsquo;s <code>ImageCache</code> object for the specified URL.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">cache</span><span class="p">(</span><span class="kt">URL</span><span class="p">:</span> <span class="kt">URLLiteralConvertible</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UIImage</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>

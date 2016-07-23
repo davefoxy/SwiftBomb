@@ -29,6 +29,7 @@ public struct SwiftBombConfig {
     let apiKey: String
     let userAgentIdentifier: String?
     let baseAPIURL = NSURL(string: "http://www.giantbomb.com/api")!
+    let baseSiteURL = NSURL(string: "http://www.giantbomb.com")!
     let loggingLevel: LoggingLevel
     let networkingDelegate: SwiftBombNetworkingDelegate?
     let urlRequestCachePolicy: NSURLRequestCachePolicy

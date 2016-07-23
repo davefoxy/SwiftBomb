@@ -20,10 +20,16 @@ struct SwiftBombRequest {
         case XML
     }
     
+    enum BaseURLType {
+        case API
+        case Site
+    }
+    
     let configuration: SwiftBombConfig
     let path: String
     let method: Method
     var responseFormat = ResponseFormat.JSON
+    var baseURLType: BaseURLType = .API
     private (set) var urlParameters: [String: AnyObject] = [:]
     private (set) var headers: [String: String] = [:]
     private (set) var body: NSData?
@@ -75,9 +81,10 @@ struct SwiftBombRequest {
         
         // Build base URL components
         let components = NSURLComponents()
-        components.scheme = configuration.baseAPIURL.scheme
-        components.host = configuration.baseAPIURL.host
-        components.path = "\(configuration.baseAPIURL.path!)/\(path)"
+        let baseURL = baseURLType == .API ? configuration.baseAPIURL : configuration.baseSiteURL
+        components.scheme = baseURL.scheme
+        components.host = baseURL.host
+        components.path = "\(baseURL.path!)/\(path)"
         
         // Query string
         var query = responseFormat == .JSON ? "format=json&" : "format=xml&"

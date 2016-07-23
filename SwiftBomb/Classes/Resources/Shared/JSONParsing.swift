@@ -113,6 +113,17 @@ extension String {
     }
     
     /**
+     Creates a date from the dates returned in the `ComingUpItemResource` fetch
+     */
+    func comingUpItemDateRepresentation() -> NSDate? {
+        
+        guard let date = String.comingUpItemDateFormatter.dateFromString(self) else {
+            return nil
+        }
+        return date
+    }
+    
+    /**
      A date formatter used to parse string dates to native NSDate objects. The API always uses the date format `2006-05-07 14:20:53`
      */
     private static let dateFormatter: NSDateFormatter = {
@@ -127,6 +138,15 @@ extension String {
     private static let shortDateFormatter: NSDateFormatter = {
         let formatter = NSDateFormatter()
         formatter.dateFormat = "YYYY-MM-dd"
+        return formatter
+    }()
+    
+    /**
+     A date formatter used to parse date/time string dates to native NSDate objects. Used for parsing `ComingUpItemResource` objects.
+     */
+    private static let comingUpItemDateFormatter: NSDateFormatter = {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "MM dd',' YYYY hh:mm a"
         return formatter
     }()
 }

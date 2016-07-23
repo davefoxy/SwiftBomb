@@ -97,6 +97,7 @@ public enum ResourceType: String {
     case Release = "release"
     case Video = "video"
     case Review = "review"
+    case ComingUpItem = "comingup"
     case Unknown = "unknown"
     
     init(safeRawValueOrUnknown: String) {

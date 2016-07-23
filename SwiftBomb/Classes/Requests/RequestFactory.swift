@@ -62,10 +62,12 @@ final class RequestFactory {
     }
     
     // MARK: Base requests
-    func simpleRequest(path: String, fields: [String]? = nil) -> SwiftBombRequest {
+    func simpleRequest(path: String, requiresAuth: Bool = true, fields: [String]? = nil) -> SwiftBombRequest {
         
         var request = SwiftBombRequest(configuration: configuration, path: path, method: .GET, fields: fields)
-        addAuthentication(&request)
+        if requiresAuth {
+            addAuthentication(&request)
+        }
         
         return request
     }

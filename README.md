@@ -140,7 +140,7 @@ SwiftBomb.fetchComingUpSchedule { comingUpSchedule, error in
 }
 ```
 
-This returns an array of `ComingUpItemResource` objects. Note that this method hits an undocumented URL on Giant Bomb. If the staff change it, this will probably break things. If so, let me know and I'll update.
+Note that this method hits an undocumented URL on Giant Bomb. If the staff change it, this will probably break things. If so, let me know and I'll update.
 
 ## Sample Code
 Still not making enough sense? The repo comes with an example app demonstrating all the fetches in action. Sorry it's a little messy right now but it gives a general idea and again, [check out the class references](http://cocoadocs.org/docsets/SwiftBomb/0.6.2/). I've written up fairly extensive docs for every method in the lib.

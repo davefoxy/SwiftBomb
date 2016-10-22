@@ -23,10 +23,13 @@ Before accessing the framework, you must configure it with your API key (get one
 ```swift
 import SwiftBomb
 
-let configuration = SwiftBombConfig(apiKey: "YOUR_API_KEY", loggingLevel: .Requests, userAgentIdentifier: "Your User Agent", networkingDelegate: networkingDelegate, urlRequestCachePolicy: .UseProtocolCachePolicy)
+let configuration = SwiftBombConfig(apiKey: "YOUR_API_KEY", loggingLevel: .requests, userAgentIdentifier: "Your User Agent", networkingDelegate: networkingDelegate, urlRequestCachePolicy: .useProtocolCachePolicy)
 
 SwiftBomb.configure(configuration)
 ```
+
+## A Note About Swift 3
+SwiftBomb 0.7.0 marks the library being converted to Swift 3. If your project is not ready to move to Swift 3 yet, you can use the older version by pointing your Podfile to version `0.6.2`. Additionally, you can still view the [0.6.2 documentation](http://cocoadocs.org/docsets/SwiftBomb/0.6.2/) online.
 
 ## Usage
 The `SwiftBomb` class is your entry point to fetching all resources. Let autocomplete show you what's available. For example, to fetch all games in the database:
@@ -50,7 +53,7 @@ The `result` object returned by these methods is a `PaginatedResults` object. It
 Additionally, all these requests can be filtered and sorted and paginated using the same requests by passing in `PaginationDefinition` and `SortDefinition` aliases. The following does exactly the same as above but will search for *Uncharted*, starting at the 5th object, limited to 10 results and sorted in ascending order by name:
 ```swift
 let pagination = PaginationDefinition(offset: 4, limit: 10)
-let sorting = SortDefinition(field: "name", direction: .Ascending)
+let sorting = SortDefinition(field: "name", direction: .ascending)
 
 SwiftBomb.fetchGames("Uncharted", pagination: pagination, sort: sorting) { result, error in
 
@@ -102,16 +105,16 @@ SwiftBomb.fetchGames("Metal Gear Solid") { result, error in
 
 	if let error = error {
 		switch error {
-		case .FrameworkConfigError:
+		case .frameworkConfigError:
 			print("Framework config error")
 
-		case .NetworkError(let nsError):
+		case .networkError(let nsError):
 			print("Network error: \(nsError?.localizedDescription)")
 
-		case .ResponseSerializationError(let nsError):
+		case .responseSerializationError(let nsError):
 			print("Response error: \(nsError?.localizedDescription)")
 
-		case .RequestError(let gbError):
+		case .requestError(let gbError):
 			// This error is of type `ResourceResponseError`
 			print("Request error: \(gbError)")
 		}

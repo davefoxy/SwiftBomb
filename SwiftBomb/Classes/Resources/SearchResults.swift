@@ -67,39 +67,39 @@ public struct SearchResults {
                 if let resourceType = resultJSON["resource_type"] as? String {
                     
                     switch resourceType {
-                    case ResourceType.Character.rawValue:
+                    case ResourceType.character.rawValue:
                         let character = CharacterResource(json: resultJSON)
                         characters.append(character)
                         
-                    case ResourceType.Company.rawValue:
+                    case ResourceType.company.rawValue:
                         let company = CompanyResource(json: resultJSON)
                         companies.append(company)
                         
-                    case ResourceType.Concept.rawValue:
+                    case ResourceType.concept.rawValue:
                         let concept = ConceptResource(json: resultJSON)
                         concepts.append(concept)
                         
-                    case ResourceType.Franchise.rawValue:
+                    case ResourceType.franchise.rawValue:
                         let franchise = FranchiseResource(json: resultJSON)
                         franchises.append(franchise)
                         
-                    case ResourceType.Game.rawValue:
+                    case ResourceType.game.rawValue:
                         let game = GameResource(json: resultJSON)
                         games.append(game)
                         
-                    case ResourceType.Location.rawValue:
+                    case ResourceType.location.rawValue:
                         let location = LocationResource(json: resultJSON)
                         locations.append(location)
                         
-                    case ResourceType.Object.rawValue:
+                    case ResourceType.object.rawValue:
                         let object = ObjectResource(json: resultJSON)
                         objects.append(object)
                         
-                    case ResourceType.Person.rawValue:
+                    case ResourceType.person.rawValue:
                         let person = PersonResource(json: resultJSON)
                         people.append(person)
                         
-                    case ResourceType.Video.rawValue:
+                    case ResourceType.video.rawValue:
                         let video = VideoResource(json: resultJSON)
                         videos.append(video)
                         
@@ -119,15 +119,15 @@ public struct SearchResults {
         
         var types = [ResourceType]()
         
-        if (characters.count > 0) { types.append(.Character) }
-        if (companies.count > 0) { types.append(.Company) }
-        if (concepts.count > 0) { types.append(.Concept) }
-        if (franchises.count > 0) { types.append(.Franchise) }
-        if (games.count > 0) { types.append(.Game) }
-        if (locations.count > 0) { types.append(.Location) }
-        if (objects.count > 0) { types.append(.Object) }
-        if (people.count > 0) { types.append(.Person) }
-        if (videos.count > 0) { types.append(.Video) }
+        if (characters.count > 0) { types.append(.character) }
+        if (companies.count > 0) { types.append(.company) }
+        if (concepts.count > 0) { types.append(.concept) }
+        if (franchises.count > 0) { types.append(.franchise) }
+        if (games.count > 0) { types.append(.game) }
+        if (locations.count > 0) { types.append(.location) }
+        if (objects.count > 0) { types.append(.object) }
+        if (people.count > 0) { types.append(.person) }
+        if (videos.count > 0) { types.append(.video) }
         
         return types
     }
@@ -140,63 +140,63 @@ public struct SearchResults {
         var results = [ResourceSummary]()
         
         switch resourceType {
-        case .Character:
+        case .character:
             for character in characters {
                 if let summary = character.resourceSummary() {
                     results.append(summary)
                 }
             }
             
-        case .Company:
+        case .company:
             for company in companies {
                 if let summary = company.resourceSummary() {
                     results.append(summary)
                 }
             }
             
-        case .Concept:
+        case .concept:
             for concept in concepts {
                 if let summary = concept.resourceSummary() {
                     results.append(summary)
                 }
             }
             
-        case .Franchise:
+        case .franchise:
             for franchise in franchises {
                 if let summary = franchise.resourceSummary() {
                     results.append(summary)
                 }
             }
             
-        case .Game:
+        case .game:
             for game in games {
                 if let summary = game.resourceSummary() {
                     results.append(summary)
                 }
             }
             
-        case .Location:
+        case .location:
             for location in locations {
                 if let summary = location.resourceSummary() {
                     results.append(summary)
                 }
             }
             
-        case .Object:
+        case .object:
             for object in objects {
                 if let summary = object.resourceSummary() {
                     results.append(summary)
                 }
             }
             
-        case .Person:
+        case .person:
             for person in people {
                 if let summary = person.resourceSummary() {
                     results.append(summary)
                 }
             }
             
-        case .Video:
+        case .video:
             for video in videos {
                 if let summary = video.resourceSummary() {
                     results.append(summary)

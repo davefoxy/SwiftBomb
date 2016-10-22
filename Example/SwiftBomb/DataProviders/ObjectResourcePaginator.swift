@@ -17,7 +17,7 @@ class ObjectResourcePaginator: ResourcePaginator {
     var sort: SortDefinition
     var isLoading = false
     var hasMore: Bool = true
-    var resourceType = ResourceType.Object
+    var resourceType = ResourceType.object
     var objects = [ObjectResource]()
 
     init(searchTerm: String? = nil, pagination: PaginationDefinition = PaginationDefinition(offset: 0, limit: 30), sort: SortDefinition = SortDefinition(field: "name", direction: .Ascending)) {

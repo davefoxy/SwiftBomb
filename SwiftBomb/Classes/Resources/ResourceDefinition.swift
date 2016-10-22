@@ -83,25 +83,25 @@ public struct UnusedExtendedInfo: ResourceExtendedInfo {
  */
 public enum ResourceType: String {
     
-    case Accessory = "accessory"
-    case Character = "character"
-    case Company = "company"
-    case Concept = "concept"
-    case Franchise = "franchise"
-    case Game = "game"
-    case Genre = "genre"
-    case Location = "location"
-    case Object = "object"
-    case Person = "person"
-    case Platform = "platform"
-    case Release = "release"
-    case Video = "video"
-    case Review = "review"
-    case ComingUpItem = "comingup"
-    case Unknown = "unknown"
+    case accessory = "accessory"
+    case character = "character"
+    case company = "company"
+    case concept = "concept"
+    case franchise = "franchise"
+    case game = "game"
+    case genre = "genre"
+    case location = "location"
+    case object = "object"
+    case person = "person"
+    case platform = "platform"
+    case release = "release"
+    case video = "video"
+    case review = "review"
+    case comingUpItem = "comingup"
+    case unknown = "unknown"
     
     init(safeRawValueOrUnknown: String) {
-        self = ResourceType(rawValue: safeRawValueOrUnknown) ?? .Unknown
+        self = ResourceType(rawValue: safeRawValueOrUnknown) ?? .unknown
     }
 }
 

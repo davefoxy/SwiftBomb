@@ -11,7 +11,7 @@ import Foundation
 
 final public class MockResource: ResourceUpdating {
     
-    public let resourceType = ResourceType.Unknown
+    public let resourceType = ResourceType.unknown
     public let id: Int?
     public var extendedInfo: MockResourceExtendedInfo?
     public var image: ImageURLs?

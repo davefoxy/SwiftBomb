@@ -16,7 +16,7 @@ import Foundation
 final public class CharacterResource: ResourceUpdating {
     
     /// The resource type.
-    public let resourceType = ResourceType.Character
+    public let resourceType = ResourceType.character
     
     /// Array of aliases the character is known by.
     public fileprivate(set) var aliases: [String]?

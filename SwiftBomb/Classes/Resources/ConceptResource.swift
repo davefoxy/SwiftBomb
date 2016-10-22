@@ -16,7 +16,7 @@ import Foundation
 final public class ConceptResource: ResourceUpdating {
     
     /// The resource type.
-    public let resourceType = ResourceType.Concept
+    public let resourceType = ResourceType.concept
     
     /// Array of aliases the concept is known by.
     public fileprivate(set) var aliases: [String]?

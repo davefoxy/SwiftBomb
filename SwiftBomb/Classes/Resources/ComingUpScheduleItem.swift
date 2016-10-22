@@ -14,19 +14,19 @@ import Foundation
 public enum ComingUpItemType: String {
     
     /// An unknown type of upcoming item.
-    case Unknown = "unknown"
+    case unknown = "unknown"
     
     /// Live show.
-    case LiveShow = "live show"
+    case liveShow = "live show"
     
     /// Video.
-    case Video = "video"
+    case video = "video"
     
     /// Article.
-    case Article = "article"
+    case article = "article"
     
     init(safeRawValueOrUnknown: String) {
-        self = ComingUpItemType(rawValue: safeRawValueOrUnknown.lowercased()) ?? .Unknown
+        self = ComingUpItemType(rawValue: safeRawValueOrUnknown.lowercased()) ?? .unknown
     }
 }
 
@@ -36,7 +36,7 @@ public enum ComingUpItemType: String {
 public struct ComingUpScheduleItem {
     
     /// The resource type.
-    public let resourceType = ResourceType.ComingUpItem
+    public let resourceType = ResourceType.comingUpItem
     
     /// An `ComingUpItemType` describing this item. Note, this will be `ComingUpItemType.Unknown` for currently live streams found in `ComingUpSchedule`'s `liveNow` property.
     public let type: ComingUpItemType
@@ -60,7 +60,7 @@ public struct ComingUpScheduleItem {
             self.type = ComingUpItemType(safeRawValueOrUnknown: type)
         }
         else {
-            self.type = .Unknown
+            self.type = .unknown
         }
         
         self.title = json["title"] as? String

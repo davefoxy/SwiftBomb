@@ -16,7 +16,7 @@ import Foundation
 final public class PlatformResource: ResourceUpdating {
     
     /// The resource type.
-    public let resourceType = ResourceType.Platform
+    public let resourceType = ResourceType.platform
     
     /// Abbreviation of the platform.
     public fileprivate(set) var abbreviation: String?

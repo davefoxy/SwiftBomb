@@ -16,7 +16,7 @@ import Foundation
 final public class PersonResource: ResourceUpdating {
     
     /// The resource type.
-    public let resourceType = ResourceType.Person
+    public let resourceType = ResourceType.person
 
     /// Array of aliases the person is known by.
     public fileprivate(set) var aliases: [String]?

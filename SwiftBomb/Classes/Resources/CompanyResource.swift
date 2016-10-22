@@ -16,7 +16,7 @@ import Foundation
 final public class CompanyResource: ResourceUpdating {
     
     /// The resource type.
-    public let resourceType = ResourceType.Company
+    public let resourceType = ResourceType.company
     
     /// Abbreviation of the company.
     public fileprivate(set) var abbreviation: String?

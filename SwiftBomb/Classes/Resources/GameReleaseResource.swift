@@ -16,7 +16,7 @@ import Foundation
 final public class GameReleaseResource: ResourceUpdating {
     
     /// The resource type.
-    public let resourceType = ResourceType.Release
+    public let resourceType = ResourceType.release
     
     /// URL pointing to the release detail resource.
     public fileprivate(set) var api_detail_url: URL?

@@ -16,7 +16,7 @@ import Foundation
 final public class LocationResource: ResourceUpdating {
     
     /// The resource type.
-    public let resourceType = ResourceType.Location
+    public let resourceType = ResourceType.location
     
     /// An array of aliases the location is known by.
     public fileprivate(set) var aliases: [String]?

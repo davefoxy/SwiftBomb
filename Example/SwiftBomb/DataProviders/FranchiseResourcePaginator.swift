@@ -17,7 +17,7 @@ class FranchiseResourcePaginator: ResourcePaginator {
     var sort: SortDefinition
     var isLoading = false
     var hasMore: Bool = true
-    var resourceType = ResourceType.Franchise
+    var resourceType = ResourceType.franchise
     var franchises = [FranchiseResource]()
     
     init(searchTerm: String? = nil, pagination: PaginationDefinition = PaginationDefinition(offset: 0, limit: 30), sort: SortDefinition = SortDefinition(field: "name", direction: .Ascending)) {

@@ -17,7 +17,7 @@ class GameResourcePaginator: ResourcePaginator {
     var sort: SortDefinition
     var isLoading = false
     var hasMore: Bool = true
-    var resourceType = ResourceType.Game
+    var resourceType = ResourceType.game
     let dateFormatter = DateFormatter()
     var games = [GameResource]()
     

@@ -17,7 +17,7 @@ class ConceptResourcePaginator: ResourcePaginator {
     var sort: SortDefinition
     var isLoading = false
     var hasMore: Bool = true
-    var resourceType = ResourceType.Concept
+    var resourceType = ResourceType.concept
     var concepts = [ConceptResource]()
     
     init(searchTerm: String? = nil, pagination: PaginationDefinition = PaginationDefinition(offset: 0, limit: 30), sort: SortDefinition = SortDefinition(field: "name", direction: .Ascending)) {

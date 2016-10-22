@@ -17,7 +17,7 @@ class GenreResourcePaginator: ResourcePaginator {
     var sort: SortDefinition
     var isLoading = false
     var hasMore: Bool = true
-    var resourceType = ResourceType.Genre
+    var resourceType = ResourceType.genre
     var genres = [GenreResource]()
 
     init(searchTerm: String? = nil, pagination: PaginationDefinition = PaginationDefinition(offset: 0, limit: 30), sort: SortDefinition = SortDefinition(field: "name", direction: .Ascending)) {

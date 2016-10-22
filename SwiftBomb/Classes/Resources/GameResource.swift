@@ -16,7 +16,7 @@ import Foundation
 final public class GameResource: ResourceUpdating {
     
     /// The resource type.
-    public let resourceType = ResourceType.Game
+    public let resourceType = ResourceType.game
     
     /// Array of aliases the game is known by.
     public fileprivate(set) var aliases: [String]?

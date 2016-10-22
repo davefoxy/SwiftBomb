@@ -16,7 +16,7 @@ import Foundation
 final public class GenreResource: ResourceUpdating {
     
     /// The resource type.
-    public let resourceType = ResourceType.Genre
+    public let resourceType = ResourceType.genre
     
     /// URL pointing to the genre detail resource.
     public fileprivate(set) var api_detail_url: URL?

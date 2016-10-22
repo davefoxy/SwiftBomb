@@ -16,7 +16,7 @@ import Foundation
 final public class StaffReviewResource: ResourceUpdating {
     
     /// The resource type.
-    public fileprivate(set) var resourceType = ResourceType.Review
+    public fileprivate(set) var resourceType = ResourceType.review
     
     /// URL pointing to the review detail resource.
     public fileprivate(set) var api_detail_url: URL?

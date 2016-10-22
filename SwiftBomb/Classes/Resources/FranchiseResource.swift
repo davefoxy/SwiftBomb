@@ -16,7 +16,7 @@ import Foundation
 final public class FranchiseResource: ResourceUpdating {
     
     /// The resource type.
-    public let resourceType = ResourceType.Franchise
+    public let resourceType = ResourceType.franchise
     
     /// Array of aliases the franchise is known by.
     public fileprivate(set) var aliases: [String]?

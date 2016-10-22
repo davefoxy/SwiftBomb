@@ -17,7 +17,7 @@ class CompanyResourcePaginator: ResourcePaginator {
     var sort: SortDefinition
     var isLoading = false
     var hasMore: Bool = true
-    var resourceType = ResourceType.Company
+    var resourceType = ResourceType.company
     let dateFormatter = DateFormatter()
     var companies = [CompanyResource]()
 

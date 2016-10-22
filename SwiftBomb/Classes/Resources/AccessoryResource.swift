@@ -16,7 +16,7 @@ import Foundation
 final public class AccessoryResource: ResourceUpdating {
     
     /// The resource type.
-    public let resourceType = ResourceType.Accessory
+    public let resourceType = ResourceType.accessory
     
     /// Date the accessory was added to Giant Bomb.
     public fileprivate(set) var date_added: Date?

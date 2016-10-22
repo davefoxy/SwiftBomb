@@ -16,7 +16,7 @@ import Foundation
 final public class VideoResource: ResourceUpdating {
 
     /// The resource type.
-    public let resourceType = ResourceType.Video
+    public let resourceType = ResourceType.video
     
     /// URL pointing to the video detail resource.
     public fileprivate(set) var api_detail_url: URL?

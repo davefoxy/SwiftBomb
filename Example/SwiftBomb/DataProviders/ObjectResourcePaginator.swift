@@ -20,7 +20,7 @@ class ObjectResourcePaginator: ResourcePaginator {
     var resourceType = ResourceType.object
     var objects = [ObjectResource]()
 
-    init(searchTerm: String? = nil, pagination: PaginationDefinition = PaginationDefinition(offset: 0, limit: 30), sort: SortDefinition = SortDefinition(field: "name", direction: .Ascending)) {
+    init(searchTerm: String? = nil, pagination: PaginationDefinition = PaginationDefinition(offset: 0, limit: 30), sort: SortDefinition = SortDefinition(field: "name", direction: .ascending)) {
         
         self.searchTerm = searchTerm
         self.pagination = pagination

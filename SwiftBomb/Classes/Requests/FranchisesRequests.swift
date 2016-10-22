@@ -38,7 +38,7 @@ extension RequestFactory {
     
     func franchisesRequest(_ query: String? = nil, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil, fields: [String]? = nil) -> SwiftBombRequest {
         
-        var request = SwiftBombRequest(configuration: configuration, path: "franchises", method: .GET, pagination: pagination, sort: sort, fields: fields)
+        var request = SwiftBombRequest(configuration: configuration, path: "franchises", method: .get, pagination: pagination, sort: sort, fields: fields)
         addAuthentication(&request)
 
         if let query = query {

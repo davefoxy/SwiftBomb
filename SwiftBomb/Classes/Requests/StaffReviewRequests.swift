@@ -12,7 +12,7 @@ extension RequestFactory {
     
     func staffReviewRequest(_ game: GameResource, fields: [String]? = nil) -> SwiftBombRequest {
         
-        var request = SwiftBombRequest(configuration: configuration, path: "reviews", method: .GET, pagination: nil, sort: nil, fields: fields)
+        var request = SwiftBombRequest(configuration: configuration, path: "reviews", method: .get, pagination: nil, sort: nil, fields: fields)
         addAuthentication(&request)
         
         if let gameID = game.id {

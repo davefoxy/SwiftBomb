@@ -35,7 +35,7 @@ class PaginationTests: XCTestCase {
         let mockDataString = try? Data(contentsOf: mockDataURL!)
         MockURLSession.mockResponse = (mockDataString, urlResponse: nil, error: nil)
 
-        let emptyRequest = SwiftBombRequest(configuration: configuration, path: "", method: .GET)
+        let emptyRequest = SwiftBombRequest(configuration: configuration, path: "", method: .get)
         
         let asyncExpectation = expectation(description: "extendedInfoFetchExpectation")
         

@@ -20,7 +20,7 @@ class PlatformResourcePaginator: ResourcePaginator {
     var resourceType = ResourceType.person
     var platforms = [PlatformResource]()
     
-    init(searchTerm: String? = nil, pagination: PaginationDefinition = PaginationDefinition(offset: 0, limit: 30), sort: SortDefinition = SortDefinition(field: "name", direction: .Ascending)) {
+    init(searchTerm: String? = nil, pagination: PaginationDefinition = PaginationDefinition(offset: 0, limit: 30), sort: SortDefinition = SortDefinition(field: "name", direction: .ascending)) {
         
         self.searchTerm = searchTerm
         self.pagination = pagination

@@ -11,8 +11,8 @@ import Foundation
 struct SwiftBombRequest {
     
     enum Method: String {
-        case POST = "POST"
-        case GET = "GET"
+        case post = "POST"
+        case get = "GET"
     }
     
     enum ResponseFormat {

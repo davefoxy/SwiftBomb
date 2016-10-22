@@ -21,7 +21,7 @@ class CompanyResourcePaginator: ResourcePaginator {
     let dateFormatter = DateFormatter()
     var companies = [CompanyResource]()
 
-    init(searchTerm: String? = nil, pagination: PaginationDefinition = PaginationDefinition(offset: 0, limit: 30), sort: SortDefinition = SortDefinition(field: "name", direction: .Ascending)) {
+    init(searchTerm: String? = nil, pagination: PaginationDefinition = PaginationDefinition(offset: 0, limit: 30), sort: SortDefinition = SortDefinition(field: "name", direction: .ascending)) {
         
         dateFormatter.dateStyle = .medium
         self.searchTerm = searchTerm

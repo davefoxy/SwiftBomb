@@ -28,10 +28,10 @@ public struct SortDefinition {
     public enum SortDirection: String {
         
         /// Sort in ascending order.
-        case Ascending = "asc"
+        case ascending = "asc"
         
         /// Sort in descending order.
-        case Descending = "desc"
+        case descending = "desc"
     }
     
     /// Designated initializer for making a SortDefinition.
@@ -64,7 +64,7 @@ final class RequestFactory {
     // MARK: Base requests
     func simpleRequest(_ path: String, requiresAuth: Bool = true, fields: [String]? = nil) -> SwiftBombRequest {
         
-        var request = SwiftBombRequest(configuration: configuration, path: path, method: .GET, fields: fields)
+        var request = SwiftBombRequest(configuration: configuration, path: path, method: .get, fields: fields)
         if requiresAuth {
             addAuthentication(&request)
         }

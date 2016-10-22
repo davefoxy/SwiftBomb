@@ -83,21 +83,52 @@ public struct UnusedExtendedInfo: ResourceExtendedInfo {
  */
 public enum ResourceType: String {
     
+    /// An accessory such as "Dual Shock 4".
     case accessory = "accessory"
+    
+    /// A character such as "Solid Snake".
     case character = "character"
+    
+    /// A company such as "Sony Computer Entertainment".
     case company = "company"
+    
+    /// A concept such as "free to play games".
     case concept = "concept"
+    
+    /// A franchise such as "Assassin's Creed".
     case franchise = "franchise"
+    
+    /// A game such as "Mario Galaxy".
     case game = "game"
+    
+    /// A genre such as "puzzle".
     case genre = "genre"
+    
+    /// A location such as "Shadow Moses".
     case location = "location"
+    
+    /// An object such as "map" or "teleporter".
     case object = "object"
+    
+    /// A person such as "Shigeru Miyamoto".
     case person = "person"
+    
+    /// A platform such as "Playstation 4".
     case platform = "platform"
+    
+    /// A release such as "Metal Gear Solid: Collector's Edition".
     case release = "release"
+    
+    /// A Giant Bomb video such as "Mario Party Party".
     case video = "video"
+    
+    /// A review for a game.
     case review = "review"
+    
+    /// An item from the GiantBomb.com's "Coming up on Giant Bomb" panel.
     case comingUpItem = "comingup"
+    
+    /// Unknown resource type.
     case unknown = "unknown"
     
     init(safeRawValueOrUnknown: String) {

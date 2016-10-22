@@ -59,7 +59,7 @@ extension RequestFactory {
     
     func searchRequest(_ query: String? = nil, resourceTypes: [ResourceType]? = nil, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil) -> SwiftBombRequest {
         
-        var request = SwiftBombRequest(configuration: configuration, path: "search", method: .GET, pagination: pagination, sort: sort)
+        var request = SwiftBombRequest(configuration: configuration, path: "search", method: .get, pagination: pagination, sort: sort)
         addAuthentication(&request)
         
         if let query = query {

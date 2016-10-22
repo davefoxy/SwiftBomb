@@ -119,14 +119,14 @@ class CharacterViewController: BaseResourceDetailViewController {
             switch (indexPath as NSIndexPath).row {
             case 0:
                 // games
-                let gamesPaginator = GameResourcePaginator(sort: SortDefinition(field: "name", direction: .Ascending))
+                let gamesPaginator = GameResourcePaginator(sort: SortDefinition(field: "name", direction: .ascending))
                 gamesPaginator.games = (character?.extendedInfo?.games)!
                 resourcesList.resourcePaginator = gamesPaginator
                 resourcesList.cellPresenters = gamesPaginator.cellPresentersForResources((character?.extendedInfo?.games)!)
                 
             case 1:
                 // franchises
-                let franchisesPaginator = FranchiseResourcePaginator(sort: SortDefinition(field: "name", direction: .Ascending))
+                let franchisesPaginator = FranchiseResourcePaginator(sort: SortDefinition(field: "name", direction: .ascending))
                 franchisesPaginator.franchises = (character?.extendedInfo?.franchises)!
                 resourcesList.resourcePaginator = franchisesPaginator
                 resourcesList.cellPresenters = franchisesPaginator.cellPresentersForResources((character?.extendedInfo?.franchises)!)

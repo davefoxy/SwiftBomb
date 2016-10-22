@@ -28,51 +28,51 @@ class ResourcesMenuViewController: UITableViewController {
         
         if (segue.identifier == "videos") {
             resourcesList.title = "Videos"
-            resourcesList.resourcePaginator = VideoResourcePaginator(sort: SortDefinition(field: "publish_date", direction: .Descending))
+            resourcesList.resourcePaginator = VideoResourcePaginator(sort: SortDefinition(field: "publish_date", direction: .descending))
         }
         else if (segue.identifier == "characters") {
             resourcesList.title = "Characters"
-            resourcesList.resourcePaginator = CharactersResourcePaginator(sort: SortDefinition(field: "name", direction: .Ascending))
+            resourcesList.resourcePaginator = CharactersResourcePaginator(sort: SortDefinition(field: "name", direction: .ascending))
         }
         else if (segue.identifier == "games") {
             resourcesList.title = "Games"
-            resourcesList.resourcePaginator = GameResourcePaginator(sort: SortDefinition(field: "name", direction: .Ascending))
+            resourcesList.resourcePaginator = GameResourcePaginator(sort: SortDefinition(field: "name", direction: .ascending))
         }
         else if (segue.identifier == "companies") {
             resourcesList.title = "Companies"
-            resourcesList.resourcePaginator = CompanyResourcePaginator(sort: SortDefinition(field: "name", direction: .Ascending))
+            resourcesList.resourcePaginator = CompanyResourcePaginator(sort: SortDefinition(field: "name", direction: .ascending))
         }
         else if (segue.identifier == "concepts") {
             resourcesList.title = "Concepts"
-            resourcesList.resourcePaginator = ConceptResourcePaginator(sort: SortDefinition(field: "name", direction: .Ascending))
+            resourcesList.resourcePaginator = ConceptResourcePaginator(sort: SortDefinition(field: "name", direction: .ascending))
         }
         else if (segue.identifier == "franchises") {
             resourcesList.title = "Franchises"
-            resourcesList.resourcePaginator = FranchiseResourcePaginator(sort: SortDefinition(field: "name", direction: .Ascending))
+            resourcesList.resourcePaginator = FranchiseResourcePaginator(sort: SortDefinition(field: "name", direction: .ascending))
         }
         else if (segue.identifier == "genres") {
             resourcesList.title = "Genres"
-            resourcesList.resourcePaginator = GenreResourcePaginator(sort: SortDefinition(field: "name", direction: .Ascending))
+            resourcesList.resourcePaginator = GenreResourcePaginator(sort: SortDefinition(field: "name", direction: .ascending))
         }
         else if (segue.identifier == "locations") {
             resourcesList.title = "Locations"
-            resourcesList.resourcePaginator = LocationResourcePaginator(sort: SortDefinition(field: "name", direction: .Ascending))
+            resourcesList.resourcePaginator = LocationResourcePaginator(sort: SortDefinition(field: "name", direction: .ascending))
         }
         else if (segue.identifier == "objects") {
             resourcesList.title = "Objects"
-            resourcesList.resourcePaginator = ObjectResourcePaginator(sort: SortDefinition(field: "name", direction: .Ascending))
+            resourcesList.resourcePaginator = ObjectResourcePaginator(sort: SortDefinition(field: "name", direction: .ascending))
         }
         else if (segue.identifier == "people") {
             resourcesList.title = "People"
-            resourcesList.resourcePaginator = PersonResourcePaginator(sort: SortDefinition(field: "name", direction: .Ascending))
+            resourcesList.resourcePaginator = PersonResourcePaginator(sort: SortDefinition(field: "name", direction: .ascending))
         }
         else if (segue.identifier == "platforms") {
             resourcesList.title = "Platforms"
-            resourcesList.resourcePaginator = PlatformResourcePaginator(sort: SortDefinition(field: "name", direction: .Ascending))
+            resourcesList.resourcePaginator = PlatformResourcePaginator(sort: SortDefinition(field: "name", direction: .ascending))
         }
         else if (segue.identifier == "accessories") {
             resourcesList.title = "Accessories"
-            resourcesList.resourcePaginator = AccessoryResourcePaginator(sort: SortDefinition(field: "name", direction: .Ascending))
+            resourcesList.resourcePaginator = AccessoryResourcePaginator(sort: SortDefinition(field: "name", direction: .ascending))
         }
     }
 }

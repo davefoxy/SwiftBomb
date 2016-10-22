@@ -113,8 +113,8 @@ class AuthenticationSession {
 struct APIPollingDirective {
     
     enum Status: String {
-        case Success = "success"
-        case Failed
+        case success = "success"
+        case failed
     }
     
     let status: Status

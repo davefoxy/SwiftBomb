@@ -22,7 +22,7 @@ class RequestTests: XCTestCase {
     
     func testAccessoryRequests() {
         
-        let accessoriesRequest = requestFactory?.accessoriesRequest("searchTerm", pagination: PaginationDefinition(offset: 10, limit: 20), sort: SortDefinition(field: "sortField", direction: .Ascending), fields: nil)
+        let accessoriesRequest = requestFactory?.accessoriesRequest("searchTerm", pagination: PaginationDefinition(offset: 10, limit: 20), sort: SortDefinition(field: "sortField", direction: .ascending), fields: nil)
         
         let requestURL = accessoriesRequest?.urlRequest().url
         
@@ -38,7 +38,7 @@ class RequestTests: XCTestCase {
     
     func testCharacterRequests() {
         
-        let charactersRequest = requestFactory?.charactersRequest("searchTerm", pagination: PaginationDefinition(offset: 10, limit: 20), sort: SortDefinition(field: "sortField", direction: .Ascending))
+        let charactersRequest = requestFactory?.charactersRequest("searchTerm", pagination: PaginationDefinition(offset: 10, limit: 20), sort: SortDefinition(field: "sortField", direction: .ascending))
         
         let requestURL = charactersRequest?.urlRequest().url
         
@@ -49,7 +49,7 @@ class RequestTests: XCTestCase {
     
     func testCompanyRequests() {
         
-        let companiesRequest = requestFactory?.companiesRequest("searchTerm", pagination: PaginationDefinition(offset: 10, limit: 20), sort: SortDefinition(field: "sortField", direction: .Ascending))
+        let companiesRequest = requestFactory?.companiesRequest("searchTerm", pagination: PaginationDefinition(offset: 10, limit: 20), sort: SortDefinition(field: "sortField", direction: .ascending))
         
         let requestURL = companiesRequest?.urlRequest().url
         
@@ -60,7 +60,7 @@ class RequestTests: XCTestCase {
     
     func testConceptRequests() {
         
-        let conceptsRequest = requestFactory?.conceptsRequest("searchTerm", pagination: PaginationDefinition(offset: 10, limit: 20), sort: SortDefinition(field: "sortField", direction: .Ascending))
+        let conceptsRequest = requestFactory?.conceptsRequest("searchTerm", pagination: PaginationDefinition(offset: 10, limit: 20), sort: SortDefinition(field: "sortField", direction: .ascending))
         
         let requestURL = conceptsRequest?.urlRequest().url
         
@@ -72,7 +72,7 @@ class RequestTests: XCTestCase {
     
     func testFranchiseRequests() {
         
-        let franchisesRequest = requestFactory?.franchisesRequest("searchTerm", pagination: PaginationDefinition(offset: 10, limit: 20), sort: SortDefinition(field: "sortField", direction: .Ascending))
+        let franchisesRequest = requestFactory?.franchisesRequest("searchTerm", pagination: PaginationDefinition(offset: 10, limit: 20), sort: SortDefinition(field: "sortField", direction: .ascending))
         
         let requestURL = franchisesRequest?.urlRequest().url
         
@@ -83,7 +83,7 @@ class RequestTests: XCTestCase {
     
     func testGameRequests() {
         
-        let gamesRequest = requestFactory?.gamesRequest("searchTerm", pagination: PaginationDefinition(offset: 10, limit: 20), sort: SortDefinition(field: "sortField", direction: .Ascending))
+        let gamesRequest = requestFactory?.gamesRequest("searchTerm", pagination: PaginationDefinition(offset: 10, limit: 20), sort: SortDefinition(field: "sortField", direction: .ascending))
         
         let requestURL = gamesRequest?.urlRequest().url
         
@@ -94,7 +94,7 @@ class RequestTests: XCTestCase {
     
     func testGenreRequests() {
         
-        let genresRequest = requestFactory?.genreRequest("searchTerm", pagination: PaginationDefinition(offset: 10, limit: 20), sort: SortDefinition(field: "sortField", direction: .Ascending))
+        let genresRequest = requestFactory?.genreRequest("searchTerm", pagination: PaginationDefinition(offset: 10, limit: 20), sort: SortDefinition(field: "sortField", direction: .ascending))
         
         let requestURL = genresRequest?.urlRequest().url
         
@@ -105,7 +105,7 @@ class RequestTests: XCTestCase {
     
     func testLocationRequests() {
         
-        let locationsRequest = requestFactory?.locationRequest("searchTerm", pagination: PaginationDefinition(offset: 10, limit: 20), sort: SortDefinition(field: "sortField", direction: .Ascending))
+        let locationsRequest = requestFactory?.locationRequest("searchTerm", pagination: PaginationDefinition(offset: 10, limit: 20), sort: SortDefinition(field: "sortField", direction: .ascending))
         
         let requestURL = locationsRequest?.urlRequest().url
         
@@ -116,7 +116,7 @@ class RequestTests: XCTestCase {
     
     func testObjectRequests() {
         
-        let objectsRequest = requestFactory?.objectsRequest("searchTerm", pagination: PaginationDefinition(offset: 10, limit: 20), sort: SortDefinition(field: "sortField", direction: .Ascending))
+        let objectsRequest = requestFactory?.objectsRequest("searchTerm", pagination: PaginationDefinition(offset: 10, limit: 20), sort: SortDefinition(field: "sortField", direction: .ascending))
         
         let requestURL = objectsRequest?.urlRequest().url
         
@@ -127,7 +127,7 @@ class RequestTests: XCTestCase {
     
     func testPersonRequests() {
         
-        let peopleRequest = requestFactory?.peopleRequest("searchTerm", pagination: PaginationDefinition(offset: 10, limit: 20), sort: SortDefinition(field: "sortField", direction: .Ascending))
+        let peopleRequest = requestFactory?.peopleRequest("searchTerm", pagination: PaginationDefinition(offset: 10, limit: 20), sort: SortDefinition(field: "sortField", direction: .ascending))
         
         let requestURL = peopleRequest?.urlRequest().url
         
@@ -138,7 +138,7 @@ class RequestTests: XCTestCase {
     
     func testVideoRequests() {
         
-        let videosRequest = requestFactory?.videosRequest("searchTerm", pagination: PaginationDefinition(offset: 10, limit: 20), sort: SortDefinition(field: "sortField", direction: .Ascending))
+        let videosRequest = requestFactory?.videosRequest("searchTerm", pagination: PaginationDefinition(offset: 10, limit: 20), sort: SortDefinition(field: "sortField", direction: .ascending))
         
         let requestURL = videosRequest?.urlRequest().url
         

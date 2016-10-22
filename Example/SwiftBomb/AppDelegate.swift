@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let networkingDelegate = NetworkingDelegate()
         
-        let configuration = SwiftBombConfig(apiKey: "95d0ea04ccb8240413fcb395db8f96020c079885", loggingLevel: .requestsAndResponses, userAgentIdentifier: "Your User Agent", networkingDelegate: networkingDelegate, urlRequestCachePolicy: .useProtocolCachePolicy)
+        let configuration = SwiftBombConfig(apiKey: "YOUR_API_KEY", loggingLevel: .requests, userAgentIdentifier: "Your User Agent", networkingDelegate: networkingDelegate, urlRequestCachePolicy: .useProtocolCachePolicy)
         SwiftBomb.configure(configuration)
         
         return true

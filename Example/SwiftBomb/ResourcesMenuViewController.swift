@@ -18,13 +18,13 @@ class ResourcesMenuViewController: UITableViewController {
         self.title = "Resources"
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if (segue.identifier == "searchResults") {
             return
         }
         
-        let resourcesList = segue.destinationViewController as! ResourcesListViewController
+        let resourcesList = segue.destination as! ResourcesListViewController
         
         if (segue.identifier == "videos") {
             resourcesList.title = "Videos"

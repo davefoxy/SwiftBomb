@@ -27,7 +27,7 @@ class GenreResourcePaginator: ResourcePaginator {
         self.sort = sort
     }
     
-    func loadMore(completion: (cellPresenters: [ResourceItemCellPresenter]?, error: RequestError?) -> Void) {
+    func loadMore(completion: @escaping (_ cellPresenters: [ResourceItemCellPresenter]?, _ error: RequestError?) -> Void) {
         
         if isLoading {
             
@@ -44,23 +44,23 @@ class GenreResourcePaginator: ResourcePaginator {
                 
                 if let genres = results?.resources {
                     
-                    self.genres.appendContentsOf(genres)
+                    self.genres.append(contentsOf: genres)
                     
                     let cellPresenters = self.cellPresentersForResources(genres)
                     
                     self.pagination = PaginationDefinition(self.pagination.offset + genres.count, self.pagination.limit)
                     self.hasMore = (results?.hasMoreResults)!
                     
-                    completion(cellPresenters: cellPresenters, error: nil)
+                    completion(cellPresenters, nil)
                 }
             }
             else {
-                completion(cellPresenters: nil, error: error)
+                completion(nil, error)
             }
         }
     }
     
-    func cellPresentersForResources(genres: [GenreResource]) -> [ResourceItemCellPresenter] {
+    func cellPresentersForResources(_ genres: [GenreResource]) -> [ResourceItemCellPresenter] {
         
         var cellPresenters = [ResourceItemCellPresenter]()
         for genre in genres {
@@ -84,10 +84,10 @@ class GenreResourcePaginator: ResourcePaginator {
         self.hasMore = true
     }
     
-    func detailViewControllerForResourceAtIndexPath(indexPath: NSIndexPath) -> UIViewController {
+    func detailViewControllerForResourceAtIndexPath(indexPath: IndexPath) -> UIViewController {
         
-        let viewController = GenreViewController(style: .Grouped)
-        viewController.genre = genres[indexPath.row]
+        let viewController = GenreViewController(style: .grouped)
+        viewController.genre = genres[(indexPath as NSIndexPath).row]
         
         return viewController
     }

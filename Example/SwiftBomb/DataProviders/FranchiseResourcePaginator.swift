@@ -27,7 +27,7 @@ class FranchiseResourcePaginator: ResourcePaginator {
         self.sort = sort
     }
     
-    func loadMore(completion: (cellPresenters: [ResourceItemCellPresenter]?, error: RequestError?) -> Void) {
+    func loadMore(completion: @escaping (_ cellPresenters: [ResourceItemCellPresenter]?, _ error: RequestError?) -> Void) {
         
         if isLoading {
             
@@ -44,23 +44,23 @@ class FranchiseResourcePaginator: ResourcePaginator {
                 
                 if let franchises = results?.resources {
                     
-                    self.franchises.appendContentsOf(franchises)
+                    self.franchises.append(contentsOf: franchises)
                     
                     let cellPresenters = self.cellPresentersForResources(franchises)
                     
                     self.pagination = PaginationDefinition(self.pagination.offset + franchises.count, self.pagination.limit)
                     self.hasMore = (results?.hasMoreResults)!
                     
-                    completion(cellPresenters: cellPresenters, error: nil)
+                    completion(cellPresenters, nil)
                 }
             }
             else {
-                completion(cellPresenters: nil, error: error)
+                completion(nil, error)
             }
         }
     }
     
-    func cellPresentersForResources(games: [FranchiseResource]) -> [ResourceItemCellPresenter] {
+    func cellPresentersForResources(_ games: [FranchiseResource]) -> [ResourceItemCellPresenter] {
         
         var cellPresenters = [ResourceItemCellPresenter]()
         for franchise in franchises {
@@ -84,10 +84,10 @@ class FranchiseResourcePaginator: ResourcePaginator {
         self.hasMore = true
     }
     
-    func detailViewControllerForResourceAtIndexPath(indexPath: NSIndexPath) -> UIViewController {
+    func detailViewControllerForResourceAtIndexPath(indexPath: IndexPath) -> UIViewController {
         
-        let viewController = FranchiseViewController(style: .Grouped)
-        viewController.franchise = franchises[indexPath.row]
+        let viewController = FranchiseViewController(style: .grouped)
+        viewController.franchise = franchises[(indexPath as NSIndexPath).row]
         
         return viewController
     }

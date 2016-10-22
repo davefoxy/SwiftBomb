@@ -13,7 +13,7 @@ typealias ResourceInfoTuple = (value: String?, label: String)
 
 class BaseResourceDetailViewController: UITableViewController {
     
-    let dateFormatter = NSDateFormatter()
+    let dateFormatter = DateFormatter()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,20 +21,20 @@ class BaseResourceDetailViewController: UITableViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 50
 
-        dateFormatter.dateStyle = .MediumStyle
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        dateFormatter.dateStyle = .medium
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
     }
     
-    func showWebViewController(html: String) {
+    func showWebViewController(_ html: String) {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let webViewController = storyboard.instantiateViewControllerWithIdentifier("DetailWebViewController") as! DetailWebViewController
+        let webViewController = storyboard.instantiateViewController(withIdentifier: "DetailWebViewController") as! DetailWebViewController
         webViewController.htmlContent = html
         
         navigationController?.pushViewController(webViewController, animated: true)
     }
 
-    func createResourceInfoString(infos: [ResourceInfoTuple]) -> NSMutableAttributedString {
+    func createResourceInfoString(_ infos: [ResourceInfoTuple]) -> NSMutableAttributedString {
         
         var infoString = NSMutableAttributedString()
         
@@ -48,9 +48,9 @@ class BaseResourceDetailViewController: UITableViewController {
         return infoString
     }
     
-    func updateInfo(inout info: NSMutableAttributedString, label: String, value: String) {
+    func updateInfo(_ info: inout NSMutableAttributedString, label: String, value: String) {
         
-        info.mutableString.appendString("\(label) \(value)\n")
-        info.addAttribute(NSFontAttributeName, value: UIFont.boldSystemFontOfSize(17), range: info.mutableString.rangeOfString(label))
+        info.mutableString.append("\(label) \(value)\n")
+        info.addAttribute(NSFontAttributeName, value: UIFont.boldSystemFont(ofSize: 17), range: info.mutableString.range(of: label))
     }
 }

@@ -23,27 +23,27 @@ class VideoViewController: BaseResourceDetailViewController {
         }
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         
         return 1
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return 1
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as UITableViewCell
         
         cell.textLabel?.numberOfLines = 0
-        cell.textLabel?.lineBreakMode = .ByWordWrapping
+        cell.textLabel?.lineBreakMode = .byWordWrapping
         
         var infos = [ResourceInfoTuple(value: video?.name, "Name:"), ResourceInfoTuple(value: video?.deck, "Deck:")]
         
         if let publishDate = video?.publish_date {
-            infos.append(ResourceInfoTuple(value: dateFormatter.stringFromDate(publishDate), "Publish Date:"))
+            infos.append(ResourceInfoTuple(value: dateFormatter.string(from: publishDate), "Publish Date:"))
         }
         
         let minutesDuration = (video?.length_seconds)! / 60
@@ -55,8 +55,8 @@ class VideoViewController: BaseResourceDetailViewController {
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

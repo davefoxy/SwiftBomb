@@ -27,7 +27,7 @@ class PlatformResourcePaginator: ResourcePaginator {
         self.sort = sort
     }
     
-    func loadMore(completion: (cellPresenters: [ResourceItemCellPresenter]?, error: RequestError?) -> Void) {
+    func loadMore(completion: @escaping (_ cellPresenters: [ResourceItemCellPresenter]?, _ error: RequestError?) -> Void) {
         
         if isLoading {
             
@@ -44,18 +44,18 @@ class PlatformResourcePaginator: ResourcePaginator {
                 
                 if let platforms = results?.resources {
                     
-                    self.platforms.appendContentsOf(platforms)
+                    self.platforms.append(contentsOf: platforms)
                     
-                    let cellPresenters = self.cellPresentersForResources(platforms)
+                    let cellPresenters = self.cellPresentersForResources(platforms: platforms)
                     
                     self.pagination = PaginationDefinition(self.pagination.offset + platforms.count, self.pagination.limit)
                     self.hasMore = (results?.hasMoreResults)!
                     
-                    completion(cellPresenters: cellPresenters, error: nil)
+                    completion(cellPresenters, nil)
                 }
             }
             else {
-                completion(cellPresenters: nil, error: error)
+                completion(nil, error)
             }
         }
     }
@@ -84,10 +84,10 @@ class PlatformResourcePaginator: ResourcePaginator {
         self.hasMore = true
     }
     
-    func detailViewControllerForResourceAtIndexPath(indexPath: NSIndexPath) -> UIViewController {
+    func detailViewControllerForResourceAtIndexPath(indexPath: IndexPath) -> UIViewController {
         
-        let viewController = PlatformViewController(style: .Grouped)
-        viewController.platform = platforms[indexPath.row]
+        let viewController = PlatformViewController(style: .grouped)
+        viewController.platform = platforms[(indexPath as NSIndexPath).row]
         
         return viewController
     }

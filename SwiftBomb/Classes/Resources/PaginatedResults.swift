@@ -39,10 +39,10 @@ public struct PaginatedResults<T: Resource> {
     }
     
     /// An array of objects generic to the request that made this call. For example, when fetching videos, this will contain an array of `VideoResource`s.
-    public private(set) var resources = [T]()
+    public fileprivate(set) var resources = [T]()
     
     /// Extended info. Unused for this resource type
-    private (set) var extendedInfo: UnusedExtendedInfo?
+    fileprivate (set) var extendedInfo: UnusedExtendedInfo?
     
     init(json: [String: AnyObject], resultsType: T.Type) {
         

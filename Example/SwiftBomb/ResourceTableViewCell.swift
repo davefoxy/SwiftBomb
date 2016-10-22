@@ -28,10 +28,10 @@ class ResourceTableViewCell: UITableViewCell {
         thumbnailImageView.image = nil
     }
     
-    func updateFromPresenter(presenter: ResourceItemCellPresenter) {
+    func updateFromPresenter(_ presenter: ResourceItemCellPresenter) {
         
-        titleLabel.text = presenter.title?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
-        subtitleLabel.text = presenter.subtitle?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        titleLabel.text = presenter.title?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        subtitleLabel.text = presenter.subtitle?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         
         if let thumbURL = presenter.imageURL {
             thumbnailImageView.load(thumbURL)

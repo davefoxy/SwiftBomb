@@ -23,38 +23,38 @@ class CharacterViewController: BaseResourceDetailViewController {
         }
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         
         return 2
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return section == 0 ? 1 : 5
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as UITableViewCell
         
         var title = ""
-        if indexPath.section == 0 {
+        if (indexPath as NSIndexPath).section == 0 {
             
             cell.textLabel?.numberOfLines = 0
-            cell.textLabel?.lineBreakMode = .ByWordWrapping
+            cell.textLabel?.lineBreakMode = .byWordWrapping
             
-            var infos = [ResourceInfoTuple(value: character?.name, "Name:"), ResourceInfoTuple(value: character?.deck, "Deck:"), ResourceInfoTuple(value: character?.gender?.description, "Gender:"), ResourceInfoTuple(value: character?.aliases?.joinWithSeparator(", "), "Aliases:")]
+            var infos = [ResourceInfoTuple(value: character?.name, "Name:"), ResourceInfoTuple(value: character?.deck, "Deck:"), ResourceInfoTuple(value: character?.gender?.description, "Gender:"), ResourceInfoTuple(value: character?.aliases?.joined(separator: ", "), "Aliases:")]
             
             if let birthday = character?.birthday {
-                infos.append(ResourceInfoTuple(value: dateFormatter.stringFromDate(birthday), "Birthday:"))
+                infos.append(ResourceInfoTuple(value: dateFormatter.string(from: birthday), "Birthday:"))
             }
             
             if let dateAdded = character?.date_added {
-                infos.append(ResourceInfoTuple(value: dateFormatter.stringFromDate(dateAdded), "Date Added:"))
+                infos.append(ResourceInfoTuple(value: dateFormatter.string(from: dateAdded), "Date Added:"))
             }
             
             if let lastUpdated = character?.date_last_updated {
-                infos.append(ResourceInfoTuple(value: dateFormatter.stringFromDate(lastUpdated), "Last Updated:"))
+                infos.append(ResourceInfoTuple(value: dateFormatter.string(from: lastUpdated), "Last Updated:"))
             }
             
             if (character?.description != nil) {
@@ -66,7 +66,7 @@ class CharacterViewController: BaseResourceDetailViewController {
             return cell
         }
         else {
-            switch indexPath.row {
+            switch (indexPath as NSIndexPath).row {
             case 0:
                 if let games = character?.extendedInfo?.games {
                     title = "Games (\(games.count))"
@@ -102,21 +102,21 @@ class CharacterViewController: BaseResourceDetailViewController {
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if indexPath.section == 0 {
+        if (indexPath as NSIndexPath).section == 0 {
             guard let description = character?.description else {
-                tableView.deselectRowAtIndexPath(indexPath, animated: true)
+                tableView.deselectRow(at: indexPath, animated: true)
                 return
             }
             
             showWebViewController(description)
         }
         else {
-            let resourcesList = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ResourcesListViewController") as! ResourcesListViewController
+            let resourcesList = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ResourcesListViewController") as! ResourcesListViewController
             resourcesList.shouldLoadFromServer = false
             
-            switch indexPath.row {
+            switch (indexPath as NSIndexPath).row {
             case 0:
                 // games
                 let gamesPaginator = GameResourcePaginator(sort: SortDefinition(field: "name", direction: .Ascending))

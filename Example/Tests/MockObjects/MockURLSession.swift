@@ -9,35 +9,35 @@
 import Foundation
 @testable import SwiftBomb
 
-class MockURLSession: NSURLSession {
+class MockURLSession: URLSession {
     
-    var completionHandler: ((NSData!, NSURLResponse!, NSError!) -> Void)?
+    var completionHandler: ((Data?, URLResponse?, NSError?) -> Void)?
     
-    static var mockResponse: (data: NSData?, urlResponse: NSURLResponse?, error: NSError?) = (data: nil, urlResponse: nil, error: nil)
+    static var mockResponse: (data: Data?, urlResponse: URLResponse?, error: NSError?) = (data: nil, urlResponse: nil, error: nil)
     
-    override class func sharedSession() -> NSURLSession {
+    override open class var shared: URLSession {
         return MockURLSession()
     }
-    
-    override func dataTaskWithURL(url: NSURL, completionHandler: ((NSData!, NSURLResponse!, NSError!) -> Void)?) -> NSURLSessionDataTask {
+
+    func dataTask(with url: URL, completionHandler: ((Data?, URLResponse?, NSError?) -> Void)?) -> URLSessionDataTask {
         
         self.completionHandler = completionHandler
         return MockTask(response: MockURLSession.mockResponse, completionHandler: completionHandler)
     }
     
-    override func dataTaskWithRequest(request: NSURLRequest, completionHandler: (NSData?, NSURLResponse?, NSError?) -> Void) -> NSURLSessionDataTask {
+    override func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
         
         self.completionHandler = completionHandler
         return MockTask(response: MockURLSession.mockResponse, completionHandler: completionHandler)
     }
     
-    class MockTask: NSURLSessionDataTask {
+    class MockTask: URLSessionDataTask {
         
-        typealias Response = (data: NSData?, urlResponse: NSURLResponse?, error: NSError?)
+        typealias Response = (data: Data?, urlResponse: URLResponse?, error: NSError?)
         var mockResponse: Response
-        let completionHandler: ((NSData!, NSURLResponse!, NSError!) -> Void)?
+        let completionHandler: ((Data?, URLResponse?, NSError?) -> Void)?
         
-        init(response: Response, completionHandler: ((NSData!, NSURLResponse!, NSError!) -> Void)?) {
+        init(response: Response, completionHandler: ((Data?, URLResponse?, NSError?) -> Void)?) {
             
             self.mockResponse = response
             self.completionHandler = completionHandler

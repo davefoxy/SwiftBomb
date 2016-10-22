@@ -17,22 +17,22 @@ public struct SwiftBombConfig {
     public enum LoggingLevel {
         
         /// No logs will be made by the framework.
-        case None
+        case none
         
         /// Requests will be logged when being sent to the Giant Bomb API.
-        case Requests
+        case requests
         
         /// Requests and the resulting response headers will be logged.
-        case RequestsAndResponses
+        case requestsAndResponses
     }
     
     let apiKey: String
     let userAgentIdentifier: String?
-    let baseAPIURL = NSURL(string: "http://www.giantbomb.com/api")!
-    let baseSiteURL = NSURL(string: "http://www.giantbomb.com")!
+    let baseAPIURL = URL(string: "http://www.giantbomb.com/api")!
+    let baseSiteURL = URL(string: "http://www.giantbomb.com")!
     let loggingLevel: LoggingLevel
     let networkingDelegate: SwiftBombNetworkingDelegate?
-    let urlRequestCachePolicy: NSURLRequestCachePolicy
+    let urlRequestCachePolicy: NSURLRequest.CachePolicy
     
     /**
      Designated initializer for creating a configuration object.
@@ -43,7 +43,7 @@ public struct SwiftBombConfig {
      - parameter networkingDelegate: Optional object conforming to `SwiftBombNetworkingDelegate` which allows inspection and denial of requests being made by the library.
      - parameter urlRequestCachePolicy: Optionally define how you would like the internal NSURLSession to handle caching. Defaults to the default policy of `UserProtocolCachePolicy`.
      */
-    public init(apiKey: String, loggingLevel: LoggingLevel = .RequestsAndResponses, userAgentIdentifier: String? = nil, networkingDelegate: SwiftBombNetworkingDelegate? = nil, urlRequestCachePolicy: NSURLRequestCachePolicy = .UseProtocolCachePolicy) {
+    public init(apiKey: String, loggingLevel: LoggingLevel = .requestsAndResponses, userAgentIdentifier: String? = nil, networkingDelegate: SwiftBombNetworkingDelegate? = nil, urlRequestCachePolicy: NSURLRequest.CachePolicy = .useProtocolCachePolicy) {
         
         self.apiKey = apiKey
         self.loggingLevel = loggingLevel

@@ -25,14 +25,14 @@ class ExtendedInfoTests: XCTestCase {
 
         super.tearDown()
         
-        SwiftBomb.framework.networkingManager?.urlSession = NSURLSession.sharedSession()
+        SwiftBomb.framework.networkingManager?.urlSession = URLSession.shared
     }
     
     func testAccessoryExtendedInfo() {
         
         do {
-            try updateMockedResponse(["results": ["name": "Mock Accessory"]])
-            let mockAccessory = AccessoryResource(json: ["id": 123])
+            try updateMockedResponse(["results": ["name": "Mock Accessory"] as AnyObject])
+            let mockAccessory = AccessoryResource(json: ["id": 123 as AnyObject])
             
             let assertions = {_ in
                 XCTAssertEqual(mockAccessory.id, 123)
@@ -47,8 +47,8 @@ class ExtendedInfoTests: XCTestCase {
     func testCharacterExtendedInfo() {
         
         do {
-            try updateMockedResponse(["results": ["name": "Mock Character", "friends": [["id": 123]]]])
-            let mockCharacter = CharacterResource(json: ["id": 123])
+            try updateMockedResponse((["results": ["name": "Mock Character", "friends": [["id": 123]]]] as AnyObject) as! [String : AnyObject])
+            let mockCharacter = CharacterResource(json: ["id": 123 as AnyObject])
             
             let assertions = {_ in
                 XCTAssertEqual(mockCharacter.id, 123)
@@ -64,8 +64,8 @@ class ExtendedInfoTests: XCTestCase {
     func testCompanyExtendedInfo() {
         
         do {
-            try updateMockedResponse(["results": ["name": "Mock Company", "characters": [["id": 123]]]])
-            let mockCompany = CompanyResource(json: ["id": 123])
+            try updateMockedResponse((["results": ["name": "Mock Company", "characters": [["id": 123]]]] as AnyObject) as! [String : AnyObject])
+            let mockCompany = CompanyResource(json: ["id": 123 as AnyObject])
             
             let assertions = {_ in
                 XCTAssertEqual(mockCompany.id, 123)
@@ -81,8 +81,8 @@ class ExtendedInfoTests: XCTestCase {
     func testConceptExtendedInfo() {
         
         do {
-            try updateMockedResponse(["results": ["name": "Mock Concept", "characters": [["id": 123]]]])
-            let mockConcept = ConceptResource(json: ["id": 123])
+            try updateMockedResponse((["results": ["name": "Mock Concept", "characters": [["id": 123]]]] as AnyObject) as! [String : AnyObject])
+            let mockConcept = ConceptResource(json: ["id": 123 as AnyObject])
             
             let assertions = {_ in
                 XCTAssertEqual(mockConcept.id, 123)
@@ -98,8 +98,8 @@ class ExtendedInfoTests: XCTestCase {
     func testFranchiseExtendedInfo() {
         
         do {
-            try updateMockedResponse(["results": ["name": "Mock Franchise", "characters": [["id": 123]]]])
-            let mockFranchise = FranchiseResource(json: ["id": 123])
+            try updateMockedResponse((["results": ["name": "Mock Franchise", "characters": [["id": 123]]]] as AnyObject) as! [String : AnyObject])
+            let mockFranchise = FranchiseResource(json: ["id": 123 as AnyObject])
             
             let assertions = {_ in
                 XCTAssertEqual(mockFranchise.id, 123)
@@ -115,8 +115,8 @@ class ExtendedInfoTests: XCTestCase {
     func testGameExtendedInfo() {
         
         do {
-            try updateMockedResponse(["results": ["name": "Mock Game", "characters": [["id": 123]]]])
-            let mockGame = GameResource(json: ["id": 123])
+            try updateMockedResponse((["results": ["name": "Mock Game", "characters": [["id": 123]]]] as AnyObject) as! [String : AnyObject])
+            let mockGame = GameResource(json: ["id": 123 as AnyObject])
             
             let assertions = {_ in
                 XCTAssertEqual(mockGame.id, 123)
@@ -132,8 +132,8 @@ class ExtendedInfoTests: XCTestCase {
     func testGameReleaseExtendedInfo() {
         
         do {
-            try updateMockedResponse(["results": ["name": "Mock Release", "developers": [["id": 123]]]])
-            let mockRelease = GameReleaseResource(json: ["id": 123])
+            try updateMockedResponse((["results": ["name": "Mock Release", "developers": [["id": 123]]]] as AnyObject) as! [String : AnyObject])
+            let mockRelease = GameReleaseResource(json: ["id": 123 as AnyObject])
             
             let assertions = {_ in
                 XCTAssertEqual(mockRelease.id, 123)
@@ -149,8 +149,8 @@ class ExtendedInfoTests: XCTestCase {
     func testGenreExtendedInfo() {
         
         do {
-            try updateMockedResponse(["results": ["name": "Mock Genre"]])
-            let mockGenre = GenreResource(json: ["id": 123])
+            try updateMockedResponse((["results": ["name": "Mock Genre"]] as AnyObject) as! [String : AnyObject])
+            let mockGenre = GenreResource(json: ["id": 123 as AnyObject])
             
             let assertions = {_ in
                 XCTAssertEqual(mockGenre.id, 123)
@@ -165,8 +165,8 @@ class ExtendedInfoTests: XCTestCase {
     func testLocationExtendedInfo() {
         
         do {
-            try updateMockedResponse(["results": ["name": "Mock Location"]])
-            let mockLocation = LocationResource(json: ["id": 123])
+            try updateMockedResponse((["results": ["name": "Mock Location"]] as AnyObject) as! [String : AnyObject])
+            let mockLocation = LocationResource(json: ["id": 123 as AnyObject])
             
             let assertions = {_ in
                 XCTAssertEqual(mockLocation.id, 123)
@@ -181,8 +181,8 @@ class ExtendedInfoTests: XCTestCase {
     func testObjectExtendedInfo() {
         
         do {
-            try updateMockedResponse(["results": ["name": "Mock Object", "games": [["id": 123]]]])
-            let mockObject = ObjectResource(json: ["id": 123])
+            try updateMockedResponse((["results": ["name": "Mock Object", "games": [["id": 123]]]] as AnyObject) as! [String : AnyObject])
+            let mockObject = ObjectResource(json: ["id": 123 as AnyObject])
             
             let assertions = {_ in
                 XCTAssertEqual(mockObject.id, 123)
@@ -198,8 +198,8 @@ class ExtendedInfoTests: XCTestCase {
     func testPersonExtendedInfo() {
         
         do {
-            try updateMockedResponse(["results": ["name": "Mock Person", "games": [["id": 123]]]])
-            let mockPerson = PersonResource(json: ["id": 123])
+            try updateMockedResponse((["results": ["name": "Mock Person", "games": [["id": 123]]]] as AnyObject) as! [String : AnyObject])
+            let mockPerson = PersonResource(json: ["id": 123 as AnyObject])
             
             let assertions = {_ in
                 XCTAssertEqual(mockPerson.id, 123)
@@ -215,7 +215,7 @@ class ExtendedInfoTests: XCTestCase {
     func testStaffReviewExtendedInfo() {
         
         do {
-            try updateMockedResponse(["results": ["name": "Mock Release", "game": ["id": 123, "name": "Mock Game"]]])
+            try updateMockedResponse((["results": ["name": "Mock Release", "game": ["id": 123 as AnyObject, "name": "Mock Game"]]] as AnyObject) as! [String : AnyObject])
             let mockReview = StaffReviewResource(json: [:])
             
             let assertions = {_ in
@@ -230,8 +230,8 @@ class ExtendedInfoTests: XCTestCase {
     func testVideoExtendedInfo() {
         
         do {
-            try updateMockedResponse(["results": ["name": "Mock Video"]])
-            let mockVideo = VideoResource(json: ["id": 123])
+            try updateMockedResponse((["results": ["name": "Mock Video"]] as AnyObject) as! [String : AnyObject])
+            let mockVideo = VideoResource(json: ["id": 123 as AnyObject])
             
             let assertions = {_ in
                 XCTAssertEqual(mockVideo.id, 123)
@@ -244,21 +244,21 @@ class ExtendedInfoTests: XCTestCase {
     }
    
     // MARK: Utils
-    func performAsyncTest<T: ResourceUpdating>(resource: T, assertions: XCWaitCompletionHandler) {
+    func performAsyncTest<T: ResourceUpdating>(_ resource: T, assertions: @escaping XCWaitCompletionHandler) {
         
-        let asyncExpectation = expectationWithDescription("extendedInfoFetchExpectation")
+        let asyncExpectation = expectation(description: "extendedInfoFetchExpectation")
         
         resource.fetchExtendedInfo(nil) { error in
             asyncExpectation.fulfill()
         }
         
-        waitForExpectationsWithTimeout(5, handler: assertions)
+        waitForExpectations(timeout: 5, handler: assertions)
     }
     
-    func updateMockedResponse(json: [String: AnyObject]) throws {
+    func updateMockedResponse(_ json: [String: AnyObject]) throws {
         
         do {
-            let jsonData = try NSJSONSerialization.dataWithJSONObject(json, options: .PrettyPrinted)
+            let jsonData = try JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
             MockURLSession.mockResponse = (jsonData, urlResponse: nil, error: nil)
         } catch (let error) {
             throw error

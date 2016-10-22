@@ -15,37 +15,37 @@ extension SwiftBomb {
      
      - parameter completion: A closure returning an instance of `ComingUpSchedule` where currently-live and scheduled posts, streams and videos on Giant Bomb can be found. Also, an optional `RequestError` may be returned describing any errors which occurred during the request.
      */
-    public static func fetchComingUpSchedule(completion: (ComingUpSchedule?, error: RequestError?) -> Void) {
+    public static func fetchComingUpSchedule(completion: @escaping (_ schedule: ComingUpSchedule?, _ error: RequestError?) -> Void) {
         
         let instance = SwiftBomb.framework
         guard
             let requestFactory = instance.requestFactory,
             let networkingManager = instance.networkingManager else {
-                completion(nil, error: .FrameworkConfigError)
+                completion(nil, .frameworkConfigError)
                 return
         }
         
         var request = requestFactory.simpleRequest("upcoming_json", requiresAuth: false)
-        request.baseURLType = .Site
+        request.baseURLType = .site
         networkingManager.performRequest(request) { result in
             
             switch result {
-            case .Success(let upcomingJSON):
+            case .success(let upcomingJSON):
                 
                 guard let json = upcomingJSON as? [String: AnyObject] else {
-                    completion(nil, error: .ResponseSerializationError(nil))
+                    completion(nil, .responseSerializationError(nil))
                     return
                 }
             
                 let schedule = ComingUpSchedule(json: json)
-                dispatch_async(dispatch_get_main_queue(), { 
-                    completion(schedule, error: nil)
+                DispatchQueue.main.async(execute: { 
+                    completion(schedule, nil)
                 })
             
-            case .Error(let error):
+            case .error(let error):
                 
-                dispatch_async(dispatch_get_main_queue(), {
-                    completion(nil, error: error)
+                DispatchQueue.main.async(execute: {
+                    completion(nil, error)
                 })
             }
         }

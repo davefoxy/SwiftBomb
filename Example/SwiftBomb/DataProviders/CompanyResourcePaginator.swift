@@ -18,18 +18,18 @@ class CompanyResourcePaginator: ResourcePaginator {
     var isLoading = false
     var hasMore: Bool = true
     var resourceType = ResourceType.Company
-    let dateFormatter = NSDateFormatter()
+    let dateFormatter = DateFormatter()
     var companies = [CompanyResource]()
 
     init(searchTerm: String? = nil, pagination: PaginationDefinition = PaginationDefinition(offset: 0, limit: 30), sort: SortDefinition = SortDefinition(field: "name", direction: .Ascending)) {
         
-        dateFormatter.dateStyle = .MediumStyle
+        dateFormatter.dateStyle = .medium
         self.searchTerm = searchTerm
         self.pagination = pagination
         self.sort = sort
     }
     
-    func loadMore(completion: (cellPresenters: [ResourceItemCellPresenter]?, error: RequestError?) -> Void) {
+    func loadMore(completion: @escaping (_ cellPresenters: [ResourceItemCellPresenter]?, _ error: RequestError?) -> Void) {
         
         if isLoading {
             
@@ -46,30 +46,30 @@ class CompanyResourcePaginator: ResourcePaginator {
                 
                 if let companies = results?.resources {
                     
-                    self.companies.appendContentsOf(companies)
+                    self.companies.append(contentsOf: companies)
 
                     let cellPresenters = self.cellPresentersForResources(companies)
                     
                     self.pagination = PaginationDefinition(self.pagination.offset + companies.count, self.pagination.limit)
                     self.hasMore = (results?.hasMoreResults)!
                     
-                    completion(cellPresenters: cellPresenters, error: nil)
+                    completion(cellPresenters, nil)
                 }
             }
             else {
-                completion(cellPresenters: nil, error: error)
+                completion(nil, error)
             }
         }
     }
     
-    func cellPresentersForResources(companies: [CompanyResource]) -> [ResourceItemCellPresenter] {
+    func cellPresentersForResources(_ companies: [CompanyResource]) -> [ResourceItemCellPresenter] {
         
         var cellPresenters = [ResourceItemCellPresenter]()
         for company in companies {
             
             var subtitle = ""
             if let dateFounded = company.date_founded {
-                subtitle = "Founded \(dateFormatter.stringFromDate(dateFounded))"
+                subtitle = "Founded \(dateFormatter.string(from: dateFounded))"
             }
             
             let cellPresenter = ResourceItemCellPresenter(imageURL: company.image?.small, title: company.name, subtitle: subtitle)
@@ -86,10 +86,10 @@ class CompanyResourcePaginator: ResourcePaginator {
         self.hasMore = true
     }
     
-    func detailViewControllerForResourceAtIndexPath(indexPath: NSIndexPath) -> UIViewController {
+    func detailViewControllerForResourceAtIndexPath(indexPath: IndexPath) -> UIViewController {
         
-        let viewController = CompanyViewController(style: .Grouped)
-        viewController.company = companies[indexPath.row]
+        let viewController = CompanyViewController(style: .grouped)
+        viewController.company = companies[(indexPath as NSIndexPath).row]
         
         return viewController
     }

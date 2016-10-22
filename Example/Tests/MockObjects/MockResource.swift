@@ -22,11 +22,11 @@ final public class MockResource: ResourceUpdating {
         id = json["id"] as? Int
     }
     
-    func update(json: [String : AnyObject]) {
+    public func update(json: [String : AnyObject]) {
         
     }
     
-    public func fetchExtendedInfo(fields: [String]? = nil, completion: (error: RequestError?) -> Void) {
+    public func fetchExtendedInfo(_ fields: [String]? = nil, completion: @escaping (_ error: RequestError?) -> Void) {
         
     }
     
@@ -44,7 +44,7 @@ public struct MockResourceExtendedInfo: ResourceExtendedInfo {
         update(json)
     }
     
-    public mutating func update(json: [String : AnyObject]) {
+    public mutating func update(_ json: [String : AnyObject]) {
         
         self.json = json
     }

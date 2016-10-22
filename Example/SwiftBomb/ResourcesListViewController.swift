@@ -12,7 +12,7 @@ import SwiftBomb
 
 struct ResourceItemCellPresenter {
     
-    let imageURL: NSURL?
+    let imageURL: URL?
     let title: String?
     let subtitle: String?
 }
@@ -25,9 +25,9 @@ protocol ResourcePaginator {
     var isLoading: Bool { get }
     var hasMore: Bool { get }
     
-    func loadMore(completion: (cellPresenters: [ResourceItemCellPresenter]?, error: RequestError?) -> Void)
+    func loadMore(completion: @escaping (_ cellPresenters: [ResourceItemCellPresenter]?, _ error: RequestError?) -> Void)
     func resetPagination()
-    func detailViewControllerForResourceAtIndexPath(indexPath: NSIndexPath) -> UIViewController
+    func detailViewControllerForResourceAtIndexPath(indexPath: IndexPath) -> UIViewController
 }
 
 class ResourcesListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
@@ -63,37 +63,37 @@ class ResourcesListViewController: UIViewController, UITableViewDelegate, UITabl
                 var title = ""
                 
                 switch error {
-                case .FrameworkConfigError:
+                case .frameworkConfigError:
                     title = "Framework Error"
                     
-                case .NetworkError(let nsError):
+                case .networkError(let nsError):
                     title = nsError?.localizedDescription ?? "Unknown Network Error"
                     
-                case .ResponseSerializationError(let nsError):
+                case .responseSerializationError(let nsError):
                     title = nsError?.localizedDescription ?? "Unknown Serialisation Error"
                 
-                case .RequestError(let gbError):
+                case .requestError(let gbError):
                     title = "Request error: \(gbError)"
                 }
                 
-                let alertController = UIAlertController(title: title, message: nil, preferredStyle: .Alert)
-                alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-                self?.presentViewController(alertController, animated: true, completion: nil)
+                let alertController = UIAlertController(title: title, message: nil, preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self?.present(alertController, animated: true, completion: nil)
             }
             
             if let cellPresenters = cellPresenters {
-                self?.cellPresenters.appendContentsOf(cellPresenters)
+                self?.cellPresenters.append(contentsOf: cellPresenters)
                 self?.tableView.reloadData()
             }
         }
     }
     
-    func setLoadingPage(loading: Bool) {
+    func setLoadingPage(_ loading: Bool) {
         
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = loading
+        UIApplication.shared.isNetworkActivityIndicatorVisible = loading
         
         if loading {
-            let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+            let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
             var indicatorFrame = activityIndicator.frame
             indicatorFrame.size.height += 50
             activityIndicator.frame = indicatorFrame
@@ -106,43 +106,43 @@ class ResourcesListViewController: UIViewController, UITableViewDelegate, UITabl
         }
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return cellPresenters.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCellWithIdentifier(cellName, forIndexPath: indexPath) as? ResourceTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellName, for: indexPath) as? ResourceTableViewCell else {
             assertionFailure("Failed to create tableviewCell with ID '\(cellName)'")
             return UITableViewCell()
         }
         
-        let cellPresenter = cellPresenters[indexPath.row]
+        let cellPresenter = cellPresenters[(indexPath as NSIndexPath).row]
         cell.cellPresenter = cellPresenter
                
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
         
-        guard let detailViewController = resourcePaginator?.detailViewControllerForResourceAtIndexPath(indexPath) else {
+        guard let detailViewController = resourcePaginator?.detailViewControllerForResourceAtIndexPath(indexPath: indexPath) else {
             return
         }
         
         navigationController?.pushViewController(detailViewController, animated: true)
     }
     
-    func scrollViewDidScroll(scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
-        if scrollView.decelerating == false && scrollView.dragging == false {
+        if scrollView.isDecelerating == false && scrollView.isDragging == false {
             return
         }
         
@@ -150,14 +150,14 @@ class ResourcesListViewController: UIViewController, UITableViewDelegate, UITabl
             return
         }
         
-        if resourcePaginator?.hasMore == true && scrollView.contentOffset.y + CGRectGetHeight(scrollView.frame) > scrollView.contentSize.height - (CGRectGetHeight(scrollView.frame) * 1.3) {
+        if resourcePaginator?.hasMore == true && scrollView.contentOffset.y + scrollView.frame.height > scrollView.contentSize.height - (scrollView.frame.height * 1.3) {
             
             loadMoreResources()
         }
     }
     
     /// MARK: UISearchBarDelegate
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
         self.cellPresenters.removeAll()
         self.tableView.reloadData()

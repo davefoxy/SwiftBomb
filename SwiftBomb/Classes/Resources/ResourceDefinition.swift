@@ -24,7 +24,7 @@ public protocol Resource: class {
      - parameter fields: An array of fields to return in the response. See the available options at http://www.giantbomb.com/api/documentation. Pass nil to return everything.
      - parameter completion: A closure containing an optional `RequestError` if the request failed.
      */
-    func fetchExtendedInfo(fields: [String]?, completion: (error: RequestError?) -> Void)
+    func fetchExtendedInfo(_ fields: [String]?, completion: @escaping (_ error: RequestError?) -> Void)
     
     /// The unique ID for a resource.
     var id: Int? { get }
@@ -63,7 +63,7 @@ public protocol ResourceExtendedInfo {
     init(json: [String: AnyObject])
     
     /// A method used for updating structs. Usually after further requests for more field data.
-    mutating func update(json: [String: AnyObject])
+    mutating func update(_ json: [String: AnyObject])
 }
 
 /**
@@ -75,7 +75,7 @@ public struct UnusedExtendedInfo: ResourceExtendedInfo {
     public init(json: [String : AnyObject]) {}
     
     /// Unused
-    mutating public func update(json: [String: AnyObject]) {}
+    mutating public func update(_ json: [String: AnyObject]) {}
 }
 
 /**

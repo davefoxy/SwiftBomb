@@ -27,7 +27,7 @@ class ObjectResourcePaginator: ResourcePaginator {
         self.sort = sort
     }
     
-    func loadMore(completion: (cellPresenters: [ResourceItemCellPresenter]?, error: RequestError?) -> Void) {
+    func loadMore(completion: @escaping (_ cellPresenters: [ResourceItemCellPresenter]?, _ error: RequestError?) -> Void) {
         
         if isLoading {
             
@@ -44,7 +44,7 @@ class ObjectResourcePaginator: ResourcePaginator {
                 
                 if let objects = results?.resources {
                     
-                    self.objects.appendContentsOf(objects)
+                    self.objects.append(contentsOf: objects)
                     
                     let cellPresenters = self.cellPresentersForResources(objects)
                     
@@ -52,16 +52,16 @@ class ObjectResourcePaginator: ResourcePaginator {
                     self.pagination = PaginationDefinition(self.pagination.offset + objects.count, self.pagination.limit)
                     self.hasMore = (results?.hasMoreResults)!
                     
-                    completion(cellPresenters: cellPresenters, error: nil)
+                    completion(cellPresenters, nil)
                 }
             }
             else {
-                completion(cellPresenters: nil, error: error)
+                completion(nil, error)
             }
         }
     }
     
-    func cellPresentersForResources(objects: [ObjectResource]) -> [ResourceItemCellPresenter] {
+    func cellPresentersForResources(_ objects: [ObjectResource]) -> [ResourceItemCellPresenter] {
         
         var cellPresenters = [ResourceItemCellPresenter]()
         for object in objects {
@@ -85,10 +85,10 @@ class ObjectResourcePaginator: ResourcePaginator {
         self.hasMore = true
     }
     
-    func detailViewControllerForResourceAtIndexPath(indexPath: NSIndexPath) -> UIViewController {
+    func detailViewControllerForResourceAtIndexPath(indexPath: IndexPath) -> UIViewController {
         
-        let viewController = ObjectViewController(style: .Grouped)
-        viewController.object = objects[indexPath.row]
+        let viewController = ObjectViewController(style: .grouped)
+        viewController.object = objects[(indexPath as NSIndexPath).row]
         
         return viewController
     }

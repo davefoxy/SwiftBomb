@@ -14,8 +14,8 @@ import Foundation
 public protocol SwiftBombNetworkingDelegate {
     
     /// Called when SwiftBomb is about to perform a request to the Giant Bomb API.
-    func swiftBombWillPerformRequest(request: NSURLRequest)
+    func swiftBombWillPerformRequest(_ request: URLRequest)
     
     /// Allows the denial of requests being sent to the Giant Bomb API.
-    func swiftBombShouldPerformRequest(request: NSURLRequest) -> Bool
+    func swiftBombShouldPerformRequest(_ request: URLRequest) -> Bool
 }

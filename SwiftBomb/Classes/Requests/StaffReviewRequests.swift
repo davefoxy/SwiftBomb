@@ -10,7 +10,7 @@ import Foundation
 
 extension RequestFactory {
     
-    func staffReviewRequest(game: GameResource, fields: [String]? = nil) -> SwiftBombRequest {
+    func staffReviewRequest(_ game: GameResource, fields: [String]? = nil) -> SwiftBombRequest {
         
         var request = SwiftBombRequest(configuration: configuration, path: "reviews", method: .GET, pagination: nil, sort: nil, fields: fields)
         addAuthentication(&request)
@@ -31,27 +31,27 @@ extension GameResource {
      - parameter fields: An optional array of fields to return in the response. See the available options at http://www.giantbomb.com/api/documentation#toc-0-36. Pass nil to return everything.
      - parameter completion: A closure containing an optional `RequestError` if the request failed.
      */
-    public func fetchStaffReview(fields: [String]? = nil, completion: (error: RequestError?) -> Void) -> Void {
+    public func fetchStaffReview(_ fields: [String]? = nil, completion: @escaping (_ error: RequestError?) -> Void) -> Void {
         
         let api = SwiftBomb.framework
         
         guard
             let networkingManager = api.networkingManager,
             let request = api.requestFactory?.staffReviewRequest(self, fields: fields) else {
-                completion(error: .FrameworkConfigError)
+                completion(.frameworkConfigError)
                 return
         }
         
         networkingManager.performRequest(request) { [weak self] result in
             
             switch result {
-            case .Success(let json):
+            case .success(let json):
                 guard
                     let json = json as? [String: AnyObject],
                     let resultsJSON = json["results"] as? [[String: AnyObject]]
                     else {
-                        dispatch_async(dispatch_get_main_queue(), {
-                            completion(error: .ResponseSerializationError(nil))
+                        DispatchQueue.main.async(execute: {
+                            completion(.responseSerializationError(nil))
                         })
                         return
                 }
@@ -60,14 +60,14 @@ extension GameResource {
                     self?.staffReview = StaffReviewResource(json: reviewJSON)
                 }
                 
-                dispatch_async(dispatch_get_main_queue(), {
-                    completion(error: nil)
+                DispatchQueue.main.async(execute: {
+                    completion(nil)
                 })
                 
                 
-            case .Error(let error):
-                dispatch_async(dispatch_get_main_queue(), {
-                    completion(error: error)
+            case .error(let error):
+                DispatchQueue.main.async(execute: {
+                    completion(error)
                 })
             }
         }
@@ -82,7 +82,7 @@ extension StaffReviewResource {
      - parameter fields: An optional array of fields to return in the response. See the available options at http://www.giantbomb.com/api/documentation#toc-0-36. Pass nil to return everything.
      - parameter completion: A closure containing an optional `RequestError` if the request failed.
      */
-    public func fetchExtendedInfo(fields: [String]? = nil, completion: (error: RequestError?) -> Void) {
+    public func fetchExtendedInfo(_ fields: [String]? = nil, completion: @escaping (_ error: RequestError?) -> Void) {
         
         let api = SwiftBomb.framework
         
@@ -90,7 +90,7 @@ extension StaffReviewResource {
             let networkingManager = api.networkingManager,
             let id = id,
             let request = api.requestFactory?.simpleRequest("review/\(id)/", fields: fields) else {
-                completion(error: .FrameworkConfigError)
+                completion(.frameworkConfigError)
                 return
         }
         

@@ -27,7 +27,7 @@ class LocationResourcePaginator: ResourcePaginator {
         self.sort = sort
     }
     
-    func loadMore(completion: (cellPresenters: [ResourceItemCellPresenter]?, error: RequestError?) -> Void) {
+    func loadMore(completion: @escaping (_ cellPresenters: [ResourceItemCellPresenter]?, _ error: RequestError?) -> Void) {
         
         if isLoading {
             
@@ -44,23 +44,23 @@ class LocationResourcePaginator: ResourcePaginator {
                 
                 if let locations = results?.resources {
                     
-                    self.locations.appendContentsOf(locations)
+                    self.locations.append(contentsOf: locations)
                     
                     let cellPresenters = self.cellPresentersForResources(locations)
                     
                     self.pagination = PaginationDefinition(self.pagination.offset + locations.count, self.pagination.limit)
                     self.hasMore = (results?.hasMoreResults)!
                     
-                    completion(cellPresenters: cellPresenters, error: nil)
+                    completion(cellPresenters, nil)
                 }
             }
             else {
-                completion(cellPresenters: nil, error: error)
+                completion(nil, error)
             }
         }
     }
     
-    func cellPresentersForResources(locations: [LocationResource]) -> [ResourceItemCellPresenter] {
+    func cellPresentersForResources(_ locations: [LocationResource]) -> [ResourceItemCellPresenter] {
         
         var cellPresenters = [ResourceItemCellPresenter]()
         for location in locations {
@@ -84,10 +84,10 @@ class LocationResourcePaginator: ResourcePaginator {
         self.hasMore = true
     }
     
-    func detailViewControllerForResourceAtIndexPath(indexPath: NSIndexPath) -> UIViewController {
+    func detailViewControllerForResourceAtIndexPath(indexPath: IndexPath) -> UIViewController {
         
-        let viewController = LocationViewController(style: .Grouped)
-        viewController.location = locations[indexPath.row]
+        let viewController = LocationViewController(style: .grouped)
+        viewController.location = locations[(indexPath as NSIndexPath).row]
         
         return viewController
     }

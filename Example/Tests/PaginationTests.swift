@@ -25,19 +25,19 @@ class PaginationTests: XCTestCase {
 
         super.tearDown()
         
-        SwiftBomb.framework.networkingManager?.urlSession = NSURLSession.sharedSession()
+        SwiftBomb.framework.networkingManager?.urlSession = URLSession.shared
     }
 
     func testPaginationCounts() {
         
-        let mockDataURL = NSBundle(forClass: PaginationTests.self).URLForResource("FivePaginatedResultsJSON", withExtension: "json")
+        let mockDataURL = Bundle(for: PaginationTests.self).url(forResource: "FivePaginatedResultsJSON", withExtension: "json")
         
-        let mockDataString = NSData(contentsOfURL: mockDataURL!)
+        let mockDataString = try? Data(contentsOf: mockDataURL!)
         MockURLSession.mockResponse = (mockDataString, urlResponse: nil, error: nil)
 
         let emptyRequest = SwiftBombRequest(configuration: configuration, path: "", method: .GET)
         
-        let asyncExpectation = expectationWithDescription("extendedInfoFetchExpectation")
+        let asyncExpectation = expectation(description: "extendedInfoFetchExpectation")
         
         var resourcesCount = 0
         var numberOfPageResults = 0
@@ -51,7 +51,7 @@ class PaginationTests: XCTestCase {
             asyncExpectation.fulfill()
         })
         
-        waitForExpectationsWithTimeout(5) { error in
+        waitForExpectations(timeout: 5) { error in
             
             XCTAssertEqual(resourcesCount, 5)
             XCTAssertEqual(numberOfPageResults, 5)

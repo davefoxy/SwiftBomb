@@ -19,31 +19,31 @@ final public class GenreResource: ResourceUpdating {
     public let resourceType = ResourceType.Genre
     
     /// URL pointing to the genre detail resource.
-    public private(set) var api_detail_url: NSURL?
+    public fileprivate(set) var api_detail_url: URL?
     
     /// Date the genre was added to Giant Bomb.
-    public private(set) var date_added: NSDate?
+    public fileprivate(set) var date_added: Date?
     
     /// Date the genre was last updated on Giant Bomb.
-    public private(set) var date_last_updated: NSDate?
+    public fileprivate(set) var date_last_updated: Date?
     
     /// Brief summary of the genre.
-    public private(set) var deck: String?
+    public fileprivate(set) var deck: String?
     
     /// Description of the genre.
-    public private(set) var description: String?
+    public fileprivate(set) var description: String?
     
     /// Unique ID of the genre.
     public let id: Int?
     
     /// Main image of the genre.
-    public private(set) var image: ImageURLs?
+    public fileprivate(set) var image: ImageURLs?
     
     /// Name of the genre.
-    public private(set) var name: String?
+    public fileprivate(set) var name: String?
     
     /// URL pointing to the genre on Giant Bomb.
-    public private(set) var site_detail_url: NSURL?
+    public fileprivate(set) var site_detail_url: URL?
     
     /// Extended info. Unused for this resource type.
     public var extendedInfo: UnusedExtendedInfo?
@@ -53,14 +53,14 @@ final public class GenreResource: ResourceUpdating {
         
         id = json["id"] as? Int
 
-        update(json)
+        update(json: json)
     }
     
     func update(json: [String : AnyObject]) {
         
-        api_detail_url = (json["api_detail_url"] as? String)?.url() ?? api_detail_url
-        date_added = (json["date_added"] as? String)?.dateRepresentation() ?? date_added
-        date_last_updated = (json["date_last_updated"] as? String)?.dateRepresentation() ?? date_last_updated
+        api_detail_url = (json["api_detail_url"] as? String)?.url() as URL?? ?? api_detail_url
+        date_added = (json["date_added"] as? String)?.dateRepresentation() as Date?? ?? date_added
+        date_last_updated = (json["date_last_updated"] as? String)?.dateRepresentation() as Date?? ?? date_last_updated
         deck = json["deck"] as? String ?? deck
         description = json["description"] as? String ?? description
         
@@ -69,7 +69,7 @@ final public class GenreResource: ResourceUpdating {
         }
         
         name = json["name"] as? String ?? name
-        site_detail_url = (json["site_detail_url"] as? String)?.url() ?? site_detail_url
+        site_detail_url = (json["site_detail_url"] as? String)?.url() as URL?? ?? site_detail_url
     }
     
     /// Pretty description of the genre.

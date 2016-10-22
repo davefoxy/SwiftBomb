@@ -21,13 +21,13 @@ extension SwiftBomb {
      - parameter sort: An optional definition of how to sort the resources
      - parameter completion: A closure which contains an instance of `SearchResults` where the results can be found and, optionally, a `RequestError` if the operation failed.
      */
-    public static func performSearch(query: String? = nil, resourceTypes: [ResourceType]? = nil, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil, completion: (searchResults: SearchResults?, error: RequestError?) -> Void) {
+    public static func performSearch(_ query: String? = nil, resourceTypes: [ResourceType]? = nil, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil, completion: @escaping (_ searchResults: SearchResults?, _ error: RequestError?) -> Void) {
         
         let instance = SwiftBomb.framework
         guard
             let requestFactory = instance.requestFactory,
             let networkingManager = instance.networkingManager else {
-                completion(searchResults: nil, error: .FrameworkConfigError)
+                completion(nil, .frameworkConfigError)
                 return
         }
         
@@ -35,20 +35,20 @@ extension SwiftBomb {
         networkingManager.performRequest(request) { result in
             
             switch result {
-            case .Success(let json):
+            case .success(let json):
                 
                 guard let json = json as? [String: AnyObject] else {
                     return
                 }
                 
                 let searchResults = SearchResults(json: json)
-                dispatch_async(dispatch_get_main_queue(), {
-                    completion(searchResults: searchResults, error: nil)
+                DispatchQueue.main.async(execute: {
+                    completion(searchResults, nil)
                 })
                 
-            case .Error(let error):
-                dispatch_async(dispatch_get_main_queue(), {
-                    completion(searchResults: nil, error: error)
+            case .error(let error):
+                DispatchQueue.main.async(execute: {
+                    completion(nil, error)
                 })
             }
         }
@@ -57,7 +57,7 @@ extension SwiftBomb {
 
 extension RequestFactory {
     
-    func searchRequest(query: String? = nil, resourceTypes: [ResourceType]? = nil, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil) -> SwiftBombRequest {
+    func searchRequest(_ query: String? = nil, resourceTypes: [ResourceType]? = nil, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil) -> SwiftBombRequest {
         
         var request = SwiftBombRequest(configuration: configuration, path: "search", method: .GET, pagination: pagination, sort: sort)
         addAuthentication(&request)

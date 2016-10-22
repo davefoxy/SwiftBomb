@@ -12,31 +12,31 @@ import Foundation
 public enum Gender: Int {
     
     /// The gender could not be inferred from the Giant Bomb API.
-    case Unknown = 0
+    case unknown = 0
     
     /// Male
-    case Male
+    case male
     
     /// Female
-    case Female
+    case female
     
     /// Other. Used for characters like robots or other entities without a sex.
-    case Other
+    case other
     
     /// Returns a user-facing representation of the gender.
     public var description: String {
         get {
             switch self {
-            case Unknown:
+            case .unknown:
                 return "Unknown"
                 
-            case Male:
+            case .male:
                 return "Male"
                 
-            case Female:
+            case .female:
                 return "Female"
                 
-            case Other:
+            case .other:
                 return "Other"
             }
         }

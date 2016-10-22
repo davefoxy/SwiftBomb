@@ -26,7 +26,7 @@ public enum ComingUpItemType: String {
     case Article = "article"
     
     init(safeRawValueOrUnknown: String) {
-        self = ComingUpItemType(rawValue: safeRawValueOrUnknown.lowercaseString) ?? .Unknown
+        self = ComingUpItemType(rawValue: safeRawValueOrUnknown.lowercased()) ?? .Unknown
     }
 }
 
@@ -45,10 +45,10 @@ public struct ComingUpScheduleItem {
     public let title: String?
     
     /// URL pointing to the image of the item.
-    public let imageURL: NSURL?
+    public let imageURL: URL?
     
     /// The date this item will go live on Giant Bomb. SwiftBomb will convert the PDT time Giant Bomb returns to an NSDate in the UTC timezone. Set your NSDateFormatter's `timeZone` property to `NSTimeZone.localTimeZone()` to adjust it correctly to your user's device. This will not be available for currently live streams found in `ComingUpSchedule`'s `liveNow` property.
-    public let date: NSDate?
+    public let date: Date?
     
     /// Boolean indicating whether or not this a premium item or not. This will not be available for currently live streams found in `ComingUpSchedule`'s `liveNow` property.
     public let premium: Bool
@@ -64,8 +64,8 @@ public struct ComingUpScheduleItem {
         }
         
         self.title = json["title"] as? String
-        self.imageURL = (json["image"] as? String)?.url()
-        self.date = (json["date"] as? String)?.comingUpItemDateRepresentation()
+        self.imageURL = (json["image"] as? String)?.url() as URL?
+        self.date = (json["date"] as? String)?.comingUpItemDateRepresentation() as Date?
         self.premium = json["premium"] as? Bool ?? false
     }
 }

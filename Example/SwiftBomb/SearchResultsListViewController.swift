@@ -25,7 +25,7 @@ class SearchResultsListViewController: UIViewController, UITableViewDelegate, UI
         tableView.estimatedRowHeight = 100
     }
     
-    func loadMoreResources(query: String) {
+    func loadMoreResources(_ query: String) {
         
         setLoadingPage(true)
         
@@ -38,12 +38,12 @@ class SearchResultsListViewController: UIViewController, UITableViewDelegate, UI
         }
     }
     
-    func setLoadingPage(loading: Bool) {
+    func setLoadingPage(_ loading: Bool) {
         
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = loading
+        UIApplication.shared.isNetworkActivityIndicatorVisible = loading
         
         if loading {
-            let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+            let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
             var indicatorFrame = activityIndicator.frame
             indicatorFrame.size.height += 50
             activityIndicator.frame = indicatorFrame
@@ -56,7 +56,7 @@ class SearchResultsListViewController: UIViewController, UITableViewDelegate, UI
         }
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         
         guard let searchResults = searchResults else {
             return 0
@@ -65,7 +65,7 @@ class SearchResultsListViewController: UIViewController, UITableViewDelegate, UI
         return searchResults.availableResourceTypes().count
     }
     
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
         guard let searchResults = searchResults else {
             return nil
@@ -74,7 +74,7 @@ class SearchResultsListViewController: UIViewController, UITableViewDelegate, UI
         return searchResults.availableResourceTypes()[section].rawValue
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         guard let searchResults = searchResults else {
             return 0
@@ -85,18 +85,18 @@ class SearchResultsListViewController: UIViewController, UITableViewDelegate, UI
         return searchResults.resourceSummariesOfType(resourceType).count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard
-            let cell = tableView.dequeueReusableCellWithIdentifier(cellName, forIndexPath: indexPath) as? ResourceTableViewCell,
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellName, for: indexPath) as? ResourceTableViewCell,
             let searchResults = searchResults
             else {
                 assertionFailure("Failed to create tableviewCell with ID '\(cellName)'")
                 return UITableViewCell()
         }
         
-        let resourceType = searchResults.availableResourceTypes()[indexPath.section]
-        let summary = searchResults.resourceSummariesOfType(resourceType)[indexPath.row]
+        let resourceType = searchResults.availableResourceTypes()[(indexPath as NSIndexPath).section]
+        let summary = searchResults.resourceSummariesOfType(resourceType)[(indexPath as NSIndexPath).row]
 
         let cellPresenter = ResourceItemCellPresenter(imageURL: summary.image?.small, title: summary.prettyDescription, subtitle: nil)
         cell.cellPresenter = cellPresenter
@@ -105,7 +105,7 @@ class SearchResultsListViewController: UIViewController, UITableViewDelegate, UI
     }
     
     /// MARK: UISearchBarDelegate
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
         guard let searchTerm = searchBar.text else {
             return

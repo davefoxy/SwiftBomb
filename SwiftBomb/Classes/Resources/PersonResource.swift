@@ -19,52 +19,52 @@ final public class PersonResource: ResourceUpdating {
     public let resourceType = ResourceType.Person
 
     /// Array of aliases the person is known by.
-    public private(set) var aliases: [String]?
+    public fileprivate(set) var aliases: [String]?
     
     /// URL pointing to the person detail resource.
-    public private(set) var api_detail_url: NSURL?
+    public fileprivate(set) var api_detail_url: URL?
     
     /// Date the person was born.
-    public private(set) var birth_date: NSDate?
+    public fileprivate(set) var birth_date: Date?
     
     /// Country the person resides in.
-    public private(set) var country: String?
+    public fileprivate(set) var country: String?
     
     /// Date the person was added to Giant Bomb.
-    public private(set) var date_added: NSDate?
+    public fileprivate(set) var date_added: Date?
     
     /// Date the person was last updated on Giant Bomb.
-    public private(set) var date_last_updated: NSDate?
+    public fileprivate(set) var date_last_updated: Date?
     
     /// Date the person died.
-    public private(set) var death_date: NSDate?
+    public fileprivate(set) var death_date: Date?
     
     /// Brief summary of the person.
-    public private(set) var deck: String?
+    public fileprivate(set) var deck: String?
     
     /// Description of the person.
-    public private(set) var description: String?
+    public fileprivate(set) var description: String?
     
     /// Game the person was first credited.
-    public private(set) var first_credited_game: GameResource?
+    public fileprivate(set) var first_credited_game: GameResource?
     
     /// Gender of the person.
-    public private(set) var gender: Gender?
+    public fileprivate(set) var gender: Gender?
     
     /// City or town the person resides in.
-    public private(set) var hometown: String?
+    public fileprivate(set) var hometown: String?
     
     /// Unique ID of the person.
     public let id: Int?
     
     /// Main image of the person.
-    public private(set) var image: ImageURLs?
+    public fileprivate(set) var image: ImageURLs?
     
     /// Name of the person.
-    public private(set) var name: String?
+    public fileprivate(set) var name: String?
     
     /// URL pointing to the person on Giant Bomb.
-    public private(set) var site_detail_url: NSURL?
+    public fileprivate(set) var site_detail_url: URL?
     
     /// Extended info.
     public var extendedInfo: PersonExtendedInfo?
@@ -74,18 +74,18 @@ final public class PersonResource: ResourceUpdating {
         
         id = json["id"] as? Int
 
-        update(json)
+        update(json: json)
     }
     
     func update(json: [String : AnyObject]) {
         
         aliases = (json["aliases"] as? String)?.newlineSeparatedStrings() ?? aliases
-        api_detail_url = (json["api_detail_url"] as? String)?.url() ?? api_detail_url
-        birth_date = (json["birth_date"] as? String)?.shortDateRepresentation() ?? birth_date
+        api_detail_url = (json["api_detail_url"] as? String)?.url() as URL?? ?? api_detail_url
+        birth_date = (json["birth_date"] as? String)?.shortDateRepresentation() as Date?? ?? birth_date
         country = json["country"] as? String ?? country
-        date_added = (json["date_added"] as? String)?.dateRepresentation() ?? date_added
-        date_last_updated = (json["date_last_updated"] as? String)?.dateRepresentation() ?? date_last_updated
-        death_date = (json["death_date"] as? String)?.shortDateRepresentation() ?? death_date
+        date_added = (json["date_added"] as? String)?.dateRepresentation() as Date?? ?? date_added
+        date_last_updated = (json["date_last_updated"] as? String)?.dateRepresentation() as Date?? ?? date_last_updated
+        death_date = (json["death_date"] as? String)?.shortDateRepresentation() as Date?? ?? death_date
         deck = json["deck"] as? String ?? deck
         description = json["description"] as? String ?? description
         
@@ -96,7 +96,7 @@ final public class PersonResource: ResourceUpdating {
         if let genderInt = json["gender"] as? Int {
             gender = Gender(rawValue: genderInt)!
         } else {
-            gender = Gender.Unknown
+            gender = Gender.unknown
         }
         
         hometown = json["hometown"] as? String ?? hometown
@@ -105,7 +105,7 @@ final public class PersonResource: ResourceUpdating {
         }
         
         name = json["name"] as? String ?? name
-        site_detail_url = (json["site_detail_url"] as? String)?.url() ?? site_detail_url
+        site_detail_url = (json["site_detail_url"] as? String)?.url() as URL?? ?? site_detail_url
     }
     
     /// Pretty description of the person.
@@ -120,25 +120,25 @@ final public class PersonResource: ResourceUpdating {
 public struct PersonExtendedInfo: ResourceExtendedInfo {
     
     /// Characters related to the person.
-    public private(set) var characters: [CharacterResource]?
+    public fileprivate(set) var characters: [CharacterResource]?
     
     /// Concepts related to the person.
-    public private(set) var concepts: [ConceptResource]?
+    public fileprivate(set) var concepts: [ConceptResource]?
     
     /// Franchises related to the person.
-    public private(set) var franchises: [FranchiseResource]?
+    public fileprivate(set) var franchises: [FranchiseResource]?
     
     /// Games the person has appeared in.
-    public private(set) var games: [GameResource]?
+    public fileprivate(set) var games: [GameResource]?
     
     /// Locations related to the person.
-    public private(set) var locations: [LocationResource]?
+    public fileprivate(set) var locations: [LocationResource]?
     
     /// Objects related to the person.
-    public private(set) var objects: [ObjectResource]?
+    public fileprivate(set) var objects: [ObjectResource]?
     
     /// People who have worked with the person.
-    public private(set) var people: [PersonResource]?
+    public fileprivate(set) var people: [PersonResource]?
     
     /// Used to create a `PersonExtendedInfo` from JSON.
     public init(json: [String : AnyObject]) {
@@ -147,7 +147,7 @@ public struct PersonExtendedInfo: ResourceExtendedInfo {
     }
     
     /// A method used for updating structs. Usually after further requests for more field data.
-    public mutating func update(json: [String : AnyObject]) {
+    public mutating func update(_ json: [String : AnyObject]) {
         
         characters = json.jsonMappedResources("characters") ?? characters
         concepts = json.jsonMappedResources("concepts") ?? concepts

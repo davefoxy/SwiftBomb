@@ -27,7 +27,7 @@ class ConceptResourcePaginator: ResourcePaginator {
         self.sort = sort
     }
     
-    func loadMore(completion: (cellPresenters: [ResourceItemCellPresenter]?, error: RequestError?) -> Void) {
+    func loadMore(completion: @escaping (_ cellPresenters: [ResourceItemCellPresenter]?, _ error: RequestError?) -> Void) {
         
         if isLoading {
             
@@ -44,23 +44,23 @@ class ConceptResourcePaginator: ResourcePaginator {
                 
                 if let concepts = results?.resources {
                     
-                    self.concepts.appendContentsOf(concepts)
+                    self.concepts.append(contentsOf: concepts)
                     
                     let cellPresenters = self.cellPresentersForResources(concepts)
                     
                     self.pagination = PaginationDefinition(self.pagination.offset + concepts.count, self.pagination.limit)
                     self.hasMore = (results?.hasMoreResults)!
                     
-                    completion(cellPresenters: cellPresenters, error: nil)
+                    completion(cellPresenters, nil)
                 }
             }
             else {
-                completion(cellPresenters: nil, error: error)
+                completion(nil, error)
             }
         }
     }
     
-    func cellPresentersForResources(concepts: [ConceptResource]) -> [ResourceItemCellPresenter] {
+    func cellPresentersForResources(_ concepts: [ConceptResource]) -> [ResourceItemCellPresenter] {
         
         var cellPresenters = [ResourceItemCellPresenter]()
         for concept in concepts {
@@ -84,10 +84,10 @@ class ConceptResourcePaginator: ResourcePaginator {
         self.hasMore = true
     }
     
-    func detailViewControllerForResourceAtIndexPath(indexPath: NSIndexPath) -> UIViewController {
+    func detailViewControllerForResourceAtIndexPath(indexPath: IndexPath) -> UIViewController {
         
-        let viewController = ConceptViewController(style: .Grouped)
-        viewController.concept = concepts[indexPath.row]
+        let viewController = ConceptViewController(style: .grouped)
+        viewController.concept = concepts[(indexPath as NSIndexPath).row]
         
         return viewController
     }

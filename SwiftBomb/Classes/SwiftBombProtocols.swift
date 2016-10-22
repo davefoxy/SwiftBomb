@@ -15,13 +15,13 @@ protocol AuthenticationStore {
 
 protocol NetworkingManager {
     
-    var urlSession: NSURLSession { get set }
+    var urlSession: URLSession { get set }
 
     var configuration: SwiftBombConfig { get }
     
-    func performPaginatedRequest<T>(request: SwiftBombRequest, objectType: T.Type, completion: (PaginatedResults<T>?, error: RequestError?) -> Void)
+    func performPaginatedRequest<T>(_ request: SwiftBombRequest, objectType: T.Type, completion: @escaping  (PaginatedResults<T>?, _ error: RequestError?) -> Void)
     
-    func performDetailRequest<T: ResourceUpdating>(request: SwiftBombRequest, resource: T, completion: (error: RequestError?) -> Void)
+    func performDetailRequest<T: ResourceUpdating>(_ request: SwiftBombRequest, resource: T, completion: @escaping (_ error: RequestError?) -> Void)
     
-    func performRequest(request: SwiftBombRequest, completion: RequestResult -> Void)
+    func performRequest(_ request: SwiftBombRequest, completion: @escaping (RequestResult) -> Void)
 }

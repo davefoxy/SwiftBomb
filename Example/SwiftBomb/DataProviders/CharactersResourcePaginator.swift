@@ -26,7 +26,7 @@ class CharactersResourcePaginator: ResourcePaginator {
         self.sort = sort
     }
     
-    func loadMore(completion: (cellPresenters: [ResourceItemCellPresenter]?, error: RequestError?) -> Void) {
+    func loadMore(completion: @escaping (_ cellPresenters: [ResourceItemCellPresenter]?, _ error: RequestError?) -> Void) {
         
         if isLoading {
             
@@ -43,23 +43,23 @@ class CharactersResourcePaginator: ResourcePaginator {
                 
                 if let characters = results?.resources {
                     
-                    self.characters.appendContentsOf(characters)
+                    self.characters.append(contentsOf: characters)
                     
                     let cellPresenters = self.cellPresentersForResources(characters)
                     
                     self.pagination = PaginationDefinition(self.pagination.offset + characters.count, self.pagination.limit)
                     self.hasMore = (results?.hasMoreResults)!
                     
-                    completion(cellPresenters: cellPresenters, error: nil)
+                    completion(cellPresenters, nil)
                 }
             }
             else {
-                completion(cellPresenters: nil, error: error)
+                completion(nil, error)
             }
         }
     }
     
-    func cellPresentersForResources(characters: [CharacterResource]) -> [ResourceItemCellPresenter] {
+    func cellPresentersForResources(_ characters: [CharacterResource]) -> [ResourceItemCellPresenter] {
         
         var cellPresenters = [ResourceItemCellPresenter]()
         for character in characters {
@@ -83,10 +83,10 @@ class CharactersResourcePaginator: ResourcePaginator {
         self.hasMore = true
     }
     
-    func detailViewControllerForResourceAtIndexPath(indexPath: NSIndexPath) -> UIViewController {
+    func detailViewControllerForResourceAtIndexPath(indexPath: IndexPath) -> UIViewController {
         
-        let viewController = CharacterViewController(style: .Grouped)
-        viewController.character = characters[indexPath.row]
+        let viewController = CharacterViewController(style: .grouped)
+        viewController.character = characters[(indexPath as NSIndexPath).row]
         
         return viewController
     }

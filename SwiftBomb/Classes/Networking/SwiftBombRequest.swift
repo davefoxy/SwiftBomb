@@ -16,23 +16,23 @@ struct SwiftBombRequest {
     }
     
     enum ResponseFormat {
-        case JSON
-        case XML
+        case json
+        case xml
     }
     
     enum BaseURLType {
-        case API
-        case Site
+        case api
+        case site
     }
     
     let configuration: SwiftBombConfig
     let path: String
     let method: Method
-    var responseFormat = ResponseFormat.JSON
-    var baseURLType: BaseURLType = .API
-    private (set) var urlParameters: [String: AnyObject] = [:]
-    private (set) var headers: [String: String] = [:]
-    private (set) var body: NSData?
+    var responseFormat = ResponseFormat.json
+    var baseURLType: BaseURLType = .api
+    fileprivate (set) var urlParameters: [String: AnyObject] = [:]
+    fileprivate (set) var headers: [String: String] = [:]
+    fileprivate (set) var body: Data?
     
     init(configuration: SwiftBombConfig, path: String, method: Method, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil, fields: [String]? = nil) {
         
@@ -45,8 +45,8 @@ struct SwiftBombRequest {
         
         // Optional pagination
         if let pagination = pagination {
-            addURLParameter("offset", value: pagination.offset)
-            addURLParameter("limit", value: pagination.limit)
+            addURLParameter("offset", value: "\(pagination.offset)")
+            addURLParameter("limit", value: "\(pagination.limit)")
         }
         
         // Optional sorting
@@ -58,48 +58,48 @@ struct SwiftBombRequest {
         addFields(fields)
     }
     
-    mutating func addURLParameter(key: String, value: AnyObject) {
+    mutating func addURLParameter(_ key: String, value: String) {
         
-        urlParameters[key] = value
+        urlParameters[key] = value as AnyObject
     }
     
-    mutating func addFields(fields: [String]?) {
+    mutating func addFields(_ fields: [String]?) {
         
         if let fields = fields {
             
-            var fieldsString = fields.joinWithSeparator(",")
-            if fieldsString.rangeOfString("id") == nil {
+            var fieldsString = fields.joined(separator: ",")
+            if fieldsString.range(of: "id") == nil {
                 fieldsString += ",id"
             }
             
-            urlParameters["field_list"] = fieldsString
+            urlParameters["field_list"] = fieldsString as AnyObject?
         }
     }
     
     /// Returns the appropriate NSURLRequest for use in the networking manager
-    func urlRequest() -> NSURLRequest {
+    func urlRequest() -> URLRequest {
         
         // Build base URL components
-        let components = NSURLComponents()
-        let baseURL = baseURLType == .API ? configuration.baseAPIURL : configuration.baseSiteURL
+        var components = URLComponents()
+        let baseURL = baseURLType == .api ? configuration.baseAPIURL : configuration.baseSiteURL
         components.scheme = baseURL.scheme
         components.host = baseURL.host
-        components.path = "\(baseURL.path!)/\(path)"
+        components.path = "\(baseURL.path)/\(path)"
         
         // Query string
-        var query = responseFormat == .JSON ? "format=json&" : "format=xml&"
+        var query = responseFormat == .json ? "format=json&" : "format=xml&"
         for (key, value) in urlParameters {
             query += "\(key)=\(value)&"
         }
-        query = query.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "&"))
+        query = query.trimmingCharacters(in: CharacterSet(charactersIn: "&"))
         components.query = query
         
         // Generate the URL
-        let url = components.URL
+        let url = components.url
         
         // Create the URL request
-        let urlRequest = NSMutableURLRequest(URL: url!)
-        urlRequest.HTTPMethod = method.rawValue
+        let urlRequest = NSMutableURLRequest(url: url!)
+        urlRequest.httpMethod = method.rawValue
         
         // Headers
         urlRequest.allHTTPHeaderFields = headers
@@ -111,9 +111,9 @@ struct SwiftBombRequest {
         
         // Body
         if let body = body {
-            urlRequest.HTTPBody = body
+            urlRequest.httpBody = body
         }
         
-        return urlRequest
+        return urlRequest as URLRequest
     }
 }

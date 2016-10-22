@@ -26,7 +26,7 @@ class AccessoryResourcePaginator: ResourcePaginator {
         self.sort = sort
     }
     
-    func loadMore(completion: (cellPresenters: [ResourceItemCellPresenter]?, error: RequestError?) -> Void) {
+    func loadMore(completion: @escaping (_ cellPresenters: [ResourceItemCellPresenter]?, _ error: RequestError?) -> Void) {
         
         if isLoading {
             
@@ -43,7 +43,7 @@ class AccessoryResourcePaginator: ResourcePaginator {
                 
                 if let accessories = results?.resources {
                     
-                    self.accessories.appendContentsOf(accessories)
+                    self.accessories.append(contentsOf: accessories)
                     
                     var cellPresenters = [ResourceItemCellPresenter]()
                     for accessory in accessories {
@@ -60,11 +60,11 @@ class AccessoryResourcePaginator: ResourcePaginator {
                     self.pagination = PaginationDefinition(self.pagination.offset + accessories.count, self.pagination.limit)
                     self.hasMore = (results?.hasMoreResults)!
                     
-                    completion(cellPresenters: cellPresenters, error: nil)
+                    completion(cellPresenters, nil)
                 }
             }
             else {
-                completion(cellPresenters: nil, error: error)
+                completion(nil, error)
             }
         }
     }
@@ -76,10 +76,10 @@ class AccessoryResourcePaginator: ResourcePaginator {
         self.hasMore = true
     }
     
-    func detailViewControllerForResourceAtIndexPath(indexPath: NSIndexPath) -> UIViewController {
+    func detailViewControllerForResourceAtIndexPath(indexPath: IndexPath) -> UIViewController {
         
-        let viewController = AccessoryViewController(style: .Grouped)
-        viewController.accessory = accessories[indexPath.row]
+        let viewController = AccessoryViewController(style: .grouped)
+        viewController.accessory = accessories[(indexPath as NSIndexPath).row]
         
         return viewController
     }

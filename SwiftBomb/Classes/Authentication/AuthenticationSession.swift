@@ -9,28 +9,28 @@
 import Foundation
 
 enum AuthenticationStage {
-    case Idle
-    case ReadyForUserRegCodeInput(regCode: String)
-    case PollingForAPIKey
-    case Authenticated(apiKey: String)
-    case Failed(error: AuthenticationError)
+    case idle
+    case readyForUserRegCodeInput(regCode: String)
+    case pollingForAPIKey
+    case authenticated(apiKey: String)
+    case failed(error: AuthenticationError)
 }
 
-enum AuthenticationError: ErrorType {
-    case FailedToRetrieveRegCode
-    case FailedToAuthenticateRegCode
-    case AuthenticationPollingTimedOut
-    case ResponseSerializationError
+enum AuthenticationError: Error {
+    case failedToRetrieveRegCode
+    case failedToAuthenticateRegCode
+    case authenticationPollingTimedOut
+    case responseSerializationError
 }
 
 class AuthenticationSession {
     
-    private var requestFactory: RequestFactory
-    private var networkingManager: NetworkingManager
-    private var authenticationStore: AuthenticationStore
-    private var apiKeyPollingTimer: NSTimer?
-    private var apiPollingDirective: APIPollingDirective?
-    private var authStageProgress: AuthenticationStage -> Void?
+    fileprivate var requestFactory: RequestFactory
+    fileprivate var networkingManager: NetworkingManager
+    fileprivate var authenticationStore: AuthenticationStore
+    fileprivate var apiKeyPollingTimer: Timer?
+    fileprivate var apiPollingDirective: APIPollingDirective?
+    fileprivate var authStageProgress: (AuthenticationStage) -> Void?
     
     init(requestFactory: RequestFactory, networkingManager: NetworkingManager, authenticationStore: AuthenticationStore) {
         
@@ -42,7 +42,7 @@ class AuthenticationSession {
         }
     }
     
-    func beginAuthenticationFlow(authStageProgress: AuthenticationStage -> Void) {
+    func beginAuthenticationFlow(_ authStageProgress: @escaping (AuthenticationStage) -> Void) {
         
         self.authStageProgress = authStageProgress
         
@@ -51,60 +51,60 @@ class AuthenticationSession {
         networkingManager.performRequest(regCodeRequest) { result in
             
             switch result {
-            case .Success(let responseData):
+            case .success(let responseData):
                 
                 // This is xml! :(
-                self.apiPollingDirective = APIPollingDirective(xml: responseData as! NSData)
+                self.apiPollingDirective = APIPollingDirective(xml: responseData as! Data)
                 
                 if let regCode = self.apiPollingDirective?.regCode {
-                    self.authStageProgress(.ReadyForUserRegCodeInput(regCode: regCode))
+                    self.authStageProgress(.readyForUserRegCodeInput(regCode: regCode))
                     
-                    self.apiKeyPollingTimer = NSTimer.scheduledTimerWithTimeInterval((self.apiPollingDirective?.retryInterval)!, target: self, selector: #selector(AuthenticationSession.pollAPIKeyEndpoint), userInfo: nil, repeats: true)
+                    self.apiKeyPollingTimer = Timer.scheduledTimer(timeInterval: (self.apiPollingDirective?.retryInterval)!, target: self, selector: #selector(AuthenticationSession.pollAPIKeyEndpoint), userInfo: nil, repeats: true)
                     self.apiKeyPollingTimer?.tolerance = 5
-                    NSRunLoop.mainRunLoop().addTimer(self.apiKeyPollingTimer!, forMode: NSDefaultRunLoopMode)
+                    RunLoop.main.add(self.apiKeyPollingTimer!, forMode: RunLoopMode.defaultRunLoopMode)
                 }
                 
-            case .Error:
-                authStageProgress(.Failed(error: .ResponseSerializationError))
+            case .error:
+                authStageProgress(.failed(error: .responseSerializationError))
             }
             
         }
     }
     
-    @objc func pollAPIKeyEndpoint(timer: NSTimer) {
+    @objc func pollAPIKeyEndpoint(_ timer: Timer) {
         
         guard let regCode = self.apiPollingDirective?.regCode else {
-            authStageProgress(.Failed(error: .FailedToRetrieveRegCode))
+            authStageProgress(.failed(error: .failedToRetrieveRegCode))
             return
         }
         
         if self.apiPollingDirective?.shouldGiveUp == true {
-            authStageProgress(.Failed(error: .AuthenticationPollingTimedOut))
+            authStageProgress(.failed(error: .authenticationPollingTimedOut))
             self.apiKeyPollingTimer?.invalidate()
             self.apiKeyPollingTimer = nil
         }
         
-        authStageProgress(.PollingForAPIKey)
+        authStageProgress(.pollingForAPIKey)
         
         let apiKeyRequest = requestFactory.authenticationAPIKeyRequest(regCode)
         networkingManager.performRequest(apiKeyRequest) { result in
                         
             switch result {
-            case .Success(let json):
+            case .success(let json):
                 
                 if json["status"] as? String == "success" {
                     
                     if let regToken = json["regToken"] as? String {
                         self.authenticationStore.apiKey = regToken
-                        self.authStageProgress(.Authenticated(apiKey: regToken))
+                        self.authStageProgress(.authenticated(apiKey: regToken))
                         
                         self.apiKeyPollingTimer?.invalidate()
                         self.apiKeyPollingTimer = nil
                     }
                 }
                 
-            case .Error:
-                self.authStageProgress(.Failed(error: .FailedToAuthenticateRegCode))
+            case .error:
+                self.authStageProgress(.failed(error: .failedToAuthenticateRegCode))
             }
         }
     }
@@ -118,39 +118,39 @@ struct APIPollingDirective {
     }
     
     let status: Status
-    var retryInterval: NSTimeInterval
-    var retryDuration: NSTimeInterval
+    var retryInterval: TimeInterval
+    var retryDuration: TimeInterval
     var regCode: String?
-    let creationDate: NSDate?
+    let creationDate: Date?
     var shouldGiveUp: Bool {
         get {
-            return NSDate().timeIntervalSinceDate(creationDate!) > retryDuration
+            return Date().timeIntervalSince(creationDate!) > retryDuration
         }
     }
     
-    init(xml: NSData) {
+    init(xml: Data) {
         
-        let xmlString = NSString(data: xml, encoding: NSUTF8StringEncoding)
+        let xmlString = NSString(data: xml, encoding: String.Encoding.utf8.rawValue)
         
-        creationDate = NSDate()
+        creationDate = Date()
         
         let statusString = APIPollingDirective.stringFromTag(xmlString!, tag: "status")
         status = Status(rawValue: statusString)!
         
         let retryIntervalString = APIPollingDirective.stringFromTag(xmlString!, tag: "retryInterval")
-        retryInterval = NSTimeInterval(retryIntervalString)!
+        retryInterval = TimeInterval(retryIntervalString)!
         
         let retryDurationString = APIPollingDirective.stringFromTag(xmlString!, tag: "retryDuration")
-        retryDuration = NSTimeInterval(retryDurationString)!
+        retryDuration = TimeInterval(retryDurationString)!
         
         regCode = APIPollingDirective.stringFromTag(xmlString!, tag: "regCode")
     }
     
-    static func stringFromTag(xml: NSString, tag: NSString) -> String {
+    static func stringFromTag(_ xml: NSString, tag: NSString) -> String {
         
-        let location = (xml.rangeOfString("<\(tag)>").location) + tag.length + 2
-        let end = xml.rangeOfString("</\(tag)>").location
-        return xml.substringWithRange(NSMakeRange(location, end-location))
+        let location = (xml.range(of: "<\(tag)>").location) + tag.length + 2
+        let end = xml.range(of: "</\(tag)>").location
+        return xml.substring(with: NSMakeRange(location, end-location))
         
     }
 }

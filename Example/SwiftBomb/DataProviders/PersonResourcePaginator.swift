@@ -27,7 +27,7 @@ class PersonResourcePaginator: ResourcePaginator {
         self.sort = sort
     }
     
-    func loadMore(completion: (cellPresenters: [ResourceItemCellPresenter]?, error: RequestError?) -> Void) {
+    func loadMore(completion: @escaping (_ cellPresenters: [ResourceItemCellPresenter]?, _ error: RequestError?) -> Void) {
         
         if isLoading {
             
@@ -44,23 +44,23 @@ class PersonResourcePaginator: ResourcePaginator {
                 
                 if let people = results?.resources {
                     
-                    self.people.appendContentsOf(people)
+                    self.people.append(contentsOf: people)
                     
                     let cellPresenters = self.cellPresentersForResources(people)
                     
                     self.pagination = PaginationDefinition(self.pagination.offset + people.count, self.pagination.limit)
                     self.hasMore = (results?.hasMoreResults)!
                     
-                    completion(cellPresenters: cellPresenters, error: nil)
+                    completion(cellPresenters, nil)
                 }
             }
             else {
-                completion(cellPresenters: nil, error: error)
+                completion(nil, error)
             }
         }
     }
     
-    func cellPresentersForResources(people: [PersonResource]) -> [ResourceItemCellPresenter] {
+    func cellPresentersForResources(_ people: [PersonResource]) -> [ResourceItemCellPresenter] {
         
         var cellPresenters = [ResourceItemCellPresenter]()
         for person in people {
@@ -84,10 +84,10 @@ class PersonResourcePaginator: ResourcePaginator {
         self.hasMore = true
     }
     
-    func detailViewControllerForResourceAtIndexPath(indexPath: NSIndexPath) -> UIViewController {
+    func detailViewControllerForResourceAtIndexPath(indexPath: IndexPath) -> UIViewController {
         
-        let viewController = PersonViewController(style: .Grouped)
-        viewController.person = people[indexPath.row]
+        let viewController = PersonViewController(style: .grouped)
+        viewController.person = people[(indexPath as NSIndexPath).row]
         
         return viewController
     }

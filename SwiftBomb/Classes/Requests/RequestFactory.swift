@@ -56,13 +56,13 @@ final class RequestFactory {
         self.authenticationStore = authenticationStore
     }
     
-    func addAuthentication(inout request: SwiftBombRequest) {
+    func addAuthentication(_ request: inout SwiftBombRequest) {
         
         request.addURLParameter("api_key", value: authenticationStore.apiKey)
     }
     
     // MARK: Base requests
-    func simpleRequest(path: String, requiresAuth: Bool = true, fields: [String]? = nil) -> SwiftBombRequest {
+    func simpleRequest(_ path: String, requiresAuth: Bool = true, fields: [String]? = nil) -> SwiftBombRequest {
         
         var request = SwiftBombRequest(configuration: configuration, path: path, method: .GET, fields: fields)
         if requiresAuth {

@@ -19,43 +19,43 @@ final public class VideoResource: ResourceUpdating {
     public let resourceType = ResourceType.Video
     
     /// URL pointing to the video detail resource.
-    public private(set) var api_detail_url: NSURL?
+    public fileprivate(set) var api_detail_url: URL?
     
     /// Brief summary of the video.
-    public private(set) var deck: String?
+    public fileprivate(set) var deck: String?
     
     /// Unique ID of the video.
     public let id: Int?
     
     /// Length (in seconds) of the video.
-    public private(set) var length_seconds: Int?
+    public fileprivate(set) var length_seconds: Int?
     
     /// Name of the video.
-    public private(set) var name: String?
+    public fileprivate(set) var name: String?
     
     /// Date the video was published on Giant Bomb.
-    public private(set) var publish_date: NSDate?
+    public fileprivate(set) var publish_date: Date?
     
     /// URL pointing to the video on Giant Bomb.
-    public private(set) var site_detail_url: NSURL?
+    public fileprivate(set) var site_detail_url: URL?
     
     /// Author of the video.
-    public private(set) var user: String?
+    public fileprivate(set) var user: String?
     
     /// Video category.
-    public private(set) var video_type: String?
+    public fileprivate(set) var video_type: String?
     
     /// Youtube ID for the video.
-    public private(set) var youtube_id: String?
+    public fileprivate(set) var youtube_id: String?
     
     /// The video's filename.
-    public private(set) var url: String?
+    public fileprivate(set) var url: String?
     
     /// Container for the video's image.
-    public private(set) var image: ImageURLs?
+    public fileprivate(set) var image: ImageURLs?
     
     /// Container for the video's URLs.
-    public private(set) var urls: VideoURLs?
+    public fileprivate(set) var urls: VideoURLs?
     
     /// Extended info. Unused for this resource type.
     public var extendedInfo: UnusedExtendedInfo?
@@ -65,17 +65,24 @@ final public class VideoResource: ResourceUpdating {
         
         id = json["id"] as? Int
         
-        update(json)
+        update(json: json)
     }
     
     func update(json: [String : AnyObject]) {
         
-        api_detail_url = (json["api_detail_url"] as? String)?.url() ?? api_detail_url
+        api_detail_url = (json["api_detail_url"] as? String)?.url() as URL? ?? api_detail_url
+        
+        
+        
+        
+        
+        
+        
         deck = json["deck"] as? String ?? deck
         length_seconds = json["length_seconds"] as? Int ?? length_seconds
         name = json["name"] as? String ?? name
-        publish_date = (json["publish_date"] as? String)?.dateRepresentation() ?? publish_date
-        site_detail_url = (json["site_detail_url"] as? String)?.url() ?? site_detail_url
+        publish_date = (json["publish_date"] as? String)?.dateRepresentation() as Date?? ?? publish_date
+        site_detail_url = (json["site_detail_url"] as? String)?.url() as URL?? ?? site_detail_url
         user = json["user"] as? String ?? user
         video_type = json["video_type"] as? String ?? video_type
         youtube_id = json["youtube_id"] as? String ?? youtube_id

@@ -19,13 +19,13 @@ extension SwiftBomb {
      - parameter fields: An optional array of fields to return in the response. See the available options at http://www.giantbomb.com/api/documentation#toc-0-2. Pass nil to return everything.
      - parameter completion: A closure returning an optional generic `PaginatedResults` object containing the returned `AccessoryResource` objects and pagination information and also, an optional `RequestError` object if the request failed.
      */
-    public static func fetchAccessories(query: String? = nil, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil, fields: [String]? = nil, completion: (PaginatedResults<AccessoryResource>?, error: RequestError?) -> Void) {
+    public static func fetchAccessories(_ query: String? = nil, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil, fields: [String]? = nil, completion: @escaping (PaginatedResults<AccessoryResource>?, _ error: RequestError?) -> Void) {
         
         let instance = SwiftBomb.framework
         guard
             let requestFactory = instance.requestFactory,
             let networkingManager = instance.networkingManager else {
-                completion(nil, error: .FrameworkConfigError)
+                completion(nil, .frameworkConfigError)
                 return
         }
 
@@ -36,7 +36,7 @@ extension SwiftBomb {
 
 extension RequestFactory {
     
-    func accessoriesRequest(query: String? = nil, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil, fields: [String]?) -> SwiftBombRequest {
+    func accessoriesRequest(_ query: String? = nil, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil, fields: [String]?) -> SwiftBombRequest {
         
         var request = SwiftBombRequest(configuration: configuration, path: "accessories", method: .GET, pagination: pagination, sort: sort, fields: fields)
         addAuthentication(&request)
@@ -57,7 +57,7 @@ extension AccessoryResource {
      - parameter fields: An optional array of fields to return in the response. See the available options at http://www.giantbomb.com/api/documentation#toc-0-2. Pass nil to return everything.
      - parameter completion: A closure containing an optional `RequestError` if the request failed.
      */
-    public func fetchExtendedInfo(fields: [String]? = nil, completion: (error: RequestError?) -> Void) {
+    public func fetchExtendedInfo(_ fields: [String]? = nil, completion: @escaping (_ error: RequestError?) -> Void) {
         
         let api = SwiftBomb.framework
         
@@ -65,7 +65,7 @@ extension AccessoryResource {
             let networkingManager = api.networkingManager,
             let id = id,
             let request = api.requestFactory?.simpleRequest("accessory/\(id)/", fields: fields) else {
-                completion(error: .FrameworkConfigError)
+                completion(.frameworkConfigError)
                 return
         }
         

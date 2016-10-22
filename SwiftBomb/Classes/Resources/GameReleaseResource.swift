@@ -19,67 +19,67 @@ final public class GameReleaseResource: ResourceUpdating {
     public let resourceType = ResourceType.Release
     
     /// URL pointing to the release detail resource.
-    public private(set) var api_detail_url: NSURL?
+    public fileprivate(set) var api_detail_url: URL?
     
     /// Date the release was added to Giant Bomb.
-    public private(set) var date_added: NSDate?
+    public fileprivate(set) var date_added: Date?
     
     /// Date the release was last updated on Giant Bomb.
-    public private(set) var date_last_updated: NSDate?
+    public fileprivate(set) var date_last_updated: Date?
     
     /// Brief summary of the release.
-    public private(set) var deck: String?
+    public fileprivate(set) var deck: String?
     
     /// Description of the release.
-    public private(set) var description: String?
+    public fileprivate(set) var description: String?
     
     /// Expected date the game will be released.
-    public private(set) var expected_release_date: NSDate?
+    public fileprivate(set) var expected_release_date: Date?
     
     /// Game the release is for.
-    public private(set) var game: GameResource?
+    public fileprivate(set) var game: GameResource?
     
     /// Rating of the release.
-    public private(set) var game_rating: (id: Int, name: String)?
+    public fileprivate(set) var game_rating: (id: Int, name: String)?
     
     /// Unique ID of the release.
     public let id: Int?
     
     /// Main image of the release.
-    public private(set) var image: ImageURLs?
+    public fileprivate(set) var image: ImageURLs?
     
     /// Maximum players.
-    public private(set) var maximum_players: Int?
+    public fileprivate(set) var maximum_players: Int?
     
     /// Minimum players.
-    public private(set) var minimum_players: Int?
+    public fileprivate(set) var minimum_players: Int?
     
     /// Name of the release.
-    public private(set) var name: String?
+    public fileprivate(set) var name: String?
     
     /// The release's platform.
-    public private(set) var platform: PlatformResource?
+    public fileprivate(set) var platform: PlatformResource?
     
     /// The release's product code.
-    public private(set) var product_code_value: String?
+    public fileprivate(set) var product_code_value: String?
     
     /// Region the release is responsible for.
-    public private(set) var region: (id: Int, name: String)?
+    public fileprivate(set) var region: (id: Int, name: String)?
     
     /// Date of the release.
-    public private(set) var release_date: NSDate?
+    public fileprivate(set) var release_date: Date?
     
     /// Resolutions available.
-    public private(set) var resolutions: [(id: Int, name: String)]?
+    public fileprivate(set) var resolutions: [(id: Int, name: String)]?
     
     /// Sound systems.
-    public private(set) var sound_systems: [(id: Int, name: String)]?
+    public fileprivate(set) var sound_systems: [(id: Int, name: String)]?
     
     /// URL pointing to the release on Giant Bomb.
-    public private(set) var site_detail_url: NSURL?
+    public fileprivate(set) var site_detail_url: URL?
     
     /// Widescreen support.
-    public private(set) var widescreen_support: Bool?
+    public fileprivate(set) var widescreen_support: Bool?
     
     /// Extended info.
     public var extendedInfo: GameReleaseExtendedInfo?
@@ -89,25 +89,25 @@ final public class GameReleaseResource: ResourceUpdating {
         
         id = json["id"] as? Int
         
-        update(json)
+        update(json: json)
     }
     
     func update(json: [String : AnyObject]) {
         
-        api_detail_url = (json["api_detail_url"] as? String)?.url() ?? api_detail_url
-        date_added = (json["date_added"] as? String)?.dateRepresentation() ?? date_added
-        date_last_updated = (json["date_last_updated"] as? String)?.dateRepresentation() ?? date_last_updated
+        api_detail_url = (json["api_detail_url"] as? String)?.url() as URL?? ?? api_detail_url
+        date_added = (json["date_added"] as? String)?.dateRepresentation() as Date?? ?? date_added
+        date_last_updated = (json["date_last_updated"] as? String)?.dateRepresentation() as Date?? ?? date_last_updated
         deck = json["deck"] as? String ?? deck
         description = json["description"] as? String ?? description
         
         if let expectedReleaseDay = json["expected_release_day"] as? Int,
             let expectedReleaseMonth = json["expected_release_month"] as? Int,
             let expectedReleaseYear = json["expected_release_year"] as? Int {
-            let dateComponents = NSDateComponents()
+            var dateComponents = DateComponents()
             dateComponents.day = expectedReleaseDay
             dateComponents.month = expectedReleaseMonth
             dateComponents.year = expectedReleaseYear
-            expected_release_date = NSCalendar.currentCalendar().dateFromComponents(dateComponents)
+            expected_release_date = Calendar.current.date(from: dateComponents)
         }
         
         if let gameJSON = json["game"] as? [String: AnyObject] {
@@ -130,7 +130,7 @@ final public class GameReleaseResource: ResourceUpdating {
         
         product_code_value = json["product_code_value"] as? String ?? product_code_value
         region = (json["region"] as? [String: AnyObject])?.idNameTupleMap() ?? region
-        release_date = (json["release_date"] as? String)?.dateRepresentation() ?? release_date
+        release_date = (json["release_date"] as? String)?.dateRepresentation() as Date?? ?? release_date
         resolutions = (json["resolutions"] as? [[String: AnyObject]])?.idNameTupleMaps() ?? resolutions
     }
     
@@ -146,13 +146,13 @@ final public class GameReleaseResource: ResourceUpdating {
 public struct GameReleaseExtendedInfo: ResourceExtendedInfo {
     
     /// Companies who developed the release.
-    public private(set) var developers: [CompanyResource]?
+    public fileprivate(set) var developers: [CompanyResource]?
     
     /// List of images associated to the release.
-    public private(set) var images: [ImageURLs]?
+    public fileprivate(set) var images: [ImageURLs]?
     
     /// Companies who published the release.
-    public private(set) var publishers: [CompanyResource]?
+    public fileprivate(set) var publishers: [CompanyResource]?
     
     /// Used to create a `GameReleaseExtendedInfo` from JSON.
     public init(json: [String : AnyObject]) {
@@ -161,7 +161,7 @@ public struct GameReleaseExtendedInfo: ResourceExtendedInfo {
     }
     
     /// A method used for updating structs. Usually after further requests for more field data.
-    public mutating func update(json: [String : AnyObject]) {
+    public mutating func update(_ json: [String : AnyObject]) {
         
         developers = json.jsonMappedResources("developers") ?? developers
         publishers = json.jsonMappedResources("publishers") ?? publishers

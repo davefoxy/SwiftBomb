@@ -16,40 +16,40 @@ import Foundation
 final public class StaffReviewResource: ResourceUpdating {
     
     /// The resource type.
-    public private(set) var resourceType = ResourceType.Review
+    public fileprivate(set) var resourceType = ResourceType.Review
     
     /// URL pointing to the review detail resource.
-    public private(set) var api_detail_url: NSURL?
+    public fileprivate(set) var api_detail_url: URL?
     
     /// Brief summary of the review.
-    public private(set) var deck: String?
+    public fileprivate(set) var deck: String?
     
     /// Description of the review.
-    public private(set) var description: String?
+    public fileprivate(set) var description: String?
     
     /// Name of the Downloadable Content package.
-    public private(set) var dlc_name: String?
+    public fileprivate(set) var dlc_name: String?
     
     /// Game the review is for.
-    public private(set) var game: GameResource?
+    public fileprivate(set) var game: GameResource?
     
     /// Date the review was published on Giant Bomb.
-    public private(set) var publish_date: NSDate?
+    public fileprivate(set) var publish_date: Date?
     
     /// Release of game for review.
-    public private(set) var release: GameResource?
+    public fileprivate(set) var release: GameResource?
     
     /// Name of the review's author.
-    public private(set) var reviewer: String?
+    public fileprivate(set) var reviewer: String?
     
     /// The score given to the game on a scale of 1 to 5.
-    public private(set) var score: Int?
+    public fileprivate(set) var score: Int?
     
     /// URL pointing to the review on Giant Bomb.
-    public private(set) var site_detail_url: NSURL?
+    public fileprivate(set) var site_detail_url: URL?
     
     /// IDs don't exist for staff reviews in the Giant Bomb database! But to satisfy the `Resource` protocol...
-    public private(set) var id: Int? = 0
+    public fileprivate(set) var id: Int? = 0
     
     /// Take the image from the game
     public var image: ImageURLs? {
@@ -64,12 +64,12 @@ final public class StaffReviewResource: ResourceUpdating {
     /// Used to create a `StaffReviewResource` from JSON.
     public init(json: [String: AnyObject]) {
         
-        update(json)
+        update(json: json)
     }
     
     func update(json: [String : AnyObject]) {
         
-        api_detail_url = (json["api_detail_url"] as? String)?.url() ?? api_detail_url
+        api_detail_url = (json["api_detail_url"] as? String)?.url() as URL?? ?? api_detail_url
         deck = json["deck"] as? String ?? deck
         description = json["description"] as? String ?? description
         dlc_name = json["dlc_name"] as? String ?? dlc_name
@@ -78,7 +78,7 @@ final public class StaffReviewResource: ResourceUpdating {
             game = GameResource(json: gameJSON)
         }
         
-        publish_date = (json["publish_date"] as? String)?.dateRepresentation() ?? publish_date
+        publish_date = (json["publish_date"] as? String)?.dateRepresentation() as Date?? ?? publish_date
         
         if let releaseJSON = json["release"] as? [String: AnyObject] {
             release = GameResource(json: releaseJSON)
@@ -86,7 +86,7 @@ final public class StaffReviewResource: ResourceUpdating {
         
         reviewer = json["reviewer"] as? String ?? reviewer
         score = json["score"] as? Int ?? score
-        site_detail_url = (json["site_detail_url"] as? String)?.url() ?? site_detail_url
+        site_detail_url = (json["site_detail_url"] as? String)?.url() as URL?? ?? site_detail_url
     }
     
     /// Pretty description of the staff review.

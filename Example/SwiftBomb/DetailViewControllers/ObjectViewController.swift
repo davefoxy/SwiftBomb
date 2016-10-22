@@ -23,34 +23,34 @@ class ObjectViewController: BaseResourceDetailViewController {
         }
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         
         return 2
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return section == 0 ? 1 : 2
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as UITableViewCell
         
         var title = ""
-        if indexPath.section == 0 {
+        if (indexPath as NSIndexPath).section == 0 {
             
             cell.textLabel?.numberOfLines = 0
-            cell.textLabel?.lineBreakMode = .ByWordWrapping
+            cell.textLabel?.lineBreakMode = .byWordWrapping
             
-            var infos = [ResourceInfoTuple(value: object?.name, "Name:"), ResourceInfoTuple(value: object?.deck, "Deck:"), ResourceInfoTuple(value: object?.aliases?.joinWithSeparator(", "), "Aliases:")]
+            var infos = [ResourceInfoTuple(value: object?.name, "Name:"), ResourceInfoTuple(value: object?.deck, "Deck:"), ResourceInfoTuple(value: object?.aliases?.joined(separator: ", "), "Aliases:")]
             
             if let dateAdded = object?.date_added {
-                infos.append(ResourceInfoTuple(value: dateFormatter.stringFromDate(dateAdded), "Date Added:"))
+                infos.append(ResourceInfoTuple(value: dateFormatter.string(from: dateAdded), "Date Added:"))
             }
             
             if let lastUpdated = object?.date_last_updated {
-                infos.append(ResourceInfoTuple(value: dateFormatter.stringFromDate(lastUpdated), "Last Updated:"))
+                infos.append(ResourceInfoTuple(value: dateFormatter.string(from: lastUpdated), "Last Updated:"))
             }
             
             if (object?.description != nil) {
@@ -62,7 +62,7 @@ class ObjectViewController: BaseResourceDetailViewController {
             return cell
         }
         else {
-            switch indexPath.row {
+            switch (indexPath as NSIndexPath).row {
             case 0:
                 if let characters = object?.extendedInfo?.characters {
                     title = "Characters (\(characters.count))"
@@ -83,11 +83,11 @@ class ObjectViewController: BaseResourceDetailViewController {
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if indexPath.section == 0 {
+        if (indexPath as NSIndexPath).section == 0 {
             guard let description = object?.description else {
-                tableView.deselectRowAtIndexPath(indexPath, animated: true)
+                tableView.deselectRow(at: indexPath, animated: true)
                 return
             }
             
@@ -95,10 +95,10 @@ class ObjectViewController: BaseResourceDetailViewController {
         }
         else {
             
-            let resourcesList = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ResourcesListViewController") as! ResourcesListViewController
+            let resourcesList = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ResourcesListViewController") as! ResourcesListViewController
             resourcesList.shouldLoadFromServer = false
             
-            switch indexPath.row {
+            switch (indexPath as NSIndexPath).row {
             case 0:
                 // characters
                 let charactersPaginator = CharactersResourcePaginator()

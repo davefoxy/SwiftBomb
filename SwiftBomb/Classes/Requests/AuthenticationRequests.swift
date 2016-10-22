@@ -23,13 +23,13 @@ extension RequestFactory {
     func authenticationRegCodeRequest() -> SwiftBombRequest {
         
         var request = SwiftBombRequest(configuration: configuration, path: "apple-tv/get-code", method: .GET)
-        request.responseFormat = .XML
+        request.responseFormat = .xml
         request.addURLParameter("deviceID", value: "XXX")
         
         return request
     }
     
-    func authenticationAPIKeyRequest(regCode: String) -> SwiftBombRequest {
+    func authenticationAPIKeyRequest(_ regCode: String) -> SwiftBombRequest {
         
         var request = SwiftBombRequest(configuration: configuration, path: "apple-tv/get-result", method: .GET)
         request.addURLParameter("deviceID", value: "XXX")

@@ -14,11 +14,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         let networkingDelegate = NetworkingDelegate()
         
-        let configuration = SwiftBombConfig(apiKey: "YOUR_API_KEY", loggingLevel: .Requests, userAgentIdentifier: "Your User Agent", networkingDelegate: networkingDelegate, urlRequestCachePolicy: .UseProtocolCachePolicy)
+        let configuration = SwiftBombConfig(apiKey: "95d0ea04ccb8240413fcb395db8f96020c079885", loggingLevel: .requestsAndResponses, userAgentIdentifier: "Your User Agent", networkingDelegate: networkingDelegate, urlRequestCachePolicy: .useProtocolCachePolicy)
         SwiftBomb.configure(configuration)
         
         return true
@@ -27,12 +27,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 class NetworkingDelegate: SwiftBombNetworkingDelegate {
     
-    func swiftBombWillPerformRequest(request: NSURLRequest) {
+    func swiftBombWillPerformRequest(_ request: URLRequest) {
         
         print("SwiftBomb will perform request: \(request)")
     }
     
-    func swiftBombShouldPerformRequest(request: NSURLRequest) -> Bool {
+    func swiftBombShouldPerformRequest(_ request: URLRequest) -> Bool {
         
         return true
     }

@@ -18,18 +18,18 @@ class GameResourcePaginator: ResourcePaginator {
     var isLoading = false
     var hasMore: Bool = true
     var resourceType = ResourceType.Game
-    let dateFormatter = NSDateFormatter()
+    let dateFormatter = DateFormatter()
     var games = [GameResource]()
     
     init(searchTerm: String? = nil, pagination: PaginationDefinition = PaginationDefinition(offset: 0, limit: 30), sort: SortDefinition = SortDefinition(field: "name", direction: .Ascending)) {
         
-        dateFormatter.dateStyle = .MediumStyle
+        dateFormatter.dateStyle = .medium
         self.searchTerm = searchTerm
         self.pagination = pagination
         self.sort = sort
     }
     
-    func loadMore(completion: (cellPresenters: [ResourceItemCellPresenter]?, error: RequestError?) -> Void) {
+    func loadMore(completion: @escaping (_ cellPresenters: [ResourceItemCellPresenter]?, _ error: RequestError?) -> Void) {
         
         if isLoading {
             
@@ -46,30 +46,30 @@ class GameResourcePaginator: ResourcePaginator {
                 
                 if let games = results?.resources {
                     
-                    self.games.appendContentsOf(games)
+                    self.games.append(contentsOf: games)
                     
                     let cellPresenters = self.cellPresentersForResources(games)
                     
                     self.pagination = PaginationDefinition(self.pagination.offset + games.count, self.pagination.limit)
                     self.hasMore = (results?.hasMoreResults)!
                     
-                    completion(cellPresenters: cellPresenters, error: nil)
+                    completion(cellPresenters, nil)
                 }
             }
             else {
-                completion(cellPresenters: nil, error: error)
+                completion(nil, error)
             }
         }
     }
     
-    func cellPresentersForResources(games: [GameResource]) -> [ResourceItemCellPresenter] {
+    func cellPresentersForResources(_ games: [GameResource]) -> [ResourceItemCellPresenter] {
         
         var cellPresenters = [ResourceItemCellPresenter]()
         for game in games {
             
             var subtitle = ""
             if let originalReleaseDate = game.original_release_date {
-                subtitle = "Release date: \(dateFormatter.stringFromDate(originalReleaseDate))"
+                subtitle = "Release date: \(dateFormatter.string(from: originalReleaseDate))"
             }
             
             let cellPresenter = ResourceItemCellPresenter(imageURL: game.image?.small, title: game.name, subtitle: subtitle)
@@ -86,10 +86,10 @@ class GameResourcePaginator: ResourcePaginator {
         self.hasMore = true
     }
     
-    func detailViewControllerForResourceAtIndexPath(indexPath: NSIndexPath) -> UIViewController {
+    func detailViewControllerForResourceAtIndexPath(indexPath: IndexPath) -> UIViewController {
         
-        let viewController = GameViewController(style: .Grouped)
-        viewController.game = games[indexPath.row]
+        let viewController = GameViewController(style: .grouped)
+        viewController.game = games[(indexPath as NSIndexPath).row]
         
         return viewController
     }

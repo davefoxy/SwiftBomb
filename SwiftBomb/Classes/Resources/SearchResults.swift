@@ -26,31 +26,31 @@ public struct SearchResults {
     public let version: String?
     
     /// An array of `CharacterResource`s found in the search results.
-    public private(set) var characters = [CharacterResource]()
+    public fileprivate(set) var characters = [CharacterResource]()
     
     /// An array of `CompanyResource`s found in the search results.
-    public private(set) var companies = [CompanyResource]()
+    public fileprivate(set) var companies = [CompanyResource]()
     
     /// An array of `ConceptResource`s found in the search results.
-    public private(set) var concepts = [ConceptResource]()
+    public fileprivate(set) var concepts = [ConceptResource]()
     
     /// An array of `FranchiseResource`s found in the search results.
-    public private(set) var franchises = [FranchiseResource]()
+    public fileprivate(set) var franchises = [FranchiseResource]()
     
     /// An array of `GameResource`s found in the search results.
-    public private(set) var games = [GameResource]()
+    public fileprivate(set) var games = [GameResource]()
     
     /// An array of `LocationResource`s found in the search results.
-    public private(set) var locations = [LocationResource]()
+    public fileprivate(set) var locations = [LocationResource]()
     
     /// An array of `ObjectResource`s found in the search results.
-    public private(set) var objects = [ObjectResource]()
+    public fileprivate(set) var objects = [ObjectResource]()
     
     /// An array of `PersonResource`s found in the search results.
-    public private(set) var people = [PersonResource]()
+    public fileprivate(set) var people = [PersonResource]()
     
     /// An array of `VideoResource`s found in the search results.
-    public private(set) var videos = [VideoResource]()
+    public fileprivate(set) var videos = [VideoResource]()
     
     /// Used to create an instance of `SearchResults` from JSON.
     init(json: [String : AnyObject]) {
@@ -135,7 +135,7 @@ public struct SearchResults {
     /**
      Returns `ResourceSummary`s representing each of the resources found during the search
      */
-    public func resourceSummariesOfType(resourceType: ResourceType) -> [ResourceSummary] {
+    public func resourceSummariesOfType(_ resourceType: ResourceType) -> [ResourceSummary] {
         
         var results = [ResourceSummary]()
         

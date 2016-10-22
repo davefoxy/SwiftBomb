@@ -19,52 +19,52 @@ final public class PlatformResource: ResourceUpdating {
     public let resourceType = ResourceType.Platform
     
     /// Abbreviation of the platform.
-    public private(set) var abbreviation: String?
+    public fileprivate(set) var abbreviation: String?
     
     /// Array of aliases the platform is known by.
-    public private(set) var aliases: [String]?
+    public fileprivate(set) var aliases: [String]?
     
     /// URL pointing to the platform detail resource.
-    public private(set) var api_detail_url: NSURL?
+    public fileprivate(set) var api_detail_url: URL?
     
     /// Company that created the platform.
-    public private(set) var company: CompanyResource?
+    public fileprivate(set) var company: CompanyResource?
     
     /// Date the platform was added to Giant Bomb.
-    public private(set) var date_added: NSDate?
+    public fileprivate(set) var date_added: Date?
     
     /// Date the platform was last updated on Giant Bomb.
-    public private(set) var date_last_updated: NSDate?
+    public fileprivate(set) var date_last_updated: Date?
     
     /// Brief summary of the platform.
-    public private(set) var deck: String?
+    public fileprivate(set) var deck: String?
     
     /// Description of the platform.
-    public private(set) var description: String?
+    public fileprivate(set) var description: String?
     
     /// Unique ID of the platform.
     public let id: Int?
     
     /// Main image of the platform.
-    public private(set) var image: ImageURLs?
+    public fileprivate(set) var image: ImageURLs?
     
     /// Approximate number of sold hardware units.
-    public private(set) var install_base: String?
+    public fileprivate(set) var install_base: String?
     
     /// Name of the platform.
-    public private(set) var name: String?
+    public fileprivate(set) var name: String?
     
     /// Flag indicating whether the platform has online capabilities.
-    public private(set) var online_support: Bool?
+    public fileprivate(set) var online_support: Bool?
     
     /// Initial price point of the platform.
-    public private(set) var original_price: String?
+    public fileprivate(set) var original_price: String?
     
     /// Date of the platform.
-    public private(set) var release_date: NSDate?
+    public fileprivate(set) var release_date: Date?
     
     /// URL pointing to the platform on Giant Bomb.
-    public private(set) var site_detail_url: NSURL?
+    public fileprivate(set) var site_detail_url: URL?
     
     /// Extended info. Unused for this resource type.
     public var extendedInfo: UnusedExtendedInfo?
@@ -74,7 +74,7 @@ final public class PlatformResource: ResourceUpdating {
         
         id = json["id"] as? Int
         
-        update(json)
+        update(json: json)
     }
     
     /// A method used for updating structs. Usually after further requests for more field data.
@@ -82,14 +82,14 @@ final public class PlatformResource: ResourceUpdating {
         
         abbreviation = json["abbreviation"] as? String ?? abbreviation
         aliases = (json["aliases"] as? String)?.newlineSeparatedStrings() ?? aliases
-        api_detail_url = (json["api_detail_url"] as? String)?.url() ?? api_detail_url
+        api_detail_url = (json["api_detail_url"] as? String)?.url() as URL?? ?? api_detail_url
         
         if let companyJSON = json["company"] as? [String: AnyObject] {
             company = CompanyResource(json: companyJSON)
         }
         
-        date_added = (json["date_added"] as? String)?.dateRepresentation() ?? date_added
-        date_last_updated = (json["date_last_updated"] as? String)?.dateRepresentation() ?? date_last_updated
+        date_added = (json["date_added"] as? String)?.dateRepresentation() as Date?? ?? date_added
+        date_last_updated = (json["date_last_updated"] as? String)?.dateRepresentation() as Date?? ?? date_last_updated
         deck = json["deck"] as? String ?? deck
         description = json["description"] as? String ?? description
         
@@ -101,8 +101,8 @@ final public class PlatformResource: ResourceUpdating {
         name = json["name"] as? String ?? name
         online_support = json["online_support"] as? Bool ?? online_support
         original_price = json["original_price"] as? String ?? original_price
-        release_date = (json["release_date"] as? String)?.dateRepresentation() ?? release_date
-        site_detail_url = (json["site_detail_url"] as? String)?.url() ?? site_detail_url
+        release_date = (json["release_date"] as? String)?.dateRepresentation() as Date?? ?? release_date
+        site_detail_url = (json["site_detail_url"] as? String)?.url() as URL?? ?? site_detail_url
     }
     
     /// Pretty description of the platform.

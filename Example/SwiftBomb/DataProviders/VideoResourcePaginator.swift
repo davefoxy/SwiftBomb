@@ -27,7 +27,7 @@ class VideoResourcePaginator: ResourcePaginator {
         self.sort = sort
     }
     
-    func loadMore(completion: (cellPresenters: [ResourceItemCellPresenter]?, error: RequestError?) -> Void) {
+    func loadMore(completion: @escaping (_ cellPresenters: [ResourceItemCellPresenter]?, _ error: RequestError?) -> Void) {
         
         if isLoading {
             
@@ -44,23 +44,23 @@ class VideoResourcePaginator: ResourcePaginator {
                 
                 if let videos = results?.resources {
                     
-                    self.videos.appendContentsOf(videos)
+                    self.videos.append(contentsOf: videos)
                     
                     let cellPresenters = self.cellPresentersForResources(videos)
                     
                     self.pagination = PaginationDefinition(self.pagination.offset + videos.count, self.pagination.limit)
                     self.hasMore = (results?.hasMoreResults)!
                     
-                    completion(cellPresenters: cellPresenters, error: nil)
+                    completion(cellPresenters, nil)
                 }
             }
             else {
-                completion(cellPresenters: nil, error: error)
+                completion(nil, error)
             }
         }
     }
     
-    func cellPresentersForResources(videos: [VideoResource]) -> [ResourceItemCellPresenter] {
+    func cellPresentersForResources(_ videos: [VideoResource]) -> [ResourceItemCellPresenter] {
         
         var cellPresenters = [ResourceItemCellPresenter]()
         for video in videos {
@@ -78,10 +78,10 @@ class VideoResourcePaginator: ResourcePaginator {
         self.hasMore = true
     }
     
-    func detailViewControllerForResourceAtIndexPath(indexPath: NSIndexPath) -> UIViewController {
+    func detailViewControllerForResourceAtIndexPath(indexPath: IndexPath) -> UIViewController {
         
-        let viewController = VideoViewController(style: .Grouped)
-        viewController.video = videos[indexPath.row]
+        let viewController = VideoViewController(style: .grouped)
+        viewController.video = videos[(indexPath as NSIndexPath).row]
         
         return viewController
     }

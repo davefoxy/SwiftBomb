@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>RequestError Enum Reference</title>
+    <title>SwiftBombRequestResult Enum Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Enum/RequestError" class="dashAnchor"></a>
-    <a title="RequestError Enum Reference"></a>
+    <a name="//apple_ref/swift/Enum/SwiftBombRequestResult" class="dashAnchor"></a>
+    <a title="SwiftBombRequestResult Enum Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html"> Docs</a> (100% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html"> Reference</a>
         <img id="carat" src="../img/carat.png" />
-        RequestError Enum Reference
+        SwiftBombRequestResult Enum Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -87,13 +87,16 @@
                 <a href="../Enums/Gender.html">Gender</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Enums/RequestError.html">RequestError</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Enums/ResourceResponseError.html">ResourceResponseError</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/ResourceType.html">ResourceType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SwiftBombRequestError.html">SwiftBombRequestError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SwiftBombRequestResult.html">SwiftBombRequestResult</a>
               </li>
             </ul>
           </li>
@@ -189,14 +192,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>RequestError</h1>
+            <h1>SwiftBombRequestResult</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">RequestError</span><span class="p">:</span> <span class="kt">Error</span></code></pre>
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">SwiftBombRequestResult</span></code></pre>
 
                 </div>
               </div>
-            <p>An enum returned by network requests which defines the various errors which can occur during communication with the Giant Bomb API.</p>
+            <p>Enum which is returned by calls to the network. Returns either <code>Success</code> along with the returned JSON or <code>Error</code> along with a <code><a href="../Enums/SwiftBombRequestError.html">SwiftBombRequestError</a></code> explaining what went wrong.</p>
 
           </section>
           <section class="section task-group-section">
@@ -205,9 +208,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FO9SwiftBomb12RequestError20frameworkConfigErrorFMS0_S0_"></a>
-                    <a name="//apple_ref/swift/Element/frameworkConfigError" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO9SwiftBomb12RequestError20frameworkConfigErrorFMS0_S0_">frameworkConfigError</a>
+                    <a name="/s:FO9SwiftBomb22SwiftBombRequestResult7successFMS0_FPs9AnyObject_S0_"></a>
+                    <a name="//apple_ref/swift/Element/success" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO9SwiftBomb22SwiftBombRequestResult7successFMS0_FPs9AnyObject_S0_">success</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -215,14 +218,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>An issue with constructing the required framework components to make the request. Typically occurs when the framework hasn&rsquo;t been initialized with a <code><a href="../Structs/SwiftBombConfig.html">SwiftBombConfig</a></code> instance.</p>
+                        <p>The request finished successfully. The returned JSON can be found inside this enum&rsquo;s associated value.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="n">frameworkConfigError</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="nf">success</span><span class="p">(</span><span class="kt">AnyObject</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -236,9 +239,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FO9SwiftBomb12RequestError12networkErrorFMS0_FGSqCSo7NSError_S0_"></a>
-                    <a name="//apple_ref/swift/Element/networkError" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO9SwiftBomb12RequestError12networkErrorFMS0_FGSqCSo7NSError_S0_">networkError</a>
+                    <a name="/s:FO9SwiftBomb22SwiftBombRequestResult5errorFMS0_FOS_21SwiftBombRequestErrorS0_"></a>
+                    <a name="//apple_ref/swift/Element/error" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO9SwiftBomb22SwiftBombRequestResult5errorFMS0_FOS_21SwiftBombRequestErrorS0_">error</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -246,76 +249,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>An error making the request such as no network signal. Contains a reference to the actual NSError object.</p>
+                        <p>The request finished unsuccessfully. The error can be found inside this enum&rsquo;s associated value.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="nf">networkError</span><span class="p">(</span><span class="kt">NSError</span><span class="p">?)</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FO9SwiftBomb12RequestError26responseSerializationErrorFMS0_FGSqCSo7NSError_S0_"></a>
-                    <a name="//apple_ref/swift/Element/responseSerializationError" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO9SwiftBomb12RequestError26responseSerializationErrorFMS0_FGSqCSo7NSError_S0_">responseSerializationError</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>An error parsing the response from the server. Contains a reference to the actual NSError object.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="nf">responseSerializationError</span><span class="p">(</span><span class="kt">NSError</span><span class="p">?)</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FO9SwiftBomb12RequestError12requestErrorFMS0_FOS_21ResourceResponseErrorS0_"></a>
-                    <a name="//apple_ref/swift/Element/requestError" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO9SwiftBomb12RequestError12requestErrorFMS0_FOS_21ResourceResponseErrorS0_">requestError</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>An error specifically returned by the Giant Bomb API. Contains the appropriate enum as defined in <code><a href="../Enums/ResourceResponseError.html">ResourceResponseError</a></code></p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="nf">requestError</span><span class="p">(</span><span class="kt"><a href="../Enums/ResourceResponseError.html">ResourceResponseError</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="nf">error</span><span class="p">(</span><span class="kt"><a href="../Enums/SwiftBombRequestError.html">SwiftBombRequestError</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -327,7 +268,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2016-10-22)</p>
+          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2016-11-05)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

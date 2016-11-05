@@ -86,13 +86,16 @@
                 <a href="Enums/Gender.html">Gender</a>
               </li>
               <li class="nav-group-task">
-                <a href="Enums/RequestError.html">RequestError</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Enums/ResourceResponseError.html">ResourceResponseError</a>
               </li>
               <li class="nav-group-task">
                 <a href="Enums/ResourceType.html">ResourceType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/SwiftBombRequestError.html">SwiftBombRequestError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/SwiftBombRequestResult.html">SwiftBombRequestResult</a>
               </li>
             </ul>
           </li>
@@ -198,9 +201,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:O9SwiftBomb12RequestError"></a>
-                    <a name="//apple_ref/swift/Enum/RequestError" class="dashAnchor"></a>
-                    <a class="token" href="#/s:O9SwiftBomb12RequestError">RequestError</a>
+                    <a name="/s:O9SwiftBomb21SwiftBombRequestError"></a>
+                    <a name="//apple_ref/swift/Enum/SwiftBombRequestError" class="dashAnchor"></a>
+                    <a class="token" href="#/s:O9SwiftBomb21SwiftBombRequestError">SwiftBombRequestError</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -210,13 +213,13 @@
                       <div class="abstract">
                         <p>An enum returned by network requests which defines the various errors which can occur during communication with the Giant Bomb API.</p>
 
-                        <a href="Enums/RequestError.html" class="slightly-smaller">See more</a>
+                        <a href="Enums/SwiftBombRequestError.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">RequestError</span><span class="p">:</span> <span class="kt">Error</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">SwiftBombRequestError</span><span class="p">:</span> <span class="kt">Error</span></code></pre>
 
                         </div>
                       </div>
@@ -245,6 +248,34 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">ResourceResponseError</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:O9SwiftBomb22SwiftBombRequestResult"></a>
+                    <a name="//apple_ref/swift/Enum/SwiftBombRequestResult" class="dashAnchor"></a>
+                    <a class="token" href="#/s:O9SwiftBomb22SwiftBombRequestResult">SwiftBombRequestResult</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Enum which is returned by calls to the network. Returns either <code>Success</code> along with the returned JSON or <code>Error</code> along with a <code><a href="Enums/SwiftBombRequestError.html">SwiftBombRequestError</a></code> explaining what went wrong.</p>
+
+                        <a href="Enums/SwiftBombRequestResult.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">SwiftBombRequestResult</span></code></pre>
 
                         </div>
                       </div>
@@ -352,7 +383,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2016-10-22)</p>
+          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2016-11-05)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

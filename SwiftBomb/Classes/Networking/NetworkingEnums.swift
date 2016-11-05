@@ -53,6 +53,6 @@ public enum SwiftBombRequestResult {
     /// The request finished successfully. The returned JSON can be found inside this enum's associated value.
     case success(AnyObject)
     
-    /// The request finished unsuccessfully. The returned JSON can be found inside this enum's associated value.
+    /// The request finished unsuccessfully. The error can be found inside this enum's associated value.
     case error(SwiftBombRequestError)
 }

@@ -25,7 +25,7 @@ protocol ResourcePaginator {
     var isLoading: Bool { get }
     var hasMore: Bool { get }
     
-    func loadMore(completion: @escaping (_ cellPresenters: [ResourceItemCellPresenter]?, _ error: RequestError?) -> Void)
+    func loadMore(completion: @escaping (_ cellPresenters: [ResourceItemCellPresenter]?, _ error: SwiftBombRequestError?) -> Void)
     func resetPagination()
     func detailViewControllerForResourceAtIndexPath(indexPath: IndexPath) -> UIViewController
 }

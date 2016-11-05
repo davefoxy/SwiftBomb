@@ -17,9 +17,9 @@ extension SwiftBomb {
      - parameter pagination: An optional `PaginationDefinition` to define the limit and offset when paginating results.
      - parameter sort: An optional `SortDefinition` to define how the results should be sorted.
      - parameter fields: An optional array of fields to return in the response. See the available options at http://www.giantbomb.com/api/documentation#toc-0-12. Pass nil to return everything.
-     - parameter completion: A closure returning an optional generic `PaginatedResults` object containing the returned `FranchiseResource` objects and pagination information and also, an optional `RequestError` object if the request failed.
+     - parameter completion: A closure returning an optional generic `PaginatedResults` object containing the returned `FranchiseResource` objects and pagination information and also, an optional `SwiftBombRequestError` object if the request failed.
      */
-    public static func fetchFranchises(_ query: String? = nil, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil, fields: [String]? = nil, completion: @escaping (PaginatedResults<FranchiseResource>?, _ error: RequestError?) -> Void) {
+    public static func fetchFranchises(_ query: String? = nil, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil, fields: [String]? = nil, completion: @escaping (PaginatedResults<FranchiseResource>?, _ error: SwiftBombRequestError?) -> Void) {
         
         let instance = SwiftBomb.framework
         guard
@@ -56,9 +56,9 @@ extension FranchiseResource {
      Fetches extended info for this franchise. Also re-populates base data in the case where this object is a stub from another parent resource.
      
      - parameter fields: An optional array of fields to return in the response. See the available options at http://www.giantbomb.com/api/documentation#toc-0-12. Pass nil to return everything.
-     - parameter completion: A closure containing an optional `RequestError` if the request failed.
+     - parameter completion: A closure containing an optional `SwiftBombRequestError` if the request failed.
      */
-    public func fetchExtendedInfo(_ fields: [String]? = nil, completion: @escaping (_ error: RequestError?) -> Void) {
+    public func fetchExtendedInfo(_ fields: [String]? = nil, completion: @escaping (_ error: SwiftBombRequestError?) -> Void) {
         
         let api = SwiftBomb.framework
         

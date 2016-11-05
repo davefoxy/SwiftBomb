@@ -26,7 +26,7 @@ class CharactersResourcePaginator: ResourcePaginator {
         self.sort = sort
     }
     
-    func loadMore(completion: @escaping (_ cellPresenters: [ResourceItemCellPresenter]?, _ error: RequestError?) -> Void) {
+    func loadMore(completion: @escaping (_ cellPresenters: [ResourceItemCellPresenter]?, _ error: SwiftBombRequestError?) -> Void) {
         
         if isLoading {
             

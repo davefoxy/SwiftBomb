@@ -13,9 +13,9 @@ extension SwiftBomb {
     /**
      Fetches an instance of `ComingUpSchedule` containing a number of `ComingUpScheduleItem` instances. These are essentially the items which appear in the "Coming up on Giant Bomb" panel on the Giant Bomb homepage.
      
-     - parameter completion: A closure returning an instance of `ComingUpSchedule` where currently-live and scheduled posts, streams and videos on Giant Bomb can be found. Also, an optional `RequestError` may be returned describing any errors which occurred during the request.
+     - parameter completion: A closure returning an instance of `ComingUpSchedule` where currently-live and scheduled posts, streams and videos on Giant Bomb can be found. Also, an optional `SwiftBombRequestError` may be returned describing any errors which occurred during the request.
      */
-    public static func fetchComingUpSchedule(completion: @escaping (_ schedule: ComingUpSchedule?, _ error: RequestError?) -> Void) {
+    public static func fetchComingUpSchedule(completion: @escaping (_ schedule: ComingUpSchedule?, _ error: SwiftBombRequestError?) -> Void) {
         
         let instance = SwiftBomb.framework
         guard

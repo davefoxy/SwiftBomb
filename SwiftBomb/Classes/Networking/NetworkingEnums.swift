@@ -9,7 +9,7 @@
 /**
  An enum returned by network requests which defines the various errors which can occur during communication with the Giant Bomb API.
  */
-public enum RequestError: Error {
+public enum SwiftBombRequestError: Error {
     
     /// An issue with constructing the required framework components to make the request. Typically occurs when the framework hasn't been initialized with a `SwiftBombConfig` instance.
     case frameworkConfigError
@@ -46,9 +46,13 @@ public enum ResourceResponseError: Int {
 }
 
 /**
- Enum which is returned by calls to the network. Returns either `Success` along with the returned JSON or `Error` along with a `RequestError` explaining what went wrong.
+ Enum which is returned by calls to the network. Returns either `Success` along with the returned JSON or `Error` along with a `SwiftBombRequestError` explaining what went wrong.
  */
-enum RequestResult {
+public enum SwiftBombRequestResult {
+    
+    /// The request finished successfully. The returned JSON can be found inside this enum's associated value.
     case success(AnyObject)
-    case error(RequestError)
+    
+    /// The request finished unsuccessfully. The returned JSON can be found inside this enum's associated value.
+    case error(SwiftBombRequestError)
 }

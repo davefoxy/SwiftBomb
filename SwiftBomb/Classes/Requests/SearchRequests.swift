@@ -19,9 +19,9 @@ extension SwiftBomb {
      - parameter resourceTypes: An optional array of `ResourceType`s for which you would like to search. The fewer, the faster.
      - parameter pagination: An optional definition of how to offset and limit the search results.
      - parameter sort: An optional definition of how to sort the resources
-     - parameter completion: A closure which contains an instance of `SearchResults` where the results can be found and, optionally, a `RequestError` if the operation failed.
+     - parameter completion: A closure which contains an instance of `SearchResults` where the results can be found and, optionally, a `SwiftBombRequestError` if the operation failed.
      */
-    public static func performSearch(_ query: String? = nil, resourceTypes: [ResourceType]? = nil, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil, completion: @escaping (_ searchResults: SearchResults?, _ error: RequestError?) -> Void) {
+    public static func performSearch(_ query: String? = nil, resourceTypes: [ResourceType]? = nil, pagination: PaginationDefinition? = nil, sort: SortDefinition? = nil, completion: @escaping (_ searchResults: SearchResults?, _ error: SwiftBombRequestError?) -> Void) {
         
         let instance = SwiftBomb.framework
         guard

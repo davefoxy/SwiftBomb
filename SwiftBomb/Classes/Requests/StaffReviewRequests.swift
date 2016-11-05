@@ -29,9 +29,9 @@ extension GameResource {
      Fetches the Giant Bomb staff review (if one was written) for this game.
      
      - parameter fields: An optional array of fields to return in the response. See the available options at http://www.giantbomb.com/api/documentation#toc-0-36. Pass nil to return everything.
-     - parameter completion: A closure containing an optional `RequestError` if the request failed.
+     - parameter completion: A closure containing an optional `SwiftBombRequestError` if the request failed.
      */
-    public func fetchStaffReview(_ fields: [String]? = nil, completion: @escaping (_ error: RequestError?) -> Void) -> Void {
+    public func fetchStaffReview(_ fields: [String]? = nil, completion: @escaping (_ error: SwiftBombRequestError?) -> Void) -> Void {
         
         let api = SwiftBomb.framework
         
@@ -80,9 +80,9 @@ extension StaffReviewResource {
      Fetches extended info for this staff review. Also re-populates base data in the case where this object is a stub from another parent resource.
      
      - parameter fields: An optional array of fields to return in the response. See the available options at http://www.giantbomb.com/api/documentation#toc-0-36. Pass nil to return everything.
-     - parameter completion: A closure containing an optional `RequestError` if the request failed.
+     - parameter completion: A closure containing an optional `SwiftBombRequestError` if the request failed.
      */
-    public func fetchExtendedInfo(_ fields: [String]? = nil, completion: @escaping (_ error: RequestError?) -> Void) {
+    public func fetchExtendedInfo(_ fields: [String]? = nil, completion: @escaping (_ error: SwiftBombRequestError?) -> Void) {
         
         let api = SwiftBomb.framework
         

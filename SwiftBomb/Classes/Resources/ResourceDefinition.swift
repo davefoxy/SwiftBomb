@@ -22,9 +22,9 @@ public protocol Resource: class {
     /**
      Fetches extended info for an already partially-parsed resource.
      - parameter fields: An array of fields to return in the response. See the available options at http://www.giantbomb.com/api/documentation. Pass nil to return everything.
-     - parameter completion: A closure containing an optional `RequestError` if the request failed.
+     - parameter completion: A closure containing an optional `SwiftBombRequestError` if the request failed.
      */
-    func fetchExtendedInfo(_ fields: [String]?, completion: @escaping (_ error: RequestError?) -> Void)
+    func fetchExtendedInfo(_ fields: [String]?, completion: @escaping (_ error: SwiftBombRequestError?) -> Void)
     
     /// The unique ID for a resource.
     var id: Int? { get }

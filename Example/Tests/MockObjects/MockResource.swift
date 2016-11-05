@@ -26,7 +26,7 @@ final public class MockResource: ResourceUpdating {
         
     }
     
-    public func fetchExtendedInfo(_ fields: [String]? = nil, completion: @escaping (_ error: RequestError?) -> Void) {
+    public func fetchExtendedInfo(_ fields: [String]? = nil, completion: @escaping (_ error: SwiftBombRequestError?) -> Void) {
         
     }
     

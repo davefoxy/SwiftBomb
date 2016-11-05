@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let networkingDelegate = NetworkingDelegate()
         
-        let configuration = SwiftBombConfig(apiKey: "YOUR_API_KEY", loggingLevel: .requests, userAgentIdentifier: "Your User Agent", networkingDelegate: networkingDelegate, urlRequestCachePolicy: .useProtocolCachePolicy)
+        let configuration = SwiftBombConfig(apiKey: "YOUR_API_KEY", loggingLevel: .requests, userAgentIdentifier: "SwiftBomb Sample App", networkingDelegate: networkingDelegate, urlRequestCachePolicy: .useProtocolCachePolicy)
         SwiftBomb.configure(configuration)
         
         return true
@@ -35,5 +35,10 @@ class NetworkingDelegate: SwiftBombNetworkingDelegate {
     func swiftBombShouldPerformRequest(_ request: URLRequest) -> Bool {
         
         return true
+    }
+    
+    func swiftBombDidCompleteRequest(_ request: URLRequest, result: SwiftBombRequestResult) {
+        
+        print("SwiftBomb did complete request: \(result)")
     }
 }
